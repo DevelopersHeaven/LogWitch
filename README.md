@@ -8,6 +8,18 @@ logging while performing trace logging action. The tool was written to support
 1 million and up loglines with a possibility to search within them for error
 analysis and bug hunting.
 
+Usage
+=====
+docker build github.com/Kiwi-MethodPark/LogWitch -t logwitch
+
+docker run -e DISPLAY -v $XAUTHORITY:/root/.Xauthority --net=host --privileged logwitch
+
+If you don't want to run the program in privileged mode use
+docker run -p 9998:9998 -e DISPLAY -v $XAUTHORITY:/root/.Xauthority -v /tmp/.X11-unix:/tmp/.X11-unix logwitch
+
+* For open GL support (to solve `libGL error: MESA-LOADER: failed to retrieve device information` warning) add parameter -v /dev/dri:/dev/dri
+
+
 Features
 ========
 
@@ -37,6 +49,8 @@ A current screenshot of the Tool:
 Installation
 ============
 
+Legacy build
+------------
 * First clone the repository
 * Install prerequesites needed (depends on the features you activate)
 * Build it (see INSTALL)
