@@ -6,8 +6,7 @@ WORKDIR /workspace
 COPY . .
 
 RUN cmake .
-RUN make -j 4
-
+RUN cmake --build . -- -j 4 #TODO determine number
 
 
 FROM theshadowx/qt5:latest
