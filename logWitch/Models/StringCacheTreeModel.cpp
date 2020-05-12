@@ -151,7 +151,7 @@ void StringCacheTreeModel::dataChangedToChildren(const QModelIndex &index)
 
 	for(int childRow = 0; childRow < rowCount(index); ++childRow)
 	{
-	    QModelIndex childIndex = index.child(childRow, 0);
+	    QModelIndex childIndex = this->index(childRow, 0, index);
 	    dataChangedToChildren( childIndex );
 	}
 }
