@@ -7,7 +7,7 @@
 
 #include "ContextMenuManipulateHeader.h"
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "GUITools/SlotToBoostFunction.h"
 #include "GUITools/SynchronizedHeaderView.h"

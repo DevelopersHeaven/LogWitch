@@ -7,12 +7,14 @@
 
 #include "TableModelRulesCompiled.h"
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <QtGui>
 
 #include "ActionRules/ActionDataRewriter.h"
 #include "ActionRules/FilterRuleCompiled.h"
 #include "FilterRuleCompiled.h"
+
+using namespace boost::placeholders;
 
 const QString TableModelRulesCompiled::ruleMimeType("application/x-de.steckmann.LogWitch.rule");
 

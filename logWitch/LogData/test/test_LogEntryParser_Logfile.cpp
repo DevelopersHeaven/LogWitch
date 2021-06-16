@@ -11,12 +11,14 @@
 #define BOOST_TEST_DYN_LINK
 
 #include <boost/test/unit_test.hpp>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/function.hpp>
 #include <boost/foreach.hpp>
 
 #include "LogEntryStorerForTesting.h"
 #include "LogData/LogEntry.h"
+
+using namespace boost::placeholders;
 
 void fillStream(QTextStream& ts, bool withEndl=false, bool withMultilineMessage=false)
 {

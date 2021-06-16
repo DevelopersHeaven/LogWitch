@@ -7,9 +7,11 @@
 
 #include "SynchronizedHeaderView.h"
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "GUITools/SlotToBoostFunction.h"
+
+using namespace boost::placeholders;
 
 HeaderViewGroup::HeaderViewGroup()
 : m_positionSyncNeeded( false )
