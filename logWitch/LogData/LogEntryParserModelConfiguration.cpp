@@ -9,12 +9,14 @@
 
 #include <limits>
 #include <algorithm>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <LogData/EntryToTextFormaterDefault.h>
 
 #include <QtCore>
 
 #include "LogData/LogEntryFactory.h"
+
+using namespace boost::placeholders;
 
 LogEntryParserModelConfiguration::LogEntryParserModelConfiguration( const QString &configurationString, boost::shared_ptr<LogEntryFactory> factory )
     : m_formater( new EntryToTextFormaterDefault )

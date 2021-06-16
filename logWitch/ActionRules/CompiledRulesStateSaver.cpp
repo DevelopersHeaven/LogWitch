@@ -7,7 +7,7 @@
 
 #include "ActionRules/CompiledRulesStateSaver.h"
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include <QAction>
 #include <QHeaderView>
@@ -21,6 +21,8 @@
 #include "GUITools/EventFilterToBoostFunction.h"
 
 #include "ContextMenuManipulateHeader.h"
+
+using namespace boost::placeholders;
 
 CompiledRulesStateSaver::CompiledRulesStateSaver(  TSharedConstLogEntryParserModelConfiguration cfg, TSharedRuleTable ruleTable )
     : m_compiledRuleView(NULL)

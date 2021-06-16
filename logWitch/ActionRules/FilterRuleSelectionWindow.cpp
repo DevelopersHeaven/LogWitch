@@ -7,7 +7,7 @@
 
 #include "FilterRuleSelectionWindow.h"
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include <QHeaderView>
 #include <QLabel>
@@ -26,6 +26,8 @@
 #include "Models/LogEntryTableFilter.h"
 
 #include "ContextMenuManipulateHeader.h"
+
+using namespace boost::placeholders;
 
 const QString filterRuleTableState_Identifier("FilterRuleSelectionTableState");
 
