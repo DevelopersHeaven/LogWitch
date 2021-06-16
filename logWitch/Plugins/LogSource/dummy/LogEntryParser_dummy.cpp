@@ -41,8 +41,9 @@ LogEntryParser_dummy::LogEntryParser_dummy ()
     m_myModelConfig->setFieldWidthHint(i, cfg.defaultCellWidth, true);
   }
 
+  const auto fieldOrderHint = boost::assign::list_of(0)(4)(1)(2)(3);
   m_myModelConfig->setFieldOrderHint(
-      QVector<int>::fromStdVector(boost::assign::list_of(0)(4)(1)(2)(3)), true);
+      QVector<int>(fieldOrderHint.begin(), fieldOrderHint.end()), true);
 }
 
 LogEntryParser_dummy::~LogEntryParser_dummy ()

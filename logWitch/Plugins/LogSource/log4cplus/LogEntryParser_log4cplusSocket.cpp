@@ -73,9 +73,9 @@ LogEntryParser_log4cplusSocket::LogEntryParser_log4cplusSocket (int port)
     const AttributeConfiguration &cfg = myFactory->getFieldConfiguration(i);
     m_myModelConfig->setFieldWidthHint(i, cfg.defaultCellWidth, true);
   }
+  const auto fieldOrderHint = boost::assign::list_of(0)(7)(1)(2)(3)(4)(5)(6);
   m_myModelConfig->setFieldOrderHint(
-      QVector<int>::fromStdVector(
-          boost::assign::list_of(0)(7)(1)(2)(3)(4)(5)(6)),
+      QVector<int>(fieldOrderHint.begin(), fieldOrderHint.end()),
       true);
 
   connect(this, SIGNAL(newConnection()), this, SLOT(newIncomingConnection()));
