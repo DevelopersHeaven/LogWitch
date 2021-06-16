@@ -65,7 +65,7 @@ QVariant TableModelRulesCompiled::data(const QModelIndex &index, int role) const
         QString tooltip;
         if( !row->isExpressionOk() )
         {
-            tooltip = tr("Expression has errros: ") + row->getExpressionError();
+            tooltip = tr("Expression has errors: ") + row->getExpressionError();
         }
 
         if( !row->isActionOk() )
