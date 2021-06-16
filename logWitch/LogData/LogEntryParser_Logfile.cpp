@@ -54,8 +54,9 @@ LogEntryParser_Logfile::LogEntryParser_Logfile(  boost::shared_ptr<ParserStreamG
         myFactory->getFieldConfiguration(i).defaultCellWidth, true);
   }
 
+  const auto fieldOrderHint = boost::assign::list_of(0)(5)(1)(2)(3)(4);
   m_myModelConfig->setFieldOrderHint(
-      QVector<int>::fromStdVector(boost::assign::list_of(0)(5)(1)(2)(3)(4)),
+      QVector<int>(fieldOrderHint.begin(), fieldOrderHint.end()),
       true);
 }
 
@@ -99,7 +100,7 @@ void LogEntryParser_Logfile::run()
   TSharedNewLogEntryMessage newEntryMessage;
   qDebug() << "Start parsing logfile with run()";
 
-  QTime myTimer;
+  QElapsedTimer myTimer;
   myTimer.start();
   newEntryMessage = getEntries();
   int nMilliseconds = myTimer.elapsed();
@@ -258,7 +259,7 @@ TSharedNewLogEntryMessage LogEntryParser_Logfile::getEntries()
   if (m_logfileStream)
   {
     std::list< boost::shared_ptr<LogfileLine> > lineProcessors;
-    QTime myTimer;
+    QElapsedTimer myTimer;
     myTimer.start();
 
     std::list< boost::shared_ptr<WorkPackage> > workPackages;
