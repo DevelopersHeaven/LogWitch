@@ -43,6 +43,7 @@ LogEntryParser_log4cplusSocket::LogEntryParser_log4cplusSocket (int port)
   , m_loglevelStringFatal("FATAL")
   , m_loglevelStringError("ERROR")
   , m_loglevelStringWarn("WARN")
+  , m_loglevelStringInfo("INFO")
   , m_loglevelStringDebug("DEBUG")
   , m_loglevelStringTrace("TRACE")
   , m_name("Log4cplus Listener Port " + QString::number(port))
@@ -309,6 +310,8 @@ TSharedLogEntry LogEntryParser_log4cplusSocket_Receiver::bufferToEntry ()
     logLevel = m_server->m_loglevelStringError;
   else if (event.getLogLevel() >= ::log4cplus::WARN_LOG_LEVEL)
     logLevel = m_server->m_loglevelStringWarn;
+  else if (event.getLogLevel() >= ::log4cplus::INFO_LOG_LEVEL)
+    logLevel = m_server->m_loglevelStringInfo;
   else if (event.getLogLevel() >= ::log4cplus::DEBUG_LOG_LEVEL)
     logLevel = m_server->m_loglevelStringDebug;
   else if (event.getLogLevel() >= ::log4cplus::TRACE_LOG_LEVEL)
