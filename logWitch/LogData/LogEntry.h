@@ -8,8 +8,6 @@
 #ifndef LOGENTRYATTRIBUTES_H_
 #define LOGENTRYATTRIBUTES_H_
 
-#include <boost/function.hpp>
-
 #include <QtCore/QMetaType>
 
 #include <vector>
@@ -48,7 +46,7 @@ public:
 	 * it will be converted to. (internally we user a cache)
 	 */
     TSharedConstQString getAttributeAsString( int idx ) const;
-	TSharedConstQString getAttributeAsString( int idx, boost::function<QString(const QVariant &)> customFormater ) const;
+	TSharedConstQString getAttributeAsString( int idx, std::function<QString(const QVariant &)> customFormater ) const;
 
 private:
 	/**
