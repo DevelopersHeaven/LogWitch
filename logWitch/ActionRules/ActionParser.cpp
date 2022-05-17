@@ -10,16 +10,10 @@
 #include <boost/phoenix/object/construct.hpp>
 #include <boost/phoenix/object/new.hpp>
 #include <boost/spirit/include/qi.hpp>
-#include <boost/spirit/include/qi_uint.hpp>
-#include <boost/spirit/include/phoenix_core.hpp>
 #include <boost/spirit/include/phoenix_operator.hpp>
 #include <boost/spirit/include/phoenix_fusion.hpp>
-#include <boost/spirit/include/phoenix_stl.hpp>
-#include <boost/fusion/include/adapt_struct.hpp>
-#include <boost/variant/recursive_variant.hpp>
 #include <boost/fusion/include/std_pair.hpp>
 
-#include <QString>
 #include <QtGui>
 
 #include "ActionRules/ActionDataRewriter.h"
@@ -33,8 +27,6 @@ using boost::spirit::locals;
 
 namespace actionParser
 {
-    namespace fusion = boost::fusion;
-    namespace phoenix = boost::phoenix;
     namespace qi = boost::spirit::qi;
     namespace ascii = boost::spirit::ascii;
 
