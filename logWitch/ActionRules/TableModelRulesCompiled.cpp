@@ -7,14 +7,13 @@
 
 #include "TableModelRulesCompiled.h"
 
-#include <boost/bind/bind.hpp>
 #include <QtGui>
 
 #include "ActionRules/ActionDataRewriter.h"
 #include "ActionRules/FilterRuleCompiled.h"
 #include "FilterRuleCompiled.h"
 
-using namespace boost::placeholders;
+using namespace std::placeholders;
 
 const QString TableModelRulesCompiled::ruleMimeType("application/x-de.steckmann.LogWitch.rule");
 
@@ -270,7 +269,7 @@ QString TableModelRulesCompiled::getRule( const int row ) const
 bool TableModelRulesCompiled::hasRule( const QString &rule ) const
 {
     TCompiledRulesTable::const_iterator it;
-    it = std::find_if(m_table.begin(), m_table.end(), boost::bind( &ruleEquals, _1, rule ) );
+    it = std::find_if(m_table.begin(), m_table.end(), std::bind( &ruleEquals, _1, rule ) );
     return it != m_table.end();
 }
 

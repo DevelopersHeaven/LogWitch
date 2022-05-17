@@ -9,14 +9,13 @@
 
 #include <limits>
 #include <algorithm>
-#include <boost/bind/bind.hpp>
 #include <LogData/EntryToTextFormaterDefault.h>
 
 #include <QtCore>
 
 #include "LogData/LogEntryFactory.h"
 
-using namespace boost::placeholders;
+using namespace std::placeholders;
 
 LogEntryParserModelConfiguration::LogEntryParserModelConfiguration( const QString &configurationString, std::shared_ptr<LogEntryFactory> factory )
     : m_formater( new EntryToTextFormaterDefault )
@@ -148,7 +147,7 @@ void LogEntryParserModelConfiguration::restoreHintsFromSettings()
 
         m_fieldWidthHints.clear();
         std::for_each( vList.begin(), vList.end(),
-                boost::bind( &convertToAndPushBack<int>, &m_fieldWidthHints, _1 ) );
+                std::bind( &convertToAndPushBack<int>, &m_fieldWidthHints, _1 ) );
 
         m_fieldWidthHintsLoaded = true;
     }
@@ -159,7 +158,7 @@ void LogEntryParserModelConfiguration::restoreHintsFromSettings()
 
         m_fieldShowHint.clear();
         std::for_each( vList.begin(), vList.end(),
-                boost::bind( &convertToAndPushBack<bool>, &m_fieldShowHint, _1 ) );
+                std::bind( &convertToAndPushBack<bool>, &m_fieldShowHint, _1 ) );
 
         m_fieldShowHintLoaded = true;
     }
@@ -170,7 +169,7 @@ void LogEntryParserModelConfiguration::restoreHintsFromSettings()
 
         m_fieldOrderHint.clear();
         std::for_each( vList.begin(), vList.end(),
-                boost::bind( &convertToAndPushBack<int>, &m_fieldOrderHint, _1 ) );
+                std::bind( &convertToAndPushBack<int>, &m_fieldOrderHint, _1 ) );
 
         m_fieldOrderHintLoaded = true;
     }
@@ -191,19 +190,19 @@ void LogEntryParserModelConfiguration::saveHintsToSettings() const
     QList<QVariant> vList;
 
     std::for_each( m_fieldWidthHints.begin(), m_fieldWidthHints.end(),
-            boost::bind( &QList<QVariant>::push_back, &vList, _1 ) );
+            std::bind( &QList<QVariant>::push_back, &vList, _1 ) );
 
     settings.setValue( "Widths", vList );
 
     vList.clear();
     std::for_each( m_fieldShowHint.begin(), m_fieldShowHint.end(),
-            boost::bind( &QList<QVariant>::push_back, &vList, _1 ) );
+            std::bind( &QList<QVariant>::push_back, &vList, _1 ) );
 
     settings.setValue( "Show", vList );
 
     vList.clear();
     std::for_each( m_fieldOrderHint.begin(), m_fieldOrderHint.end(),
-            boost::bind( &QList<QVariant>::push_back, &vList, _1 ) );
+            std::bind( &QList<QVariant>::push_back, &vList, _1 ) );
 
     settings.setValue( "Order", vList );
 

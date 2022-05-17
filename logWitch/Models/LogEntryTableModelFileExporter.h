@@ -9,8 +9,6 @@
 #define LOGENTRYTABLEMODELFILEEXPORTER_H_
 #include <QtCore>
 
-#include <boost/function.hpp>
-
 #include "LogData/LogEntry.h"
 
 class LogEntryTableModel;
@@ -29,7 +27,7 @@ public:
 
     void exportTo( const QString& filename );
 
-    void exportTo( const QString& filename, boost::function<TconstSharedLogEntry()> funcNextExportItem );
+    void exportTo( const QString& filename, std::function<TconstSharedLogEntry()> funcNextExportItem );
 private:
     LogEntryTableModel& m_model;
 };

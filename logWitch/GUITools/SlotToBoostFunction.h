@@ -9,14 +9,12 @@
 #define SLOTTOBOOSTFUNCTION_H_
 #include <QtCore>
 
-#include <boost/function.hpp>
-
 class SlotToBoostFunction
 : public QObject
 {
     Q_OBJECT
 public:
-    SlotToBoostFunction( QObject * parent, boost::function<void(void)> const & func):
+    SlotToBoostFunction( QObject * parent, std::function<void(void)> const & func):
         QObject( parent ), m_func( func )
     {  }
 
@@ -27,7 +25,7 @@ public slots:
     }
 
 private:
-  boost::function<void(void)> m_func;
+  std::function<void(void)> m_func;
 };
 
 class SlotToBoostFunction_int_int_int
@@ -35,7 +33,7 @@ class SlotToBoostFunction_int_int_int
 {
     Q_OBJECT
 public:
-    SlotToBoostFunction_int_int_int( QObject * parent, boost::function<void(int,int,int)> const & func):
+    SlotToBoostFunction_int_int_int( QObject * parent, std::function<void(int,int,int)> const & func):
         QObject( parent ), m_func( func )
     {  }
 
@@ -46,7 +44,7 @@ public slots:
     }
 
 private:
-  boost::function<void(int,int,int)> m_func;
+  std::function<void(int,int,int)> m_func;
 };
 
 #endif /* SLOTTOBOOSTFUNCTION_H_ */

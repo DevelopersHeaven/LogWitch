@@ -8,7 +8,6 @@
 #ifndef LOGENTRYATTRIBUTENAMES_H_
 #define LOGENTRYATTRIBUTENAMES_H_
 
-#include <boost/function.hpp>
 #include <QtCore/QtCore>
 
 class ImportExportDescription
