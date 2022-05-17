@@ -10,7 +10,6 @@
 #include <algorithm>
 #include <iostream>
 
-#include <boost/assign/list_of.hpp>
 #include <boost/endian/conversion.hpp>
 #include <boost/python.hpp>
 
@@ -59,9 +58,8 @@ LogEntryParser_pythonSocket::LogEntryParser_pythonSocket (int port)
     m_myModelConfig->setFieldWidthHint(i, cfg.defaultCellWidth, true);
   }
 
-  const auto fieldOrderHint = boost::assign::list_of(0)(7)(1)(2)(3)(4)(5)(6)(7)(8)(9)(10);
   m_myModelConfig->setFieldOrderHint(
-      QVector<int>(fieldOrderHint.begin(), fieldOrderHint.end()),
+      {0, 7, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
       true);
 
   connect(this, SIGNAL(newConnection()), this, SLOT(newIncomingConnection()));
