@@ -9,7 +9,7 @@
 #define LOGENTRYTABLEMODEL_H_
 
 #include <boost/shared_ptr.hpp>
-#include <boost/any.hpp>
+#include <any>
 
 #include <QAbstractTableModel>
 #include <QtCore/QtCore>
@@ -91,7 +91,7 @@ public:
    * As long as the returned any contains its value (or is copied to another any)
    * the lock is being held. To release the lock, destroy the content of the any.
    */
-  boost::any getLock();
+  std::any getLock();
 
   void generateExportList( std::vector<TconstSharedLogEntry>& entries
       , QModelIndex first, QModelIndex last

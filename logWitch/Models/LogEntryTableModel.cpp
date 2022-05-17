@@ -316,7 +316,7 @@ void LogEntryTableModel::capture( bool active )
     m_captureActive = active;
 }
 
-boost::any LogEntryTableModel::getLock()
+std::any LogEntryTableModel::getLock()
 {
     return boost::shared_ptr<QMutexLocker>( new QMutexLocker(&m_mutex) );
 }
