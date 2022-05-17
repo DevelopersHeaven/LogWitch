@@ -9,8 +9,6 @@
 
 #include <limits>
 
-#include <boost/scoped_ptr.hpp>
-
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QMessageBox>
@@ -238,7 +236,7 @@ void LogEntryTableWindow::exportLogfile(const QString &filename)
     const QItemSelectionRange& range = selection.front();
     if (!range.isEmpty())
     {
-      boost::scoped_ptr<DialogExportOptions> dlg(new DialogExportOptions);
+      std::unique_ptr<DialogExportOptions> dlg(new DialogExportOptions);
       dlg->setExportOption(DialogExportOptions::All);
 
       if (dlg->exec())
