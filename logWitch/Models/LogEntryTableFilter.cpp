@@ -9,7 +9,6 @@
 
 #include <QtGui>
 #include <algorithm>
-#include <boost/foreach.hpp>
 
 #include "Models/LogEntryTableModel.h"
 #include "LogData/LogEntry.h"
@@ -53,7 +52,7 @@ void LogEntryTableFilter::generateExportList( std::vector<TconstSharedLogEntry>&
     std::vector<TconstSharedLogEntry> tmpVec;
     m_exportOfSourceModel->generateExportList( tmpVec, srcFirst, srcLast, param );
 
-    BOOST_FOREACH( TconstSharedLogEntry e, tmpVec )
+    for ( TconstSharedLogEntry e : tmpVec )
     {
       if (filterAcceptInt(e))
         ls.push_back(e);
