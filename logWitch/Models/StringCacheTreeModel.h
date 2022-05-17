@@ -42,7 +42,7 @@ public:
 
     bool setData( const QModelIndex &index, const QVariant& value, int role );
 
-    boost::shared_ptr<LogEntryFilter> getFilter() const;
+    std::shared_ptr<LogEntryFilter> getFilter() const;
 
 private:
     void dataChangedToChildren(const QModelIndex &index );
@@ -61,13 +61,13 @@ public slots:
 	void newStringElement( TSharedConstQString );
 
 private:
-	boost::shared_ptr<StringCacheTreeItem> m_rootNode;
+	std::shared_ptr<StringCacheTreeItem> m_rootNode;
 
 	QString m_modelname;
 
-	boost::shared_ptr<QRegExp> m_splitRegex;
+	std::shared_ptr<QRegExp> m_splitRegex;
 
-	boost::shared_ptr<LogEntryRemoveFilter> m_myFilter;
+	std::shared_ptr<LogEntryRemoveFilter> m_myFilter;
 
 	TSharedConstQString m_undefinedString;
 };

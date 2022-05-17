@@ -52,7 +52,7 @@ const QVariant &LogEntry::getAttribute( int idx ) const
     return m_attributes[idx];
 }
 
-boost::shared_ptr<const QString> LogEntry::getAttributeAsString( int idx ) const
+std::shared_ptr<const QString> LogEntry::getAttributeAsString( int idx ) const
 {
     Q_ASSERT( idx >= 0 && idx < myFactory->getNumberOfFields() );
 
@@ -61,12 +61,12 @@ boost::shared_ptr<const QString> LogEntry::getAttributeAsString( int idx ) const
         return value.value<TSharedConstQString>();
     else
     {
-        return boost::shared_ptr<const QString>( new QString( value.toString() ) );
+        return std::shared_ptr<const QString>( new QString( value.toString() ) );
     }
 }
 
-boost::shared_ptr<const QString> LogEntry::getAttributeAsString( int idx
-        , boost::function<QString(const QVariant &)> customFormater  ) const
+std::shared_ptr<const QString> LogEntry::getAttributeAsString( int idx
+        , std::function<QString(const QVariant &)> customFormater  ) const
 {
     Q_ASSERT( idx >= 0 && idx < myFactory->getNumberOfFields() );
 
@@ -75,7 +75,7 @@ boost::shared_ptr<const QString> LogEntry::getAttributeAsString( int idx
         return value.value<TSharedConstQString>();
     else
     {
-        return boost::shared_ptr<const QString>( new QString( customFormater( value ) ) );
+        return std::shared_ptr<const QString>( new QString( customFormater( value ) ) );
     }
 }
 

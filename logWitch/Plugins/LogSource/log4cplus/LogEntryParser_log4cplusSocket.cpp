@@ -8,7 +8,6 @@
 #include "Plugins/LogSource/log4cplus/LogEntryParser_log4cplusSocket.h"
 
 #include <algorithm>
-#include <boost/shared_ptr.hpp>
 #include <boost/assign/list_of.hpp>
 #include <iostream>
 
@@ -62,12 +61,12 @@ LogEntryParser_log4cplusSocket::LogEntryParser_log4cplusSocket (int port)
   myFactory->addField(names.getConfiguration("ndc"));
   myFactory->disallowAddingFields();
 
-  m_myModelConfig = boost::shared_ptr<LogEntryParserModelConfiguration>(
+  m_myModelConfig = std::shared_ptr<LogEntryParserModelConfiguration>(
       new LogEntryParserModelConfiguration("log4cplus", myFactory));
   m_myModelConfig->setHierarchySplitString(4, "\\.");
   m_myModelConfig->setHierarchySplitString(5, "/");
   m_myModelConfig->setEntryToTextFormater(
-      boost::shared_ptr<EntryToTextFormater>(new EntryToTextFormaterLog4cplus));
+      std::shared_ptr<EntryToTextFormater>(new EntryToTextFormaterLog4cplus));
 
   for (int i = 0; i < myFactory->getNumberOfFields(); ++i)
   {
@@ -148,7 +147,7 @@ void LogEntryParser_log4cplusSocket::newEntryFromReceiver (
   }
 }
 
-boost::shared_ptr<LogEntryParserModelConfiguration> LogEntryParser_log4cplusSocket::getParserModelConfiguration () const
+std::shared_ptr<LogEntryParserModelConfiguration> LogEntryParser_log4cplusSocket::getParserModelConfiguration () const
 {
   return m_myModelConfig;
 }

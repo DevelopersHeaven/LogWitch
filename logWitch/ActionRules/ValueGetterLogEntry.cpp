@@ -7,7 +7,6 @@
 
 #include "ActionRules/ValueGetterLogEntry.h"
 
-#include <boost/shared_ptr.hpp>
 
 #include "LogData/LogEntryFactory.h"
 #include "LogData/LogEntry.h"

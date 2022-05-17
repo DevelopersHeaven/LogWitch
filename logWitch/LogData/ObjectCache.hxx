@@ -7,7 +7,6 @@
 
 #ifndef OBJECTCACHE_H_
 #define OBJECTCACHE_H_
-#include <boost/shared_ptr.hpp>
 #include <set>
 #include <QtCore/QObject>
 #include "Types.h"
@@ -23,7 +22,7 @@ class ObjectCacheQStringSignaller
     Q_OBJECT
 public:
     typedef const QString StType;
-    typedef boost::shared_ptr<StType> shStType;
+    typedef std::shared_ptr<StType> shStType;
 
 signals:
     // This is not working in QT, typedefs must be the same!

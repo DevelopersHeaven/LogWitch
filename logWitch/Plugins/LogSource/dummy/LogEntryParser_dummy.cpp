@@ -31,7 +31,7 @@ LogEntryParser_dummy::LogEntryParser_dummy ()
   myFactory->addField(names.getConfiguration("logger"));
   myFactory->disallowAddingFields();
 
-  m_myModelConfig = boost::shared_ptr<LogEntryParserModelConfiguration>(
+  m_myModelConfig = std::shared_ptr<LogEntryParserModelConfiguration>(
       new LogEntryParserModelConfiguration("DummyLogger", myFactory));
   m_myModelConfig->setHierarchySplitString(4, "\\.");
 
@@ -166,7 +166,7 @@ TSharedLogEntry LogEntryParser_dummy::getNextLogEntry ()
   return entry;
 }
 
-boost::shared_ptr<LogEntryParserModelConfiguration> LogEntryParser_dummy::getParserModelConfiguration () const
+std::shared_ptr<LogEntryParserModelConfiguration> LogEntryParser_dummy::getParserModelConfiguration () const
 {
   return m_myModelConfig;
 }

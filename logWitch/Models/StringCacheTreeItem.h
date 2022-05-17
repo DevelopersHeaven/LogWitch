@@ -8,7 +8,6 @@
 #ifndef STRINGCACHETREEITEM_H_
 #define STRINGCACHETREEITEM_H_
 
-#include <boost/shared_ptr.hpp>
 #include <list>
 #include "Types.h"
 #include <QtCore/QtCore>

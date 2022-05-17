@@ -9,8 +9,6 @@
 #define TABLEMODELRULESCOMPILED_H_
 #include <vector>
 
-#include <boost/shared_ptr.hpp>
-
 #include <QAbstractTableModel>
 #include <QtCore>
 
@@ -18,7 +16,7 @@
 #include "ActionRules/FilterRuleCompiled.h"
 #include "ActionRules/RuleTable.h"
 
-using boost::shared_ptr;
+using std::shared_ptr;
 
 class TableModelRulesCompiled
      :public QAbstractTableModel

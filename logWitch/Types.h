@@ -7,7 +7,7 @@
 
 #ifndef TYPES_H_
 #define TYPES_H_
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <QMetaType>
 #include <QString>
@@ -15,11 +15,11 @@
 class QString;
 class QVariant;
 
-typedef boost::shared_ptr<QString> TSharedQString;
-typedef boost::shared_ptr<const QString> TSharedConstQString;
+typedef std::shared_ptr<QString> TSharedQString;
+typedef std::shared_ptr<const QString> TSharedConstQString;
 
-typedef boost::shared_ptr<QVariant> TSharedQVariant;
-typedef boost::shared_ptr<const QVariant> TSharedConstQVariant;
+typedef std::shared_ptr<QVariant> TSharedQVariant;
+typedef std::shared_ptr<const QVariant> TSharedConstQVariant;
 
 Q_DECLARE_METATYPE(TSharedQString)
 Q_DECLARE_METATYPE ( TSharedConstQString );

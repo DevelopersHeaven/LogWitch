@@ -1,8 +1,5 @@
 #include "logfileanalyser.h"
 
-#include <boost/shared_ptr.hpp>
-#include <boost/smart_ptr/make_shared.hpp>
-
 #include <QtGui>
 #include <QFileDialog>
 #include <QLabel>
@@ -156,14 +153,14 @@ void LogfileAnalyser::showDocumentation()
 
 void LogfileAnalyser::openLogfile(const QString &fileName)
 {
-  boost::shared_ptr<LogEntryParser> parser(
+  std::shared_ptr<LogEntryParser> parser(
       new LogEntryParser_LogfileLWI(fileName));
   if (!parser->initParser())
   {
     qDebug() << " LWI-Parser failed: " << parser->getInitError();
     parser.reset(
         new LogEntryParser_Logfile(
-            boost::make_shared<ParserStreamGetterFile>(fileName)));
+            std::make_shared<ParserStreamGetterFile>(fileName)));
     if (parser->initParser())
       createWindowsFromParser(parser, true);
     else
@@ -195,12 +192,12 @@ void LogfileAnalyser::openLogfile()
   }
 }
 
-void LogfileAnalyser::newParser(boost::shared_ptr<LogEntryParser> parser, bool alreadyInitialized)
+void LogfileAnalyser::newParser(std::shared_ptr<LogEntryParser> parser, bool alreadyInitialized)
 {
 	createWindowsFromParser( parser, alreadyInitialized);
 }
 
-void LogfileAnalyser::createWindowsFromParser(boost::shared_ptr<LogEntryParser> parser, bool alreadyInitialized)
+void LogfileAnalyser::createWindowsFromParser(std::shared_ptr<LogEntryParser> parser, bool alreadyInitialized)
 {
   if (!alreadyInitialized && !parser->initParser())
   {
@@ -216,7 +213,7 @@ void LogfileAnalyser::createWindowsFromParser(boost::shared_ptr<LogEntryParser> 
     return;
   }
 
-  boost::shared_ptr<LogEntryTableModel> model(new LogEntryTableModel(parser));
+  std::shared_ptr<LogEntryTableModel> model(new LogEntryTableModel(parser));
 
   LogEntryTableWindow *wnd = new LogEntryTableWindow(model, ui.mdiArea);
   m_signalMultiplexer.setObject(wnd);

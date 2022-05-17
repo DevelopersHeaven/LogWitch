@@ -9,7 +9,6 @@
 #define LOGENTRYATTRIBUTES_H_
 
 #include <boost/function.hpp>
-#include <boost/shared_ptr.hpp>
 
 #include <QtCore/QMetaType>
 
@@ -61,8 +60,8 @@ private:
 	LogEntryFactory *myFactory;
 };
 
-typedef boost::shared_ptr<LogEntry> TSharedLogEntry;
-typedef boost::shared_ptr<const LogEntry> TconstSharedLogEntry;
+typedef std::shared_ptr<LogEntry> TSharedLogEntry;
+typedef std::shared_ptr<const LogEntry> TconstSharedLogEntry;
 
 Q_DECLARE_METATYPE(TSharedLogEntry)
 Q_DECLARE_METATYPE(TconstSharedLogEntry)

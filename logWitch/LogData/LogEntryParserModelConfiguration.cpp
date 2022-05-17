@@ -18,7 +18,7 @@
 
 using namespace boost::placeholders;
 
-LogEntryParserModelConfiguration::LogEntryParserModelConfiguration( const QString &configurationString, boost::shared_ptr<LogEntryFactory> factory )
+LogEntryParserModelConfiguration::LogEntryParserModelConfiguration( const QString &configurationString, std::shared_ptr<LogEntryFactory> factory )
     : m_formater( new EntryToTextFormaterDefault )
     , m_attr( factory )
     , m_configurationString( configurationString )

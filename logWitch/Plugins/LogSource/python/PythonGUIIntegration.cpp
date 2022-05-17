@@ -78,7 +78,7 @@ PythonGUIIntegration::~PythonGUIIntegration ()
 void PythonGUIIntegration::openPort ()
 {
   int port = m_port->value();
-  boost::shared_ptr<LogEntryParser_pythonSocket> socketParser(
+  std::shared_ptr<LogEntryParser_pythonSocket> socketParser(
       new LogEntryParser_pythonSocket(port));
 
   m_parserActionIfc->newParser(socketParser);

@@ -9,7 +9,6 @@
 #define LOGENTRYATTRIBUTEFACTORY_H_
 
 #include <vector>
-#include <boost/shared_ptr.hpp>
 #include "Types.h"
 #include "LogData/LogEntryAttributeNames.h"
 
@@ -32,7 +31,7 @@ public:
 
 	virtual ~LogEntryFactory();
 
-	boost::shared_ptr<LogEntry> getNewLogEntry();
+	std::shared_ptr<LogEntry> getNewLogEntry();
 
 	/**
 	 * Adds a field at the end of the fields and sets the new cfg for this field.
@@ -80,7 +79,7 @@ public:
 private:
 	std::vector< AttributeConfiguration > m_fieldDescriptions;
 
-	std::vector< boost::shared_ptr<GetObjectIF<ObjectCacheQStringSignaller> > > m_fieldCaches;
+	std::vector< std::shared_ptr<GetObjectIF<ObjectCacheQStringSignaller> > > m_fieldCaches;
 
 	std::vector< QVariant > m_defaultLine;
 

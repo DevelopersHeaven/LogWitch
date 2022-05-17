@@ -57,19 +57,19 @@ void QuickSearchLineEdit::dropEvent(QDropEvent *event)
   {
     event->accept();
     event->setDropAction(Qt::CopyAction);
-    boost::shared_ptr<FilterRuleCompiled> rule(
+    std::shared_ptr<FilterRuleCompiled> rule(
         new FilterRuleCompiled(event->mimeData()->text()) );
 
     // Now decide what we can do with this rule...
     auto expression = rule->getExpression();
 
     bool expressionSet = false;
-    auto expressionFind = boost::dynamic_pointer_cast<ExpressionFind>( expression );
-    auto expressionRe = boost::dynamic_pointer_cast<ExpressionRegEx>( expression );
+    auto expressionFind = std::dynamic_pointer_cast<ExpressionFind>( expression );
+    auto expressionRe = std::dynamic_pointer_cast<ExpressionRegEx>( expression );
 
     if (expressionFind) {
       TconstSharedValueGetter vg = expressionFind->getValueGetter();
-      boost::shared_ptr<const ValueGetterLogEntry> vgLe = boost::dynamic_pointer_cast<const ValueGetterLogEntry>(vg);
+      std::shared_ptr<const ValueGetterLogEntry> vgLe = std::dynamic_pointer_cast<const ValueGetterLogEntry>(vg);
       if (vgLe && vgLe->getName() == "message") {
         setText(expressionFind->getPattern());
         m_qsBar->setSearchMode(QuickSearchBar::Text);
@@ -78,7 +78,7 @@ void QuickSearchLineEdit::dropEvent(QDropEvent *event)
     }
     else if (expressionRe) {
       TconstSharedValueGetter vg = expressionRe->getValueGetter();
-      boost::shared_ptr<const ValueGetterLogEntry> vgLe = boost::dynamic_pointer_cast<const ValueGetterLogEntry>(vg);
+      std::shared_ptr<const ValueGetterLogEntry> vgLe = std::dynamic_pointer_cast<const ValueGetterLogEntry>(vg);
       if (vgLe && vgLe->getName() == "message") {
         setText(expressionRe->getPattern());
         m_qsBar->setSearchMode(QuickSearchBar::Regex);
@@ -101,7 +101,7 @@ void QuickSearchLineEdit::dropEvent(QDropEvent *event)
 
 
 QuickSearchBar::QuickSearchBar(LogEntryTableWindow* parent
-    , boost::shared_ptr<LogEntryTableModel> model
+    , std::shared_ptr<LogEntryTableModel> model
     , const QString& colorCode)
 : QWidget(parent)
 , m_model(model)

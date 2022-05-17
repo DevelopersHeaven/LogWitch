@@ -67,7 +67,7 @@ void LogEntryTableWindow::updateHeaderPositionToModel(int, int, int)
     m_model->setHeaderData(view->logicalIndex(col), Qt::Horizontal, col, 514);
 }
 
-LogEntryTableWindow::LogEntryTableWindow( boost::shared_ptr<LogEntryTableModel> model, QWidget *parent)
+LogEntryTableWindow::LogEntryTableWindow( std::shared_ptr<LogEntryTableModel> model, QWidget *parent)
 : QMdiSubWindow(parent)
 , m_model(model)
 , m_splitter( new QSplitter(Qt::Vertical))
@@ -274,7 +274,7 @@ TSharedRuleTable LogEntryTableWindow::getRuleTable()
   return m_proxyModel->getRuleTable();
 }
 
-void LogEntryTableWindow::addFilter(boost::shared_ptr<LogEntryFilter> flt)
+void LogEntryTableWindow::addFilter(std::shared_ptr<LogEntryFilter> flt)
 {
   m_proxyModel->addFilter(flt);
 }

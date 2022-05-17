@@ -9,7 +9,6 @@
 #define SYNCHRONIZEDHEADERVIEW_H_
 
 #include <list>
-#include <boost/shared_ptr.hpp>
 #include <QtGui>
 #include <QHeaderView>
 
@@ -52,7 +51,7 @@ public:
 
 
 private:
-    boost::shared_ptr<HeaderViewGroup> m_group;
+    std::shared_ptr<HeaderViewGroup> m_group;
 };
 
 /**

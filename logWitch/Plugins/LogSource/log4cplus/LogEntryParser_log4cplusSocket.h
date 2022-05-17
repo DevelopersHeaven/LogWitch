@@ -9,8 +9,6 @@
 #define LOGENTRYPARSER_LOG4CPLUSSOCKET_H_
 #include <list>
 
-#include <boost/scoped_ptr.hpp>
-#include <boost/shared_ptr.hpp>
 
 #include <log4cplus/helpers/socket.h>
 
@@ -44,7 +42,7 @@ public:
 
 	void startEmiting();
 
-	boost::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
+	std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
 
 private slots:
 	void newIncomingConnection();
@@ -62,9 +60,9 @@ signals:
 private:
 	int m_port;
 
-	boost::shared_ptr<LogEntryFactory> myFactory;
+	std::shared_ptr<LogEntryFactory> myFactory;
 
-	boost::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
+	std::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
 
 	QString m_loglevelStringOff;
 	QString m_loglevelStringFatal;
@@ -112,7 +110,7 @@ private:
 private:
 	QTcpSocket *m_socket;
 
-	boost::shared_ptr<::log4cplus::helpers::SocketBuffer> m_buffer;
+	std::shared_ptr<::log4cplus::helpers::SocketBuffer> m_buffer;
 	quint64 m_bytesNeeded;
 	bool m_stateReadSize;
 

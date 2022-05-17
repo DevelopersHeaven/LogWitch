@@ -24,8 +24,8 @@ public:
     std::list<TSharedLogEntry> entries;
 };
 
-typedef boost::shared_ptr<NewLogEntryMessage> TSharedNewLogEntryMessage;
-typedef boost::shared_ptr<const NewLogEntryMessage> TconstSharedNewLogEntryMessage;
+typedef std::shared_ptr<NewLogEntryMessage> TSharedNewLogEntryMessage;
+typedef std::shared_ptr<const NewLogEntryMessage> TconstSharedNewLogEntryMessage;
 
 
 #endif /* NEWLOGENTRYMESSAGE_H_ */

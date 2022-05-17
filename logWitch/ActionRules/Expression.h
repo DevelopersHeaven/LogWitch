@@ -26,8 +26,8 @@ public:
 
 std::ostream& operator<< (std::ostream &o, const Expression &e);
 
-typedef boost::shared_ptr<Expression> TSharedExpression;
-typedef boost::shared_ptr<const Expression> TconstSharedExpression;
+typedef std::shared_ptr<Expression> TSharedExpression;
+typedef std::shared_ptr<const Expression> TconstSharedExpression;
 
 
 #endif /* EXPRESSION_H_ */

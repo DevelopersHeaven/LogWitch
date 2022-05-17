@@ -7,7 +7,7 @@
 
 #ifndef FILTERLISTVIEW_H_
 #define FILTERLISTVIEW_H_
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <QAction>
 #include <QMenu>
@@ -22,7 +22,7 @@ class FilterListView
 {
         Q_OBJECT
 public:
-    FilterListView( QObject *parent, boost::shared_ptr<const LogEntryParserModelConfiguration> cfg, const int attr );
+    FilterListView( QObject *parent, std::shared_ptr<const LogEntryParserModelConfiguration> cfg, const int attr );
     ~FilterListView();
 
     void addToTabs( QTabWidget *tabs, LogEntryTableWindow* widget  );
@@ -31,7 +31,7 @@ public slots:
     void contextMenuPopup( const QPoint &pos);
 
 private:
-    boost::shared_ptr<const LogEntryParserModelConfiguration> m_config;
+    std::shared_ptr<const LogEntryParserModelConfiguration> m_config;
 
     StringCacheTreeModel *m_strModel;
     int m_attr;

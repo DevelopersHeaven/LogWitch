@@ -19,7 +19,7 @@ WidgetStateSaver::~WidgetStateSaver()
 {}
 
 void WidgetStateSaver::addElementToWatch( QObject *obj,
-        boost::shared_ptr<ObjectStateSavingInterface> stateSaver )
+        std::shared_ptr<ObjectStateSavingInterface> stateSaver )
 {
     DEBUG_WIDGETSTATESAFER("adding object to watch " <<obj);
     m_myWatchedObjects.insert( ObjectStateDumper::value_type( obj, stateSaver ) );

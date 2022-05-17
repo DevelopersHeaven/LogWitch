@@ -21,7 +21,7 @@
 #include "LogData/LogEntryParserModelConfiguration.h"
 #include "LogData/ParserStreamGetter.h"
 
-LogEntryParser_Logfile::LogEntryParser_Logfile(  boost::shared_ptr<ParserStreamGetter> getter  )
+LogEntryParser_Logfile::LogEntryParser_Logfile(  std::shared_ptr<ParserStreamGetter> getter  )
   : m_abort(false )
   , m_getter(getter)
   , lineMessageRegex( new QRegExp("^([\\d-]+\\s+[\\d\\,\\:]+)\\s+-\\s+((?:(?!\\s+-\\s+).)*)\\s+-\\s+((?:(?!\\s+-\\s+).)*)\\s+-\\s+(\\[(.*)\\]|((?!\\s+-\\s+).)*)\\s+-\\s+(.*)$") )
@@ -43,7 +43,7 @@ LogEntryParser_Logfile::LogEntryParser_Logfile(  boost::shared_ptr<ParserStreamG
   myFactory->addField(names.getConfiguration("fsource"));
   myFactory->disallowAddingFields();
 
-  m_myModelConfig = boost::shared_ptr<LogEntryParserModelConfiguration>(
+  m_myModelConfig = std::shared_ptr<LogEntryParserModelConfiguration>(
       new LogEntryParserModelConfiguration("Logfile", myFactory));
   m_myModelConfig->setHierarchySplitString(4, "\\.");
   m_myModelConfig->setHierarchySplitString(5, "/");
@@ -77,7 +77,7 @@ void LogEntryParser_Logfile::startEmiting()
     start(LowPriority);
 }
 
-boost::shared_ptr<LogEntryParserModelConfiguration> LogEntryParser_Logfile::getParserModelConfiguration() const
+std::shared_ptr<LogEntryParserModelConfiguration> LogEntryParser_Logfile::getParserModelConfiguration() const
 {
   return m_myModelConfig;
 }
@@ -123,17 +123,17 @@ public:
   }
 
   QString m_line;
-  boost::shared_ptr<QRegExp> m_matched;
+  std::shared_ptr<QRegExp> m_matched;
 };
 
 class LogEntryParser_Logfile::PreLogEntry
 {
 public:
-  PreLogEntry(boost::shared_ptr<LogfileLine> line): m_firstLine(line) {};
+  PreLogEntry(std::shared_ptr<LogfileLine> line): m_firstLine(line) {};
   /**
    * Contains the first line, which must have a valid match
    */
-  boost::shared_ptr<LogfileLine> m_firstLine;
+  std::shared_ptr<LogfileLine> m_firstLine;
 
   /**
    * Lines which have no match and are parts of this entry.
@@ -144,7 +144,7 @@ public:
 class LogEntryParser_Logfile::WorkPackage
 {
 public:
-  typedef std::list< boost::shared_ptr<LogfileLine> > LogLineList;
+  typedef std::list< std::shared_ptr<LogfileLine> > LogLineList;
   void convert(){
     // Here we have to store the line we have the first match. If there is no
     // match, we can not use the line or it is a message from the previous block.
@@ -152,7 +152,7 @@ public:
 
     LogLineList::iterator it = m_lines.begin();
 
-    boost::shared_ptr<PreLogEntry> preEntry;
+    std::shared_ptr<PreLogEntry> preEntry;
     if (!m_preLogEntries.empty()) {
       preEntry = m_preLogEntries.back();
       m_preLogEntries.pop_back();
@@ -220,7 +220,7 @@ public:
 
   LogLineList m_lines;
 
-  std::list< boost::shared_ptr<PreLogEntry> > m_preLogEntries;
+  std::list< std::shared_ptr<PreLogEntry> > m_preLogEntries;
 };
 
 
@@ -258,25 +258,25 @@ TSharedNewLogEntryMessage LogEntryParser_Logfile::getEntries()
 
   if (m_logfileStream)
   {
-    std::list< boost::shared_ptr<LogfileLine> > lineProcessors;
+    std::list< std::shared_ptr<LogfileLine> > lineProcessors;
     QElapsedTimer myTimer;
     myTimer.start();
 
-    std::list< boost::shared_ptr<WorkPackage> > workPackages;
+    std::list< std::shared_ptr<WorkPackage> > workPackages;
 
     int currentWork = 0;
     int maxWork = 1000;
     while( !m_logfileStream->atEnd())
     {
-      boost::shared_ptr<LogfileLine> lineProcessor( new LogfileLine );
-      lineProcessor->m_matched = boost::shared_ptr<QRegExp>(new QRegExp(*lineMessageRegex) );
+      std::shared_ptr<LogfileLine> lineProcessor( new LogfileLine );
+      lineProcessor->m_matched = std::shared_ptr<QRegExp>(new QRegExp(*lineMessageRegex) );
       lineProcessor->setLine( m_logfileStream->readLine() );
       lineProcessors.push_back(lineProcessor);
       currentWork++;
 
       if (m_logfileStream->atEnd() || currentWork >= maxWork )
       {
-        boost::shared_ptr<WorkPackage> work( new WorkPackage );
+        std::shared_ptr<WorkPackage> work( new WorkPackage );
         work->m_lines.swap(lineProcessors);
         work->id = workPackages.size();
         workPackages.push_back( work );
@@ -294,7 +294,7 @@ TSharedNewLogEntryMessage LogEntryParser_Logfile::getEntries()
     if (workPackages.empty())
       return entryReturn;
 
-    boost::shared_ptr<WorkPackage> firstWorkPackage = workPackages.front();
+    std::shared_ptr<WorkPackage> firstWorkPackage = workPackages.front();
     workPackages.pop_front();
     firstWorkPackage->waitForFinish();
 
@@ -305,7 +305,7 @@ TSharedNewLogEntryMessage LogEntryParser_Logfile::getEntries()
 
     while( !workPackages.empty() )
     {
-      boost::shared_ptr<WorkPackage> currentWork = workPackages.front();
+      std::shared_ptr<WorkPackage> currentWork = workPackages.front();
       workPackages.pop_front();
       currentWork->waitForFinish();
 //      {
@@ -317,11 +317,11 @@ TSharedNewLogEntryMessage LogEntryParser_Logfile::getEntries()
 
       // The last enry is not finished, so we will take it for later usage ...
       if (!firstWorkPackage->m_preLogEntries.empty()){
-        boost::shared_ptr<PreLogEntry> unfinishedPreEntry = firstWorkPackage->m_preLogEntries.back();
+        std::shared_ptr<PreLogEntry> unfinishedPreEntry = firstWorkPackage->m_preLogEntries.back();
         firstWorkPackage->m_preLogEntries.pop_back();
 
         while (!firstWorkPackage->m_preLogEntries.empty()){
-          boost::shared_ptr<PreLogEntry> preEntry = firstWorkPackage->m_preLogEntries.front();
+          std::shared_ptr<PreLogEntry> preEntry = firstWorkPackage->m_preLogEntries.front();
           firstWorkPackage->m_preLogEntries.pop_front();
 
           entryReturn->entries.push_back( createLogEntry(*preEntry) );

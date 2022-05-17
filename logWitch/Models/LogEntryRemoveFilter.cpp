@@ -17,12 +17,12 @@ LogEntryRemoveFilter::~LogEntryRemoveFilter()
 {
 }
 
-void LogEntryRemoveFilter::addEntry( boost::shared_ptr<const QString> str )
+void LogEntryRemoveFilter::addEntry( std::shared_ptr<const QString> str )
 {
 	m_removeStrings.insert( str );
 }
 
-void LogEntryRemoveFilter::removeEntry( boost::shared_ptr<const QString> str )
+void LogEntryRemoveFilter::removeEntry( std::shared_ptr<const QString> str )
 {
 	m_removeStrings.erase( str );
 }

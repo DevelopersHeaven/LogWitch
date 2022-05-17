@@ -20,7 +20,7 @@ public:
 };
 
 
-typedef boost::shared_ptr<ActionDiscardRow> TSharedActionDiscardRow;
-typedef boost::shared_ptr<const ActionDiscardRow> TconstSharedActionDiscardRow;
+typedef std::shared_ptr<ActionDiscardRow> TSharedActionDiscardRow;
+typedef std::shared_ptr<const ActionDiscardRow> TconstSharedActionDiscardRow;
 
 #endif /* ACTIONREMOVEROW_H_ */

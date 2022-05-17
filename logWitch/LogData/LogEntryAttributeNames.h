@@ -8,7 +8,6 @@
 #ifndef LOGENTRYATTRIBUTENAMES_H_
 #define LOGENTRYATTRIBUTENAMES_H_
 
-#include <boost/shared_ptr.hpp>
 #include <boost/function.hpp>
 #include <QtCore/QtCore>
 
@@ -22,14 +21,14 @@ public:
     virtual const QString getImportExportDescription();
     virtual void setImportExportDescription( const QString & );
 
-    virtual boost::shared_ptr<ImportExportDescription> clone() const = 0;
+    virtual std::shared_ptr<ImportExportDescription> clone() const = 0;
 };
 
 struct ExportToQStringAdapter
 {
-    ExportToQStringAdapter( boost::shared_ptr<ImportExportDescription> desc ):m_desc(desc){ }
+    ExportToQStringAdapter( std::shared_ptr<ImportExportDescription> desc ):m_desc(desc){ }
     QString operator()(const QVariant &str ){ return (*m_desc)(str); };
-    boost::shared_ptr<ImportExportDescription> m_desc;
+    std::shared_ptr<ImportExportDescription> m_desc;
 };
 
 class AttributeConfiguration
@@ -37,7 +36,7 @@ class AttributeConfiguration
 public:
     typedef std::pair<QString,QString> TQStringPair;
 
-    AttributeConfiguration( bool caching, int defaultCellWidth, TQStringPair names, boost::shared_ptr<ImportExportDescription> factory );
+    AttributeConfiguration( bool caching, int defaultCellWidth, TQStringPair names, std::shared_ptr<ImportExportDescription> factory );
     AttributeConfiguration( const AttributeConfiguration& cfg );
     AttributeConfiguration &operator=( const AttributeConfiguration& other );
 
@@ -45,7 +44,7 @@ public:
     int defaultCellWidth;
     TQStringPair names;
 
-    boost::shared_ptr<ImportExportDescription> attributeFactory;
+    std::shared_ptr<ImportExportDescription> attributeFactory;
 };
 
 class LogEntryAttributeNames

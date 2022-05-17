@@ -11,8 +11,6 @@
 #include <cstdint>
 
 #include <boost/python.hpp>
-#include <boost/scoped_ptr.hpp>
-#include <boost/shared_ptr.hpp>
 
 #include <log4cplus/helpers/socket.h>
 
@@ -46,7 +44,7 @@ public:
 
 	void startEmiting();
 
-	boost::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
+	std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
 
 private Q_SLOTS:
 	void newIncomingConnection();
@@ -65,9 +63,9 @@ Q_SIGNALS:
 private:
 	int m_port;
 
-	boost::shared_ptr<LogEntryFactory> myFactory;
+	std::shared_ptr<LogEntryFactory> myFactory;
 
-	boost::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
+	std::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
 
 	QString m_name;
 
