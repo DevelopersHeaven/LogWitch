@@ -31,7 +31,7 @@ private:
 };
 
 
-typedef boost::shared_ptr<ExpressionMatch> TSharedExpressionMatch;
-typedef boost::shared_ptr<const ExpressionMatch> TconstSharedExpressionMatch;
+typedef std::shared_ptr<ExpressionMatch> TSharedExpressionMatch;
+typedef std::shared_ptr<const ExpressionMatch> TconstSharedExpressionMatch;
 
 #endif /* EXPRESSIONVALUEGETTER_H_ */

@@ -24,7 +24,7 @@ public:
    * if something went wrong. If there is something wring, getError can be used
    * to retrieve an error message.
    */
-  boost::shared_ptr<QTextStream> getStream() = 0;
+  std::shared_ptr<QTextStream> getStream() = 0;
 
   QString getError() const { return m_error; }
 

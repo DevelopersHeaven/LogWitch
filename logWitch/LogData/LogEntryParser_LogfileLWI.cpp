@@ -34,7 +34,7 @@ void LogEntryParser_LogfileLWI::startEmiting()
     start(LowPriority);
 }
 
-boost::shared_ptr<LogEntryParserModelConfiguration> LogEntryParser_LogfileLWI::getParserModelConfiguration() const
+std::shared_ptr<LogEntryParserModelConfiguration> LogEntryParser_LogfileLWI::getParserModelConfiguration() const
 {
   return m_myModelConfig;
 }
@@ -165,7 +165,7 @@ bool LogEntryParser_LogfileLWI::initParser()
 
   m_factory->disallowAddingFields();
   qDebug() << "Using Model context: " << modelContext;
-  m_myModelConfig = boost::shared_ptr<LogEntryParserModelConfiguration>(
+  m_myModelConfig = std::shared_ptr<LogEntryParserModelConfiguration>(
       new LogEntryParserModelConfiguration(modelContext, m_factory));
   // TODO: Splitstrings?
   //m_myModelConfig->setHierarchySplitString( 4, "\\.");

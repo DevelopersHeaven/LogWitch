@@ -8,7 +8,6 @@
 #ifndef LOGENTRYFILTERCHAIN_H_
 #define LOGENTRYFILTERCHAIN_H_
 
-#include <boost/shared_ptr.hpp>
 #include "Models/LogEntryFilter.h"
 #include <list>
 #include <QtCore/QtCore>
@@ -23,9 +22,9 @@ public:
 
 	virtual ~LogEntryFilterChain();
 
-	void addFilter( boost::shared_ptr< LogEntryFilter> );
+	void addFilter( std::shared_ptr< LogEntryFilter> );
 
-	void removeFilter( boost::shared_ptr< LogEntryFilter> );
+	void removeFilter( std::shared_ptr< LogEntryFilter> );
 
 	virtual bool filterEntry( TconstSharedLogEntry entry ) const;
 
@@ -37,7 +36,7 @@ signals:
 	void filterUpdateFinished();
 
 private:
-	typedef std::list< boost::shared_ptr<  LogEntryFilter> > TFilterChain;
+	typedef std::list< std::shared_ptr<  LogEntryFilter> > TFilterChain;
 	TFilterChain m_filterChain;
 
 	int m_changeCounter;

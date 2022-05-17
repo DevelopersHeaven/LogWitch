@@ -32,7 +32,7 @@ public:
 
     bool initParser();
 
-    virtual boost::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
+    virtual std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
 
 signals:
     void newEntry( TconstSharedNewLogEntryMessage );
@@ -57,9 +57,9 @@ private:
 
     QString m_stashedLine;
 
-    boost::shared_ptr<LogEntryFactory> m_factory;
+    std::shared_ptr<LogEntryFactory> m_factory;
 
-    boost::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
+    std::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
 
     int m_logEntryNumber;
 

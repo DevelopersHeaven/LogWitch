@@ -1,7 +1,6 @@
 #ifndef LOGFILEANALYSER_H
 #define LOGFILEANALYSER_H
 
-#include <boost/shared_ptr.hpp>
 
 #include <QtCore>
 #include <QMainWindow>
@@ -34,7 +33,7 @@ public:
   LogfileAnalyser(QWidget *parent = 0);
   ~LogfileAnalyser();
 
-  void newParser(boost::shared_ptr<LogEntryParser> parser, bool alreadyInitialized) override;
+  void newParser(std::shared_ptr<LogEntryParser> parser, bool alreadyInitialized) override;
 
 public slots:
   void subWindowActivated(QMdiSubWindow *);
@@ -42,7 +41,7 @@ public slots:
   void showDocumentation();
 
 private:
-  void createWindowsFromParser(boost::shared_ptr<LogEntryParser> parser, bool alreadyInitialized = false);
+  void createWindowsFromParser(std::shared_ptr<LogEntryParser> parser, bool alreadyInitialized = false);
 
   Ui::LogfileAnalyserClass ui;
 
@@ -54,7 +53,7 @@ private:
   WidgetStateSaver *m_stateSaver;
   SignalMultiplexer m_signalMultiplexer;
 
-  boost::shared_ptr<HelpAssistant> m_helpAssistant;
+  std::shared_ptr<HelpAssistant> m_helpAssistant;
 
   void loadPlugins();
   void loadPlugins(QDir basePath);

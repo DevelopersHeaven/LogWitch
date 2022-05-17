@@ -10,8 +10,6 @@
 
 #include "LogEntryParser.h"
 
-#include <boost/scoped_ptr.hpp>
-
 #include <QFile>
 #include <QTextStream>
 #include <QtCore/QtCore>
@@ -29,7 +27,7 @@ class LogEntryParser_Logfile
 {
 	Q_OBJECT
 public:
-	LogEntryParser_Logfile( boost::shared_ptr<ParserStreamGetter> getter );
+	LogEntryParser_Logfile( std::shared_ptr<ParserStreamGetter> getter );
 
 	~LogEntryParser_Logfile();
 
@@ -39,7 +37,7 @@ public:
 
 	void run();
 
-	virtual boost::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
+	virtual std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
 
 	QString getName() const;
 signals:
@@ -54,19 +52,19 @@ private:
 
 	bool m_abort;
 
-	boost::shared_ptr<ParserStreamGetter> m_getter;
+	std::shared_ptr<ParserStreamGetter> m_getter;
 
-	boost::shared_ptr<QTextStream> m_logfileStream;
+	std::shared_ptr<QTextStream> m_logfileStream;
 
-	boost::shared_ptr<QRegExp> lineMessageRegex;
+	std::shared_ptr<QRegExp> lineMessageRegex;
 
 	QRegExp cellRegex;
 
 	QString timeFormat;
 
-	boost::shared_ptr<LogEntryFactory> myFactory;
+	std::shared_ptr<LogEntryFactory> myFactory;
 
-	boost::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
+	std::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
 
 	int m_logEntryNumber;
 
@@ -74,7 +72,7 @@ private:
 	class PreLogEntry;
 	class WorkPackage;
 
-	boost::shared_ptr<LogfileLine> analyzeLine() const;
+	std::shared_ptr<LogfileLine> analyzeLine() const;
 	TSharedLogEntry createLogEntry( PreLogEntry& pre );
 
 };

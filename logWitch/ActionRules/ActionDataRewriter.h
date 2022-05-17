@@ -53,7 +53,7 @@ private:
     TSharedConstLogEntryParserModelConfiguration m_cfg;
 };
 
-typedef boost::shared_ptr<ActionDataRewriter> TSharedActionDataRewriter;
-typedef boost::shared_ptr<const ActionDataRewriter> TconstSharedActionDataRewriter;
+typedef std::shared_ptr<ActionDataRewriter> TSharedActionDataRewriter;
+typedef std::shared_ptr<const ActionDataRewriter> TconstSharedActionDataRewriter;
 
 #endif /* ACTIONCOLORROW_H_ */

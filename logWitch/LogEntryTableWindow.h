@@ -7,7 +7,6 @@
 
 #ifndef LOGENTRYTABLEWINDOW_H_
 #define LOGENTRYTABLEWINDOW_H_
-#include <boost/shared_ptr.hpp>
 
 #include <QDockWidget>
 #include <QMdiSubWindow>
@@ -30,13 +29,13 @@ class LogEntryTableWindow: public QMdiSubWindow
 {
 Q_OBJECT
 public:
-  LogEntryTableWindow(boost::shared_ptr<LogEntryTableModel> model,
+  LogEntryTableWindow(std::shared_ptr<LogEntryTableModel> model,
       QWidget *parent = NULL);
   virtual ~LogEntryTableWindow();
 
   QModelIndex mapToSource(const QModelIndex & proxyIndex) const;
 
-  void addFilter(boost::shared_ptr<LogEntryFilter> flt);
+  void addFilter(std::shared_ptr<LogEntryFilter> flt);
 
   TSharedRuleTable getRuleTable();
 
@@ -78,7 +77,7 @@ private slots:
   void onDoubleClick(const QModelIndex & index);
 
 private:
-  boost::shared_ptr<LogEntryTableModel> m_model;
+  std::shared_ptr<LogEntryTableModel> m_model;
 
   QSplitter *m_splitter;
 

@@ -22,7 +22,7 @@
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations" // QMutex::Recursive
-LogEntryTableModel::LogEntryTableModel( boost::shared_ptr<LogEntryParser> parser )
+LogEntryTableModel::LogEntryTableModel( std::shared_ptr<LogEntryParser> parser )
 	: m_table( )
 	, m_modelConfiguration( parser->getParserModelConfiguration() )
 	, m_entryLoader( parser )
@@ -318,5 +318,5 @@ void LogEntryTableModel::capture( bool active )
 
 std::any LogEntryTableModel::getLock()
 {
-    return boost::shared_ptr<QMutexLocker>( new QMutexLocker(&m_mutex) );
+    return std::shared_ptr<QMutexLocker>( new QMutexLocker(&m_mutex) );
 }

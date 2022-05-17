@@ -50,7 +50,7 @@ void DummyLogSource::fillMenu( QMenu* menu )
 void DummyLogSource::openDummyLogfile()
 {
   // Create table with log entries and a new model for this
-  boost::shared_ptr<LogEntryParser_dummy> parser(new LogEntryParser_dummy);
+  std::shared_ptr<LogEntryParser_dummy> parser(new LogEntryParser_dummy);
   m_parser = parser;
   updateErrorEmit();
 

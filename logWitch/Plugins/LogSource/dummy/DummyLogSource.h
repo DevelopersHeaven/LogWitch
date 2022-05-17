@@ -7,7 +7,7 @@
 
 #ifndef LOGWITCH_PLUGINS_LOGSOURCE_DUMMY_DUMMYLOGSOURCE_H_
 #define LOGWITCH_PLUGINS_LOGSOURCE_DUMMY_DUMMYLOGSOURCE_H_
-#include <boost/smart_ptr/shared_ptr.hpp>
+#include <memory>
 
 #include <QObject>
 #include <QAction>
@@ -48,7 +48,7 @@ namespace logwitch
 
       private:
         // This is the last created dummy logfile parser
-        boost::shared_ptr<LogEntryParser_dummy> m_parser;
+        std::shared_ptr<LogEntryParser_dummy> m_parser;
 
         QAction* m_actionErrorCreation;
       };

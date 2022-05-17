@@ -7,7 +7,6 @@
 
 #ifndef LOGENTRYPARSER_H_
 #define LOGENTRYPARSER_H_
-#include <boost/shared_ptr.hpp>
 
  #include <QtGui>
 #include <QtCore/QObject>
@@ -56,7 +55,7 @@ public:
 	 * will be available and unchanged after calling initParser till
 	 * destruction.
 	 */
-	virtual boost::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const = 0;
+	virtual std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const = 0;
 
 	// This block is the later called signals methods.
 protected:

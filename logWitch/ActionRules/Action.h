@@ -7,7 +7,7 @@
 
 #ifndef ACTION_H_
 #define ACTION_H_
-#include <boost/shared_ptr.hpp>
+#include <memory>
 #include <QtCore/QVariant>
 
 #include "ActionRules/DisplayItemData.h"
@@ -39,8 +39,8 @@ public:
     virtual bool isValid() const;
 };
 
-typedef boost::shared_ptr<Action> TSharedAction;
-typedef boost::shared_ptr<const Action> TconstSharedAction;
+typedef std::shared_ptr<Action> TSharedAction;
+typedef std::shared_ptr<const Action> TconstSharedAction;
 
 
 #endif /* ACTION_H_ */
