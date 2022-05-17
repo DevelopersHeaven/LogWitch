@@ -70,6 +70,7 @@ private:
 	QString m_loglevelStringFatal;
 	QString m_loglevelStringError;
 	QString m_loglevelStringWarn;
+	QString m_loglevelStringInfo;
 	QString m_loglevelStringDebug;
 	QString m_loglevelStringTrace;
 
