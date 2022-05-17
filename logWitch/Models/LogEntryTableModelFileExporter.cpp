@@ -72,7 +72,7 @@ void LogEntryTableModelFileExporter::exportTo( const QString& filename )
 
 void LogEntryTableModelFileExporter::exportTo( const QString& filename, boost::function<TconstSharedLogEntry()> funcNextExportItem )
 {
-    boost::any lock = m_model.getLock();
+    std::any lock = m_model.getLock();
 
     QFile file( filename );
     file.open(QIODevice::WriteOnly);
