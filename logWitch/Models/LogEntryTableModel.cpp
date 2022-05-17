@@ -20,6 +20,8 @@
 #include "LogData/LogEntryParserModelConfiguration.h"
 #include "LogData/LogEntryAttributeNames.h"
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic warning "-Wdeprecated-declarations" // QMutex::Recursive
 LogEntryTableModel::LogEntryTableModel( boost::shared_ptr<LogEntryParser> parser )
 	: m_table( )
 	, m_modelConfiguration( parser->getParserModelConfiguration() )
@@ -30,6 +32,7 @@ LogEntryTableModel::LogEntryTableModel( boost::shared_ptr<LogEntryParser> parser
     , m_maxNumberOfEntries( 0 )
     , m_blockInsertingMessages( false )
 {
+#pragma GCC diagnostic pop
     QObject::connect(dynamic_cast<QObject*>(parser.get()), SIGNAL(newEntry( TconstSharedNewLogEntryMessage )),
                      this, SLOT(insertEntry( TconstSharedNewLogEntryMessage ))
                      , Qt::QueuedConnection );
