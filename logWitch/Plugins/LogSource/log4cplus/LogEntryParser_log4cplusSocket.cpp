@@ -8,7 +8,6 @@
 #include "Plugins/LogSource/log4cplus/LogEntryParser_log4cplusSocket.h"
 
 #include <algorithm>
-#include <boost/assign/list_of.hpp>
 #include <iostream>
 
 #include <log4cplus/socketappender.h>
@@ -73,10 +72,7 @@ LogEntryParser_log4cplusSocket::LogEntryParser_log4cplusSocket (int port)
     const AttributeConfiguration &cfg = myFactory->getFieldConfiguration(i);
     m_myModelConfig->setFieldWidthHint(i, cfg.defaultCellWidth, true);
   }
-  const auto fieldOrderHint = boost::assign::list_of(0)(7)(1)(2)(3)(4)(5)(6);
-  m_myModelConfig->setFieldOrderHint(
-      QVector<int>(fieldOrderHint.begin(), fieldOrderHint.end()),
-      true);
+  m_myModelConfig->setFieldOrderHint({0, 7, 1, 2, 3, 4, 5, 6}, true);
 
   connect(this, SIGNAL(newConnection()), this, SLOT(newIncomingConnection()));
 }

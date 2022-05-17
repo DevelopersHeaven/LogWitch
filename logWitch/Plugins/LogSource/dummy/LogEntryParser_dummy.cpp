@@ -7,8 +7,6 @@
 
 #include "LogEntryParser_dummy.h"
 
-#include <boost/assign/list_of.hpp>
-
 #include "LogData/LogEntry.h"
 #include "LogData/LogEntryAttributeNames.h"
 #include "LogData/LogEntryFactory.h"
@@ -41,9 +39,7 @@ LogEntryParser_dummy::LogEntryParser_dummy ()
     m_myModelConfig->setFieldWidthHint(i, cfg.defaultCellWidth, true);
   }
 
-  const auto fieldOrderHint = boost::assign::list_of(0)(4)(1)(2)(3);
-  m_myModelConfig->setFieldOrderHint(
-      QVector<int>(fieldOrderHint.begin(), fieldOrderHint.end()), true);
+  m_myModelConfig->setFieldOrderHint({0, 4, 1, 2, 3}, true);
 }
 
 LogEntryParser_dummy::~LogEntryParser_dummy ()

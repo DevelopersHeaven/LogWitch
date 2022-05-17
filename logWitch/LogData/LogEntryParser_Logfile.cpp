@@ -7,8 +7,6 @@
 
 #include "LogEntryParser_Logfile.h"
 
-#include <boost/assign/list_of.hpp>
-
 #include <QRegExp>
 #include <QtCore/QtCore>
 #include <QtConcurrent>
@@ -53,10 +51,7 @@ LogEntryParser_Logfile::LogEntryParser_Logfile(  std::shared_ptr<ParserStreamGet
         myFactory->getFieldConfiguration(i).defaultCellWidth, true);
   }
 
-  const auto fieldOrderHint = boost::assign::list_of(0)(5)(1)(2)(3)(4);
-  m_myModelConfig->setFieldOrderHint(
-      QVector<int>(fieldOrderHint.begin(), fieldOrderHint.end()),
-      true);
+  m_myModelConfig->setFieldOrderHint({0, 5, 1, 2, 3, 4}, true);
 }
 
 LogEntryParser_Logfile::~LogEntryParser_Logfile()
