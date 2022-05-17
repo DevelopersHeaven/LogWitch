@@ -257,7 +257,7 @@ void LogEntryTableWindow::exportLogfile(const QString &filename)
               == option;
           std::vector<TconstSharedLogEntry> entries;
 
-          boost::any lock = m_model->getLock();
+          std::any lock = m_model->getLock();
 
           m_timeFormatModel->generateExportList(entries, range.topLeft(),
               range.bottomRight(), params);
