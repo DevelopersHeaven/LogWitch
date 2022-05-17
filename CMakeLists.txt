@@ -87,7 +87,7 @@ ENDIF()
 
 FIND_PACKAGE(Boost REQUIRED)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 if(UNIX)
 	set(CMAKE_CXX_FLAGS_RELEASE        "-pipe -O2    -fvisibility-inlines-hidden -fdiagnostics-show-option -fno-strict-aliasing -Wall -Werror  -Wl,--as-needed -fPIC -DNDEBUG")
 	set(CMAKE_CXX_FLAGS_DEBUG          "-pipe -O0 -g -fvisibility-inlines-hidden -fdiagnostics-show-option -Wall -Werror -Wl,--as-needed -fPIC")
