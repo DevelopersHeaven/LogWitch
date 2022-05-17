@@ -6,7 +6,6 @@
  *
  */
 #include "SignalMultiplexer.h"
-#include <boost/foreach.hpp>
 
 SignalMultiplexer::SignalMultiplexer(QObject *parent )
     : QObject( parent )
@@ -91,7 +90,7 @@ void SignalMultiplexer::setObject(
     StateConnectionsForObjects::iterator it = m_connectionStates.find( (QObject *)m_object );
     if( it != m_connectionStates.end() )
     {
-        BOOST_FOREACH( connectionState & s, it->second )
+        for ( connectionState & s : it->second )
         {
             disconnect( s );
         }
@@ -102,7 +101,7 @@ void SignalMultiplexer::setObject(
     it = m_connectionStates.find( (QObject *)m_object );
     if( it != m_connectionStates.end() )
     {
-        BOOST_FOREACH( connectionState & s, it->second )
+        for ( connectionState & s : it->second )
         {
             connect( s );
         }

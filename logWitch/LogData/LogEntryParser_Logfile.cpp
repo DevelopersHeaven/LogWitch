@@ -8,7 +8,6 @@
 #include "LogEntryParser_Logfile.h"
 
 #include <boost/assign/list_of.hpp>
-#include <boost/foreach.hpp>
 
 #include <QRegExp>
 #include <QtCore/QtCore>
@@ -336,7 +335,7 @@ TSharedNewLogEntryMessage LogEntryParser_Logfile::getEntries()
 //      qDebug() << "After matching: " << double(nMilliseconds)/1000 << " seconds";
 //    }
 
-    BOOST_FOREACH( boost::shared_ptr<PreLogEntry> preEntry, firstWorkPackage->m_preLogEntries )
+    for ( std::shared_ptr<PreLogEntry> preEntry : firstWorkPackage->m_preLogEntries )
     {
       entryReturn->entries.push_back( createLogEntry(*preEntry) );
     }

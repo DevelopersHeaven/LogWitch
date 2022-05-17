@@ -11,7 +11,6 @@
 #define BOOST_TEST_DYN_LINK
 
 #include <boost/test/unit_test.hpp>
-#include <boost/foreach.hpp>
 
 #include "LogEntryStorerForTesting.h"
 #include "LogData/LogEntry.h"
@@ -114,7 +113,7 @@ BOOST_AUTO_TEST_CASE( multiThreadedParsing )
   BOOST_CHECK( tester->m_finished );
 
   int i = 0;
-  BOOST_FOREACH( TSharedLogEntry entry, tester->m_entries)
+  for ( TSharedLogEntry entry : tester->m_entries)
   {
     QString s;
     QTextStream ts(&s);
@@ -138,7 +137,7 @@ BOOST_AUTO_TEST_CASE( multiThreadedParsingMultiline )
   BOOST_CHECK( tester->m_finished );
 
   int i = 0;
-  BOOST_FOREACH( TSharedLogEntry entry, tester->m_entries)
+  for ( TSharedLogEntry entry : tester->m_entries)
   {
     QString s;
     QTextStream ts(&s);
