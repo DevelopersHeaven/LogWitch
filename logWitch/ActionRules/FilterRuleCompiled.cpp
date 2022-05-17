@@ -7,22 +7,14 @@
 
 #include "FilterRuleCompiled.h"
 
-#include <boost/fusion/include/adapt_struct.hpp>
-#include <boost/fusion/include/tag_of.hpp>
-#include <boost/spirit/include/phoenix_core.hpp>
 #include <boost/spirit/include/phoenix_operator.hpp>
-#include <boost/spirit/include/phoenix_object.hpp>
 #include <boost/spirit/include/qi.hpp>
-
-#include "Auxiliary/BoostSpiritQStringAdaption.hxx"
 
 // take the string and search for => as an special expression.
 static const QString seperator("=>");
 
 namespace ruleParser
 {
-    namespace fusion = boost::fusion;
-    namespace phoenix = boost::phoenix;
     namespace qi = boost::spirit::qi;
     namespace ascii = boost::spirit::ascii;
 
