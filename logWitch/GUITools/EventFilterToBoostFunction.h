@@ -10,18 +10,16 @@
 
 #include <QtCore>
 
-#include <boost/function.hpp>
-
 /**
  * This class makes event filtering more easy, it maps the eventFilter to a more
- * easy to implement function, which can also be used with boost::bind.
+ * easy to implement function, which can also be used with std::bind.
  */
 class EventFilterToBoostFunction
 : public QObject
 {
     Q_OBJECT
 public:
-    EventFilterToBoostFunction( QObject * parent, boost::function< bool (QObject *, QEvent *)> const & func):
+    EventFilterToBoostFunction( QObject * parent, std::function< bool (QObject *, QEvent *)> const & func):
         QObject( parent ), m_func( func )
     {  }
 
@@ -32,7 +30,7 @@ protected:
     }
 
 private:
-    boost::function< bool (QObject *, QEvent *)> m_func;
+    std::function< bool (QObject *, QEvent *)> m_func;
 };
 
 namespace evtFunc
@@ -42,7 +40,7 @@ namespace evtFunc
      * This object executes f if the event is a keyPressed event with the given
      * keycode.
      */
-    bool keyPressed(QObject *o, QEvent *e, int keycode, boost::function<void()> f );
+    bool keyPressed(QObject *o, QEvent *e, int keycode, std::function<void()> f );
 }
 
 #endif /* EVENTFILTERTOBOOSTFUNCTION_H_ */

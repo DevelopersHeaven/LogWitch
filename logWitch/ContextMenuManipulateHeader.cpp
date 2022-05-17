@@ -7,8 +7,6 @@
 
 #include "ContextMenuManipulateHeader.h"
 
-#include <boost/bind/bind.hpp>
-
 #include "GUITools/SlotToBoostFunction.h"
 #include "GUITools/SynchronizedHeaderView.h"
 
@@ -49,7 +47,7 @@ void ContextMenuManipulateHeader::contextMenuRequest(const QPoint & pos)
         connect(action, SIGNAL(triggered()),
         // Destruction of this will be handled by the action itself.
             new SlotToBoostFunction(action,
-                boost::bind(&SynchronizedHeaderView::showSection, syncHeader,
+                std::bind(&SynchronizedHeaderView::showSection, syncHeader,
                     i)), SLOT(handleSignal()));
       }
       else
@@ -57,7 +55,7 @@ void ContextMenuManipulateHeader::contextMenuRequest(const QPoint & pos)
         connect(action, SIGNAL(triggered()),
             // Destruction of this will be handled by the action itself.
             new SlotToBoostFunction(action,
-                boost::bind(&QHeaderView::showSection, m_header, i)),
+                std::bind(&QHeaderView::showSection, m_header, i)),
             SLOT(handleSignal()));
       }
     }

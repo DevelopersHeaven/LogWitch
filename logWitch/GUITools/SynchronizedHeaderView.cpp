@@ -7,11 +7,9 @@
 
 #include "SynchronizedHeaderView.h"
 
-#include <boost/bind/bind.hpp>
-
 #include "GUITools/SlotToBoostFunction.h"
 
-using namespace boost::placeholders;
+using namespace std::placeholders;
 
 HeaderViewGroup::HeaderViewGroup()
 : m_positionSyncNeeded( false )
@@ -36,18 +34,18 @@ void HeaderViewGroup::addToGroup( SynchronizedHeaderView *view )
     {
         QObject::connect( view,SIGNAL(sectionResized(int , int , int )),
                 // Destruction of this will be handled by the action itself.
-                new SlotToBoostFunction_int_int_int(*it,boost::bind(&SynchronizedHeaderView::resizeSectionFuckingQT,*it,_1,_3)),
+                new SlotToBoostFunction_int_int_int(*it,std::bind(&SynchronizedHeaderView::resizeSectionFuckingQT,*it,_1,_3)),
                 SLOT(handleSignal(int,int,int)));
 
         QObject::connect( *it,SIGNAL(sectionResized(int , int , int )),
                 // Destruction of this will be handled by the action itself.
-                new SlotToBoostFunction_int_int_int(view,boost::bind(&SynchronizedHeaderView::resizeSectionFuckingQT,view,_1,_3)),
+                new SlotToBoostFunction_int_int_int(view,std::bind(&SynchronizedHeaderView::resizeSectionFuckingQT,view,_1,_3)),
                 SLOT(handleSignal(int,int,int)));
     }
 
     QObject::connect( view,SIGNAL(sectionMoved(int , int , int )),
             // Destruction of this will be handled by the action itself.
-            new SlotToBoostFunction(view,boost::bind(&HeaderViewGroup::synchronizeState,this,view)),
+            new SlotToBoostFunction(view,std::bind(&HeaderViewGroup::synchronizeState,this,view)),
             SLOT(handleSignal()));
 
     m_groupChilds.push_back( view );

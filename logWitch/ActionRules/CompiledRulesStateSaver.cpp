@@ -7,8 +7,6 @@
 
 #include "ActionRules/CompiledRulesStateSaver.h"
 
-#include <boost/bind/bind.hpp>
-
 #include <QAction>
 #include <QHeaderView>
 #include <QToolBar>
@@ -22,7 +20,7 @@
 
 #include "ContextMenuManipulateHeader.h"
 
-using namespace boost::placeholders;
+using namespace std::placeholders;
 
 CompiledRulesStateSaver::CompiledRulesStateSaver(  TSharedConstLogEntryParserModelConfiguration cfg, TSharedRuleTable ruleTable )
     : m_compiledRuleView(NULL)
@@ -70,8 +68,8 @@ void CompiledRulesStateSaver::connectActions( FilterRuleSelectionWindow *wnd )
             wnd, SLOT(removeSelectionFromCompiled()));
 
     m_compiledRuleView->installEventFilter( new EventFilterToBoostFunction( this,
-            boost::bind( &evtFunc::keyPressed, _1, _2, Qt::Key_Delete,
-                    boost::function< void(void ) >( boost::bind( &FilterRuleSelectionWindow::removeSelectionFromCompiled, wnd ) ) ) ) );
+            std::bind( &evtFunc::keyPressed, _1, _2, Qt::Key_Delete,
+                    std::function< void(void ) >( std::bind( &FilterRuleSelectionWindow::removeSelectionFromCompiled, wnd ) ) ) ) );
 
     wnd->tieHeaderChangesTo( m_compiledRuleView );
 

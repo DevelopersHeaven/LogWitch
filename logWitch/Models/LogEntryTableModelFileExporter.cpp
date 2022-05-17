@@ -70,7 +70,7 @@ void LogEntryTableModelFileExporter::exportTo( const QString& filename )
     exportTo( filename, DumpAllEntries(m_model) );
 }
 
-void LogEntryTableModelFileExporter::exportTo( const QString& filename, boost::function<TconstSharedLogEntry()> funcNextExportItem )
+void LogEntryTableModelFileExporter::exportTo( const QString& filename, std::function<TconstSharedLogEntry()> funcNextExportItem )
 {
     std::any lock = m_model.getLock();
 

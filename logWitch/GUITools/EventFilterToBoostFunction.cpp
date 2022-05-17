@@ -11,7 +11,7 @@
 
 namespace evtFunc
 {
-    bool keyPressed(QObject *o, QEvent *e, int keycode, boost::function<void()> f )
+    bool keyPressed(QObject *o, QEvent *e, int keycode, std::function<void()> f )
     {
         if (e->type() == QEvent::KeyPress )
         {

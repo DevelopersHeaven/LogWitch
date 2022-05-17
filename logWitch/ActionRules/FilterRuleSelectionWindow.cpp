@@ -7,8 +7,6 @@
 
 #include "FilterRuleSelectionWindow.h"
 
-#include <boost/bind/bind.hpp>
-
 #include <QHeaderView>
 #include <QLabel>
 #include <QtGui>
@@ -27,7 +25,7 @@
 
 #include "ContextMenuManipulateHeader.h"
 
-using namespace boost::placeholders;
+using namespace std::placeholders;
 
 const QString filterRuleTableState_Identifier("FilterRuleSelectionTableState");
 
@@ -60,8 +58,8 @@ FilterRuleSelectionWindow::FilterRuleSelectionWindow( QWidget* parent )
 
     // Filter "Key_Delete" Key and pass it to trashSelectedRules.
     m_ruleView->installEventFilter( new EventFilterToBoostFunction( this,
-            boost::bind( &evtFunc::keyPressed, _1, _2, Qt::Key_Delete,
-                    boost::function< void(void ) >( boost::bind( &FilterRuleSelectionWindow::trashSelectedRules, this ) ) ) ) );
+            std::bind( &evtFunc::keyPressed, _1, _2, Qt::Key_Delete,
+                    std::function< void(void ) >( std::bind( &FilterRuleSelectionWindow::trashSelectedRules, this ) ) ) ) );
 
     QWidget *displayWidget = new QWidget(); //This is the pane
     QVBoxLayout* vbox = new QVBoxLayout(displayWidget);
