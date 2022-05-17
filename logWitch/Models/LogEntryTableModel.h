@@ -8,7 +8,6 @@
 #ifndef LOGENTRYTABLEMODEL_H_
 #define LOGENTRYTABLEMODEL_H_
 
-#include <boost/shared_ptr.hpp>
 #include <any>
 
 #include <QAbstractTableModel>
@@ -33,7 +32,7 @@ class LogEntryTableModel: public QAbstractTableModel, public ExportableIfc
 public:
   static const int RawDataRole = Qt::UserRole;
 
-  LogEntryTableModel(boost::shared_ptr<LogEntryParser> parser);
+  LogEntryTableModel(std::shared_ptr<LogEntryParser> parser);
   virtual ~LogEntryTableModel();
 
   /**
@@ -155,7 +154,7 @@ private:
 
   TSharedLogEntryParserModelConfiguration m_modelConfiguration;
 
-  boost::shared_ptr<LogEntryParser> m_entryLoader;
+  std::shared_ptr<LogEntryParser> m_entryLoader;
 
   QString m_ModelName;
 

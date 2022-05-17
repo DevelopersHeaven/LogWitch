@@ -35,8 +35,8 @@ private:
     QRegExp m_regex;
 };
 
-typedef boost::shared_ptr<ExpressionRegEx> TSharedExpressionRegEx;
-typedef boost::shared_ptr<const ExpressionRegEx> TconstSharedExpressionRegEx;
+typedef std::shared_ptr<ExpressionRegEx> TSharedExpressionRegEx;
+typedef std::shared_ptr<const ExpressionRegEx> TconstSharedExpressionRegEx;
 
 
 #endif /* EXPRESSIONREGEX_H_ */

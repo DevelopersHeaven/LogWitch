@@ -48,24 +48,24 @@ void fillStream(QTextStream& ts, bool withEndl=false, bool withMultilineMessage=
 /**
  * Performs the test and returns the testing object for final inspection.
  */
-boost::shared_ptr<LogEntryStorerForTesting> performTest(
+std::shared_ptr<LogEntryStorerForTesting> performTest(
       boost::function<void(QTextStream&)> prepare )
 {
   QString s;
-  boost::shared_ptr<QTextStream> textStream( new QTextStream(&s) );
+  std::shared_ptr<QTextStream> textStream( new QTextStream(&s) );
   prepare(*textStream);
 
-  boost::shared_ptr<ParserStreamGetter> getter( new ParserStreamGetter("name", textStream) );
-  boost::shared_ptr<LogEntryParser> parser( new LogEntryParser_Logfile( getter ) );
+  std::shared_ptr<ParserStreamGetter> getter( new ParserStreamGetter("name", textStream) );
+  std::shared_ptr<LogEntryParser> parser( new LogEntryParser_Logfile( getter ) );
 
-  boost::shared_ptr<LogEntryStorerForTesting> tester( new LogEntryStorerForTesting( parser.get() ) );
+  std::shared_ptr<LogEntryStorerForTesting> tester( new LogEntryStorerForTesting( parser.get() ) );
   tester->start();
   return tester;
 }
 
 BOOST_AUTO_TEST_CASE( bugLastLogLineWithoutEndl )
 {
-  boost::shared_ptr<LogEntryStorerForTesting> tester = performTest( boost::bind(&fillStream, _1, false, false) );
+  std::shared_ptr<LogEntryStorerForTesting> tester = performTest( std::bind(&fillStream, _1, false, false) );
   BOOST_CHECK( tester->m_finished );
 
   BOOST_CHECK_EQUAL( tester->m_entries.size(), 4 );
@@ -74,7 +74,7 @@ BOOST_AUTO_TEST_CASE( bugLastLogLineWithoutEndl )
 
 BOOST_AUTO_TEST_CASE( bugLastLogLineWithEndl )
 {
-  boost::shared_ptr<LogEntryStorerForTesting> tester = performTest( boost::bind(&fillStream, _1, true, false) );
+  std::shared_ptr<LogEntryStorerForTesting> tester = performTest( std::bind(&fillStream, _1, true, false) );
   BOOST_CHECK( tester->m_finished );
 
   BOOST_CHECK_EQUAL( tester->m_entries.size(), 4 );
@@ -83,7 +83,7 @@ BOOST_AUTO_TEST_CASE( bugLastLogLineWithEndl )
 
 BOOST_AUTO_TEST_CASE( bugLastLogLineWithoutEndlMultiLine )
 {
-  boost::shared_ptr<LogEntryStorerForTesting> tester = performTest( boost::bind(&fillStream, _1, false, true) );
+  std::shared_ptr<LogEntryStorerForTesting> tester = performTest( std::bind(&fillStream, _1, false, true) );
   BOOST_CHECK( tester->m_finished );
 
   BOOST_CHECK_EQUAL( tester->m_entries.size(), 4 );
@@ -92,7 +92,7 @@ BOOST_AUTO_TEST_CASE( bugLastLogLineWithoutEndlMultiLine )
 
 BOOST_AUTO_TEST_CASE( bugLastLogLineWithEndlMultiLine )
 {
-  boost::shared_ptr<LogEntryStorerForTesting> tester = performTest( boost::bind(&fillStream, _1, true, true) );
+  std::shared_ptr<LogEntryStorerForTesting> tester = performTest( std::bind(&fillStream, _1, true, true) );
   BOOST_CHECK( tester->m_finished );
 
   BOOST_CHECK_EQUAL( tester->m_entries.size(), 4 );
@@ -112,7 +112,7 @@ void filStreamWithIncrementingMessage( QTextStream& ts, int count, bool multilin
 
 BOOST_AUTO_TEST_CASE( multiThreadedParsing )
 {
-  boost::shared_ptr<LogEntryStorerForTesting> tester = performTest( boost::bind(&filStreamWithIncrementingMessage, _1, 20000, false) );
+  std::shared_ptr<LogEntryStorerForTesting> tester = performTest( std::bind(&filStreamWithIncrementingMessage, _1, 20000, false) );
   BOOST_CHECK( tester->m_finished );
 
   int i = 0;
@@ -136,7 +136,7 @@ BOOST_AUTO_TEST_CASE( multiThreadedParsing )
 
 BOOST_AUTO_TEST_CASE( multiThreadedParsingMultiline )
 {
-  boost::shared_ptr<LogEntryStorerForTesting> tester = performTest( boost::bind(&filStreamWithIncrementingMessage, _1, 30000, true) );
+  std::shared_ptr<LogEntryStorerForTesting> tester = performTest( std::bind(&filStreamWithIncrementingMessage, _1, 30000, true) );
   BOOST_CHECK( tester->m_finished );
 
   int i = 0;

@@ -10,11 +10,9 @@
 #define BOOST_TEST_MODULE StringCacheTreeItem
 #include <boost/test/unit_test.hpp>
 
-#include <boost/make_shared.hpp>
-
 #include "Models/StringCacheTreeItem.h"
 
-using namespace boost;
+using namespace std;
 
 /**
  * This test is testing if adding items works well.

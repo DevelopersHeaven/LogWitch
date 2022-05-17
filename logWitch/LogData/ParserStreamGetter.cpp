@@ -7,7 +7,7 @@
 
 #include "LogData/ParserStreamGetter.h"
 
-ParserStreamGetter::ParserStreamGetter(  const QString name, boost::shared_ptr<QTextStream> textStream )
+ParserStreamGetter::ParserStreamGetter(  const QString name, std::shared_ptr<QTextStream> textStream )
 : m_name( name )
 , m_textStream( textStream )
 {

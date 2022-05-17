@@ -25,7 +25,7 @@ class QuickSearchBar:
 {
   Q_OBJECT
 public:
-  QuickSearchBar(LogEntryTableWindow* parent, boost::shared_ptr<LogEntryTableModel> model, const QString& colorCode = "#81BEF7");
+  QuickSearchBar(LogEntryTableWindow* parent, std::shared_ptr<LogEntryTableModel> model, const QString& colorCode = "#81BEF7");
   virtual ~QuickSearchBar();
 
   enum SearchModes { Regex, Text, Expression};
@@ -59,7 +59,7 @@ public slots:
 
 private:
 
-  boost::shared_ptr<LogEntryTableModel> m_model;
+  std::shared_ptr<LogEntryTableModel> m_model;
 
   LogEntryTableWindow* m_logWindow;
 

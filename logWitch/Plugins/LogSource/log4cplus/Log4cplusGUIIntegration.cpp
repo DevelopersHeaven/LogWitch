@@ -78,7 +78,7 @@ Log4cplusGUIIntegration::~Log4cplusGUIIntegration ()
 void Log4cplusGUIIntegration::openPort ()
 {
   int port = m_port->value();
-  boost::shared_ptr<LogEntryParser_log4cplusSocket> socketParser(
+  std::shared_ptr<LogEntryParser_log4cplusSocket> socketParser(
       new LogEntryParser_log4cplusSocket(port));
 
   m_parserActionIfc->newParser(socketParser);

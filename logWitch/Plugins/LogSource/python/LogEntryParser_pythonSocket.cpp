@@ -13,7 +13,6 @@
 #include <boost/assign/list_of.hpp>
 #include <boost/endian/conversion.hpp>
 #include <boost/python.hpp>
-#include <boost/shared_ptr.hpp>
 
 #include <Python.h>
 
@@ -48,7 +47,7 @@ LogEntryParser_pythonSocket::LogEntryParser_pythonSocket (int port)
   myFactory->addField(names.getConfiguration("funcName"));
   myFactory->disallowAddingFields();
 
-  m_myModelConfig = boost::shared_ptr<LogEntryParserModelConfiguration>(
+  m_myModelConfig = std::shared_ptr<LogEntryParserModelConfiguration>(
       new LogEntryParserModelConfiguration("python", myFactory));
   m_myModelConfig->setHierarchySplitString(4, "\\.");
   m_myModelConfig->setHierarchySplitString(5, "/");
@@ -134,7 +133,7 @@ void LogEntryParser_pythonSocket::newEntryFromReceiver (
   }
 }
 
-boost::shared_ptr<LogEntryParserModelConfiguration> LogEntryParser_pythonSocket::getParserModelConfiguration () const
+std::shared_ptr<LogEntryParserModelConfiguration> LogEntryParser_pythonSocket::getParserModelConfiguration () const
 {
   return m_myModelConfig;
 }

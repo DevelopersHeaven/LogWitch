@@ -21,7 +21,7 @@ public:
     virtual QVariant toDisplay( int role ) const = 0;
 };
 
-typedef boost::shared_ptr<DisplayItemData> TSharedDisplayItemData;
-typedef boost::shared_ptr<const DisplayItemData> TconstSharedDisplayItemData;
+typedef std::shared_ptr<DisplayItemData> TSharedDisplayItemData;
+typedef std::shared_ptr<const DisplayItemData> TconstSharedDisplayItemData;
 
 #endif /* DISPLAYITEMDATA_H_ */

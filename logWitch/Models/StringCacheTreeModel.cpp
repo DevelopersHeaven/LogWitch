@@ -33,7 +33,7 @@ StringCacheTreeModel::~StringCacheTreeModel()
 
 }
 
-boost::shared_ptr<LogEntryFilter> StringCacheTreeModel::getFilter() const
+std::shared_ptr<LogEntryFilter> StringCacheTreeModel::getFilter() const
 {
 	return m_myFilter;
 }

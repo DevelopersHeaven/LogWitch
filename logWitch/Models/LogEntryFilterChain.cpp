@@ -16,14 +16,14 @@ LogEntryFilterChain::~LogEntryFilterChain()
 {
 }
 
-void LogEntryFilterChain::addFilter( boost::shared_ptr<LogEntryFilter> flt )
+void LogEntryFilterChain::addFilter( std::shared_ptr<LogEntryFilter> flt )
 {
 	flt->setParent( this );
 
 	m_filterChain.push_back( flt );
 }
 
-void LogEntryFilterChain::removeFilter( boost::shared_ptr<LogEntryFilter>  flt )
+void LogEntryFilterChain::removeFilter( std::shared_ptr<LogEntryFilter>  flt )
 {
 	flt->setParent( NULL );
 

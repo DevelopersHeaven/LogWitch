@@ -10,7 +10,7 @@
 #include "LogData/LogEntryParserModelConfiguration.h"
 #include "LogData/LogEntryFactory.h"
 
-FilterListView::FilterListView( QObject *parent, boost::shared_ptr<const LogEntryParserModelConfiguration> config, const int attr )
+FilterListView::FilterListView( QObject *parent, std::shared_ptr<const LogEntryParserModelConfiguration> config, const int attr )
 : QTreeView( )
 , m_config( config )
 , m_attr( attr )

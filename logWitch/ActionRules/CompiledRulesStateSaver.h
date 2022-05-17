@@ -12,7 +12,6 @@
 #include <QtGui>
 #include <QTableView>
 
-#include <boost/shared_ptr.hpp>
 #include "ActionRules/TableModelRulesCompiled.h"
 #include "Models/LogEntryTableModel.h"
 #include "LogData/LogEntryParserModelConfiguration.h"
@@ -39,7 +38,7 @@ private:
     QAction *m_removeSelectedRules;
 };
 
-typedef boost::shared_ptr<CompiledRulesStateSaver> TSharedCompiledRulesStateSaver;
-typedef boost::shared_ptr<const CompiledRulesStateSaver> TconstCompiledRulesStateSaver;
+typedef std::shared_ptr<CompiledRulesStateSaver> TSharedCompiledRulesStateSaver;
+typedef std::shared_ptr<const CompiledRulesStateSaver> TconstCompiledRulesStateSaver;
 
 #endif /* COMPILEDRULESSTATESAVER_H_ */

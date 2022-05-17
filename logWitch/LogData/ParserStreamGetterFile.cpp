@@ -12,12 +12,12 @@
 namespace
 {
   struct DeleterQTextStream{
-    DeleterQTextStream(boost::shared_ptr<QFile> file): file(file){}
+    DeleterQTextStream(std::shared_ptr<QFile> file): file(file){}
 
     void operator()(QTextStream *obj) {
       delete obj;
     }
-    boost::shared_ptr<QFile> file;
+    std::shared_ptr<QFile> file;
   };
 }
 
@@ -27,11 +27,11 @@ ParserStreamGetterFile::ParserStreamGetterFile(const QString &filename)
 {
 }
 
-boost::shared_ptr<QTextStream> ParserStreamGetterFile::getStream()
+std::shared_ptr<QTextStream> ParserStreamGetterFile::getStream()
 {
   if (!m_textStream)
   {
-    boost::shared_ptr<QFile> file( new QFile(m_filename) );
+    std::shared_ptr<QFile> file( new QFile(m_filename) );
 
     if (!file->open(QIODevice::ReadOnly | QIODevice::Text))
     {

@@ -11,7 +11,7 @@
 #include <map>
 #include <list>
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 #include <qobject.h>
 
 #define DEBUG_WIDGETSTATESAFER( x ) ;
@@ -24,7 +24,7 @@ public:
 	/**
 	 * An implementation should dump the state to the WidgetState here.
 	 */
-	virtual boost::shared_ptr<ObjectState> dumpState( QObject *objectToDump, QObject *parentalObject ) const = 0;
+	virtual std::shared_ptr<ObjectState> dumpState( QObject *objectToDump, QObject *parentalObject ) const = 0;
 
 	/**
 	 * Replays the previous saved state to the object.
@@ -39,7 +39,7 @@ class ObjectState
 {
 public:
 	ObjectState() : m_isValid( false ) { }
-	ObjectState( boost::shared_ptr<const ObjectStateSavingInterface> replayer, QObject *obj ) : m_isValid( true ), m_object( obj ), m_replayer( replayer ) { }
+	ObjectState( std::shared_ptr<const ObjectStateSavingInterface> replayer, QObject *obj ) : m_isValid( true ), m_object( obj ), m_replayer( replayer ) { }
 
 	bool isValid() const{ return m_isValid; }
 
@@ -50,7 +50,7 @@ protected:
 
 	QObject *m_object;
 
-	boost::shared_ptr<const ObjectStateSavingInterface> m_replayer;
+	std::shared_ptr<const ObjectStateSavingInterface> m_replayer;
 };
 
 
@@ -73,7 +73,7 @@ public:
 	 * @param obj Object to dump the state for
 	 * @param stateSaver The Class which knows how to dump and restore the state.
 	 */
-	void addElementToWatch( QObject *obj, boost::shared_ptr<ObjectStateSavingInterface> stateSaver );
+	void addElementToWatch( QObject *obj, std::shared_ptr<ObjectStateSavingInterface> stateSaver );
 
 	/**
 	 * Call this if the window gets out of focus to save the state.
@@ -95,7 +95,7 @@ public:
 	void switchState( QObject *newObject);
 
 private:
-	typedef std::map<QObject *, boost::shared_ptr<ObjectStateSavingInterface> > ObjectStateDumper;
+	typedef std::map<QObject *, std::shared_ptr<ObjectStateSavingInterface> > ObjectStateDumper;
 
 	/**
 	 * This list contains the watched objects with their corresponding stateDumpers.
@@ -103,7 +103,7 @@ private:
 	 */
 	ObjectStateDumper m_myWatchedObjects;
 
-	typedef std::list< boost::shared_ptr<ObjectState> > ObjectStateList;
+	typedef std::list< std::shared_ptr<ObjectState> > ObjectStateList;
 
 	typedef std::map<QObject *, ObjectStateList> StateSaveMap;
 

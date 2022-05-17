@@ -34,8 +34,8 @@ private:
 };
 
 
-typedef boost::shared_ptr<ExpressionFind> TSharedExpressionFind;
-typedef boost::shared_ptr<const ExpressionFind> TconstSharedExpressionFind;
+typedef std::shared_ptr<ExpressionFind> TSharedExpressionFind;
+typedef std::shared_ptr<const ExpressionFind> TconstSharedExpressionFind;
 
 
 #endif /* EXPRESSIONFIND_H_ */

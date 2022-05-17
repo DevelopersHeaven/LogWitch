@@ -12,15 +12,14 @@
 #include <map>
 #include <string>
 
-#include <boost/shared_ptr.hpp>
 #include <QtCore/qobject.h>
 
 #include "Rule.h"
 
 class RuleTable;
 
-typedef boost::shared_ptr<RuleTable> TSharedRuleTable;
-typedef boost::shared_ptr<const RuleTable> TconstSharedRuleTable;
+typedef std::shared_ptr<RuleTable> TSharedRuleTable;
+typedef std::shared_ptr<const RuleTable> TconstSharedRuleTable;
 
 class RuleTable
     :public QObject
@@ -42,7 +41,7 @@ public:
 //        TRuleList::iterator it;
 //        for( it = m_rules.begin(); it != m_rules.end(); ++it )
 //        {
-//            boost::shared_ptr<T> rule = boost::dynamic_pointer_cast<T>( *it );
+//            std::shared_ptr<T> rule = std::dynamic_pointer_cast<T>( *it );
 //            if( rule )
 //                table->m_rules.push_back( rule );
 //        }
@@ -66,7 +65,7 @@ public:
         TRuleSet::const_iterator it;
         for( it = m_rules.begin(); it != m_rules.end(); ++it )
         {
-            T action = boost::dynamic_pointer_cast<typename T::element_type>( (*it)->getAction() );
+            T action = std::dynamic_pointer_cast<typename T::element_type>( (*it)->getAction() );
             if( action && (*it)->checkRule( entry ) )
                 actions.push_back( action );
         }
@@ -79,7 +78,7 @@ public:
         TRuleSet::const_iterator it;
         for( it = m_rules.begin(); it != m_rules.end(); ++it )
         {
-            T action = boost::dynamic_pointer_cast<typename T::element_type>( (*it)->getAction() );
+            T action = std::dynamic_pointer_cast<typename T::element_type>( (*it)->getAction() );
             if( action && (*it)->checkRule( entry ) )
                 return true;
         }
@@ -96,7 +95,7 @@ public:
         TRuleSet::const_iterator it;
         for( it = m_rules.begin(); it != m_rules.end(); ++it )
         {
-            T action = boost::dynamic_pointer_cast<typename T::element_type>( (*it)->getAction() );
+            T action = std::dynamic_pointer_cast<typename T::element_type>( (*it)->getAction() );
             if( action )
                 rVec.push_back( (*it)->getExpression() );
         }

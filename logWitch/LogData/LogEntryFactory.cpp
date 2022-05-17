@@ -25,9 +25,9 @@ LogEntryFactory::~LogEntryFactory()
 
 }
 
-boost::shared_ptr<LogEntry> LogEntryFactory::getNewLogEntry()
+std::shared_ptr<LogEntry> LogEntryFactory::getNewLogEntry()
 {
-	boost::shared_ptr<LogEntry> attr( new LogEntry(this, m_defaultLine ) );
+	std::shared_ptr<LogEntry> attr( new LogEntry(this, m_defaultLine ) );
 
 	return attr;
 }
@@ -43,11 +43,11 @@ void LogEntryFactory::addField( const AttributeConfiguration cfg )
 	m_fieldDescriptions.push_back( cfg );
 
 	if( cfg.caching )
-	    m_fieldCaches.push_back( boost::shared_ptr< ObjectCache<ObjectCacheQStringSignaller> >( new ObjectCache<ObjectCacheQStringSignaller> ) );
+	    m_fieldCaches.push_back( std::shared_ptr< ObjectCache<ObjectCacheQStringSignaller> >( new ObjectCache<ObjectCacheQStringSignaller> ) );
 	else
-	    m_fieldCaches.push_back( boost::shared_ptr< ObjectPasser<ObjectCacheQStringSignaller> >( new ObjectPasser<ObjectCacheQStringSignaller> ) );
+	    m_fieldCaches.push_back( std::shared_ptr< ObjectPasser<ObjectCacheQStringSignaller> >( new ObjectPasser<ObjectCacheQStringSignaller> ) );
 
-	m_defaultLine.push_back( QVariant::fromValue( m_fieldCaches.back()->getObject( boost::shared_ptr<QString>(new QString("")) ) ) );
+	m_defaultLine.push_back( QVariant::fromValue( m_fieldCaches.back()->getObject( std::shared_ptr<QString>(new QString("")) ) ) );
 }
 
 int LogEntryFactory::getNumberOfFields( ) const

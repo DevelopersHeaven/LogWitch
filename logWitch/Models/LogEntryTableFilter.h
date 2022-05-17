@@ -31,7 +31,7 @@ public:
 
 	QVariant data(const QModelIndex &index, int role) const;
 
-	void addFilter( boost::shared_ptr<LogEntryFilter> );
+	void addFilter( std::shared_ptr<LogEntryFilter> );
 
 	TSharedRuleTable getRuleTable();
 

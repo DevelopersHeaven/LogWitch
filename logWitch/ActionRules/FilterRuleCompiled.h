@@ -6,7 +6,6 @@
  */
 #ifndef FILTERRULECOMPILED_H_
 #define FILTERRULECOMPILED_H_
-#include <boost/shared_ptr.hpp>
 
 #include "ActionRules/Action.h"
 #include "ActionRules/ActionParser.h"
@@ -17,8 +16,8 @@
 #include "LogData/LogEntryParserModelConfiguration.h"
 
 class FilterRuleCompiled;
-typedef boost::shared_ptr<FilterRuleCompiled> TSharedFilterRuleCompiled;
-typedef boost::shared_ptr<const FilterRuleCompiled> TSharedConstFilterRuleCompiled;
+typedef std::shared_ptr<FilterRuleCompiled> TSharedFilterRuleCompiled;
+typedef std::shared_ptr<const FilterRuleCompiled> TSharedConstFilterRuleCompiled;
 
 class FilterRuleCompiled
 : public QObject

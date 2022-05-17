@@ -8,7 +8,6 @@
 #ifndef DOCKWIDGETSTATESAVER_H_
 #define DOCKWIDGETSTATESAVER_H_
 
-#include <boost/enable_shared_from_this.hpp>
 #include <QtGui>
 #include <QtCore>
 
@@ -52,16 +51,16 @@ public:
 template<class T>
 class GetSetStateSaver
 	: public ObjectStateSavingInterface
-	, public boost::enable_shared_from_this<GetSetStateSaver<T> >
+	, public std::enable_shared_from_this<GetSetStateSaver<T> >
 {
 private:
 	GetSetStateSaver();
 
 public:
-	static boost::shared_ptr<GetSetStateSaver<T> > generate();
+	static std::shared_ptr<GetSetStateSaver<T> > generate();
 
 public:
-    boost::shared_ptr<ObjectState> dumpState( QObject *obj, QObject * ) const;
+    std::shared_ptr<ObjectState> dumpState( QObject *obj, QObject * ) const;
     void replayState( QObject *obj, QObject *, const ObjectState *state ) const;
 
 private:
@@ -71,7 +70,7 @@ private:
         friend class GetSetStateSaver<T>;
     public:
 
-        state( boost::shared_ptr<const ObjectStateSavingInterface> ptr, QObject *dock, typename T::value widget )
+        state( std::shared_ptr<const ObjectStateSavingInterface> ptr, QObject *dock, typename T::value widget )
             : ObjectState( ptr, dock ), m_widget( widget ) { }
     private:
         typename T::value m_widget;
@@ -79,7 +78,7 @@ private:
 };
 
 template<class T>
-boost::shared_ptr<GetSetStateSaver<T> > GetSetStateSaver<T>::generate()
+std::shared_ptr<GetSetStateSaver<T> > GetSetStateSaver<T>::generate()
 {
     shared_ptr<GetSetStateSaver<T> > obj( new GetSetStateSaver<T>() );
     return obj;
@@ -91,7 +90,7 @@ GetSetStateSaver<T>::GetSetStateSaver()
 }
 
 template<class T>
-boost::shared_ptr<ObjectState> GetSetStateSaver<T>::dumpState( QObject *obj, QObject * ) const
+std::shared_ptr<ObjectState> GetSetStateSaver<T>::dumpState( QObject *obj, QObject * ) const
 {
     DEBUG_WIDGETSTATESAFER("dumping state" << obj);
 
@@ -99,12 +98,12 @@ boost::shared_ptr<ObjectState> GetSetStateSaver<T>::dumpState( QObject *obj, QOb
     if( wi )
     {
         DEBUG_WIDGETSTATESAFER( "Saving old widget: " << T::get( wi ));
-        return boost::shared_ptr<ObjectState>(new state( this->shared_from_this(), obj, T::get( wi ) ));
+        return std::shared_ptr<ObjectState>(new state( this->shared_from_this(), obj, T::get( wi ) ));
     }
     else
     {
         DEBUG_WIDGETSTATESAFER("Ignoring: Cast failed");
-        return boost::shared_ptr<ObjectState>(new ObjectState());
+        return std::shared_ptr<ObjectState>(new ObjectState());
     }
 }
 

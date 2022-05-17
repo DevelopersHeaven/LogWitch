@@ -41,7 +41,7 @@ namespace logwitch
 
         void setEmitError( bool v) { m_emitError=v; }
 
-        boost::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration () const;
+        std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration () const;
 
         QString getName () const
         {
@@ -69,9 +69,9 @@ namespace logwitch
 
         bool m_emitError = false;
 
-        boost::shared_ptr<LogEntryFactory> myFactory;
+        std::shared_ptr<LogEntryFactory> myFactory;
 
-        boost::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
+        std::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
       };
     }
   }

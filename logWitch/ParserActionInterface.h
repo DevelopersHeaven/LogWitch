@@ -8,7 +8,7 @@
 #ifndef LOGWITCH_PARSERACTIONINTERFACE_H_
 #define LOGWITCH_PARSERACTIONINTERFACE_H_
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 class LogEntryParser;
 
@@ -26,7 +26,7 @@ namespace logwitch
 		/**
 		 * A new parser has been created an shall be passed to the application
 		 */
-		virtual void newParser(boost::shared_ptr<LogEntryParser> parser, bool alreadyInitialized = false) = 0;
+		virtual void newParser(std::shared_ptr<LogEntryParser> parser, bool alreadyInitialized = false) = 0;
 	};
 }
 

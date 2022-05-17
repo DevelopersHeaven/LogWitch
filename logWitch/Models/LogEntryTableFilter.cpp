@@ -61,7 +61,7 @@ void LogEntryTableFilter::generateExportList( std::vector<TconstSharedLogEntry>&
   }
 }
 
-void LogEntryTableFilter::addFilter( boost::shared_ptr<LogEntryFilter> flt )
+void LogEntryTableFilter::addFilter( std::shared_ptr<LogEntryFilter> flt )
 {
 	m_filterChain.addFilter( flt );
 }

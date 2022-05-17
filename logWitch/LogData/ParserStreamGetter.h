@@ -8,7 +8,7 @@
 #ifndef LOGWITCH_LOGDATA_PARSERSTREAMGETTER_H_
 #define LOGWITCH_LOGDATA_PARSERSTREAMGETTER_H_
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <QtCore/qobject.h>
 #include <QTextStream>
@@ -20,7 +20,7 @@
 class ParserStreamGetter
 {
 public:
-  ParserStreamGetter( const QString name, boost::shared_ptr<QTextStream> textStream = boost::shared_ptr<QTextStream>() );
+  ParserStreamGetter( const QString name, std::shared_ptr<QTextStream> textStream = std::shared_ptr<QTextStream>() );
 
   virtual ~ParserStreamGetter();
 
@@ -29,7 +29,7 @@ public:
    * if something went wrong. If there is something wring, getError can be used
    * to retrieve an error message.
    */
-  virtual boost::shared_ptr<QTextStream> getStream() {return m_textStream; }
+  virtual std::shared_ptr<QTextStream> getStream() {return m_textStream; }
 
   /**
    * In case of errors, this is a human readable string with the error reason.
@@ -47,7 +47,7 @@ protected:
 
   QString m_error;
 
-  boost::shared_ptr<QTextStream> m_textStream;
+  std::shared_ptr<QTextStream> m_textStream;
 };
 
 

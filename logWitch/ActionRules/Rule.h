@@ -7,7 +7,6 @@
 
 #ifndef RULE_H_
 #define RULE_H_
-#include <boost/shared_ptr.hpp>
 
 #include <QtCore/QtCore>
 
@@ -35,7 +34,7 @@ private:
     TconstSharedAction m_action;
 };
 
-typedef boost::shared_ptr<Rule> TSharedRule;
-typedef boost::shared_ptr<const Rule> TconstSharedRule;
+typedef std::shared_ptr<Rule> TSharedRule;
+typedef std::shared_ptr<const Rule> TconstSharedRule;
 
 #endif /* RULE_H_ */

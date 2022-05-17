@@ -8,7 +8,6 @@
 #ifndef LOGENTRYPARSERMODELCONFIGURATION_H_
 #define LOGENTRYPARSERMODELCONFIGURATION_H_
 #include <QtCore/QtCore>
-#include <boost/shared_ptr.hpp>
 
 
 class EntryToTextFormater;
@@ -30,7 +29,7 @@ public:
      *
      * @param configurationString This string is an identifier to save and load default settings.
      */
-	LogEntryParserModelConfiguration( const QString &configurationString, boost::shared_ptr<LogEntryFactory> factory );
+	LogEntryParserModelConfiguration( const QString &configurationString, std::shared_ptr<LogEntryFactory> factory );
 	virtual ~LogEntryParserModelConfiguration();
 
 	/**
@@ -45,15 +44,15 @@ public:
 	 * The formatter is used to format a logEntry to a human readable html.
 	 * This html can than be displayed to the user.
 	 */
-	boost::shared_ptr<EntryToTextFormater> getEntryToTextFormater() const { return m_formater;};
+	std::shared_ptr<EntryToTextFormater> getEntryToTextFormater() const { return m_formater;};
 
-	void setEntryToTextFormater( boost::shared_ptr<EntryToTextFormater> fmt ){ m_formater = fmt;}
+	void setEntryToTextFormater( std::shared_ptr<EntryToTextFormater> fmt ){ m_formater = fmt;}
 
 	/**
 	 * Returns the corresponding factory for creating log entries.
 	 * This factory also hold the names for the columns referenced here.
 	 */
-	boost::shared_ptr<const LogEntryFactory> getLogEntryFactory() const { return m_attr;}
+	std::shared_ptr<const LogEntryFactory> getLogEntryFactory() const { return m_attr;}
 
 	/**
 	 * Returns the suggested width of the column.
@@ -118,9 +117,9 @@ public:
 private:
 	QVector<QString> m_hierarchySplitstrings;
 
-	boost::shared_ptr<EntryToTextFormater> m_formater;
+	std::shared_ptr<EntryToTextFormater> m_formater;
 
-	boost::shared_ptr<LogEntryFactory> m_attr;
+	std::shared_ptr<LogEntryFactory> m_attr;
 
 	QVector<int> m_fieldWidthHints;
 	const QString m_configurationString;
@@ -133,7 +132,7 @@ private:
 	bool m_fieldOrderHintLoaded;
 };
 
-typedef boost::shared_ptr<LogEntryParserModelConfiguration> TSharedLogEntryParserModelConfiguration;
-typedef boost::shared_ptr<const LogEntryParserModelConfiguration> TSharedConstLogEntryParserModelConfiguration;
+typedef std::shared_ptr<LogEntryParserModelConfiguration> TSharedLogEntryParserModelConfiguration;
+typedef std::shared_ptr<const LogEntryParserModelConfiguration> TSharedConstLogEntryParserModelConfiguration;
 
 #endif /* LOGENTRYPARSERMODELCONFIGURATION_H_ */

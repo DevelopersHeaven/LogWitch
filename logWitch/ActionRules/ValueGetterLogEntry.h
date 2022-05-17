@@ -8,7 +8,6 @@
 #ifndef VALUEGETTERLOGENTRY_H_
 #define VALUEGETTERLOGENTRY_H_
 
-#include <boost/shared_ptr.hpp>
 #include <QtCore/QtCore>
 
 #include "LogData/LogEntry.h"
@@ -45,7 +44,7 @@ private:
     int m_fieldId;
 };
 
-typedef boost::shared_ptr<ValueGetterLogEntry> TSharedValueGetterLogEntry;
-typedef boost::shared_ptr<const ValueGetterLogEntry> TconstSharedValueGetterLogEntry;
+typedef std::shared_ptr<ValueGetterLogEntry> TSharedValueGetterLogEntry;
+typedef std::shared_ptr<const ValueGetterLogEntry> TconstSharedValueGetterLogEntry;
 
 #endif /* VALUEGETTERLOGENTRY_H_ */

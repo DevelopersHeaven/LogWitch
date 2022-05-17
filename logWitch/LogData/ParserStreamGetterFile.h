@@ -15,7 +15,7 @@ class ParserStreamGetterFile: public ParserStreamGetter
 public:
   ParserStreamGetterFile(const QString &filename);
 
-  virtual boost::shared_ptr<QTextStream> getStream();
+  virtual std::shared_ptr<QTextStream> getStream();
 
 private:
   QString m_filename;
