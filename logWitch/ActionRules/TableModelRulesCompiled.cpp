@@ -108,7 +108,7 @@ QVariant TableModelRulesCompiled::data(const QModelIndex &index, int role) const
 
         if( !row->isExpressionOk())
         {
-            if( role == Qt::BackgroundColorRole )
+            if( role == Qt::BackgroundRole )
             {
                 return QColor( Qt::red );
             }
@@ -123,7 +123,7 @@ QVariant TableModelRulesCompiled::data(const QModelIndex &index, int role) const
 
         if( !row->isActionOk())
         {
-            if( role == Qt::BackgroundColorRole )
+            if( role == Qt::BackgroundRole )
             {
                 return QColor( Qt::red );
             }
