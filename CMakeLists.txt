@@ -28,8 +28,6 @@ IF(NOT CMAKE_BUILD_TYPE)
 	SET(CMAKE_BUILD_TYPE "Release")
 endif()
 
-# Set default value for the build type to release, if nothing else was specified
-OPTION (USEQT5 "QT5 library usage instead of 4" ON)
 # Set Log4Cplus version 2
 OPTION (USELOG4CPLUSV2 "Search for version 2 log4cplus library" OFF)
 
@@ -39,20 +37,9 @@ OPTION (WITH_PLUGINDUMMY "Compile python plugin" ON)
 set(QT5_BASE_DIR "Default" CACHE STRING "")
 
 
-IF(USEQT5)
-  CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12 FATAL_ERROR)
-  MESSAGE(STATUS "Use QT5 for build.")
-ELSE()
-  CMAKE_MINIMUM_REQUIRED(VERSION 2.6.0 FATAL_ERROR)
-  MESSAGE(STATUS "WARNING: Try to use obsolete non QT5 build!")
-ENDIF()
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12 FATAL_ERROR)
 
 SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
-
-IF(USEQT5)
-ELSE()
-  SET(QT_USE_QTNETWORK TRUE)
-ENDIF()
 
 ### Definitions of Directories.
 SET(MAIN_DIR_NAME "LogWitch")
@@ -70,20 +57,16 @@ ENDIF()
 
 ### Search dependencies
 
-IF(USEQT5)
-  FIND_PACKAGE(Qt5Core 5.12 REQUIRED)
-  FIND_PACKAGE(Qt5Widgets 5.12 REQUIRED)
-  FIND_PACKAGE(Qt5Network 5.12 REQUIRED)
-  FIND_PACKAGE(Qt5Concurrent 5.12 REQUIRED)
-  FIND_PACKAGE(Qt5Help 5.12 REQUIRED)
-  #find_package(Qt5 COMPONENTS Core Widgets)
-  
-  FIND_PACKAGE(Qt5Collectiongenerator 5.12 REQUIRED)
-  
-  # QT_QCOLLECTIONGENERATOR_EXECUTABLE
-ELSE()
-  FIND_PACKAGE(Qt4 4.7 REQUIRED)
-ENDIF()
+FIND_PACKAGE(Qt5Core 5.12 REQUIRED)
+FIND_PACKAGE(Qt5Widgets 5.12 REQUIRED)
+FIND_PACKAGE(Qt5Network 5.12 REQUIRED)
+FIND_PACKAGE(Qt5Concurrent 5.12 REQUIRED)
+FIND_PACKAGE(Qt5Help 5.12 REQUIRED)
+#find_package(Qt5 COMPONENTS Core Widgets)
+
+FIND_PACKAGE(Qt5Collectiongenerator 5.12 REQUIRED)
+
+# QT_QCOLLECTIONGENERATOR_EXECUTABLE
 
 FIND_PACKAGE(Boost REQUIRED)
 
@@ -109,18 +92,13 @@ SET(LFA_PLUGIN_LOG4CPLUS_LIB "logwitch_plugin_log4cplus")
 SET(LFA_PLUGIN_DUMMY_LIB "logwitch_plugin_dummy")
 SET(LFA_PLUGIN_PYTHON_LIB "logwitch_plugin_python")
 
-IF(USEQT5)
-   include_directories(
-        ${Qt5Widgets_INCLUDE_DIRS}
-        ${Qt5Gui_INCLUDE_DIRS}
-        ${Qt5Core_INCLUDE_DIRS}
-        ${Qt5Network_INCLUDE_DIRS}
-        ${Qt5Concurrent_INCLUDE_DIRS}
-    )
-ELSE()
-  INCLUDE(${QT_USE_FILE})
-  ADD_DEFINITIONS(${QT_DEFINITIONS})
-ENDIF()
+include_directories(
+    ${Qt5Widgets_INCLUDE_DIRS}
+    ${Qt5Gui_INCLUDE_DIRS}
+    ${Qt5Core_INCLUDE_DIRS}
+    ${Qt5Network_INCLUDE_DIRS}
+    ${Qt5Concurrent_INCLUDE_DIRS}
+)
 
 IF(NOT WITHOUT_TEST)
   ENABLE_TESTING()
