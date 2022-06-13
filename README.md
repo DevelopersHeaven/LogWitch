@@ -11,7 +11,7 @@ analysis and bug hunting.
 
 To build container with name logwitch
 ```shell
-docker build github.com/Kiwi-MethodPark/LogWitch -t logwitch
+docker build . -t logwitch
 ```
 
 To run logwitch:
