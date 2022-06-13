@@ -1,4 +1,4 @@
-FROM theshadowx/qt5:latest as builder
+FROM vookimedlo/ubuntu-qt:latestDistroOfficial_gcc_focal as builder
 
 RUN apt update && apt install -y cmake liblog4cplus-dev qttools5-dev libboost-dev libboost-test-dev libboost-python-dev
 
@@ -9,9 +9,10 @@ RUN cmake .
 RUN cmake --build . -- -j 4 #TODO determine number
 
 
-FROM theshadowx/qt5:latest
+FROM vookimedlo/ubuntu-qt:latestDistroOfficial_gcc_focal
 
-RUN apt update && apt install -y cmake liblog4cplus-dev libboost-python-dev \
+RUN apt update \
+        && apt install -y cmake liblog4cplus-dev libboost-python-dev qt5-assistant \
         && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt/

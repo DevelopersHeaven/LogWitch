@@ -1,4 +1,4 @@
-FROM theshadowx/qt5:latest
+FROM vookimedlo/ubuntu-qt:latestDistroOfficial_gcc_focal
 
 RUN apt update && apt install -y cmake liblog4cplus-dev qttools5-dev libboost-dev libboost-test-dev libboost-python-dev
 
