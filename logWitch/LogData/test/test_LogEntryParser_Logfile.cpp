@@ -17,29 +17,33 @@
 
 using namespace std::placeholders;
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
+  #define endl Qt::endl
+#endif
+
 void fillStream(QTextStream& ts, bool withEndl=false, bool withMultilineMessage=false)
 {
-  ts << "2016-03-08 15:23:23,904 - INFO - Mix.Dist.Command - [/Test.cpp:143:executeCommand] - Received command" << Qt::endl;
+  ts << "2016-03-08 15:23:23,904 - INFO - Mix.Dist.Command - [/Test.cpp:143:executeCommand] - Received command" << endl;
   if (withMultilineMessage) {
-    ts << " More message data 1" << Qt::endl;
+    ts << " More message data 1" << endl;
   }
   ////////
-  ts << "2016-03-08 15:23:23,904 - INFO - Mix.Dist.Mode - [/Mode.cpp:313:exit] - Exiting Mode " << Qt::endl;
+  ts << "2016-03-08 15:23:23,904 - INFO - Mix.Dist.Mode - [/Mode.cpp:313:exit] - Exiting Mode " << endl;
 
   ////////
-  ts << "2016-03-08 15:23:23,908 - INFO - Mix.Dist.Control - [/Control.cpp:113:handleExit] - handleExit" << Qt::endl;
+  ts << "2016-03-08 15:23:23,908 - INFO - Mix.Dist.Control - [/Control.cpp:113:handleExit] - handleExit" << endl;
   if (withMultilineMessage) {
-    ts << " More message data 2" << Qt::endl;
+    ts << " More message data 2" << endl;
   }
 
   ////////
   ts << "2016-03-08 15:23:23,909 - INFO - Mix.Dist.Control - [/Control.cpp:65:shutdown] - Control shutdown";
   if (withMultilineMessage) {
-    ts << Qt::endl << " More message data 3" ;
+    ts << endl << " More message data 3" ;
   }
 
   if (withEndl)
-    ts << Qt::endl;
+    ts << endl;
 }
 
 /**
@@ -99,10 +103,10 @@ BOOST_AUTO_TEST_CASE( bugLastLogLineWithEndlMultiLine )
 void filStreamWithIncrementingMessage( QTextStream& ts, int count, bool multiline )
 {
   for (int i = 0; i < count; ++i ) {
-    ts << "2016-03-08 15:23:23,904 - INFO - Mix.Dist.Command - [/Test.cpp:143:executeCommand] - " << i << "XX"<< Qt::endl;
+    ts << "2016-03-08 15:23:23,904 - INFO - Mix.Dist.Command - [/Test.cpp:143:executeCommand] - " << i << "XX"<< endl;
     if (multiline) {
       for( int j = 0; j < 3; ++j)
-        ts << " sdfg sdf asdf asdf asdf asdf asdf asd fas df asdf asdf asdf asdf asdf asdf asdf asdf asd fasd fasd f" << Qt::endl;
+        ts << " sdfg sdf asdf asdf asdf asdf asdf asd fas df asdf asdf asdf asdf asdf asdf asdf asdf asd fasd fasd f" << endl;
     }
   }
 }
