@@ -24,10 +24,9 @@ QT5_WRAP_CPP(LFA_LOGDATA_MOC_SOURCES ${LFA_LOGDATA_MOC_CLASSES})
 
 ADD_LIBRARY(${LFA_LOGDATA_LIB} STATIC ${LFA_LOGDATA_LIB_SOURCES} ${LFA_LOGDATA_MOC_SOURCES} )
 
-TARGET_LINK_LIBRARIES(${LFA_LOGDATA_LIB} 
-    ${Qt5Core_LIBRARIES}
-    ${Qt5Widgets_LIBRARIES}
-    ${Qt5Network_LIBRARIES}
+TARGET_LINK_LIBRARIES(${LFA_LOGDATA_LIB}
+    Qt5::Concurrent
+    Qt5::Widgets
 )
 
 ################################################################################
@@ -51,8 +50,7 @@ IF(NOT WITHOUT_TEST)
   ADD_EXECUTABLE( testLogData ${TEST_LFA_LOGDATA_LIB_SOURCES} ${TEST_LFA_LOGDATA_MOC_SOURCES} )
   
   TARGET_LINK_LIBRARIES(testLogData 
-      ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
-      ${Qt5Core_LIBRARIES}
+      Boost::unit_test_framework
       ${LFA_LOGDATA_LIB}
   )
   

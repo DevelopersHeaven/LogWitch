@@ -59,12 +59,7 @@ ENDIF()
 
 ### Search dependencies
 
-FIND_PACKAGE(Qt5Core 5.12 REQUIRED)
-FIND_PACKAGE(Qt5Widgets 5.12 REQUIRED)
-FIND_PACKAGE(Qt5Network 5.12 REQUIRED)
-FIND_PACKAGE(Qt5Concurrent 5.12 REQUIRED)
-FIND_PACKAGE(Qt5Help 5.12 REQUIRED)
-#find_package(Qt5 COMPONENTS Core Widgets)
+find_package(Qt5 5.12 COMPONENTS Concurrent Core Help Network Widgets REQUIRED)
 
 FIND_PACKAGE(Qt5Collectiongenerator 5.12 REQUIRED)
 
@@ -93,14 +88,6 @@ SET(LFA_PLUGINS_BASIC_LIB "logfileanalyzer_plugins_basic_lib")
 SET(LFA_PLUGIN_LOG4CPLUS_LIB "logwitch_plugin_log4cplus")
 SET(LFA_PLUGIN_DUMMY_LIB "logwitch_plugin_dummy")
 SET(LFA_PLUGIN_PYTHON_LIB "logwitch_plugin_python")
-
-include_directories(
-    ${Qt5Widgets_INCLUDE_DIRS}
-    ${Qt5Gui_INCLUDE_DIRS}
-    ${Qt5Core_INCLUDE_DIRS}
-    ${Qt5Network_INCLUDE_DIRS}
-    ${Qt5Concurrent_INCLUDE_DIRS}
-)
 
 IF(NOT WITHOUT_TEST)
   ENABLE_TESTING()

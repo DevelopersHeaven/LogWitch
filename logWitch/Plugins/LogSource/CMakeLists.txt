@@ -11,6 +11,10 @@ QT5_WRAP_CPP(LFA_PLUGINS_BASIC_LIB_MOC_SOURCES ${LFA_PLUGINS_BASIC_LIB_MOC_CLASS
 
 ADD_LIBRARY(${LFA_PLUGINS_BASIC_LIB} STATIC ${LFA_PLUGINS_BASIC_LIB_SOURCES} ${LFA_PLUGINS_BASIC_LIB_MOC_SOURCES})
 
+target_link_libraries(${LFA_PLUGINS_BASIC_LIB}
+    Qt5::Widgets
+)
+
 ################################################################################
 # Add plugins now
 IF(WITH_PLUGINLOG4CPLUS)
