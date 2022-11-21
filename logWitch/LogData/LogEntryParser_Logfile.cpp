@@ -22,7 +22,6 @@ LogEntryParser_Logfile::LogEntryParser_Logfile(  std::shared_ptr<ParserStreamGet
   : m_abort(false )
   , m_getter(getter)
   , lineMessageRegex( new QRegExp("^([\\d-]+\\s+[\\d\\,\\:]+)\\s+-\\s+((?:(?!\\s+-\\s+).)*)\\s+-\\s+((?:(?!\\s+-\\s+).)*)\\s+-\\s+(\\[(.*)\\]|((?!\\s+-\\s+).)*)\\s+-\\s+(.*)$") )
-  , cellRegex( "\\s+-\\s+" )
   , timeFormat( "yyyy-MM-dd HH:mm:ss,zzz" )
   , myFactory( new LogEntryFactory )
   , m_logEntryNumber( 0 )

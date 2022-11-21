@@ -11,11 +11,6 @@
 
 using namespace std::placeholders;
 
-HeaderViewGroup::HeaderViewGroup()
-: m_positionSyncNeeded( false )
-{
-}
-
 HeaderViewGroup::~HeaderViewGroup()
 {
     // There must be at least one missing, this is the one we are inside.

@@ -63,8 +63,6 @@ class HeaderViewGroup
 {
     Q_OBJECT
 public:
-    HeaderViewGroup();
-
     virtual ~HeaderViewGroup();
 
     void addToGroup( SynchronizedHeaderView * );
@@ -86,9 +84,6 @@ private:
 public:
     typedef std::list< SynchronizedHeaderView * > TGroupList;
     TGroupList m_groupChilds;
-
-    QMutex m_positionMutex;
-    bool m_positionSyncNeeded;
 };
 
 #endif /* SYNCHRONIZEDHEADERVIEW_H_ */

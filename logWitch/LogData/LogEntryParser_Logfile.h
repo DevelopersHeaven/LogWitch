@@ -58,8 +58,6 @@ private:
 
 	std::shared_ptr<QRegExp> lineMessageRegex;
 
-	QRegExp cellRegex;
-
 	QString timeFormat;
 
 	std::shared_ptr<LogEntryFactory> myFactory;
