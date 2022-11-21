@@ -10,8 +10,8 @@
 #include <boost/phoenix/object/construct.hpp>
 #include <boost/phoenix/object/new.hpp>
 #include <boost/spirit/include/qi.hpp>
-#include <boost/spirit/include/phoenix_operator.hpp>
-#include <boost/spirit/include/phoenix_fusion.hpp>
+#include <boost/phoenix/operator.hpp>
+#include <boost/phoenix/fusion.hpp>
 #include <boost/fusion/include/std_pair.hpp>
 
 #include <QtGui>

@@ -8,7 +8,7 @@
 #include "ExpressionParser.h"
 
 #include <boost/spirit/include/qi.hpp>
-#include <boost/spirit/include/phoenix_operator.hpp>
+#include <boost/phoenix/operator.hpp>
 
 #include "ActionRules/ExpressionFind.h"
 #include "ActionRules/ExpressionOperators.h"
