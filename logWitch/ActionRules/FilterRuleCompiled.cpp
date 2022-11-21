@@ -7,7 +7,7 @@
 
 #include "FilterRuleCompiled.h"
 
-#include <boost/spirit/include/phoenix_operator.hpp>
+#include <boost/phoenix/operator.hpp>
 #include <boost/spirit/include/qi.hpp>
 
 // take the string and search for => as an special expression.
