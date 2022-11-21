@@ -9,15 +9,16 @@
 #define LOGENTRYPARSER_LOG4CPLUSSOCKET_H_
 #include <list>
 
-
-#include <log4cplus/helpers/socket.h>
-
 #include <QAtomicInt>
 #include <QtCore/QtCore>
 #include <QtNetwork>
 
 #include "LogData/LogEntryFactory.h"
 #include "LogData/LogEntryParser.h"
+
+namespace log4cplus::helpers {
+class SocketBuffer;
+}
 
 namespace logwitch { namespace plugins { namespace log4cplus {
 
