@@ -12,7 +12,7 @@
 #include <QtCore/QtCore>
 #include <QtCore/QVariant>
 #include <QDateTime>
- #include <QMutexLocker>
+#include <QMutexLocker>
 
 #include "LogData/LogEntry.h"
 #include "LogData/LogEntryFactory.h"
