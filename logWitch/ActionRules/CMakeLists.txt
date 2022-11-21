@@ -1,13 +1,3 @@
-SET(LFA_RULES_MOC_CLASSES
-	CompiledRulesStateSaver.h
-	FilterRuleCompiled.h
-	FilterRuleSelectionWindow.h
-	RuleTable.h
-	RulesTableView.h
-	TableModelRulesCompiled.h
-	ToolButtonTrashFilter.h
-)
-
 SET(LFA_RULES_LIB_SOURCES
     Action.cpp
     ActionDataRewriter.cpp
@@ -33,9 +23,7 @@ SET(LFA_RULES_LIB_SOURCES
     ValueGetter.cpp
 )
 
-QT5_WRAP_CPP(LFA_RULES_MOC_SOURCES ${LFA_RULES_MOC_CLASSES})
-
-ADD_LIBRARY(${LFA_RULES_LIB} STATIC ${LFA_RULES_LIB_SOURCES} ${LFA_RULES_MOC_SOURCES})
+ADD_LIBRARY(${LFA_RULES_LIB} STATIC ${LFA_RULES_LIB_SOURCES})
 
 target_link_libraries(${LFA_RULES_LIB}
     Qt5::Widgets
