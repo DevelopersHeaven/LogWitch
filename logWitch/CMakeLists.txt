@@ -6,16 +6,6 @@ SET(LFA_FORMS
   GUI/DialogExportOptions.ui
 )
 
-SET(LFA_MOC_CLASSES
-	ContextMenuManipulateHeader.h
-	FilterListView.h
-	LogEntryTableWindow.h
-	logfileanalyser.h
-	
-	GUI/DialogExportOptions.h
-	GUI/QuickSearchBar.h
-)
-
 SET(LFA_SOURCES
 	ContextMenuManipulateHeader.cpp
 	FilterListView.cpp
@@ -53,16 +43,10 @@ ADD_SUBDIRECTORY(Plugins)
 #  ${CMAKE_CURRENT_BINARY_DIR}/Models
 #)
 
-QT5_WRAP_CPP(LFA_HEADERS_MOC ${LFA_MOC_CLASSES})
-QT5_WRAP_UI(LFA_FORMS_HEADERS ${LFA_FORMS})
-QT5_ADD_RESOURCES(LFA_RESOURCES_RCC ${LFA_RESOURCES})
-
-
 ADD_EXECUTABLE( logwitch 
 	${LFA_SOURCES} 
     ${LFA_FORMS_HEADERS} 
-    ${LFA_HEADERS_MOC}
-    ${LFA_RESOURCES_RCC}
+    ${LFA_RESOURCES}
 )
     
 TARGET_LINK_LIBRARIES( logwitch 
