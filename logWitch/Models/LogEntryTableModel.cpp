@@ -12,7 +12,6 @@
 #include <QtCore/QtCore>
 #include <QtCore/QVariant>
 #include <QDateTime>
-#include <QMutexLocker>
 
 #include "LogData/LogEntry.h"
 #include "LogData/LogEntryFactory.h"
@@ -20,19 +19,15 @@
 #include "LogData/LogEntryParserModelConfiguration.h"
 #include "LogData/LogEntryAttributeNames.h"
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations" // QMutex::Recursive
 LogEntryTableModel::LogEntryTableModel( std::shared_ptr<LogEntryParser> parser )
 	: m_table( )
 	, m_modelConfiguration( parser->getParserModelConfiguration() )
 	, m_entryLoader( parser )
 	, m_ModelName("Untitled")
-    , m_mutex( QMutex::Recursive )
     , m_captureActive( true )
     , m_maxNumberOfEntries( 0 )
     , m_blockInsertingMessages( false )
 {
-#pragma GCC diagnostic pop
     QObject::connect(dynamic_cast<QObject*>(parser.get()), SIGNAL(newEntry( TconstSharedNewLogEntryMessage )),
                      this, SLOT(insertEntry( TconstSharedNewLogEntryMessage ))
                      , Qt::QueuedConnection );
@@ -56,7 +51,7 @@ void LogEntryTableModel::generateExportList( std::vector<TconstSharedLogEntry>& 
     , QModelIndex first, QModelIndex last
     , const ExportParameters& ) const
 {
-  QMutexLocker lo( &m_mutex );
+  std::lock_guard<std::recursive_mutex> lo(m_mutex);
   int rowFirst = std::max( first.row(), 0  );
   int rowLast = std::min( last.row(), int( m_table.size() ) );
 
@@ -78,7 +73,7 @@ TSharedConstLogEntryParserModelConfiguration LogEntryTableModel::getParserModelC
 int LogEntryTableModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    QMutexLocker lo( &m_mutex );
+    std::lock_guard<std::recursive_mutex> lo(m_mutex);
 
     return m_table.size();
 }
@@ -86,7 +81,7 @@ int LogEntryTableModel::rowCount(const QModelIndex &parent) const
 int LogEntryTableModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    QMutexLocker lo( &m_mutex );
+    std::lock_guard<std::recursive_mutex> lo(m_mutex);
 
     int value = m_modelConfiguration->getLogEntryFactory()->getNumberOfFields( );
     return value;
@@ -94,13 +89,13 @@ int LogEntryTableModel::columnCount(const QModelIndex &parent) const
 
 TconstSharedLogEntry LogEntryTableModel::getEntryByRow( const int row ) const
 {
-    QMutexLocker lo( &m_mutex );
+    std::lock_guard<std::recursive_mutex> lo(m_mutex);
     return m_table[row];
 }
 
 TconstSharedLogEntry LogEntryTableModel::getEntryByIndex( const QModelIndex &index ) const
 {
-    QMutexLocker lo( &m_mutex );
+    std::lock_guard<std::recursive_mutex> lo(m_mutex);
 
     if (index.row() < 0
       || index.row() >= int(m_table.size() ) )
@@ -117,7 +112,7 @@ TconstSharedLogEntry LogEntryTableModel::getEntryByIndex( const QModelIndex &ind
 
 QVariant LogEntryTableModel::data(const QModelIndex &index, int role) const
 {
-    QMutexLocker lo( &m_mutex );
+    std::lock_guard<std::recursive_mutex> lo(m_mutex);
 
     if (!index.isValid())
         return QVariant();
@@ -214,7 +209,7 @@ bool LogEntryTableModel::setHeaderData ( int section, Qt::Orientation orientatio
 
 void LogEntryTableModel::clearTable()
 {
-    QMutexLocker lo( &m_mutex );
+    std::lock_guard<std::recursive_mutex> lo(m_mutex);
     beginResetModel();
     m_table.clear();
     endResetModel();
@@ -225,7 +220,7 @@ void LogEntryTableModel::insertEntry( TconstSharedNewLogEntryMessage mess )
     if( !m_captureActive || mess->entries.empty() )
         return;
 
-    QMutexLocker lo( &m_mutex );
+    std::lock_guard<std::recursive_mutex> lo(m_mutex);
 
     if( m_blockInsertingMessages )
     {
@@ -291,7 +286,7 @@ void LogEntryTableModel::endBlockItems()
 
 bool LogEntryTableModel::removeRows ( int row, int count, const QModelIndex & parent )
 {
-    QMutexLocker lo( &m_mutex );
+    std::lock_guard<std::recursive_mutex> lo(m_mutex);
     return removeRows_unlocked ( row, count, parent );
 }
 
@@ -318,5 +313,5 @@ void LogEntryTableModel::capture( bool active )
 
 std::any LogEntryTableModel::getLock()
 {
-    return std::shared_ptr<QMutexLocker>( new QMutexLocker(&m_mutex) );
+    return std::make_shared<std::lock_guard<std::recursive_mutex>>(m_mutex);
 }

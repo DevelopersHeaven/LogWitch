@@ -158,7 +158,7 @@ private:
 
   QString m_ModelName;
 
-  mutable QMutex m_mutex;
+  mutable std::recursive_mutex m_mutex;
 
   bool m_captureActive;
 
