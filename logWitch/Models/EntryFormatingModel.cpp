@@ -52,7 +52,7 @@ QVariant EntryFormatingModel::data(const QModelIndex &index, int role) const
     // Apply Date / Time formatting here.
     if( role == Qt::DisplayRole )
     {
-        if( var.type() == QVariant::DateTime )
+        if (var.userType() == QVariant::DateTime)
         {
             if( m_timeDiffMode )
             {

@@ -31,7 +31,7 @@ namespace
         {
             QString formatedString;
 
-            switch( value.type() )
+            switch(value.userType())
             {
             case QVariant::DateTime:
                 return value.value<QDateTime>().toString(timestampFormat);
