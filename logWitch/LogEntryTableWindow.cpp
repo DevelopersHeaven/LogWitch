@@ -453,7 +453,7 @@ void LogEntryTableWindow::contextMenu(const QPoint & pt)
     QModelIndex idx = m_model->index(idxClick.row(), i);
     QVariant var = m_model->data(idx, Qt::DisplayRole);
     qDebug() << " i " << i << " var " << var;
-    if (var.type() == QVariant::DateTime)
+    if (var.userType() == QVariant::DateTime)
     {
       dt = var.toDateTime();
       found = true;
