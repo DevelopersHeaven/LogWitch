@@ -189,20 +189,23 @@ void LogEntryParserModelConfiguration::saveHintsToSettings() const
 
     QList<QVariant> vList;
 
-    std::for_each( m_fieldWidthHints.begin(), m_fieldWidthHints.end(),
-            std::bind( &QList<QVariant>::push_back, &vList, _1 ) );
+    for (const auto& hint : m_fieldWidthHints) {
+        vList.push_back(hint);
+    }
 
     settings.setValue( "Widths", vList );
 
     vList.clear();
-    std::for_each( m_fieldShowHint.begin(), m_fieldShowHint.end(),
-            std::bind( &QList<QVariant>::push_back, &vList, _1 ) );
+    for (const auto& hint : m_fieldShowHint) {
+        vList.push_back(hint);
+    }
 
     settings.setValue( "Show", vList );
 
     vList.clear();
-    std::for_each( m_fieldOrderHint.begin(), m_fieldOrderHint.end(),
-            std::bind( &QList<QVariant>::push_back, &vList, _1 ) );
+    for (const auto& hint : m_fieldOrderHint) {
+        vList.push_back(hint);
+    }
 
     settings.setValue( "Order", vList );
 
