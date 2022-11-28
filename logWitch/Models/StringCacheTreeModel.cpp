@@ -159,7 +159,7 @@ void StringCacheTreeModel::dataChangedToChildren(const QModelIndex &index)
 Qt::ItemFlags StringCacheTreeModel::flags(const QModelIndex &/* index*/ ) const
 {
 
-	return /*QAbstractItemModel::flags( index ) | */ Qt::ItemIsTristate | Qt::ItemIsEnabled | Qt::ItemIsUserCheckable;
+	return /*QAbstractItemModel::flags( index ) | */ Qt::ItemIsAutoTristate | Qt::ItemIsEnabled | Qt::ItemIsUserCheckable;
 
 }
 
