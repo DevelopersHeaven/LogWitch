@@ -61,11 +61,11 @@ public slots:
 	void newStringElement( TSharedConstQString );
 
 private:
-	std::shared_ptr<StringCacheTreeItem> m_rootNode;
+	std::unique_ptr<StringCacheTreeItem> m_rootNode;
 
 	QString m_modelname;
 
-	std::shared_ptr<QRegExp> m_splitRegex;
+	std::unique_ptr<QRegExp> m_splitRegex;
 
 	std::shared_ptr<LogEntryRemoveFilter> m_myFilter;
 

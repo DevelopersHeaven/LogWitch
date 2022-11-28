@@ -111,7 +111,7 @@ private:
 private:
 	QTcpSocket *m_socket;
 
-	std::shared_ptr<::log4cplus::helpers::SocketBuffer> m_buffer;
+	std::unique_ptr<::log4cplus::helpers::SocketBuffer> m_buffer;
 	quint64 m_bytesNeeded;
 	bool m_stateReadSize;
 
