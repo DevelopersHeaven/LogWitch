@@ -53,7 +53,7 @@ private:
   WidgetStateSaver *m_stateSaver;
   SignalMultiplexer m_signalMultiplexer;
 
-  std::shared_ptr<HelpAssistant> m_helpAssistant;
+  std::unique_ptr<HelpAssistant> m_helpAssistant;
 
   void loadPlugins();
   void loadPlugins(QDir basePath);
