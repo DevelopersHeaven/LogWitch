@@ -95,7 +95,7 @@ bool HelpAssistant::startAssistant()
 
         if( !QFile::exists( helpFile ) )
         {
-            helpFile = "Help/" + helpFilename;
+            helpFile = QCoreApplication::applicationDirPath() + "/Help/" + helpFilename;
             if( !QFile::exists( helpFile ) )
             {
                 qDebug() << "Unable to find helpfile: " << helpFilename;
