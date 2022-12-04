@@ -12,7 +12,7 @@
 #include "ActionRules/Expression.h"
 #include <iostream>
 #include "ValueGetter.h"
-#include <QRegExp>
+#include <QRegularExpression>
 
 class ExpressionRegEx
     : public Expression
@@ -32,7 +32,7 @@ public:
 private:
     TconstSharedValueGetter m_value;
 
-    QRegExp m_regex;
+    QRegularExpression m_regex;
 };
 
 typedef std::shared_ptr<ExpressionRegEx> TSharedExpressionRegEx;

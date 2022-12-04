@@ -7,7 +7,7 @@
 
 #include "LogEntryParser_LogfileLWI.h"
 
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QtCore/QtCore>
 
 #include "LogData/LogEntryAttributeNames.h"
@@ -75,8 +75,8 @@ bool LogEntryParser_LogfileLWI::initParser()
     std::vector<AttributeConfiguration> configs;
     configs.reserve(descriptions.size());
 
-    QRegExp expr("^([^:]*):(.*)$");
-    QRegExp exprNumber("^(.*)\\(([0-9]*)\\)$");
+    static const QRegularExpression expr(QRegularExpression::anchoredPattern("^([^:]*):(.*)$"));
+    static const QRegularExpression exprNumber(QRegularExpression::anchoredPattern("^(.*)\\(([0-9]*)\\)$"));
     bool invalidOrdering = false;
     size_t i = 0;
 
@@ -86,12 +86,13 @@ bool LogEntryParser_LogfileLWI::initParser()
       QString name, extension;
       int orderId = -1;
 
-      if (expr.exactMatch(*it))
+      const auto match = expr.match(*it);
+      if (match.hasMatch())
       {
-        qDebug() << " Field string matched extended: name " << expr.cap(1)
-            << " extension: " << expr.cap(2);
-        name = expr.cap(1);
-        extension = expr.cap(2);
+        qDebug() << " Field string matched extended: name " << match.captured(1)
+            << " extension: " << match.captured(2);
+        name = match.captured(1);
+        extension = match.captured(2);
       }
       else
       {
@@ -99,14 +100,15 @@ bool LogEntryParser_LogfileLWI::initParser()
         name = *it;
       }
 
-      if (exprNumber.exactMatch(name))
+      const auto matchNumber = exprNumber.match(name);
+      if (matchNumber.hasMatch())
       {
         qDebug() << " Ordering match: name:" << name << " number: "
-            << exprNumber.cap(2);
-        name = exprNumber.cap(1);
+            << matchNumber.captured(2);
+        name = matchNumber.captured(1);
 
         bool ok = false;
-        orderId = exprNumber.cap(2).toInt(&ok);
+        orderId = matchNumber.captured(2).toInt(&ok);
         if (!ok)
           orderId = -1;
       }

@@ -77,9 +77,10 @@ namespace
 
         void setImportExportDescription( const QString& str )
         {
-            QRegExp rx("^DATETIME\\('(.*)'\\)");
-            if (rx.indexIn(str) != -1)
-                 m_timeFormat = rx.cap(1);
+            static const QRegularExpression rx("^DATETIME\\('(.*)'\\)");
+            const auto match = rx.match(str);
+            if (match.hasPartialMatch())
+                 m_timeFormat = match.captured(1);
             else
             {
                 qDebug() << "Format string unparsable: " << str;

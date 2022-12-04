@@ -10,11 +10,11 @@
 #include "LogData/ObjectCache.hxx"
 #include <QAbstractTableModel>
 #include "StringCacheTreeItem.h"
-#include <QRegExp>
 #include "Types.h"
 
 class LogEntryFilter;
 class LogEntryRemoveFilter;
+class QRegularExpression;
 
 class StringCacheTreeModel
 	: public QAbstractItemModel
@@ -65,7 +65,7 @@ private:
 
 	QString m_modelname;
 
-	std::unique_ptr<QRegExp> m_splitRegex;
+	std::unique_ptr<QRegularExpression> m_splitRegex;
 
 	std::shared_ptr<LogEntryRemoveFilter> m_myFilter;
 
