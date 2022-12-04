@@ -16,8 +16,8 @@ SET(LFA_LOGDATA_LIB_SOURCES
 ADD_LIBRARY(${LFA_LOGDATA_LIB} STATIC ${LFA_LOGDATA_LIB_SOURCES})
 
 TARGET_LINK_LIBRARIES(${LFA_LOGDATA_LIB}
-    Qt5::Concurrent
-    Qt5::Widgets
+    Qt${QT_VERSION_MAJOR}::Concurrent
+    Qt${QT_VERSION_MAJOR}::Widgets
 )
 
 ################################################################################

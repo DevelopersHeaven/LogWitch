@@ -7,7 +7,7 @@ SET(LFA_PLUGINS_BASIC_LIB_SOURCES
 ADD_LIBRARY(${LFA_PLUGINS_BASIC_LIB} STATIC ${LFA_PLUGINS_BASIC_LIB_SOURCES})
 
 target_link_libraries(${LFA_PLUGINS_BASIC_LIB}
-    Qt5::Widgets
+    Qt${QT_VERSION_MAJOR}::Widgets
 )
 
 ################################################################################
