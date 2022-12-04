@@ -34,8 +34,6 @@ int main(int argc, char *argv[])
   QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, QApplication::applicationDirPath());
 #endif
 
-  LogfileAnalyser w;
-
   QCommandLineParser parser;
   parser.setApplicationDescription(QCoreApplication::translate("main", "This is a tool for analyzing logfiles or capturing remote log data.") );
   parser.addHelpOption();
@@ -45,6 +43,9 @@ int main(int argc, char *argv[])
   parser.addPositionalArgument("logfile", QCoreApplication::translate("main", "File to open"));
 
   parser.process(a);
+
+  LogfileAnalyser w;
+
   const QStringList positionalArguments = parser.positionalArguments();
   if (!positionalArguments.isEmpty())
   {
