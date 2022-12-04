@@ -125,8 +125,8 @@ void LogEntryTableModelFileExporter::exportTo( const QString& filename, std::fun
     str << "%%LWI_DESC="<< desc << "\n";
     str << "%%LWI_CFGContext="<< modelConfiguration->getConfigurationString() << "\n";
 
-    QRegExp regexLineEnd("(\r\n|\r|\n)");
-    QRegExp regexSplitter("( - )");
+    static const QRegularExpression regexLineEnd("(\r\n|\r|\n)");
+    static const QRegularExpression regexSplitter("( - )");
 
     for( TconstSharedLogEntry logEntry = funcNextExportItem(); logEntry; logEntry = funcNextExportItem() )
     {

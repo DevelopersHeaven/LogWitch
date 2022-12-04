@@ -22,7 +22,7 @@ StringCacheTreeModel::StringCacheTreeModel( QObject *parent, const GetObjectIF<O
 	m_rootNode.reset( new StringCacheTreeItem( rootNode, rootNode ) );
 
 	if( !splitString.isEmpty() )
-		m_splitRegex.reset( new QRegExp( splitString ) );
+		m_splitRegex.reset(new QRegularExpression(splitString));
 
     QObject::connect(cache, SIGNAL(newElement( TSharedConstQString )),
                      this, SLOT(newStringElement( TSharedConstQString ) ) );

@@ -7,7 +7,7 @@
 
 #include "LogEntryParser_Logfile.h"
 
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QtCore/QtCore>
 #include <QtConcurrent>
 
@@ -21,13 +21,10 @@
 LogEntryParser_Logfile::LogEntryParser_Logfile(  std::shared_ptr<ParserStreamGetter> getter  )
   : m_abort(false )
   , m_getter(getter)
-  , lineMessageRegex( new QRegExp("^([\\d-]+\\s+[\\d\\,\\:]+)\\s+-\\s+((?:(?!\\s+-\\s+).)*)\\s+-\\s+((?:(?!\\s+-\\s+).)*)\\s+-\\s+(\\[(.*)\\]|((?!\\s+-\\s+).)*)\\s+-\\s+(.*)$") )
   , timeFormat( "yyyy-MM-dd HH:mm:ss,zzz" )
   , myFactory( new LogEntryFactory )
   , m_logEntryNumber( 0 )
 {
-  lineMessageRegex->setMinimal(true);
-
   // Preparing attributes in factory
   LogEntryAttributeNames names;
   myFactory->addField(names.getConfiguration("number"));
@@ -108,15 +105,19 @@ class LogEntryParser_Logfile::LogfileLine
 {
 public:
   void setLine( QString line ){
+    static const QRegularExpression regex("^([\\d-]+\\s+[\\d\\,\\:]+)\\s+-\\s+((?:(?!\\s+-\\s+).)*)\\s+-\\s+((?:(?!\\s+-\\s+).)*)\\s+-\\s+(\\[(.*)\\]|((?!\\s+-\\s+).)*)\\s+-\\s+(.*)$",
+                                          QRegularExpression::InvertedGreedinessOption);
+
     m_line = line;
+    m_matched = regex.match(m_line);
   }
 
   bool match() {
-    return (m_matched->indexIn(m_line) != -1);
+    return m_matched.hasMatch();
   }
 
   QString m_line;
-  std::shared_ptr<QRegExp> m_matched;
+  QRegularExpressionMatch m_matched;
 };
 
 class LogEntryParser_Logfile::PreLogEntry
@@ -199,7 +200,7 @@ public:
 
   void runConvert()
   {
-    m_future = QtConcurrent::run(this, &LogEntryParser_Logfile::WorkPackage::convert);
+    m_future = QtConcurrent::run([this] { convert(); });
   }
 
   void waitForFinish()
@@ -219,28 +220,28 @@ public:
 
 TSharedLogEntry LogEntryParser_Logfile::createLogEntry( PreLogEntry& pre )
 {
-  QRegExp& lineMessageRegex = *pre.m_firstLine->m_matched;
+  QRegularExpressionMatch& lineMessageMatch = pre.m_firstLine->m_matched;
   TSharedLogEntry entry = myFactory->getNewLogEntry();
 
   entry->setAttribute(QVariant(++m_logEntryNumber), 0);
 
   entry->setAttribute(
-      QVariant(QDateTime::fromString(lineMessageRegex.cap(1), timeFormat)), 1);
+      QVariant(QDateTime::fromString(lineMessageMatch.captured(1), timeFormat)), 1);
   // File Source
-  if (lineMessageRegex.cap(5).isEmpty())
-    entry->setAttribute(QVariant(lineMessageRegex.cap(4)), 5);
+  if (lineMessageMatch.captured(5).isEmpty())
+    entry->setAttribute(QVariant(lineMessageMatch.captured(4)), 5);
   else
-    entry->setAttribute(QVariant(lineMessageRegex.cap(5)), 5);
+    entry->setAttribute(QVariant(lineMessageMatch.captured(5)), 5);
 
-  QString message = lineMessageRegex.cap(7);
+  QString message = lineMessageMatch.captured(7);
   if (!pre.m_nextLines.isEmpty())
     message += "\n" + pre.m_nextLines.join("\n");
   entry->setAttribute(QVariant(QString(message)), 2);
 
   // Severity
-  entry->setAttribute(QVariant(lineMessageRegex.cap(2)), 3);
+  entry->setAttribute(QVariant(lineMessageMatch.captured(2)), 3);
   // Component
-  entry->setAttribute(QVariant(lineMessageRegex.cap(3)), 4);
+  entry->setAttribute(QVariant(lineMessageMatch.captured(3)), 4);
 
   return entry;
 }
@@ -262,7 +263,6 @@ TSharedNewLogEntryMessage LogEntryParser_Logfile::getEntries()
     while( !m_logfileStream->atEnd())
     {
       std::shared_ptr<LogfileLine> lineProcessor( new LogfileLine );
-      lineProcessor->m_matched = std::shared_ptr<QRegExp>(new QRegExp(*lineMessageRegex) );
       lineProcessor->setLine( m_logfileStream->readLine() );
       lineProcessors.push_back(lineProcessor);
       currentWork++;

@@ -13,10 +13,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QtCore/QtCore>
-#include <QRegExp>
 #include "LogEntryFactory.h"
 
-class QRegExp;
 class LogEntryOld;
 class LogEntryParserModelConfiguration;
 class ParserStreamGetter;
@@ -55,8 +53,6 @@ private:
 	std::shared_ptr<ParserStreamGetter> m_getter;
 
 	std::shared_ptr<QTextStream> m_logfileStream;
-
-	std::shared_ptr<QRegExp> lineMessageRegex;
 
 	QString timeFormat;
 
