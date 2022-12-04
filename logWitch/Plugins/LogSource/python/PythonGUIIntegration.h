@@ -1,12 +1,12 @@
 /*
- * Log4cplusGUIIntegration.h
+ * PythonGUIIntegration.h
  *
  *  Created on: Apr 18, 2019
  *      Author: sven
  */
 
-#ifndef LOGWITCH_PLUGINS_LOGSOURCE_LOG4CPLUS_PYTHONGUIINTEGRATION_H_
-#define LOGWITCH_PLUGINS_LOGSOURCE_LOG4CPLUS_PYTHONGUIINTEGRATION_H_
+#ifndef LOGWITCH_PLUGINS_LOGSOURCE_PYTHON_PYTHONGUIINTEGRATION_H_
+#define LOGWITCH_PLUGINS_LOGSOURCE_PYTHON_PYTHONGUIINTEGRATION_H_
 
 #include <QtCore>
 #include <QObject>
@@ -19,7 +19,7 @@
 namespace logwitch { namespace plugins { namespace python {
 
 /**
- * Integration part of log4cplus to the logwitch plugin concept. This class
+ * Integration part of Python to the logwitch plugin concept. This class
  * handles ToolBar and the reaction to the ToolBar.
  */
 class PythonGUIIntegration: public QObject, public LogSourcePluginAbstractBase
@@ -45,4 +45,4 @@ private:
 
 }}}
 
-#endif /* LOGWITCH_PLUGINS_LOGSOURCE_LOG4CPLUS_LOG4CPLUSGUIINTEGRATION_H_ */
+#endif /* LOGWITCH_PLUGINS_LOGSOURCE_PYTHON_PYTHONGUIINTEGRATION_H_ */
