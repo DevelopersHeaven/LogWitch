@@ -30,6 +30,11 @@ IF(NOT CMAKE_BUILD_TYPE)
 	SET(CMAKE_BUILD_TYPE "Release")
 endif()
 
+# List of candidates for the Qt framework to build against. CMake will pick the
+# highest version available. Override this variable on the command line to
+# specify an exact Qt version, e.g. `-DUSE_QT=Qt5`.
+set(USE_QT Qt5 Qt6 CACHE STRING "Qt framework to build against")
+
 OPTION (WITH_PLUGINLOG4CPLUS "Compile log4cplus plugin" ON)
 OPTION (WITH_PLUGINPYTHON "Compile python plugin" ON)
 OPTION (WITH_PLUGINDUMMY "Compile dummy plugin" ON)
@@ -54,7 +59,12 @@ ENDIF()
 
 ### Search dependencies
 
-find_package(Qt5 5.12 COMPONENTS Concurrent Core Help Network Widgets REQUIRED)
+find_package(QT NAMES ${USE_QT} REQUIRED)
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+  find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Concurrent Core Help Network ToolsTools Widgets REQUIRED)
+else()
+  find_package(Qt${QT_VERSION_MAJOR} 5.12 COMPONENTS Concurrent Core Help Network Widgets REQUIRED)
+endif()
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
