@@ -14,6 +14,7 @@ include(FindPackageHandleStandardArgs)
 # Include dir
 find_path(LOG4CPLUS_INCLUDE_DIR
   HINTS ${LOG4CPLUS_ROOT_DIR}/include
+  PATHS usr/local/include
   NAMES log4cplus/logger.h
 )
 

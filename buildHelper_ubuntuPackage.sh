@@ -15,7 +15,7 @@ CODENAME=`lsb_release -c -s`
 
 mkdir buildUbuntuPackage
 cd buildUbuntuPackage
-cmake .. -DUSELOG4CPLUSV2=1 -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX:PATH=/usr -DTARGET_SYSTEM="${CODENAME}"
+cmake .. -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX:PATH=/usr -DTARGET_SYSTEM="${CODENAME}"
 make $1
 # Set umask to produce a correct permission debian file.
 umask 022
