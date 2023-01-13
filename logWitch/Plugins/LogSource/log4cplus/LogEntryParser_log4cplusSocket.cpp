@@ -5,6 +5,8 @@
  *      Author: sven
  */
 
+#undef UNICODE
+
 #include "Plugins/LogSource/log4cplus/LogEntryParser_log4cplusSocket.h"
 
 #include <algorithm>
@@ -23,6 +25,7 @@
 #endif
 
 #include <log4cplus/loglevel.h>
+#include <log4cplus/tchar.h>
 
 #include <QtCore/QtCore>
 
