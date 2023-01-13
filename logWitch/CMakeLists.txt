@@ -63,15 +63,12 @@ TARGET_COMPILE_DEFINITIONS( logwitch PRIVATE -DLW_PLUGIN_DIR="${LW_BIN_TO_PLUGIN
 ###################### Installation
 install (TARGETS logwitch
          RUNTIME DESTINATION "${LW_BINARY_DIR}" )
-         
-IF(NOT UNIX)
-	INSTALL( FILES ${QT_LIBRARY_DIR}/QtCore4.dll
-		${QT_LIBRARY_DIR}/QtGUI4.dll
-		${QT_LIBRARY_DIR}/QtNetwork4.dll
-		${QT_LIBRARY_DIR}/QtSvg4.dll
-		${QT_LIBRARY_DIR}/QtXml4.dll
-		${PACKAGING_ADDDIR}/qt.conf
-		DESTINATION "${LW_BINARY_DIR}" )
-	INSTALL( FILES ${QT_PLUGINS_DIR}/imageformats/qsvg4.dll
-		DESTINATION bin/plugins/imageformats )
-ENDIF()
+
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    qt_generate_deploy_app_script(
+        TARGET logwitch
+        FILENAME_VARIABLE deploy_script
+        NO_UNSUPPORTED_PLATFORM_ERROR
+    )
+    install(SCRIPT ${deploy_script})
+endif()
