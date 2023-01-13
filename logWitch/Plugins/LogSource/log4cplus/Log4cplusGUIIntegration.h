@@ -16,6 +16,8 @@
 class QSpinBox;
 class QToolBar;
 
+namespace log4cplus { class Initializer; }
+
 namespace logwitch { namespace plugins { namespace log4cplus {
 
 /**
@@ -39,6 +41,9 @@ private slots:
 	void openPort();
 
 private:
+	// Needed for clean shutdown on Windows
+	::log4cplus::Initializer* m_initializer = nullptr;
+
 	QToolBar* m_toolbar;
 	QSpinBox* m_port;
 };

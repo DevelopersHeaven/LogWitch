@@ -7,6 +7,12 @@
 
 #include "Plugins/LogSource/log4cplus/Log4cplusGUIIntegration.h"
 
+#include "Plugins/LogSource/log4cplus/Log4cplusVersion.h"
+
+#ifdef LOG4CPLUSV2
+#include <log4cplus/initializer.h>
+#endif
+
 #include <QApplication>
 
 #include <QtCore>
@@ -31,6 +37,10 @@ Log4cplusGUIIntegration::Log4cplusGUIIntegration ()
   m_pluginDescription.version = "1.0.0";
 
   QSettings settings;
+
+#ifdef LOG4CPLUSV2
+  m_initializer = new ::log4cplus::Initializer();
+#endif
 
   m_toolbar = new QToolBar("Log4cplus");
 
@@ -76,6 +86,10 @@ Log4cplusGUIIntegration::~Log4cplusGUIIntegration ()
   settings.setValue(settingskey_port, m_port->value() );
 
   delete m_toolbar;
+
+#ifdef LOG4CPLUSV2
+  delete m_initializer;
+#endif
 }
 
 void Log4cplusGUIIntegration::openPort ()
