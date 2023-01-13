@@ -2,6 +2,7 @@
 
 #include <QtGui>
 #include <QFileDialog>
+#include <QHostAddress>
 #include <QLabel>
 #include <QMessageBox>
 #include <QSpinBox>
@@ -61,6 +62,14 @@ LogfileAnalyser::~LogfileAnalyser()
 
 void LogfileAnalyser::loadPlugins()
 {
+	// Qt Network functionality is used by some plugins (which are deployed to
+	// `lib/plugins`), but the CMake function `qt_generate_deploy_app_script()`
+	// only works for targets that are deployed to `bin`.
+	// As a consequence, the main binary must link against all necessary Qt
+	// libraries so `windeployqt` can detect and include them.
+	// To ensure this, instantiate one Qt Network class here.
+	QHostAddress dummy;
+
 	// In case of building release
 	QDir pluginsDir(qApp->applicationDirPath());
 	if (pluginsDir.cd(LW_PLUGIN_DIR))
