@@ -33,9 +33,9 @@ endif()
 # Set Log4Cplus version 2
 OPTION (USELOG4CPLUSV2 "Search for version 2 log4cplus library" OFF)
 
-OPTION (WITH_PLUGINLOG4CPLUS "Compile logt4cplus plugin" ON)
+OPTION (WITH_PLUGINLOG4CPLUS "Compile log4cplus plugin" ON)
 OPTION (WITH_PLUGINPYTHON "Compile python plugin" ON)
-OPTION (WITH_PLUGINDUMMY "Compile python plugin" ON)
+OPTION (WITH_PLUGINDUMMY "Compile dummy plugin" ON)
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12 FATAL_ERROR)
 
