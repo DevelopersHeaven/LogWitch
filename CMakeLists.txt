@@ -61,8 +61,11 @@ ENDIF()
 
 find_package(QT NAMES ${USE_QT} REQUIRED)
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-  find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Concurrent Core Help Network ToolsTools Widgets REQUIRED)
+  find_package(Qt${QT_VERSION_MAJOR} 6.3 COMPONENTS Concurrent Core Help Network ToolsTools Widgets REQUIRED)
 else()
+  if (WIN32)
+    message(FATAL_ERROR "Building on Windows requires Qt >= 6")
+  endif()
   find_package(Qt${QT_VERSION_MAJOR} 5.12 COMPONENTS Concurrent Core Help Network Widgets REQUIRED)
 endif()
 
