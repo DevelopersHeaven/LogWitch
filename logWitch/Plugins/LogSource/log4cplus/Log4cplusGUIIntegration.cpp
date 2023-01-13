@@ -11,6 +11,9 @@
 
 #include <QtCore>
 #include <QLabel>
+#include <QSpinBox>
+
+#include "ParserActionInterface.h"
 
 #include "Plugins/LogSource/log4cplus/LogEntryParser_log4cplusSocket.h"
 

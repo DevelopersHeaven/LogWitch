@@ -13,8 +13,9 @@
 #include <QtCore/QtCore>
 #include <QtNetwork>
 
-#include "LogData/LogEntryFactory.h"
 #include "LogData/LogEntryParser.h"
+
+class LogEntryFactory;
 
 namespace log4cplus::helpers {
 class SocketBuffer;
