@@ -26,5 +26,6 @@ SET(LFA_RULES_LIB_SOURCES
 ADD_LIBRARY(${LFA_RULES_LIB} STATIC ${LFA_RULES_LIB_SOURCES})
 
 target_link_libraries(${LFA_RULES_LIB}
+    Boost::boost
     Qt${QT_VERSION_MAJOR}::Widgets
 )
