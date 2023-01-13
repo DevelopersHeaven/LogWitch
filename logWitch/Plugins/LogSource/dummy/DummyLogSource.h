@@ -10,9 +10,10 @@
 #include <memory>
 
 #include <QObject>
-#include <QAction>
 
 #include "Plugins/LogSource/Interface/LogSourcePlugin.h"
+
+class QAction;
 
 namespace logwitch
 {

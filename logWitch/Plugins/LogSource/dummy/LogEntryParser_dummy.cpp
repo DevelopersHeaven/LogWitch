@@ -10,6 +10,7 @@
 #include "LogData/LogEntry.h"
 #include "LogData/LogEntryAttributeNames.h"
 #include "LogData/LogEntryFactory.h"
+#include "LogData/LogEntryParserModelConfiguration.h"
 
 using namespace logwitch::plugins::dummy;
 

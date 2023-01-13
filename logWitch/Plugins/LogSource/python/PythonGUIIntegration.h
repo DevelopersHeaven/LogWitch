@@ -10,11 +10,11 @@
 
 #include <QtCore>
 #include <QObject>
-#include <QToolBar>
-#include <QSpinBox>
 
 #include "Plugins/LogSource/Interface/LogSourcePlugin.h"
-#include "ParserActionInterface.h"
+
+class QSpinBox;
+class QToolBar;
 
 namespace logwitch { namespace plugins { namespace python {
 

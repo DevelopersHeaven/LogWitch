@@ -11,7 +11,6 @@
 #include <QtCore/QtCore>
 
 #include "LogData/LogEntryParser.h"
-#include "LogData/LogEntryParserModelConfiguration.h"
 
 class LogEntryParserModelConfiguration;
 

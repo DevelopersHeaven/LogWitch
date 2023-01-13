@@ -11,6 +11,9 @@
 
 #include <QtCore>
 #include <QLabel>
+#include <QSpinBox>
+
+#include "ParserActionInterface.h"
 
 #include "Plugins/LogSource/python/LogEntryParser_pythonSocket.h"
 
