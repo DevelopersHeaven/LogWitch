@@ -6,13 +6,11 @@
 #include <QMessageBox>
 #include <QSpinBox>
 
-#include "LogData/LogEntryFactory.h"
 #include "LogData/ParserStreamGetterFile.h"
 
 #include "Models/LogEntryTableModel.h"
 #include "LogEntryTableWindow.h"
 
-#include "Models/StringCacheTreeModel.h"
 #include "LogData/LogEntryParser_Logfile.h"
 #include "LogData/LogEntryParser_LogfileLWI.h"
 #include "GUITools/WidgetStateSaver.h"

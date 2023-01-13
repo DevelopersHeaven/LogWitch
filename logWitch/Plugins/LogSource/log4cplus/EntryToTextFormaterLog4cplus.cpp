@@ -8,7 +8,6 @@
 #include "Plugins/LogSource/log4cplus/EntryToTextFormaterLog4cplus.h"
 
 #include <QTextStream>
-#include <QTextDocument>
 
 #include "LogData/LogEntry.h"
 #include "LogData/LogEntryFactory.h"

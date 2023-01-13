@@ -12,13 +12,10 @@
 
 #include <boost/python.hpp>
 
-#include <log4cplus/helpers/socket.h>
-
 #include <QAtomicInt>
 #include <QtCore/QtCore>
 #include <QtNetwork>
 
-#include "LogData/LogEntryFactory.h"
 #include "LogData/LogEntryParser.h"
 
 namespace logwitch { namespace plugins { namespace python {
