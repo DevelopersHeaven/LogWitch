@@ -13,19 +13,21 @@ include(FindPackageHandleStandardArgs)
 
 # Include dir
 find_path(LOG4CPLUS_INCLUDE_DIR
+  HINTS ${LOG4CPLUS_ROOT_DIR}/include
   NAMES log4cplus/logger.h
 )
 
 # Finally the library itself
 find_library(LOG4CPLUS_LIBRARY
   NAMES log4cplus
+  HINTS ${LOG4CPLUS_ROOT_DIR}/lib
 )
 
 IF( NOT UNIX)
 	GET_FILENAME_COMPONENT(LOG4CPLUS_DLL_PATH ${LOG4CPLUS_LIBRARY} PATH)
 	find_file(LOG4CPLUS_DLL
- 	 NAMES log4cplus.dll
- 	 PATHS ${LOG4CPLUS_DLL_PATH}
+ 	 NAMES liblog4cplus.dll log4cplus.dll
+ 	 PATHS ${LOG4CPLUS_DLL_PATH} ${LOG4CPLUS_ROOT_DIR}/bin
 	)
 ENDIF()
 
