@@ -41,20 +41,22 @@
 #ifndef HELPASSISTANT_H_
 #define HELPASSISTANT_H_
 
-#include <QtCore/QString>
+#include <QMainWindow>
 
-class QProcess;
+class QTextBrowser;
 
-class HelpAssistant
+class HelpAssistant : public QMainWindow
 {
+    Q_OBJECT
+
 public:
     HelpAssistant();
-    ~HelpAssistant();
     void showDocumentation(const QString &file);
 
 private:
-    bool startAssistant();
-    QProcess *proc;
+    void createHelpWindow();
+
+    QTextBrowser* textViewer;
 };
 
 #endif /* HELPASSISTANT_H_ */
