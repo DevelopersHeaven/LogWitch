@@ -85,12 +85,13 @@ void HelpAssistant::showDocumentation(const QString &page)
 
 void HelpAssistant::createHelpWindow()
 {
+    const auto appDir = QCoreApplication::applicationDirPath();
     QString helpFilename( "help.qhc" );
-    QString helpFile( globals::helpDirectory + "/" + helpFilename );
+    QString helpFile(appDir + "/../" + globals::helpDirectory + "/" + helpFilename);
 
     if( !QFile::exists( helpFile ) )
     {
-        helpFile = QCoreApplication::applicationDirPath() + "/Help/" + helpFilename;
+        helpFile = appDir + "/Help/" + helpFilename;
         if( !QFile::exists( helpFile ) )
         {
             qDebug() << "Unable to find helpfile: " << helpFilename;
