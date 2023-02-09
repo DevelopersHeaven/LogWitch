@@ -13,7 +13,7 @@ namespace globals
 	const QString applicationVersion( "@VERSION@" );
 	
 	// This is the directory the help files will be installed
-	const QString helpDirectory( "@HELPDIRABSOLUTE@" );
+	const QString helpDirectory("@HELPDIR@");
 }
 
 #endif
