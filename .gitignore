@@ -5,6 +5,7 @@ makefile*
 cmake_install.cmake
 CPackConfig.cmake
 CPackSourceConfig.cmake
+*.cache
 *.settings
 *.a
 *.deb
