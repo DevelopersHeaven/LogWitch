@@ -17,7 +17,6 @@ ADD_CUSTOM_COMMAND(OUTPUT VersionFile ${CMAKE_CURRENT_BINARY_DIR}/Version.cmake
 IF( NOT EXISTS  ${CMAKE_CURRENT_BINARY_DIR}/version.cmake )
    	SET( VERSION "NONE")
 	INCLUDE( getgitversion.cmake )
-	# EXECUTE_PROCESS( COMMAND touch ${CMAKE_CURRENT_BINARY_DIR}/version.cmake )	
 ENDIF()
 
 INCLUDE( ${CMAKE_CURRENT_BINARY_DIR}/version.cmake )
