@@ -49,7 +49,7 @@ Out of source is recommended if one is not developing.
 Packaging:
 ----------
 
-CMake in conjunction with CPack has a nice feature to create distrubution packages.
+CMake in conjunction with CPack has a nice feature to create distribution packages.
 To use this feature proceed as mentioned in build instructions. After build has
 finished, use cpack to create a package:
 

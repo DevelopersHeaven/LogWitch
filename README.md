@@ -36,7 +36,7 @@ For OpenGL support (to get rid of `libGL error: MESA-LOADER: failed to retrieve 
 * Filtering the logs by specific criteria for e.g. hierarchy based
 * Searching within logs with multiple active expressions
 * Highlighting log lines for easier analyzation with colors.
-  * Fully customizeable, foreground, background, icons, ...
+  * Fully customizable, foreground, background, icons, ...
   * Use expressions (find, regex) with and, or, not to match certain fields or texts
 * High performance while doing actions with many log lines
 * Calculations with timestamps for measurements (diff between line or set a line
@@ -51,7 +51,7 @@ A current screenshot of the Tool:
 ## Installation
 
 * First clone the repository
-* Install prerequesites needed (depends on the features you activate)
+* Install prerequisites needed (depends on the features you activate)
 * Build it (see INSTALL)
 
 ## Copyright and license

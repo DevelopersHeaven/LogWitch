@@ -18,7 +18,7 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: logwitch-python, logwitch-log4cplus
 Description: Logfile analyzer tool for various logging frameworks
- Anlyzer can be used to analyze logfiles created from log4cplus.
+ Analyzer can be used to analyze logfiles created from log4cplus.
  With additional plugins the analyzer can use more file formats or
  other logging frameworks like python or log4cplus remote logging.
 
