@@ -37,9 +37,9 @@ FilterListView::FilterListView( QObject *parent, std::shared_ptr<const LogEntryP
     m_resetSelectionsAct = new QAction(tr("reset all"), this);
     m_resetSelectionsAct->setToolTip( tr("Resets all and sets it like on startup.") );
     m_selectThisAct = new QAction(tr("select this only"), this);
-    m_selectThisAct->setToolTip( tr("Selects only this item, leaves childs as they are.") );
+    m_selectThisAct->setToolTip( tr("Selects only this item, leaves children as they are.") );
     m_deselectThisAct = new QAction(tr("deselect this only"), this);
-    m_deselectThisAct->setToolTip( tr("Deselects only this item, leaves childs as they are.") );
+    m_deselectThisAct->setToolTip( tr("Deselects only this item, leaves children as they are.") );
     m_selectOnlyThisWithPathAct = new QAction(tr("Select only this including path"), this);
     m_selectOnlyThisWithPathAct->setToolTip( tr("Selects only this element including the path to this element.") );
     m_selectOnlyThisWithoutPathAct = new QAction(tr("Select only this excluding path"), this);

@@ -56,7 +56,7 @@ PythonGUIIntegration::PythonGUIIntegration ()
   m_port = new QSpinBox(m_toolbar);
   m_port->setToolTip(
       QApplication::translate("Plugin_Source_Python",
-                              "Port to listen for Python incomming data.",
+                              "Port to listen for Python incoming data.",
                               Q_NULLPTR));
   m_port->setMinimum(1);
   m_port->setMaximum(65535);

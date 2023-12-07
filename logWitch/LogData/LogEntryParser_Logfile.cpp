@@ -179,7 +179,7 @@ public:
       m_lines.erase( itLastNonProcessedLine, m_lines.end() );
     }
 
-    // qDebug() << " Convertions done: " << id;
+    // qDebug() << " Conversions done: " << id;
   }
 
   /**
