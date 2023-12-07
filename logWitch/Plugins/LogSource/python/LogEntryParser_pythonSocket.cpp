@@ -298,7 +298,7 @@ namespace
       if (returned.check())
         ret += ": " + returned();
       else
-        ret += std::string(": Unparseable Python error");
+        ret += std::string(": Unparsable Python error");
     }
 
     if (traceback_ptr != NULL)

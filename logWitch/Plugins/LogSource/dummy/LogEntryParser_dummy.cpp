@@ -125,7 +125,7 @@ TSharedLogEntry LogEntryParser_dummy::getNextLogEntry ()
 
     if ((m_entries % 100) == 20 && m_emitError)
     {
-      qDebug() << "emmiting error!";
+      qDebug() << "emitting error!";
       emit signalError(QString("This is a generated error from dummy parser!"));
     }
 
