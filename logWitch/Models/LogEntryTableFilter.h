@@ -52,7 +52,7 @@ public slots:
 
 public:
 	/**
-	 * This enables the show surrounding entries around index and woith +/-
+	 * This enables the show surrounding entries around index and with +/-
 	 * valuesToShow.
 	 */
 	void showSurroundingLogEntries( const QModelIndex &index, uint valuesToShow );

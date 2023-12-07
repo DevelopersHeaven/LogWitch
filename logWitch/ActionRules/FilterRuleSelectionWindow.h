@@ -34,7 +34,7 @@ public:
     /**
      * This displays a previously hidden window or adds a new one.
      * If an empty pointer is set as state, the window will switch
-     * to the inital case.
+     * to the initial case.
      */
     void setWindow( TSharedCompiledRulesStateSaver state );
 
@@ -47,7 +47,7 @@ public:
 
     /**
      * This synchronizes header changes between this view and the others.
-     * This will handle resizing and also setting the correct defautl values.
+     * This will handle resizing and also setting the correct default values.
      */
     void tieHeaderChangesTo( QTableView *other );
 

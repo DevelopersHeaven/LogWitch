@@ -389,7 +389,7 @@ void LogEntryTableWindow::search(Expression& exp, bool backwards)
     {
       QItemSelection selection = m_tableView->selectionModel()->selection();
       // There seems to be a QT Bug, if the ProxyFilterModel is removing the selection
-      // hasSelection retruns true while no selection is here!
+      // hasSelection returns true while no selection is here!
       if (!selection.isEmpty())
       {
         QModelIndex index = selection.front().topLeft();

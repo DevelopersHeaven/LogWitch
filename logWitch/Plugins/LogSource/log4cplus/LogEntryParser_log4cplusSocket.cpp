@@ -228,7 +228,7 @@ void LogEntryParser_log4cplusSocket_Receiver::newDataAvailable ()
 
     if (m_bytesNeeded == 0)
     {
-      // interprete data
+      // interpret data
       if (m_stateReadSize)
       {
         sizeToReadNext = m_buffer->readInt();

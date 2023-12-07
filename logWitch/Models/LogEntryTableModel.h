@@ -109,7 +109,7 @@ public slots:
   void clearTable();
 
   /**
-   * This sets the maxmimum numbers of entries to the model. If the model
+   * This sets the maximum numbers of entries to the model. If the model
    * receives more entries it will drop older entries first.
    *
    * @param count Numbers of entries to keep at maximum. If set to 0, disables

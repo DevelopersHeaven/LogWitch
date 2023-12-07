@@ -38,7 +38,7 @@ public:
     const QString &expressionString( ) const;
 
     /**
-     * Returns true if the current set expression is compileable.
+     * Returns true if the current set expression is compilable.
      */
     bool isExpressionOk() const;
 
@@ -91,7 +91,7 @@ public:
     TSharedAction getAction() const;
 
     /**
-     * Return true if the rule is compileable and valid within the current context.
+     * Return true if the rule is compilable and valid within the current context.
      */
     bool validWithinContext() const;
 

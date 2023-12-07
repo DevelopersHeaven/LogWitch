@@ -53,7 +53,7 @@ private:
     void updateFilters();
 
     /**
-     * Updates node and all childs.
+     * Updates node and all children.
      */
     void updateFilters( StringCacheTreeItem *node );
 

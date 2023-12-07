@@ -26,7 +26,7 @@ public:
 
 	/**
 	 * Returns the factory which was used to generate this log entry.
-	 * The factory also has more informations about the attributes and its
+	 * The factory also has more information about the attributes and its
 	 * interpretation.
 	 */
 	const LogEntryFactory &getFactory() const { return *myFactory; }

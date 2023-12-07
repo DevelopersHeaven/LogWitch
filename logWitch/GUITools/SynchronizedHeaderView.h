@@ -37,7 +37,7 @@ public:
     void showSection( int idx );
 
     /**
-     * Becuase QT does not make resizeSection virtual, we have tu use this method!
+     * Because QT does not make resizeSection virtual, we have to use this method!
      */
     void resizeSectionFuckingQT( int logivalIndex, int size );
 

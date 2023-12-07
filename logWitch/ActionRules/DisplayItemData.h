@@ -15,7 +15,7 @@ public:
     virtual ~DisplayItemData() {}
 
     /**
-     * This method is called if one will display the informations enclosed with this
+     * This method is called if one will display the information enclosed with this
      * action in a table or a tree for example.
      */
     virtual QVariant toDisplay( int role ) const = 0;

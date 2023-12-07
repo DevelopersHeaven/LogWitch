@@ -25,7 +25,7 @@ SET(LFA_RESOURCES
 INCLUDE_DIRECTORIES(
   ${LOG4CPLUS_INCLUDE_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
-  ${CMAKE_CURRENT_BINARY_DIR}  # Neede for moc files in out of source builds.
+  ${CMAKE_CURRENT_BINARY_DIR}  # Needed for moc files in out of source builds.
 )
 
 #Add source dirs
