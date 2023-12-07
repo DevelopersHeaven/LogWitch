@@ -40,6 +40,6 @@ set CMAKE_LIBRARY_PATH=C:\Users\sven\workspace\log4cplus-1.1.0-rc4\msvc10\Win32\
 
 cmake ..
 
-Now the generated sulution can be used to build it.
+Now the generated solution can be used to build it.
 
 For shipping we have to add the svg icon plugin and other things. This needs to be determined and written here!
