@@ -11,7 +11,7 @@
 #include <boost/spirit/include/qi.hpp>
 
 // take the string and search for => as an special expression.
-static const QString seperator("=>");
+static const QString separator("=>");
 
 namespace ruleParser
 {
@@ -47,7 +47,7 @@ namespace ruleParser
             using boost::phoenix::val;
 
             // Example: "Description":{Expression}=>{Action}
-            top = quotedQString('"','"') >> lit(":") >> quotedQString('{','}') >> lit( seperator.toStdString() ) >> quotedQString('{','}');
+            top = quotedQString('"','"') >> lit(":") >> quotedQString('{','}') >> lit( separator.toStdString() ) >> quotedQString('{','}');
 
             quotedQString = lexeme[
                                    lit(_r1)
@@ -143,7 +143,7 @@ QString FilterRuleCompiled::toString() const
     QString quotedAction = actionString();
     quotedAction.replace('\\',"\\\\").replace( '}', "\\}");
 
-    return "\"" + quotedDescription + "\":{" + quotedExpression + "}" + seperator + "{" + quotedAction + "}";
+    return "\"" + quotedDescription + "\":{" + quotedExpression + "}" + separator + "{" + quotedAction + "}";
 }
 
 void FilterRuleCompiled::expressionString( const QString &exp )
