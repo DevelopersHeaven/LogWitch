@@ -119,7 +119,7 @@ IF(NOT WITHOUT_TEST)
 ENDIF()
 
 
-######################## CPack informations if CPack is available.
+######################## CPack information if CPack is available.
 IF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
   SET(CPACK_STRIP_FILES TRUE)
   SET(CPACK_DEBIAN_PACKAGE_NAME "LogWitch")

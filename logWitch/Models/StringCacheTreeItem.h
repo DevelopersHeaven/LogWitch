@@ -58,7 +58,7 @@ public:
 
     /**
      * Appends a child to the tree and adds it to the end of the list
-     * of all childs.
+     * of all children.
      */
     void appendChild(StringCacheTreeItem *child);
 
@@ -70,7 +70,7 @@ public:
     StringCacheTreeItem *child(int n);
 
     /**
-     * The numbers of childs owned by this node.
+     * The numbers of children owned by this node.
      */
     int childCount() const;
 
@@ -119,7 +119,7 @@ public:
      * Sets the self state to this element and the child to
      * all child elements.
      * @param self State for this element
-     * @param child State to set on all childs
+     * @param child State to set on all children
      */
     void recursiveSetTree( Check self, Check child );
 

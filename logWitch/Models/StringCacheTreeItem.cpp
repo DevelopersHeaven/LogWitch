@@ -97,7 +97,7 @@ StringCacheTreeItem::CheckState StringCacheTreeItem::getCheckState( ) const
         }
     }
 
-    // goto childs if not Forced ...
+    // goto children if not Forced ...
     if( stateParentInherited.forced  || m_checkedChilds != Inherit )
         return stateParentInherited;
 

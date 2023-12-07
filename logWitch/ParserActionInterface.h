@@ -15,7 +15,7 @@ class LogEntryParser;
 namespace logwitch
 {
 	/**
-	 * Interface to signal a new parser action which requests the main application ot
+	 * Interface to signal a new parser action which requests the main application to
 	 * open a new window
 	 */
 	class ParserActionInterface

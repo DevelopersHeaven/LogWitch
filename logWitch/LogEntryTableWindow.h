@@ -81,7 +81,7 @@ private:
 
   QSplitter *m_splitter;
 
-  /// Text field containing the formated log entry.
+  /// Text field containing the formatted log entry.
   QTextEdit *m_text;
 
   QTabWidget *m_myFilterTabs;

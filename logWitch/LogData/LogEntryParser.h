@@ -41,7 +41,7 @@ public:
 	 * After calling this, a valid parserModelConfiguration is available
 	 * if init returns true.
 	 *
-	 * @return true if sucessfull otherwise false.
+	 * @return true if successful otherwise false.
 	 */
 	virtual bool initParser() = 0;
 
