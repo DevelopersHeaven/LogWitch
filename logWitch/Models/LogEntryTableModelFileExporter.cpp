@@ -33,7 +33,7 @@ namespace
 
             switch(value.userType())
             {
-            case QVariant::DateTime:
+            case QMetaType::QDateTime:
                 return value.value<QDateTime>().toString(timestampFormat);
             default:
               ;

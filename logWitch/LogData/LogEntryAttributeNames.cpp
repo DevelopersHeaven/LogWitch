@@ -59,7 +59,7 @@ namespace
 
         QString operator()(const QVariant &str )
         {
-            if (str.userType() == QVariant::DateTime)
+            if (str.userType() == QMetaType::QDateTime)
             {
                 QDateTime date = str.value<QDateTime>();
                 return date.toString(m_timeFormat);
