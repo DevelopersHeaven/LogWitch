@@ -1,7 +1,5 @@
 #include "logfileanalyser.h"
 
-#include <iostream>
-
 #include <QtGui>
 #include <QApplication>
 #include <QCommandLineParser>
