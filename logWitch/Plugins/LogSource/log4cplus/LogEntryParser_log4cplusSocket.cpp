@@ -10,7 +10,6 @@
 #include "Plugins/LogSource/log4cplus/LogEntryParser_log4cplusSocket.h"
 
 #include <algorithm>
-#include <iostream>
 
 #include <log4cplus/socketappender.h>
 #include <log4cplus/spi/loggingevent.h>

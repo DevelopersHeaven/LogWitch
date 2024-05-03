@@ -7,7 +7,6 @@
 
 #include "StringCacheTreeModel.h"
 
-#include <iostream>
 #include <QtCore/QtCore>
 #include "LogEntryRemoveFilter.h"
 #include <QtGui>

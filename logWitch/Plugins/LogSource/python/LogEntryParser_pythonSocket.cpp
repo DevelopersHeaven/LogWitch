@@ -8,7 +8,6 @@
 #include "Plugins/LogSource/python/LogEntryParser_pythonSocket.h"
 
 #include <algorithm>
-#include <iostream>
 
 #include <boost/endian/conversion.hpp>
 #include <boost/python.hpp>
