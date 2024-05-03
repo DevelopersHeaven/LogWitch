@@ -33,7 +33,7 @@ void LogEntry::setAttribute( const QVariant &value, int idx )
 {
     Q_ASSERT( idx >= 0 && idx < myFactory->getNumberOfFields() );
 
-    if (value.userType() == QVariant::String)
+    if (value.userType() == QMetaType::QString)
     {
         TSharedQString strIn( new QString( value.toString() ) );
         strIn->squeeze();
