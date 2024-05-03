@@ -9,7 +9,6 @@
 
 #include <QtGui>
 
-#include "ActionRules/ActionDataRewriter.h"
 #include "ActionRules/FilterRuleCompiled.h"
 #include "FilterRuleCompiled.h"
 

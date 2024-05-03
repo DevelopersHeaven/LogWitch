@@ -18,10 +18,7 @@
 #include "ActionRules/ToolButtonTrashFilter.h"
 
 #include "GUITools/EventFilterToBoostFunction.h"
-#include "GUITools/SlotToBoostFunction.h"
 #include "GUITools/SynchronizedHeaderView.h"
-
-#include "Models/LogEntryTableFilter.h"
 
 #include "ContextMenuManipulateHeader.h"
 
