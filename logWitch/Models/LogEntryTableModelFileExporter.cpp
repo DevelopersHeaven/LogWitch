@@ -29,8 +29,6 @@ namespace
     {
         QString operator()(const QVariant &value)
         {
-            QString formatedString;
-
             switch(value.userType())
             {
             case QMetaType::QDateTime:
