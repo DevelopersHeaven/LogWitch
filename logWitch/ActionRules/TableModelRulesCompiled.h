@@ -12,7 +12,6 @@
 #include <QAbstractTableModel>
 #include <QtCore>
 
-#include "ActionRules/Action.h"
 #include "ActionRules/FilterRuleCompiled.h"
 #include "ActionRules/RuleTable.h"
 

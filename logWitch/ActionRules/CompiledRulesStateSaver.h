@@ -13,7 +13,6 @@
 #include <QTableView>
 
 #include "ActionRules/TableModelRulesCompiled.h"
-#include "Models/LogEntryTableModel.h"
 #include "LogData/LogEntryParserModelConfiguration.h"
 
 class FilterRuleSelectionWindow;

@@ -15,7 +15,6 @@
 #include "LogData/LogEntryFactory.h"
 #include "LogData/LogEntryParser.h"
 #include "LogData/LogEntryParserModelConfiguration.h"
-#include "LogData/LogEntryAttributeNames.h"
 
 LogEntryTableModel::LogEntryTableModel( std::shared_ptr<LogEntryParser> parser )
 	: m_table( )

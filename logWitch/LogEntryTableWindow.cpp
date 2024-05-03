@@ -14,15 +14,7 @@
 #include <QMessageBox>
 #include <QVBoxLayout>
 
-#include "ActionRules/ActionDataRewriter.h"
-#include "ActionRules/ActionParser.h"
-#include "ActionRules/ExpressionFind.h"
-#include "ActionRules/ExpressionMatch.h"
-#include "ActionRules/ExpressionParser.h"
-#include "ActionRules/ExpressionRegEx.h"
 #include "ActionRules/RuleTable.h"
-#include "ActionRules/ValueGetterConstQString.h"
-#include "ActionRules/ValueGetterLogEntry.h"
 
 #include "GUI/DialogExportOptions.h"
 #include "GUI/QuickSearchBar.h"
@@ -30,7 +22,6 @@
 #include "GUITools/QScrollDownTableView.h"
 
 #include "LogData/EntryToTextFormater.h"
-#include "LogData/LogEntryParserModelConfiguration.h"
 #include "LogData/LogEntryFactory.h"
 #include "LogData/ObjectCache.hxx"
 
