@@ -22,7 +22,6 @@
 
 #include "Auxiliary/BoostSpiritQStringAdaption.hxx"
 
-using boost::spirit::tag::space;
 using boost::spirit::locals;
 
 namespace actionParser

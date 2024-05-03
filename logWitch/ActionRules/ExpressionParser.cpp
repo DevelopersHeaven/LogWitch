@@ -19,8 +19,6 @@
 
 #include "Auxiliary/BoostSpiritQStringAdaption.hxx"
 
-using boost::spirit::tag::space;
-
 std::ostream& operator<<(std::ostream&o, const QString& str)
 {
     return o << str.toStdString();
