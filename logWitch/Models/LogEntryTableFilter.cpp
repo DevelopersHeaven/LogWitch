@@ -52,7 +52,7 @@ void LogEntryTableFilter::generateExportList( std::vector<TconstSharedLogEntry>&
     std::vector<TconstSharedLogEntry> tmpVec;
     m_exportOfSourceModel->generateExportList( tmpVec, srcFirst, srcLast, param );
 
-    for ( TconstSharedLogEntry e : tmpVec )
+    for (const TconstSharedLogEntry& e : tmpVec)
     {
       if (filterAcceptInt(e))
         ls.push_back(e);

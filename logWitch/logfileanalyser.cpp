@@ -118,7 +118,7 @@ void LogfileAnalyser::loadPlugins(QDir basePath)
 		}
 	}
 
-	for (QString dirName: basePath.entryList(QDir::Dirs|QDir::NoDotAndDotDot))
+	for (const QString& dirName: basePath.entryList(QDir::Dirs|QDir::NoDotAndDotDot))
 	{
 		QDir nextDir( basePath );
 		nextDir.cd(dirName);
