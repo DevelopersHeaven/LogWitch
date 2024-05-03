@@ -117,7 +117,7 @@ BOOST_AUTO_TEST_CASE( multiThreadedParsing )
   BOOST_CHECK( tester->m_finished );
 
   int i = 0;
-  for ( TSharedLogEntry entry : tester->m_entries)
+  for (const TSharedLogEntry& entry : tester->m_entries)
   {
     QString s;
     QTextStream ts(&s);
@@ -141,7 +141,7 @@ BOOST_AUTO_TEST_CASE( multiThreadedParsingMultiline )
   BOOST_CHECK( tester->m_finished );
 
   int i = 0;
-  for ( TSharedLogEntry entry : tester->m_entries)
+  for (const TSharedLogEntry& entry : tester->m_entries)
   {
     QString s;
     QTextStream ts(&s);

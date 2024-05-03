@@ -61,7 +61,7 @@ void RuleTable::clear( const std::string& tableName )
 
     // rebuild table
     m_rules.clear();
-    for( auto sourcerule: m_rulesFromSource)
+    for (const auto& sourcerule : m_rulesFromSource)
     {
         m_rules.insert( sourcerule.second.begin(), sourcerule.second.end() );
     }
