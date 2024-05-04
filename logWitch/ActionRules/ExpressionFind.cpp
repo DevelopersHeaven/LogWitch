@@ -43,17 +43,17 @@ TconstSharedValueGetter ExpressionFind::getValueGetter() const
 std::ostream &ExpressionFind::out( std::ostream &o, bool extended ) const
 {
     if( extended )
-   {
-       o << "ExpressionFind{";
-       m_value->out( o, extended );
-       o << " =~ \"";
-       o << m_pattern.toStdString();
-       o << "\"}";
-   }
-   else
-   {
-       o << "find("<<*m_value << ",\"" << m_pattern.toStdString() << "\")";
-   }
+    {
+        o << "ExpressionFind{";
+        m_value->out( o, extended );
+        o << " =~ \"";
+        o << m_pattern.toStdString();
+        o << "\"}";
+    }
+    else
+    {
+        o << "find("<<*m_value << ",\"" << m_pattern.toStdString() << "\")";
+    }
 
     return o;
 }

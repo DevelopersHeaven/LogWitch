@@ -42,17 +42,17 @@ TconstSharedValueGetter ExpressionRegEx::getValueGetter() const
 std::ostream &ExpressionRegEx::out( std::ostream &o, bool extended ) const
 {
     if( extended )
-   {
-       o << "ExpressionRegEx{";
-       m_value->out( o, extended );
-       o << " =~ \"";
-       o << m_regex.pattern().toStdString();
-       o << "\"}";
-   }
-   else
-   {
-       o << *m_value << " =~ \"" << m_regex.pattern().toStdString() << "\"";
-   }
+    {
+        o << "ExpressionRegEx{";
+        m_value->out( o, extended );
+        o << " =~ \"";
+        o << m_regex.pattern().toStdString();
+        o << "\"}";
+    }
+    else
+    {
+        o << *m_value << " =~ \"" << m_regex.pattern().toStdString() << "\"";
+    }
 
     return o;
 }
