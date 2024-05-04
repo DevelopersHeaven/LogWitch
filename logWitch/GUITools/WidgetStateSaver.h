@@ -21,6 +21,8 @@ class ObjectState;
 class ObjectStateSavingInterface
 {
 public:
+	virtual ~ObjectStateSavingInterface() = default;
+
 	/**
 	 * An implementation should dump the state to the WidgetState here.
 	 */
