@@ -13,8 +13,6 @@ class ActionDoNothing
 : public Action
 {
 public:
-    ActionDoNothing();
-
     QVariant toDisplay( int role ) const;
 };
 

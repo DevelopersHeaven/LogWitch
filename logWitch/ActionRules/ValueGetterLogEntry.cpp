@@ -70,10 +70,6 @@ QString ValueGetterLogEntry::getName() const
   return m_name;
 }
 
-ValueGetterLogEntry::~ValueGetterLogEntry()
-{
-}
-
 TSharedConstQString ValueGetterLogEntry::getValue( TconstSharedLogEntry &entry ) const
 {
     return entry->getAttributeAsString( m_fieldId );

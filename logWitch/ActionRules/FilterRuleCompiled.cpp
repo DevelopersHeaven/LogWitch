@@ -98,10 +98,6 @@ FilterRuleCompiled::FilterRuleCompiled( const QString &rule, TSharedConstLogEntr
     parseRule();
 }
 
-FilterRuleCompiled::~FilterRuleCompiled()
-{
-}
-
 TSharedExpression FilterRuleCompiled::getExpression() const
 {
     return m_expression.get();

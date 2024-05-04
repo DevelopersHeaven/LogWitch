@@ -22,8 +22,6 @@ class LogEntryStorerForTesting: public QObject
 public:
   LogEntryStorerForTesting( LogEntryParser* parser );
 
-  virtual ~LogEntryStorerForTesting();
-
   void start();
 
 public slots:

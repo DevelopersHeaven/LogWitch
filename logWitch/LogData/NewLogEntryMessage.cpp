@@ -9,6 +9,3 @@
 
 NewLogEntryMessage::NewLogEntryMessage()
 {  }
-
-NewLogEntryMessage::~NewLogEntryMessage()
-{  }

@@ -16,7 +16,6 @@ class ExpressionParser
 {
 public:
     ExpressionParser( TSharedConstLogEntryParserModelConfiguration cfg = TSharedConstLogEntryParserModelConfiguration() );
-    virtual ~ExpressionParser();
 
     /**
      * Parse an expression and returns true if successful.

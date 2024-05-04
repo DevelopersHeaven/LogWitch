@@ -388,7 +388,3 @@ bool ExpressionParser::isValid() const
 {
     return (bool)m_expression;
 }
-
-ExpressionParser::~ExpressionParser()
-{
-}

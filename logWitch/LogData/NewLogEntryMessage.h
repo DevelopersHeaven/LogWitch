@@ -19,7 +19,6 @@ class NewLogEntryMessage
     Q_OBJECT
 public:
     NewLogEntryMessage();
-    ~NewLogEntryMessage();
 
     std::list<TSharedLogEntry> entries;
 };

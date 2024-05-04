@@ -31,10 +31,6 @@ LogEntryTableFilter::LogEntryTableFilter( QObject *parent)
             this, SLOT(updateChanges()));
 }
 
-LogEntryTableFilter::~LogEntryTableFilter()
-{
-}
-
 void LogEntryTableFilter::generateExportList( std::vector<TconstSharedLogEntry>& ls
     , QModelIndex first, QModelIndex last
     , const ExportParameters& param ) const

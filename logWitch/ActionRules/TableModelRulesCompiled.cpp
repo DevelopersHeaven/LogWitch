@@ -23,10 +23,6 @@ TableModelRulesCompiled::TableModelRulesCompiled( QObject *parent, TSharedConstL
 {
 }
 
-TableModelRulesCompiled::~TableModelRulesCompiled()
-{
-}
-
 int TableModelRulesCompiled::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);

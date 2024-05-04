@@ -196,11 +196,6 @@ ActionParser::ActionParser( TSharedConstLogEntryParserModelConfiguration cfg )
 {
 }
 
-ActionParser::~ActionParser()
-{
-}
-
-
 bool ActionParser::parse(  const QString &expression )
 {
     std::string str = expression.toStdString();

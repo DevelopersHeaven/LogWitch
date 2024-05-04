@@ -15,10 +15,6 @@ ExpressionFind::ExpressionFind(TconstSharedValueGetter value, const QString &exp
 {
 }
 
-ExpressionFind::~ExpressionFind()
-{
-}
-
 bool ExpressionFind::isValid( ) const
 {
     return m_value && m_value->isValid();

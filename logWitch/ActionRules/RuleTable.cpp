@@ -13,10 +13,6 @@ RuleTable::RuleTable()
 {
 }
 
-RuleTable::~RuleTable()
-{
-}
-
 std::string RuleTable::addNewUniqueTable()
 {
   do {

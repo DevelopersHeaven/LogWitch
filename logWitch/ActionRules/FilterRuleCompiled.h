@@ -25,7 +25,6 @@ class FilterRuleCompiled
     Q_OBJECT
 public:
     FilterRuleCompiled( const QString &str, TSharedConstLogEntryParserModelConfiguration cfg = TSharedConstLogEntryParserModelConfiguration() );
-    ~FilterRuleCompiled();
 
     /**
      * Sets an expression string and parses him.

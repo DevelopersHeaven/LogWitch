@@ -33,7 +33,6 @@ public:
   static const int RawDataRole = Qt::UserRole;
 
   LogEntryTableModel(std::shared_ptr<LogEntryParser> parser);
-  virtual ~LogEntryTableModel();
 
   /**
    * Returns a name for this model. The name will be fetched from

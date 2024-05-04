@@ -13,10 +13,6 @@ Rule::Rule( TconstSharedExpression expr, TconstSharedAction action )
 {
 }
 
-Rule::~Rule()
-{
-}
-
 bool Rule::isValid() const
 {
     return m_expr && m_expr->isValid() && m_action && m_action->isValid();

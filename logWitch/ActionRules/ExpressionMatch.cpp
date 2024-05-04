@@ -20,11 +20,6 @@ ExpressionMatch::ExpressionMatch( TconstSharedValueGetter left )
 {
 }
 
-ExpressionMatch::~ExpressionMatch()
-{
-
-}
-
 void ExpressionMatch::setRight( TconstSharedValueGetter right )
 {
     m_right = right;

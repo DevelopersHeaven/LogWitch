@@ -23,8 +23,6 @@ class LogEntryTableModelFileExporter
 public:
     LogEntryTableModelFileExporter( LogEntryTableModel& model );
 
-    virtual ~LogEntryTableModelFileExporter();
-
     void exportTo( const QString& filename );
 
     void exportTo( const QString& filename, std::function<TconstSharedLogEntry()> funcNextExportItem );

@@ -7,10 +7,6 @@
 
 #include "ActionDoNothing.h"
 
-ActionDoNothing::ActionDoNothing()
-{
-}
-
 QVariant ActionDoNothing::toDisplay( int role ) const
 {
     QVariant variant;

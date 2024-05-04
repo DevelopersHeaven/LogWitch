@@ -14,10 +14,6 @@ ExpressionRegEx::ExpressionRegEx(TconstSharedValueGetter value, const QString &e
 {
 }
 
-ExpressionRegEx::~ExpressionRegEx()
-{
-}
-
 bool ExpressionRegEx::isValid( ) const
 {
     return m_value && m_value->isValid() && m_regex.isValid();

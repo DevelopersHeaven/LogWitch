@@ -36,7 +36,6 @@ namespace logwitch
 
       public:
         DummyLogSource ();
-        virtual ~DummyLogSource ();
 
         void fillMenu( QMenu* menu ) override;
 

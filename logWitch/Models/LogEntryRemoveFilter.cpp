@@ -13,10 +13,6 @@ LogEntryRemoveFilter::LogEntryRemoveFilter( int attr )
 {
 }
 
-LogEntryRemoveFilter::~LogEntryRemoveFilter()
-{
-}
-
 void LogEntryRemoveFilter::addEntry( std::shared_ptr<const QString> str )
 {
 	m_removeStrings.insert( str );

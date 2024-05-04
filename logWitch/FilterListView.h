@@ -23,7 +23,6 @@ class FilterListView
         Q_OBJECT
 public:
     FilterListView( QObject *parent, std::shared_ptr<const LogEntryParserModelConfiguration> cfg, const int attr );
-    ~FilterListView();
 
     void addToTabs( QTabWidget *tabs, LogEntryTableWindow* widget  );
 

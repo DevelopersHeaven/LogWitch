@@ -16,7 +16,6 @@ class ExpressionMatch
 public:
     ExpressionMatch( TconstSharedValueGetter left );
     ExpressionMatch( TconstSharedValueGetter left, TconstSharedValueGetter right );
-    ~ExpressionMatch();
 
     void setRight( TconstSharedValueGetter right );
 

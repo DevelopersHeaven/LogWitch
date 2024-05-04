@@ -34,11 +34,6 @@ LogEntryTableModel::LogEntryTableModel( std::shared_ptr<LogEntryParser> parser )
     m_ModelName = parser->getName();
 }
 
-LogEntryTableModel::~LogEntryTableModel()
-{
-
-}
-
 void LogEntryTableModel::startModel()
 {
 	m_entryLoader->startEmiting();

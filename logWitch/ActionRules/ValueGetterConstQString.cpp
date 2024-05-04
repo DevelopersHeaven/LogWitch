@@ -19,12 +19,6 @@ ValueGetterConstQString::ValueGetterConstQString( TSharedConstQString &string )
 
 }
 
-ValueGetterConstQString::~ValueGetterConstQString()
-{
-
-}
-
-
 TSharedConstQString ValueGetterConstQString::getValue( TconstSharedLogEntry & ) const
 {
     return m_string;

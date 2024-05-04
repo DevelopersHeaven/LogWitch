@@ -35,8 +35,6 @@ public:
 
 	TSharedRuleTable getRuleTable();
 
-	virtual ~LogEntryTableFilter();
-
 	void generateExportList( std::vector<TconstSharedLogEntry>& ls
 	    , QModelIndex first, QModelIndex last
 	    , const ExportParameters& param ) const;

@@ -27,11 +27,6 @@ StringCacheTreeModel::StringCacheTreeModel( QObject *parent, const GetObjectIF<O
                      this, SLOT(newStringElement( TSharedConstQString ) ) );
 }
 
-StringCacheTreeModel::~StringCacheTreeModel()
-{
-
-}
-
 std::shared_ptr<LogEntryFilter> StringCacheTreeModel::getFilter() const
 {
 	return m_myFilter;

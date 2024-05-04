@@ -20,8 +20,6 @@ class LogEntryFilterChain
 public:
 	LogEntryFilterChain();
 
-	virtual ~LogEntryFilterChain();
-
 	void addFilter( std::shared_ptr< LogEntryFilter> );
 
 	void removeFilter( std::shared_ptr< LogEntryFilter> );
