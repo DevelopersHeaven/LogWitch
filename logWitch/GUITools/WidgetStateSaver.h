@@ -43,9 +43,11 @@ public:
 	ObjectState() : m_isValid( false ) { }
 	ObjectState( std::shared_ptr<const ObjectStateSavingInterface> replayer, QObject *obj ) : m_isValid( true ), m_object( obj ), m_replayer( replayer ) { }
 
+	virtual ~ObjectState() = default;
+
 	bool isValid() const{ return m_isValid; }
 
-	virtual void replayState( QObject *parent ) const { if( isValid() ) m_replayer->replayState( m_object, parent, this ); }
+	void replayState( QObject *parent ) const { if( isValid() ) m_replayer->replayState( m_object, parent, this ); }
 
 protected:
 	bool m_isValid;
