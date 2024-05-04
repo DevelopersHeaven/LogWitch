@@ -29,8 +29,6 @@ class LogEntryFactory {
 public:
 	LogEntryFactory();
 
-	virtual ~LogEntryFactory();
-
 	std::shared_ptr<LogEntry> getNewLogEntry();
 
 	/**

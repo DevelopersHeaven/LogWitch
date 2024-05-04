@@ -7,14 +7,6 @@
 
 #include "ActionDiscardRow.h"
 
-ActionDiscardRow::ActionDiscardRow()
-{
-}
-
-ActionDiscardRow::~ActionDiscardRow()
-{
-}
-
 QVariant ActionDiscardRow::toDisplay( int role ) const
 {
     if( role == Qt::DisplayRole )

@@ -21,7 +21,6 @@ class Rule
 {
 public:
     Rule( TconstSharedExpression expr, TconstSharedAction action );
-    virtual ~Rule();
 
     bool checkRule( TconstSharedLogEntry &entry ) const;
     TconstSharedAction getAction( ) const;

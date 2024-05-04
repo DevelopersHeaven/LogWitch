@@ -16,11 +16,6 @@ LogEntryTableModelFileExporter::LogEntryTableModelFileExporter( LogEntryTableMod
 {
 }
 
-LogEntryTableModelFileExporter::~LogEntryTableModelFileExporter()
-{
-}
-
-
 namespace
 {
     const QString timestampFormat("yyyy-MM-dd hh:mm:ss.zzz");

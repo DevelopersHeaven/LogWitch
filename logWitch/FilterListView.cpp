@@ -106,7 +106,3 @@ void FilterListView::contextMenuPopup( const QPoint &pos)
         this->model()->setData( idx, 6, 512 );
     }
 }
-
-FilterListView::~FilterListView()
-{
-}

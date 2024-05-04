@@ -70,8 +70,6 @@ class WidgetStateSaver: public QObject {
 public:
 	WidgetStateSaver( QObject *parent );
 
-	~WidgetStateSaver();
-
 	/**
 	 * This adds an element to exchange the inner widgets / states.
 	 * @param obj Object to dump the state for

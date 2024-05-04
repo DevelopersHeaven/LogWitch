@@ -13,9 +13,6 @@ class ActionDiscardRow
     : public Action
 {
 public:
-    ActionDiscardRow();
-    ~ActionDiscardRow();
-
     QVariant toDisplay( int role ) const;
 };
 

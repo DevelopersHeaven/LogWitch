@@ -15,9 +15,6 @@ WidgetStateSaver::WidgetStateSaver( QObject *parent )
 
 }
 
-WidgetStateSaver::~WidgetStateSaver()
-{}
-
 void WidgetStateSaver::addElementToWatch( QObject *obj,
         std::shared_ptr<ObjectStateSavingInterface> stateSaver )
 {

@@ -20,11 +20,6 @@ LogEntryFactory::LogEntryFactory()
 
 }
 
-LogEntryFactory::~LogEntryFactory()
-{
-
-}
-
 std::shared_ptr<LogEntry> LogEntryFactory::getNewLogEntry()
 {
 	std::shared_ptr<LogEntry> attr( new LogEntry(this, m_defaultLine ) );

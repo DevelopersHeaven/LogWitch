@@ -21,10 +21,6 @@ LogEntryStorerForTesting::LogEntryStorerForTesting( LogEntryParser* parser )
   QObject::connect(parserQO, SIGNAL(finished()), this, SLOT(onFinished()));
 }
 
-LogEntryStorerForTesting::~LogEntryStorerForTesting()
-{
-}
-
 void LogEntryStorerForTesting::start()
 {
   int argc =0;

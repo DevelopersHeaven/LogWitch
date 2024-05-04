@@ -19,7 +19,6 @@ class ExpressionRegEx
 {
 public:
     ExpressionRegEx( TconstSharedValueGetter value, const QString &exp);
-    ~ExpressionRegEx();
 
     bool isValid( ) const;
 

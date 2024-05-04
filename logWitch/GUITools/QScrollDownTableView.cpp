@@ -14,10 +14,6 @@ QScrollDownTableView::QScrollDownTableView(QWidget *parent )
 {
 }
 
-QScrollDownTableView::~QScrollDownTableView()
-{
-}
-
 void QScrollDownTableView::updateGeometries()
 {
     bool scrollDown = verticalScrollBar()->maximum() == verticalScrollBar()->value();

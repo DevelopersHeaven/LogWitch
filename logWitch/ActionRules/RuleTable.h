@@ -31,7 +31,6 @@ public:
     typedef std::map<std::string,TRuleSet> TRuleTableMap;
 
     RuleTable();
-    virtual ~RuleTable();
 
 //    template <class T>
 //    TSharedRuleTable filterRulesByType( ) const

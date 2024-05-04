@@ -19,7 +19,6 @@ class ActionDataRewriter
 {
 public:
     ActionDataRewriter( TSharedConstLogEntryParserModelConfiguration configuration );
-    ~ActionDataRewriter();
 
     bool modifyData( QVariant &var,  int column, int role) const;
 

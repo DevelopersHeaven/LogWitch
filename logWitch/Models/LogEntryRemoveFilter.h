@@ -25,7 +25,6 @@ class LogEntryRemoveFilter
 {
 public:
 	LogEntryRemoveFilter( int attrId );
-	~LogEntryRemoveFilter();
 
 	void addEntry( std::shared_ptr<const QString> str );
 

@@ -12,10 +12,6 @@ LogEntryFilterChain::LogEntryFilterChain()
 {
 }
 
-LogEntryFilterChain::~LogEntryFilterChain()
-{
-}
-
 void LogEntryFilterChain::addFilter( std::shared_ptr<LogEntryFilter> flt )
 {
 	flt->setParent( this );

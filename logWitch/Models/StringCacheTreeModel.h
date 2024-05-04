@@ -22,7 +22,6 @@ class StringCacheTreeModel
 	Q_OBJECT
 public:
 	StringCacheTreeModel( QObject *parent, const GetObjectIF<ObjectCacheQStringSignaller> * cache, int attributeId, const QString &splitString = QString() );
-	virtual ~StringCacheTreeModel();
 
     QVariant data(const QModelIndex &index, int role) const;
 

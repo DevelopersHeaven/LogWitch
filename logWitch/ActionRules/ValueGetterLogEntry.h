@@ -23,7 +23,6 @@ public:
     ValueGetterLogEntry();
     ValueGetterLogEntry( const QString &name, TSharedConstLogEntryParserModelConfiguration configuration  );
     ValueGetterLogEntry( TSharedConstLogEntryParserModelConfiguration configuration  );
-    virtual ~ValueGetterLogEntry();
 
     void setName( const QString &name );
     QString getName() const;

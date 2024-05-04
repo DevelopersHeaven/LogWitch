@@ -16,7 +16,6 @@ class ExpressionFind
 {
 public:
     ExpressionFind( TconstSharedValueGetter value, const QString &exp);
-    ~ExpressionFind();
 
     bool isValid( ) const;
 

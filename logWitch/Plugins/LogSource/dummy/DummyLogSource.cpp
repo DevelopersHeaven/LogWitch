@@ -26,10 +26,6 @@ DummyLogSource::DummyLogSource ()
   m_pluginDescription.version = "1.0.0";
 }
 
-DummyLogSource::~DummyLogSource ()
-{
-}
-
 void DummyLogSource::fillMenu( QMenu* menu )
 {
   menu->addSection("Dummy");

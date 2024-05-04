@@ -19,9 +19,6 @@ class Action
     : public DisplayItemData
 {
 public:
-    Action();
-    virtual ~Action();
-
     /**
      * With this the data row can be modified.
      *

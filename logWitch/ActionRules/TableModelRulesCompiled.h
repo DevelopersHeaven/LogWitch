@@ -32,8 +32,6 @@ public:
             TSharedConstLogEntryParserModelConfiguration cfg = TSharedConstLogEntryParserModelConfiguration(),
             TSharedRuleTable ruleTable = TSharedRuleTable()  );
 
-    virtual ~TableModelRulesCompiled();
-
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
     int columnCount(const QModelIndex &parent = QModelIndex()) const;

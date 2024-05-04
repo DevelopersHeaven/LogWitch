@@ -17,7 +17,6 @@ class ActionParser
 {
 public:
     ActionParser( TSharedConstLogEntryParserModelConfiguration cfg = TSharedConstLogEntryParserModelConfiguration());
-    virtual ~ActionParser();
 
     /**
      * Parse an action and returns true if successful.

@@ -28,11 +28,6 @@ LogEntryParserModelConfiguration::LogEntryParserModelConfiguration( const QStrin
     restoreHintsFromSettings();
 }
 
-LogEntryParserModelConfiguration::~LogEntryParserModelConfiguration()
-{
-
-}
-
 QString LogEntryParserModelConfiguration::getHierarchySplitString( int idx ) const
 {
     if( idx >= 0 && idx < m_hierarchySplitstrings.size() )
