@@ -31,7 +31,7 @@ namespace
     class QStringToNumber: public ImportExportDescription
     {
     public:
-        QVariant operator()(const QString &str )
+        QVariant operator()(const QString &str) override
         {
             bool ok = false;
             int value = str.toInt(&ok);
@@ -41,7 +41,7 @@ namespace
                 return QVariant( value );
         }
 
-        std::shared_ptr<ImportExportDescription> clone() const
+        std::shared_ptr<ImportExportDescription> clone() const override
         {
             return std::make_shared<QStringToNumber>( *this );
         }
@@ -52,13 +52,13 @@ namespace
     public:
         QStringToDateTime( const QString &fmt ): m_timeFormat( fmt ) {}
 
-        QVariant operator()(const QString &str )
+        QVariant operator()(const QString &str) override
         {
             QDateTime timestamp = QDateTime::fromString( str, m_timeFormat );
             return timestamp;
         }
 
-        QString operator()(const QVariant &str )
+        QString operator()(const QVariant &str) override
         {
             if (str.userType() == QMetaType::QDateTime)
             {
@@ -71,12 +71,12 @@ namespace
             }
         }
 
-        const QString getImportExportDescription()
+        const QString getImportExportDescription() override
         {
             return QString("DATETIME('"+m_timeFormat+"')");
         }
 
-        void setImportExportDescription( const QString& str )
+        void setImportExportDescription( const QString& str) override
         {
             static const QRegularExpression rx("^DATETIME\\('(.*)'\\)");
             const auto match = rx.match(str);
@@ -88,7 +88,7 @@ namespace
             }
         }
 
-        std::shared_ptr<ImportExportDescription> clone() const
+        std::shared_ptr<ImportExportDescription> clone() const override
         {
             return std::make_shared<QStringToDateTime>( *this );
         }
@@ -99,12 +99,12 @@ namespace
     class QStringToVariant: public ImportExportDescription
     {
     public:
-        QVariant operator()(const QString &str )
+        QVariant operator()(const QString &str) override
         {
             return str;
         }
 
-        std::shared_ptr<ImportExportDescription> clone() const
+        std::shared_ptr<ImportExportDescription> clone() const override
         {
             return std::make_shared<QStringToVariant>( *this );
         }

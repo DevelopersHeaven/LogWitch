@@ -27,23 +27,23 @@ class LogEntryParser_Logfile
 public:
 	LogEntryParser_Logfile( std::shared_ptr<ParserStreamGetter> getter );
 
-	~LogEntryParser_Logfile();
+	~LogEntryParser_Logfile() override;
 
-	void startEmiting();
+	void startEmiting() override;
 
-	bool initParser();
+	bool initParser() override;
 
-	void run();
+	void run() override;
 
-	virtual std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
+	std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const override;
 
-	QString getName() const;
+	QString getName() const override;
 signals:
-	void newEntry( TconstSharedNewLogEntryMessage );
+	void newEntry(TconstSharedNewLogEntryMessage) override;
 
-    void signalError( QString error );
+    void signalError(QString error) override;
 
-  void finished();
+  void finished() override;
 
 private:
   TSharedNewLogEntryMessage getEntries();

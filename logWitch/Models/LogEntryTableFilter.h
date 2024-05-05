@@ -25,11 +25,11 @@ class LogEntryTableFilter
 public:
 	LogEntryTableFilter( QObject *parent );
 
-	void setSourceModel( QAbstractItemModel *model );
+	void setSourceModel(QAbstractItemModel *model) override;
 
 	LogEntryTableModel *getSourceModel() const;
 
-	QVariant data(const QModelIndex &index, int role) const;
+	QVariant data(const QModelIndex &index, int role) const override;
 
 	void addFilter( std::shared_ptr<LogEntryFilter> );
 
@@ -37,7 +37,7 @@ public:
 
 	void generateExportList( std::vector<TconstSharedLogEntry>& ls
 	    , QModelIndex first, QModelIndex last
-	    , const ExportParameters& param ) const;
+	    , const ExportParameters& param) const override;
 
 public slots:
 	void updateChanges();
@@ -62,7 +62,7 @@ public:
 
 
 protected:
-	bool filterAcceptsRow ( int source_row, const QModelIndex & source_parent ) const;
+	bool filterAcceptsRow (int source_row, const QModelIndex & source_parent) const override;
 
 	/**
 	 * This method implements filtering only, it returns the filtering from the

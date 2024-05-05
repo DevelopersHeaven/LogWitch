@@ -13,7 +13,7 @@ class ActionDoNothing
 : public Action
 {
 public:
-    QVariant toDisplay( int role ) const;
+    QVariant toDisplay(int role) const override;
 };
 
 #endif /* ACTIONDONOTHING_H_ */

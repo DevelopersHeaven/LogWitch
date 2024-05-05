@@ -62,9 +62,9 @@ public:
 	 * in will be added to the cache and returned.
 	 * @param in Object passing in
 	 */
-	StType getObject( StType in );
+	StType getObject(StType in) override;
 
-	bool isCaching() const{ return true;}
+	bool isCaching() const override { return true;}
 
 private:
 	struct lessStringSharedPtr
@@ -94,9 +94,9 @@ public:
      * in will be added to the cache and returned.
      * @param in Object passing in
      */
-    StType getObject( StType in );
+    StType getObject(StType in) override;
 
-    bool isCaching() const {return false;};
+    bool isCaching() const override {return false;}
 };
 
 

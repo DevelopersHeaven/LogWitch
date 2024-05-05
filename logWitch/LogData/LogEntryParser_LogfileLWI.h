@@ -26,28 +26,28 @@ class LogEntryParser_LogfileLWI
 public:
     LogEntryParser_LogfileLWI( const QString &filename );
 
-    ~LogEntryParser_LogfileLWI();
+    ~LogEntryParser_LogfileLWI() override;
 
-    void startEmiting();
+    void startEmiting() override;
 
-    void run();
+    void run() override;
 
-    bool initParser();
+    bool initParser() override;
 
-    virtual std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
+    std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const override;
 
 signals:
-    void newEntry( TconstSharedNewLogEntryMessage );
+    void newEntry(TconstSharedNewLogEntryMessage) override;
 
-    void signalError( QString error );
+    void signalError(QString error) override;
 
-    void finished();
+    void finished() override;
 
 private:
 
     TSharedLogEntry logEntryFromString( const QString &str);
 
-    virtual TSharedLogEntry getNextLogEntry();
+    TSharedLogEntry getNextLogEntry();
 
     bool m_abort;
 

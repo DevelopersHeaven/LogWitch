@@ -20,7 +20,7 @@ class EntryToTextFormaterLog4cplus
     : public EntryToTextFormater
 {
 public:
-    virtual QString formatEntry( TconstSharedLogEntry entry ) const;
+    QString formatEntry(TconstSharedLogEntry entry) const override;
 };
 
 }}}

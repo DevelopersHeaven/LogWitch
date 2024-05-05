@@ -26,7 +26,7 @@ class QuickSearchBar:
   Q_OBJECT
 public:
   QuickSearchBar(LogEntryTableWindow* parent, std::shared_ptr<LogEntryTableModel> model, const QString& colorCode = "#81BEF7");
-  virtual ~QuickSearchBar();
+  ~QuickSearchBar() override;
 
   enum SearchModes { Regex, Text, Expression};
 

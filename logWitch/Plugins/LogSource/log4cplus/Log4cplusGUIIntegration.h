@@ -33,9 +33,9 @@ class Log4cplusGUIIntegration: public QObject, public LogSourcePluginAbstractBas
 public:
 	Log4cplusGUIIntegration();
 
-	virtual ~Log4cplusGUIIntegration();
+	~Log4cplusGUIIntegration() override;
 
-	virtual QToolBar* getToolbar() override {return m_toolbar; }
+	QToolBar* getToolbar() override { return m_toolbar; }
 
 private slots:
 	void openPort();

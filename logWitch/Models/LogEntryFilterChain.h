@@ -24,11 +24,11 @@ public:
 
 	void removeFilter( std::shared_ptr< LogEntryFilter> );
 
-	virtual bool filterEntry( TconstSharedLogEntry entry ) const;
+	bool filterEntry(TconstSharedLogEntry entry) const override;
 
-	virtual void startChange();
+	void startChange() override;
 
-	virtual void endChange();
+	void endChange() override;
 
 signals:
 	void filterUpdateFinished();

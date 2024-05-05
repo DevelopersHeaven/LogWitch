@@ -13,7 +13,7 @@ class ActionDiscardRow
     : public Action
 {
 public:
-    QVariant toDisplay( int role ) const;
+    QVariant toDisplay(int role) const override;
 };
 
 

@@ -28,7 +28,7 @@ class FilterRuleSelectionWindow
     Q_OBJECT
 public:
     FilterRuleSelectionWindow(QWidget* parent = nullptr);
-    virtual ~FilterRuleSelectionWindow();
+    ~FilterRuleSelectionWindow() override;
 
     /**
      * This displays a previously hidden window or adds a new one.

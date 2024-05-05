@@ -16,11 +16,11 @@ public:
     ValueGetterConstQString( const QString &string );
     ValueGetterConstQString( TSharedConstQString &string );
 
-    bool isValid( ) const { return true; };
+    bool isValid() const override { return true; }
 
-    virtual TSharedConstQString getValue( TconstSharedLogEntry &entry ) const;
+    TSharedConstQString getValue(TconstSharedLogEntry &entry) const override;
 
-    std::ostream &out( std::ostream &o, bool extended = false ) const;
+    std::ostream &out(std::ostream &o, bool extended = false) const override;
 
 private:
     TSharedConstQString m_string;

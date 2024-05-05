@@ -51,16 +51,16 @@ public:
    */
   void startModel();
 
-  int rowCount(const QModelIndex &parent = QModelIndex()) const;
+  int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-  int columnCount(const QModelIndex &parent = QModelIndex()) const;
+  int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-  QVariant data(const QModelIndex &index, int role) const;
+  QVariant data(const QModelIndex &index, int role) const override;
 
-  QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+  QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
   bool setHeaderData(int section, Qt::Orientation orientation,
-      const QVariant & value, int role);
+      const QVariant & value, int role) override;
 
   TconstSharedLogEntry getEntryByRow(const int row) const;
 
@@ -69,7 +69,7 @@ public:
   TSharedConstLogEntryParserModelConfiguration getParserModelConfiguration() const;
 
   bool removeRows(int row, int count, const QModelIndex & parent =
-      QModelIndex());
+      QModelIndex()) override;
 
   /**
    * This starts block of inserting new items to model. If we are
@@ -93,7 +93,7 @@ public:
 
   void generateExportList( std::vector<TconstSharedLogEntry>& entries
       , QModelIndex first, QModelIndex last
-      , const ExportParameters& param ) const;
+      , const ExportParameters& param) const override;
 
 public slots:
   /**

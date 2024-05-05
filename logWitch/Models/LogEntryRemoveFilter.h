@@ -32,7 +32,7 @@ public:
 
 	void clear();
 
-	virtual bool filterEntry( TconstSharedLogEntry entry ) const;
+	bool filterEntry(TconstSharedLogEntry entry) const override;
 
 private:
 	std::set<std::shared_ptr<const QString>, ltShPtr > m_removeStrings;

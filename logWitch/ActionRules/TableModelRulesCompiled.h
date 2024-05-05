@@ -31,26 +31,26 @@ public:
             TSharedConstLogEntryParserModelConfiguration cfg = TSharedConstLogEntryParserModelConfiguration(),
             TSharedRuleTable ruleTable = TSharedRuleTable()  );
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    int columnCount(const QModelIndex &parent = QModelIndex()) const;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    QVariant data(const QModelIndex &index, int role) const;
+    QVariant data(const QModelIndex &index, int role) const override;
 
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
-    bool setData( const QModelIndex &index, const QVariant& value, int role );
+    bool setData(const QModelIndex &index, const QVariant& value, int role) override;
 
-    Qt::ItemFlags flags(const QModelIndex & index ) const;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
 
-    Qt::DropActions supportedDropActions() const;
+    Qt::DropActions supportedDropActions() const override;
 
-    QStringList mimeTypes() const;
+    QStringList mimeTypes() const override;
 
-    QMimeData *mimeData(const QModelIndexList &indexes) const;
+    QMimeData *mimeData(const QModelIndexList &indexes) const override;
 
     bool dropMimeData(const QMimeData *data,
-            Qt::DropAction action, int row, int column, const QModelIndex &parent);
+            Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
 
     /**
      * This appends the given rule. This copies the contents and creates

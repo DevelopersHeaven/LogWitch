@@ -27,13 +27,13 @@ public:
     void setName( const QString &name );
     QString getName() const;
 
-    bool isValid( ) const;
+    bool isValid() const override;
 
     int getID( ) const;
 
-    TSharedConstQString getValue( TconstSharedLogEntry &entry ) const;
+    TSharedConstQString getValue(TconstSharedLogEntry &entry) const override;
 
-    std::ostream &out( std::ostream &o, bool extended = false ) const;
+    std::ostream &out(std::ostream &o, bool extended = false) const override;
 
 private:
     QString m_name;
