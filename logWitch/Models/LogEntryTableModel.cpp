@@ -25,11 +25,11 @@ LogEntryTableModel::LogEntryTableModel( std::shared_ptr<LogEntryParser> parser )
     , m_maxNumberOfEntries( 0 )
     , m_blockInsertingMessages( false )
 {
-    QObject::connect(dynamic_cast<QObject*>(parser.get()), SIGNAL(newEntry( TconstSharedNewLogEntryMessage )),
-                     this, SLOT(insertEntry( TconstSharedNewLogEntryMessage ))
+    QObject::connect(dynamic_cast<QObject*>(parser.get()), SIGNAL(newEntry(TconstSharedNewLogEntryMessage)),
+                     this, SLOT(insertEntry(TconstSharedNewLogEntryMessage))
                      , Qt::QueuedConnection );
-    QObject::connect(dynamic_cast<QObject*>(parser.get()), SIGNAL(signalError( QString )),
-                     this, SLOT(signalErrorFromParser( QString )) );
+    QObject::connect(dynamic_cast<QObject*>(parser.get()), SIGNAL(signalError(QString)),
+                     this, SLOT(signalErrorFromParser(QString)) );
 
     m_ModelName = parser->getName();
 }
