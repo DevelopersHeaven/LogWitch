@@ -20,7 +20,7 @@ class QString;
 class LogEntry
 {
 public:
-	virtual ~LogEntry();
+	~LogEntry();
 
 	LogEntry( LogEntryFactory *factory, const std::vector< QVariant > &defAttributes );
 

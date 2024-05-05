@@ -53,7 +53,7 @@ public:
 	 */
 	StringCacheTreeItem(TSharedConstQString originalString, TSharedConstQString str, StringCacheTreeItem *parent = nullptr);
 
-	virtual ~StringCacheTreeItem();
+	~StringCacheTreeItem();
 
     /**
      * Appends a child to the tree and adds it to the end of the list
