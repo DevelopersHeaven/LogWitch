@@ -14,7 +14,7 @@ class QScrollDownTableView
 {
     Q_OBJECT
 public:
-    QScrollDownTableView( QWidget *parent = NULL);
+    QScrollDownTableView(QWidget *parent = nullptr);
 
 protected:
     void updateGeometries();

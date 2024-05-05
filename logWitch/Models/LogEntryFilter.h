@@ -11,7 +11,7 @@
 
 class LogEntryFilter {
 public:
-	LogEntryFilter( ): m_parent(NULL) { } ;
+	LogEntryFilter() : m_parent(nullptr) {}
 
 	virtual ~LogEntryFilter( );
 

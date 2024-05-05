@@ -53,21 +53,21 @@ Log4cplusGUIIntegration::Log4cplusGUIIntegration ()
 
   actionOpenServer->setText(
       QApplication::translate("Plugin_Source_Log4cplus", "Start Server",
-      Q_NULLPTR));
+      nullptr));
 #ifndef QT_NO_TOOLTIP
   actionOpenServer->setToolTip(
       QApplication::translate("Plugin_Source_Log4cplus",
                               "Starts the Log4cplus logging server.",
-                              Q_NULLPTR));
+                              nullptr));
 #endif // QT_NO_TOOLTIP
 
   QLabel *portLabel = new QLabel(
-      QApplication::translate("Plugin_Source_Log4cplus", "Port: ", Q_NULLPTR));
+      QApplication::translate("Plugin_Source_Log4cplus", "Port: ", nullptr));
   m_port = new QSpinBox(m_toolbar);
   m_port->setToolTip(
       QApplication::translate("Plugin_Source_Log4cplus",
                               "Port to listen for log4cplus socket appender",
-                              Q_NULLPTR));
+                              nullptr));
   m_port->setMinimum(1);
   m_port->setMaximum(65535);
   m_port->setValue( settings.value( settingskey_port, 9998).toInt() );

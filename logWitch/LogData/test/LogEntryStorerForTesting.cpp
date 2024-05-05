@@ -12,7 +12,7 @@
 LogEntryStorerForTesting::LogEntryStorerForTesting( LogEntryParser* parser )
 : m_finished (false)
 , m_parser(parser)
-, m_app(NULL)
+, m_app(nullptr)
 {
   QObject* parserQO = dynamic_cast<QObject*>(parser);
 
@@ -33,7 +33,7 @@ void LogEntryStorerForTesting::start()
   QTimer::singleShot(0, this, SLOT(runParser()) );
   app.exec();
 
-  m_app = NULL;
+  m_app = nullptr;
 }
 
 void LogEntryStorerForTesting::runParser()

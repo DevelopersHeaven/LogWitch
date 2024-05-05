@@ -9,7 +9,7 @@
 
 SignalMultiplexer::SignalMultiplexer(QObject *parent )
     : QObject( parent )
-    , m_object( NULL)
+    , m_object(nullptr)
 {
 }
 
@@ -74,7 +74,7 @@ void SignalMultiplexer::deleteObject( QObject *obj )
     {
         if( obj == m_object )
         {
-            setObject( NULL );
+            setObject(nullptr);
         }
 
         m_connectionStates.erase( it );

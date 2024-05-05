@@ -28,7 +28,7 @@ class FilterRuleSelectionWindow
 {
     Q_OBJECT
 public:
-    FilterRuleSelectionWindow( QWidget* parent = NULL );
+    FilterRuleSelectionWindow(QWidget* parent = nullptr);
     virtual ~FilterRuleSelectionWindow();
 
     /**

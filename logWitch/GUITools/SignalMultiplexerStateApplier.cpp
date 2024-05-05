@@ -25,7 +25,7 @@ SignalMultiplexerStateApplier::SignalMultiplexerStateApplier( SignalMultiplexer 
 
 std::shared_ptr<ObjectState> SignalMultiplexerStateApplier::dumpState( QObject *, QObject * ) const
 {
-    return std::shared_ptr<ObjectState>( new ObjectState( m_ptrToMyself.lock(), NULL ) );
+    return std::shared_ptr<ObjectState>(new ObjectState(m_ptrToMyself.lock(), nullptr));
 }
 
 void SignalMultiplexerStateApplier::replayState( QObject *, QObject *parent, const ObjectState * ) const

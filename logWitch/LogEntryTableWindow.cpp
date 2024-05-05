@@ -62,8 +62,8 @@ LogEntryTableWindow::LogEntryTableWindow( std::shared_ptr<LogEntryTableModel> mo
 : QMdiSubWindow(parent)
 , m_model(model)
 , m_splitter( new QSplitter(Qt::Vertical))
-, m_myFilterTabs( NULL)
-, m_dockFilterShouldDockedTo(NULL)
+, m_myFilterTabs(nullptr)
+, m_dockFilterShouldDockedTo(nullptr)
 , m_tableView(new QScrollDownTableView())
 , m_nextQsColor(0)
 {
@@ -317,7 +317,7 @@ void LogEntryTableWindow::capture(bool active)
 
 QTabWidget *LogEntryTableWindow::getTabFilterWidget()
 {
-  if (m_myFilterTabs == NULL)
+  if (m_myFilterTabs == nullptr)
   {
     QTabWidget *tabs = new QTabWidget();
 

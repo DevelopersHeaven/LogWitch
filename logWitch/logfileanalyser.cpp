@@ -24,8 +24,8 @@
 
 LogfileAnalyser::LogfileAnalyser(QWidget *parent)
   : QMainWindow(parent),
-    m_myFilterDock( NULL),
-    m_stateSaver( NULL),
+    m_myFilterDock(nullptr),
+    m_stateSaver(nullptr),
     m_helpAssistant(new HelpAssistant)
 {
   ui.setupUi(this);
@@ -131,7 +131,7 @@ void LogfileAnalyser::subWindowDestroyed(QObject *obj)
   qDebug() << "subWindowDestroyed";
   // Window closed, remove docks
   if (ui.mdiArea->subWindowList().size() == 0)
-    m_stateSaver->switchState( NULL);
+    m_stateSaver->switchState(nullptr);
   else
   {
     QMdiSubWindow *wnd = ui.mdiArea->activeSubWindow();
@@ -147,7 +147,7 @@ void LogfileAnalyser::subWindowDestroyed(QObject *obj)
 void LogfileAnalyser::subWindowActivated(QMdiSubWindow *obj)
 {
   qDebug() << "subWindowActivated";
-  if (obj != NULL)
+  if (obj != nullptr)
     m_stateSaver->switchState(obj);
 }
 
@@ -267,7 +267,7 @@ void LogfileAnalyser::createWindowsFromParser(std::shared_ptr<LogEntryParser> pa
 
 void LogfileAnalyser::exportLogfile()
 {
-  LogEntryTableWindow *wnd = NULL;
+  LogEntryTableWindow *wnd = nullptr;
   wnd = dynamic_cast<LogEntryTableWindow *>(ui.mdiArea->activeSubWindow());
 
   if (wnd)

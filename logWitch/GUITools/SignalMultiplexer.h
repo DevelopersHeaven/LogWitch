@@ -27,7 +27,7 @@ class SignalMultiplexer
 {
     Q_OBJECT
 public:
-    SignalMultiplexer(QObject *parent = NULL );
+    SignalMultiplexer(QObject *parent = nullptr);
 
     void connect(QObject *sender, const char *signal, QObject *receiver, const char *slot);
     bool disconnect(QObject *sender, const char *signal, QObject *receiver, const char *slot);

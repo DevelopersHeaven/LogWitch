@@ -16,7 +16,7 @@ class RulesTableView
 {
     Q_OBJECT
 public:
-    RulesTableView( QWidget *parent = NULL );
+    RulesTableView(QWidget *parent = nullptr);
 
 };
 

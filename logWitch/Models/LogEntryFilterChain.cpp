@@ -21,7 +21,7 @@ void LogEntryFilterChain::addFilter( std::shared_ptr<LogEntryFilter> flt )
 
 void LogEntryFilterChain::removeFilter( std::shared_ptr<LogEntryFilter>  flt )
 {
-	flt->setParent( NULL );
+	flt->setParent(nullptr);
 
 	TFilterChain::iterator it = m_filterChain.begin();
 	for( ; it != m_filterChain.end(); ++it )
@@ -54,7 +54,7 @@ void LogEntryFilterChain::startChange()
 void LogEntryFilterChain::endChange()
 {
 	m_changeCounter--;
-	if( m_parent == NULL && 0 == m_changeCounter )
+	if (m_parent == nullptr && 0 == m_changeCounter)
 	{
 		emit filterUpdateFinished();
 	}

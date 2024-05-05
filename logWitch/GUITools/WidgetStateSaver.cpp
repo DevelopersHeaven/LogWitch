@@ -10,7 +10,7 @@
 
 WidgetStateSaver::WidgetStateSaver( QObject *parent )
     : QObject( parent )
-    , m_lastObject( NULL )
+    , m_lastObject(nullptr)
 {
 
 }
@@ -21,13 +21,13 @@ void WidgetStateSaver::addElementToWatch( QObject *obj,
     DEBUG_WIDGETSTATESAFER("adding object to watch " <<obj);
     m_myWatchedObjects.insert( ObjectStateDumper::value_type( obj, stateSaver ) );
     // Save actual obj state as state default.
-    StateSaveMap::iterator it = m_stateHistoryMap.find( NULL );
+    StateSaveMap::iterator it = m_stateHistoryMap.find(nullptr);
     if( it == m_stateHistoryMap.end() )
     {
-        it = m_stateHistoryMap.insert(StateSaveMap::value_type( (QObject *) NULL, ObjectStateList() ) ).first;
+        it = m_stateHistoryMap.insert(StateSaveMap::value_type(nullptr, ObjectStateList())).first;
     }
 
-    it->second.push_back( stateSaver->dumpState( obj, NULL ) );
+    it->second.push_back(stateSaver->dumpState(obj, nullptr));
 }
 
 void WidgetStateSaver::storeState( QObject *obj )
@@ -69,7 +69,7 @@ void WidgetStateSaver::deregisterFocusObject( QObject *end, bool applyDefauls )
 {
     DEBUG_WIDGETSTATESAFER("DeregisterFocusObject" << end);
     if( applyDefauls )
-        replayState( NULL );
+        replayState(nullptr);
 
     m_stateHistoryMap.erase(end );
 }
