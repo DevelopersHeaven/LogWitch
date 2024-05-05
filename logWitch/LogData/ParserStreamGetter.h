@@ -22,7 +22,7 @@ class ParserStreamGetter
 public:
   ParserStreamGetter( const QString name, std::shared_ptr<QTextStream> textStream = std::shared_ptr<QTextStream>() );
 
-  virtual ~ParserStreamGetter();
+  virtual ~ParserStreamGetter() = default;
 
   /**
    * Returns a stream if initialization was possible or an empty pointer

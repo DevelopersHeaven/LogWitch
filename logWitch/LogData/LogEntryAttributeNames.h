@@ -13,7 +13,7 @@
 class ImportExportDescription
 {
 public:
-    virtual ~ImportExportDescription();
+    virtual ~ImportExportDescription() = default;
     virtual QVariant operator()(const QString &str ) = 0;
     virtual QString operator()(const QVariant &str );
 

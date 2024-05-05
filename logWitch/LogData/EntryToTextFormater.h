@@ -7,7 +7,6 @@
 
 #ifndef ENTRYTOTEXTFORMATER_H_
 #define ENTRYTOTEXTFORMATER_H_
-#include <QtCore/QtCore>
 
 #include "LogData/LogEntry.h"
 
@@ -18,7 +17,7 @@
 class EntryToTextFormater
 {
 public:
-	virtual ~EntryToTextFormater(){};
+	virtual ~EntryToTextFormater() = default;
 
 	/**
 	 * Formats the entry to a human readable html-text.

@@ -23,7 +23,7 @@ class LogEntryParserModelConfiguration;
 class LogEntryParser
 {
 public:
-	virtual ~LogEntryParser(){}
+	virtual ~LogEntryParser() = default;
 
 	/**
 	 * This method returns a name which can be used to identify the origin, for eg. Server, logfilename, etc.
@@ -71,7 +71,7 @@ protected:
 class LogFileParser
 {
 public:
-    virtual ~LogFileParser() { };
+    virtual ~LogFileParser() = default;
 
     /**
      * Returns true if the parser seems to be working (parsers should try some loglines
