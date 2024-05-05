@@ -15,11 +15,11 @@ class ExpressionOpNegate
 public:
     ExpressionOpNegate( TSharedExpression in);
 
-    virtual bool isValid( ) const;
+    bool isValid() const override;
 
-    virtual bool match( TconstSharedLogEntry &entry ) const;
+    bool match(TconstSharedLogEntry &entry) const override;
 
-    virtual std::ostream &out( std::ostream &o, bool extended = false ) const;
+    std::ostream &out(std::ostream &o, bool extended = false) const override;
 private:
     TSharedExpression m_expr;
 };
@@ -33,11 +33,11 @@ class ExpressionConst
 public:
     ExpressionConst( bool value );
 
-    virtual bool isValid( ) const;
+    bool isValid() const override;
 
-    virtual bool match( TconstSharedLogEntry &entry ) const;
+    bool match(TconstSharedLogEntry &entry) const override;
 
-    virtual std::ostream &out( std::ostream &o, bool extended = false ) const;
+    std::ostream &out(std::ostream &o, bool extended = false) const override;
 private:
     bool m_value;
 };
@@ -51,11 +51,11 @@ class ExpressionOpOr
 public:
     ExpressionOpOr( TSharedExpression left, TSharedExpression right);
 
-    virtual bool isValid( ) const;
+    bool isValid() const override;
 
-    virtual bool match( TconstSharedLogEntry &entry ) const;
+    bool match(TconstSharedLogEntry &entry) const override;
 
-    virtual std::ostream &out( std::ostream &o, bool extended = false ) const;
+    std::ostream &out(std::ostream &o, bool extended = false) const override;
 private:
     TSharedExpression m_left, m_right;
 };
@@ -69,11 +69,11 @@ class ExpressionOpAnd
 public:
     ExpressionOpAnd( TSharedExpression left, TSharedExpression right);
 
-    virtual bool isValid( ) const;
+    bool isValid() const override;
 
-    virtual bool match( TconstSharedLogEntry &entry ) const;
+    bool match(TconstSharedLogEntry &entry) const override;
 
-    virtual std::ostream &out( std::ostream &o, bool extended = false ) const;
+    std::ostream &out(std::ostream &o, bool extended = false) const override;
 private:
     TSharedExpression m_left, m_right;
 };
@@ -87,11 +87,11 @@ class ExpressionOpXOr
 public:
     ExpressionOpXOr( TSharedExpression left, TSharedExpression right);
 
-    virtual bool isValid( ) const;
+    bool isValid() const override;
 
-    virtual bool match( TconstSharedLogEntry &entry ) const;
+    bool match(TconstSharedLogEntry &entry) const override;
 
-    virtual std::ostream &out( std::ostream &o, bool extended = false ) const;
+    std::ostream &out(std::ostream &o, bool extended = false) const override;
 private:
     TSharedExpression m_left, m_right;
 };

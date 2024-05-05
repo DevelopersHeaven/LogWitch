@@ -13,7 +13,7 @@ class EntryToTextFormaterDefault
 	: public EntryToTextFormater
 {
 public:
-	virtual QString formatEntry( TconstSharedLogEntry entry ) const;
+	QString formatEntry(TconstSharedLogEntry entry) const override;
 };
 
 #endif /* ENTRYTOTEXTFORMATER_LOGFILE_H_ */

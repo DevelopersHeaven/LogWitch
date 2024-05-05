@@ -33,15 +33,15 @@ class LogEntryParser_pythonSocket
 public:
 	LogEntryParser_pythonSocket( int port );
 
-	virtual ~LogEntryParser_pythonSocket();
+	~LogEntryParser_pythonSocket() override;
 
-	QString getName() const;
+	QString getName() const override;
 
-  bool initParser();
+	bool initParser() override;
 
-	void startEmiting();
+	void startEmiting() override;
 
-	std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
+	std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const override;
 
 private Q_SLOTS:
 	void newIncomingConnection();
@@ -51,11 +51,11 @@ private Q_SLOTS:
 	void onError(QString message);
 
 Q_SIGNALS:
-	void newEntry( TconstSharedNewLogEntryMessage );
+	void newEntry(TconstSharedNewLogEntryMessage) override;
 
-	void signalError( QString error );
+	void signalError(QString error) override;
 
-  void finished();
+	void finished() override;
 
 private:
 	int m_port;

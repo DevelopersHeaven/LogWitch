@@ -36,15 +36,15 @@ class LogEntryParser_log4cplusSocket
 public:
 	LogEntryParser_log4cplusSocket( int port );
 
-	virtual ~LogEntryParser_log4cplusSocket();
+	~LogEntryParser_log4cplusSocket() override;
 
-	QString getName() const;
+	QString getName() const override;
 
-  bool initParser();
+	bool initParser() override;
 
-	void startEmiting();
+	void startEmiting() override;
 
-	std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const;
+	std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const override;
 
 private slots:
 	void newIncomingConnection();
@@ -53,11 +53,11 @@ private slots:
 	void logEntryMessageDestroyed();
 
 signals:
-	void newEntry( TconstSharedNewLogEntryMessage );
+	void newEntry(TconstSharedNewLogEntryMessage) override;
 
-	void signalError( QString error );
+	void signalError(QString error) override;
 
-  void finished();
+	void finished() override;
 
 private:
 	int m_port;

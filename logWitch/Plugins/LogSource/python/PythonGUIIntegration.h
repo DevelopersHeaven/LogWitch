@@ -31,9 +31,9 @@ class PythonGUIIntegration: public QObject, public LogSourcePluginAbstractBase
 public:
 	PythonGUIIntegration();
 
-	virtual ~PythonGUIIntegration();
+	~PythonGUIIntegration() override;
 
-	virtual QToolBar* getToolbar() override {return m_toolbar; }
+	QToolBar* getToolbar() override { return m_toolbar; }
 
 private Q_SLOTS:
 	void openPort();

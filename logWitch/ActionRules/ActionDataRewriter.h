@@ -20,13 +20,13 @@ class ActionDataRewriter
 public:
     ActionDataRewriter( TSharedConstLogEntryParserModelConfiguration configuration );
 
-    bool modifyData( QVariant &var,  int column, int role) const;
+    bool modifyData(QVariant &var, int column, int role) const override;
 
     void addChangeSet( const QVariant &var, int role, const QString &column );
 
     void addChangeSet( const QVariant &var, int role );
 
-    QVariant toDisplay( int role ) const;
+    QVariant toDisplay(int role) const override;
 private:
     class rc_key
     {

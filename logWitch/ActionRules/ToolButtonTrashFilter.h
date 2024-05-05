@@ -23,9 +23,9 @@ class ToolButtonTrashFilter
 public:
     ToolButtonTrashFilter( QAction * action, TableModelRulesCompiled *model );
 
-    void dropEvent(QDropEvent *event);
+    void dropEvent(QDropEvent *event) override;
 
-    void dragEnterEvent(QDragEnterEvent *event);
+    void dragEnterEvent(QDragEnterEvent *event) override;
 
 private:
     TableModelRulesCompiled *m_model;

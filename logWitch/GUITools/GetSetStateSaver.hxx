@@ -60,8 +60,8 @@ public:
 	static std::shared_ptr<GetSetStateSaver<T> > generate();
 
 public:
-    std::shared_ptr<ObjectState> dumpState( QObject *obj, QObject * ) const;
-    void replayState( QObject *obj, QObject *, const ObjectState *state ) const;
+    std::shared_ptr<ObjectState> dumpState(QObject *obj, QObject *) const override;
+    void replayState(QObject *obj, QObject *, const ObjectState *state) const override;
 
 private:
     class state:

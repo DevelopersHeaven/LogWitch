@@ -20,11 +20,11 @@ class ExpressionRegEx
 public:
     ExpressionRegEx( TconstSharedValueGetter value, const QString &exp);
 
-    bool isValid( ) const;
+    bool isValid() const override;
 
-    bool match( TconstSharedLogEntry &entry ) const;
+    bool match(TconstSharedLogEntry &entry) const override;
 
-    std::ostream &out( std::ostream &o, bool extended = false ) const;
+    std::ostream &out(std::ostream &o, bool extended = false) const override;
 
     QString getPattern() const;
     TconstSharedValueGetter getValueGetter() const;

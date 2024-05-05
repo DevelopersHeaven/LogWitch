@@ -19,9 +19,9 @@ class EntryFormatingModel
 public:
     EntryFormatingModel( QObject *parent );
 
-    QVariant data(const QModelIndex &index, int role) const;
+    QVariant data(const QModelIndex &index, int role) const override;
 
-    void setSourceModel( QAbstractItemModel *model );
+    void setSourceModel(QAbstractItemModel *model) override;
 
     /**
      * Enables or disables the TimeDiff mode.
@@ -36,7 +36,7 @@ public:
 
     void generateExportList( std::vector<TconstSharedLogEntry>& entries
         , QModelIndex first, QModelIndex last
-        , const ExportParameters& param ) const;
+        , const ExportParameters& param) const override;
 private:
     QString m_formatString;
 

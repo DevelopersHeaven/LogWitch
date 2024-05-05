@@ -17,7 +17,7 @@ public:
     QScrollDownTableView(QWidget *parent = nullptr);
 
 protected:
-    void updateGeometries();
+    void updateGeometries() override;
 };
 
 #endif /* QSCROLLDOWNTABLEVIEW_H_ */

@@ -79,13 +79,13 @@ namespace logwitch { namespace plugins {
 	public:
 		LogSourcePluginAbstractBase();
 
-		virtual const LogSourcePluginDesription& getDescription() const { return m_pluginDescription; }
+		const LogSourcePluginDesription& getDescription() const override { return m_pluginDescription; }
 
-		virtual QToolBar* getToolbar() override { return nullptr; }
+		QToolBar* getToolbar() override { return nullptr; }
 
-		virtual void fillMenu( QMenu* menu ) override { };
+		void fillMenu(QMenu* menu) override { }
 
-		void attachParserAction( logwitch::ParserActionInterface* parserActionIfc ) override { m_parserActionIfc = parserActionIfc; }
+		void attachParserAction(logwitch::ParserActionInterface* parserActionIfc) override { m_parserActionIfc = parserActionIfc; }
 
 	protected:
 		LogSourcePluginDesription m_pluginDescription;

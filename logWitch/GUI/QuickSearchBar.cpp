@@ -29,8 +29,8 @@ class QuickSearchLineEdit: public QLineEdit
 public:
   QuickSearchLineEdit( QuickSearchBar* parent);
 
-  void dragEnterEvent(QDragEnterEvent *event);
-  void dropEvent(QDropEvent *event);
+  void dragEnterEvent(QDragEnterEvent *event) override;
+  void dropEvent(QDropEvent *event) override;
 
 private:
   QuickSearchBar* m_qsBar;

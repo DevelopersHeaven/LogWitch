@@ -29,32 +29,32 @@ namespace logwitch
       Q_OBJECT
       public:
         LogEntryParser_dummy ();
-        virtual ~LogEntryParser_dummy ();
+        ~LogEntryParser_dummy() override;
 
-        void startEmiting ();
+        void startEmiting() override;
 
-        bool initParser ();
+        bool initParser() override;
 
         void addEntries (int count);
 
         void setEmitError( bool v) { m_emitError=v; }
 
-        std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration () const;
+        std::shared_ptr<LogEntryParserModelConfiguration> getParserModelConfiguration() const override;
 
-        QString getName () const
+        QString getName() const override
         {
           return QString("Dummylogger");
         }
 
       signals:
-        void newEntry (TconstSharedNewLogEntryMessage);
+        void newEntry(TconstSharedNewLogEntryMessage) override;
 
-        void signalError (QString error);
+        void signalError(QString error) override;
 
-        void finished ();
+        void finished() override;
 
       protected:
-        void run ();
+        void run() override;
 
       private:
         TSharedLogEntry getNextLogEntry ();
