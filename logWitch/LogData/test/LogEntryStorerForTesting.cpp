@@ -7,6 +7,9 @@
 
 #include <LogData/test/LogEntryStorerForTesting.h>
 
+#include <QCoreApplication>
+#include <QTimer>
+
 #include "LogData/LogEntryParser.h"
 
 LogEntryStorerForTesting::LogEntryStorerForTesting( LogEntryParser* parser )

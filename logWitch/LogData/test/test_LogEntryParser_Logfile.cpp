@@ -8,6 +8,8 @@
  *  Created on: 12 Mar 2016
  *      Author: sven
  */
+#include <QVariant>
+
 #define BOOST_TEST_DYN_LINK
 
 #include <boost/test/unit_test.hpp>

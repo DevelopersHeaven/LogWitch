@@ -12,7 +12,7 @@
 
 #include <QFile>
 #include <QTextStream>
-#include <QtCore/QtCore>
+#include <QThread>
 #include "LogEntryFactory.h"
 
 class LogEntryOld;

@@ -7,7 +7,6 @@
 
 #ifndef LOGENTRYTABLEMODELFILEEXPORTER_H_
 #define LOGENTRYTABLEMODELFILEEXPORTER_H_
-#include <QtCore>
 
 #include "LogData/LogEntry.h"
 

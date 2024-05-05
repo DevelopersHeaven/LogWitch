@@ -12,7 +12,6 @@
 
 #include "LogData/ObjectCache.hxx"
 #include "LogData/LogEntryFactory.h"
-#include <QtCore/QtCore>
 
 LogEntry::LogEntry( LogEntryFactory *factory, const std::vector< QVariant > &defAttributes )
 	: m_attributes( new QVariant[defAttributes.size()] )

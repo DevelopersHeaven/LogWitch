@@ -8,7 +8,7 @@
 #ifndef VALUEGETTERLOGENTRY_H_
 #define VALUEGETTERLOGENTRY_H_
 
-#include <QtCore/QtCore>
+#include <QString>
 
 #include "LogData/LogEntry.h"
 #include "Types.h"

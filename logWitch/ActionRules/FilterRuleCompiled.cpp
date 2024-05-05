@@ -10,6 +10,9 @@
 #include <boost/phoenix/operator.hpp>
 #include <boost/spirit/include/qi.hpp>
 
+#include <QDebug>
+#include <QString>
+
 // take the string and search for => as an special expression.
 static const QString separator("=>");
 

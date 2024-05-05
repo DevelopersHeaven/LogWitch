@@ -8,7 +8,6 @@
 #ifndef FILTERRULESELECTIONWINDOW_H_
 #define FILTERRULESELECTIONWINDOW_H_
 
-#include <QtGui>
 #include <QSplitter>
 
 #include "ActionRules/TableModelRulesCompiled.h"

@@ -9,7 +9,7 @@
 
 #include <list>
 
-#include <QtCore>
+#include <QObject>
 
 #include "LogData/LogEntry.h"
 

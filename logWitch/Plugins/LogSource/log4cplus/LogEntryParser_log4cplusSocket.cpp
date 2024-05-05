@@ -23,8 +23,6 @@
 #include <log4cplus/loglevel.h>
 #include <log4cplus/tchar.h>
 
-#include <QtCore/QtCore>
-
 #include "LogData/LogEntry.h"
 #include "LogData/LogEntryAttributeNames.h"
 #include "LogData/LogEntryFactory.h"

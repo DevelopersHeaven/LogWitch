@@ -14,8 +14,6 @@
 
 #include <Python.h>
 
-#include <QtCore/QtCore>
-
 #include "LogData/LogEntry.h"
 #include "LogData/LogEntryAttributeNames.h"
 #include "LogData/LogEntryFactory.h"

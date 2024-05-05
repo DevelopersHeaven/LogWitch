@@ -7,6 +7,11 @@
 
 #include "Models/LogEntryTableModelFileExporter.h"
 
+#include <QDateTime>
+#include <QFile>
+#include <QRegularExpression>
+#include <QTextStream>
+
 #include "LogData/LogEntryFactory.h"
 
 #include "Models/LogEntryTableModel.h"

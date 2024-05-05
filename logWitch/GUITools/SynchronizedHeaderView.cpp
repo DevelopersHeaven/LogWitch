@@ -7,6 +7,8 @@
 
 #include "SynchronizedHeaderView.h"
 
+#include <QDebug>
+
 #include "GUITools/SlotToBoostFunction.h"
 
 using namespace std::placeholders;

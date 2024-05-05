@@ -10,7 +10,7 @@
 
 #include "Models/LogEntryFilter.h"
 #include <list>
-#include <QtCore/QtCore>
+#include <QObject>
 
 class LogEntryFilterChain
 	: public QObject

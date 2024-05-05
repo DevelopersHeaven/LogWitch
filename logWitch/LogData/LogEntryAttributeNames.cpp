@@ -7,6 +7,10 @@
 
 #include "LogData/LogEntryAttributeNames.h"
 
+#include <QDateTime>
+#include <QDebug>
+#include <QRegularExpression>
+#include <QVariant>
 
 const QString ImportExportDescription::getImportExportDescription()
 {

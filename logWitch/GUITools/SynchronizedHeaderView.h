@@ -9,7 +9,7 @@
 #define SYNCHRONIZEDHEADERVIEW_H_
 
 #include <list>
-#include <QtGui>
+#include <memory>
 #include <QHeaderView>
 
 class HeaderViewGroup;

@@ -8,7 +8,8 @@
 
 #ifndef SIGNALMULTIPLEXER_H_
 #define SIGNALMULTIPLEXER_H_
-#include <QtCore>
+#include <QObject>
+#include <QPointer>
 #include <list>
 #include <map>
 

@@ -7,7 +7,8 @@
 
 #include <LogData/ParserStreamGetterFile.h>
 
-#include <QtCore/QtCore>
+#include <QFile>
+#include <QFileInfo>
 
 namespace
 {

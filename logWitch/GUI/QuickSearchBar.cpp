@@ -9,7 +9,10 @@
 
 #include <sstream>
 
+#include <QDebug>
+#include <QDragEnterEvent>
 #include <QHBoxLayout>
+#include <QMimeData>
 #include <QPushButton>
 
 #include "ActionRules/ActionParser.h"

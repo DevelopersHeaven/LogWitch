@@ -7,7 +7,8 @@
 
 #ifndef ENTRYFORMATINGMODEL_H_
 #define ENTRYFORMATINGMODEL_H_
-#include <QtGui>
+#include <QDateTime>
+#include <QSortFilterProxyModel>
 #include "ExportableIfc.h"
 
 class EntryFormatingModel

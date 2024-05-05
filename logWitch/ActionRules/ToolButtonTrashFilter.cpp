@@ -5,6 +5,11 @@
  *      Author: sven
  */
 
+#include <QDebug>
+#include <QDragEnterEvent>
+#include <QDropEvent>
+#include <QMimeData>
+
 #include "ActionRules/ToolButtonTrashFilter.h"
 #include "ActionRules/TableModelRulesCompiled.h"
 

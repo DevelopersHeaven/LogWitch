@@ -14,7 +14,8 @@
 #include <boost/phoenix/fusion.hpp>
 #include <boost/fusion/include/std_pair.hpp>
 
-#include <QtGui>
+#include <QColor>
+#include <QIcon>
 
 #include "ActionRules/ActionDataRewriter.h"
 #include "ActionRules/ActionDoNothing.h"

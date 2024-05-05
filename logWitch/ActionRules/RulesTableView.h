@@ -8,7 +8,6 @@
 #ifndef RULESTABLEVIEW_H_
 #define RULESTABLEVIEW_H_
 
-#include <QtGui>
 #include <QTableView>
 
 class RulesTableView

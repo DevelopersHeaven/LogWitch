@@ -7,9 +7,11 @@
 
 #include "StringCacheTreeModel.h"
 
-#include <QtCore/QtCore>
+#include <QBrush>
+#include <QDebug>
+#include <QRegularExpression>
+
 #include "LogEntryRemoveFilter.h"
-#include <QtGui>
 
 StringCacheTreeModel::StringCacheTreeModel( QObject *parent, const GetObjectIF<ObjectCacheQStringSignaller> * cache, int attributeId, const QString &splitString  )
 	: QAbstractItemModel( parent )

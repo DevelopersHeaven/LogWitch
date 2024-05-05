@@ -8,8 +8,6 @@
 #ifndef RULE_H_
 #define RULE_H_
 
-#include <QtCore/QtCore>
-
 #include "ActionRules/Action.h"
 #include "ActionRules/Expression.h"
 

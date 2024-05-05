@@ -7,7 +7,7 @@
 
 #include "GUITools/EventFilterToBoostFunction.h"
 
-#include <QtGui>
+#include <QKeyEvent>
 
 namespace evtFunc
 {

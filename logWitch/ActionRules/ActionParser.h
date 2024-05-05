@@ -8,8 +8,6 @@
 #ifndef ACTIONPARSER_H_
 #define ACTIONPARSER_H_
 
-#include <QtCore>
-
 #include "ActionRules/Action.h"
 #include "LogData/LogEntryParserModelConfiguration.h"
 

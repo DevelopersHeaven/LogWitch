@@ -9,6 +9,7 @@
 
 #include <limits>
 
+#include <QDebug>
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QMessageBox>

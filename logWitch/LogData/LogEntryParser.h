@@ -8,7 +8,6 @@
 #ifndef LOGENTRYPARSER_H_
 #define LOGENTRYPARSER_H_
 
-#include <QtGui>
 #include <QtCore/QObject>
 
 #include "LogData/LogEntry.h"

@@ -6,7 +6,7 @@
  */
 
 #include "WidgetStateSaver.h"
-#include <QtCore/QtCore>
+#include <QDebug>
 
 WidgetStateSaver::WidgetStateSaver( QObject *parent )
     : QObject( parent )
