@@ -32,8 +32,8 @@ void LogEntryStorerForTesting::start()
   m_app = &app;
 
   // Ensure we will not test forever in error cases
-  QTimer::singleShot(20000, &app, SLOT(quit()) );
-  QTimer::singleShot(0, this, SLOT(runParser()) );
+  QTimer::singleShot(20000, &app, &QCoreApplication::quit);
+  QTimer::singleShot(0, this, &LogEntryStorerForTesting::runParser);
   app.exec();
 
   m_app = nullptr;

@@ -64,8 +64,8 @@ void CompiledRulesStateSaver::connectActions( FilterRuleSelectionWindow *wnd )
     if( m_connected )
         return;
 
-    QObject::connect(m_removeSelectedRules, SIGNAL(triggered()),
-            wnd, SLOT(removeSelectionFromCompiled()));
+    QObject::connect(m_removeSelectedRules, &QAction::triggered,
+            wnd, &FilterRuleSelectionWindow::removeSelectionFromCompiled);
 
     m_compiledRuleView->installEventFilter( new EventFilterToBoostFunction( this,
             std::bind( &evtFunc::keyPressed, _1, _2, Qt::Key_Delete,

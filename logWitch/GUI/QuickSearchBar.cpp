@@ -128,28 +128,28 @@ QuickSearchBar::QuickSearchBar(LogEntryTableWindow* parent
       QIcon::Off);
 
   m_searchModeButton = new QPushButton(tr("Text"));
-  QObject::connect(m_searchModeButton, SIGNAL(clicked()), this,
-      SLOT(switchSearchMode()));
+  QObject::connect(m_searchModeButton, &QAbstractButton::clicked, this,
+      &QuickSearchBar::switchSearchMode);
 
   m_markButton = new QPushButton(tr("Highlight"));
   m_markButton->setCheckable(true);
   m_markButton->setChecked(true);
   m_markButton->setStyleSheet("QPushButton:checked { background-color: "+ colorCode + "; }");
 
-  QObject::connect(m_markButton, SIGNAL(toggled(bool)), this,
-      SLOT(updateSearch()));
+  QObject::connect(m_markButton, &QAbstractButton::toggled, this,
+      &QuickSearchBar::updateSearch);
 
-  QObject::connect(m_quickSearch, SIGNAL(editingFinished()), this,
-      SLOT(updateSearch()));
+  QObject::connect(m_quickSearch, &QLineEdit::editingFinished, this,
+      &QuickSearchBar::updateSearch);
 
   QPushButton *searchDnBtn = new QPushButton(iconDown, "");
-  QObject::connect(searchDnBtn, SIGNAL(clicked()), this, SLOT(searchNext()));
+  QObject::connect(searchDnBtn, &QAbstractButton::clicked, this, &QuickSearchBar::searchNext);
 
   QPushButton *searchUpBtn = new QPushButton(iconUp, "");
-  QObject::connect(searchUpBtn, SIGNAL(clicked()), this, SLOT(searchPrev()));
+  QObject::connect(searchUpBtn, &QAbstractButton::clicked, this, &QuickSearchBar::searchPrev);
 
   QPushButton *closeBtn = new QPushButton(trash, "");
-  QObject::connect(closeBtn, SIGNAL(clicked()), this, SLOT(deleteLater()));
+  QObject::connect(closeBtn, &QAbstractButton::clicked, this, &QuickSearchBar::deleteLater);
 
   quickSearchLayout->addWidget(m_searchModeButton);
   quickSearchLayout->addWidget(m_quickSearch);

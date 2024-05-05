@@ -59,7 +59,7 @@ LogEntryParser_pythonSocket::LogEntryParser_pythonSocket (int port)
       {0, 7, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
       true);
 
-  connect(this, SIGNAL(newConnection()), this, SLOT(newIncomingConnection()));
+  connect(this, &QTcpServer::newConnection, this, &LogEntryParser_pythonSocket::newIncomingConnection);
 }
 
 LogEntryParser_pythonSocket::~LogEntryParser_pythonSocket ()
@@ -75,8 +75,8 @@ void LogEntryParser_pythonSocket::logEntryMessageDestroyed ()
 
   if (m_nextMessage)
   {
-    connect(m_nextMessage.get(), SIGNAL(destroyed(QObject *)), this,
-            SLOT(logEntryMessageDestroyed()));
+    connect(m_nextMessage.get(), &QObject::destroyed, this,
+            &LogEntryParser_pythonSocket::logEntryMessageDestroyed);
     TSharedNewLogEntryMessage messageToSend(m_nextMessage);
     m_nextMessage.reset();
 
@@ -119,8 +119,8 @@ void LogEntryParser_pythonSocket::newEntryFromReceiver (
     qDebug() << "new message";
     TSharedNewLogEntryMessage newEntryMessage(new NewLogEntryMessage);
     newEntryMessage->entries = entries;
-    connect(newEntryMessage.get(), SIGNAL(destroyed(QObject *)), this,
-            SLOT(logEntryMessageDestroyed()));
+    connect(newEntryMessage.get(), &QObject::destroyed, this,
+            &LogEntryParser_pythonSocket::logEntryMessageDestroyed);
     m_messageInProgress = true;
 
     lo.unlock();
@@ -161,7 +161,7 @@ void LogEntryParser_pythonSocket::newIncomingConnection ()
   LogEntryParser_pythonSocket_Receiver *receiver =
       new LogEntryParser_pythonSocket_Receiver(this, socket);
 
-  connect(this, SIGNAL(destroyed()), receiver, SLOT(shutdown()));
+  connect(this, &QObject::destroyed, receiver, &LogEntryParser_pythonSocket_Receiver::shutdown);
   connect(receiver, SIGNAL(newEntry(std::list<TSharedLogEntry>)), this,
           SLOT(newEntryFromReceiver(std::list<TSharedLogEntry>)));
 
@@ -190,8 +190,8 @@ LogEntryParser_pythonSocket_Receiver::LogEntryParser_pythonSocket_Receiver (
 {
   qDebug() << "new receiver created";
   m_socket->setParent(this);
-  connect(m_socket, SIGNAL(readyRead()), this, SLOT(newDataAvailable()));
-  connect(m_socket, SIGNAL(disconnected()), this, SLOT(shutdown()));
+  connect(m_socket, &QIODevice::readyRead, this, &LogEntryParser_pythonSocket_Receiver::newDataAvailable);
+  connect(m_socket, &QAbstractSocket::disconnected, this, &LogEntryParser_pythonSocket_Receiver::shutdown);
 
   m_stateReadSize = true;
   m_bytesNeeded = sizeof(sizePayload_t);

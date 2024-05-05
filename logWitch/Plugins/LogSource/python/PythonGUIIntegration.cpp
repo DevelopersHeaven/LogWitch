@@ -65,8 +65,8 @@ PythonGUIIntegration::PythonGUIIntegration ()
   m_toolbar->addWidget(portLabel);
   m_toolbar->addWidget(m_port);
 
-  QObject::connect(actionOpenServer, SIGNAL(triggered()), this,
-                   SLOT(openPort()));
+  QObject::connect(actionOpenServer, &QAction::triggered, this,
+                   &PythonGUIIntegration::openPort);
 }
 
 PythonGUIIntegration::~PythonGUIIntegration ()

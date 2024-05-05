@@ -71,7 +71,7 @@ LogEntryParser_log4cplusSocket::LogEntryParser_log4cplusSocket (int port)
   }
   m_myModelConfig->setFieldOrderHint({0, 7, 1, 2, 3, 4, 5, 6}, true);
 
-  connect(this, SIGNAL(newConnection()), this, SLOT(newIncomingConnection()));
+  connect(this, &QTcpServer::newConnection, this, &LogEntryParser_log4cplusSocket::newIncomingConnection);
 }
 
 LogEntryParser_log4cplusSocket::~LogEntryParser_log4cplusSocket ()
@@ -87,8 +87,8 @@ void LogEntryParser_log4cplusSocket::logEntryMessageDestroyed ()
 
   if (m_nextMessage)
   {
-    connect(m_nextMessage.get(), SIGNAL(destroyed(QObject *)), this,
-            SLOT(logEntryMessageDestroyed()));
+    connect(m_nextMessage.get(), &QObject::destroyed, this,
+            &LogEntryParser_log4cplusSocket::logEntryMessageDestroyed);
     TSharedNewLogEntryMessage messageToSend(m_nextMessage);
     m_nextMessage.reset();
 
@@ -131,8 +131,8 @@ void LogEntryParser_log4cplusSocket::newEntryFromReceiver (
     qDebug() << "new message";
     TSharedNewLogEntryMessage newEntryMessage(new NewLogEntryMessage);
     newEntryMessage->entries = entries;
-    connect(newEntryMessage.get(), SIGNAL(destroyed(QObject *)), this,
-            SLOT(logEntryMessageDestroyed()));
+    connect(newEntryMessage.get(), &QObject::destroyed, this,
+            &LogEntryParser_log4cplusSocket::logEntryMessageDestroyed);
     m_messageInProgress = true;
 
     lo.unlock();
@@ -173,7 +173,7 @@ void LogEntryParser_log4cplusSocket::newIncomingConnection ()
   LogEntryParser_log4cplusSocket_Receiver *receiver =
       new LogEntryParser_log4cplusSocket_Receiver(this, socket);
 
-  connect(this, SIGNAL(destroyed()), receiver, SLOT(shutdown()));
+  connect(this, &QObject::destroyed, receiver, &LogEntryParser_log4cplusSocket_Receiver::shutdown);
   connect(receiver, SIGNAL(newEntry(std::list<TSharedLogEntry>)), this,
           SLOT(newEntryFromReceiver(std::list<TSharedLogEntry>)));
 }
@@ -192,8 +192,8 @@ LogEntryParser_log4cplusSocket_Receiver::LogEntryParser_log4cplusSocket_Receiver
 {
   qDebug() << "new receiver created";
   m_socket->setParent(this);
-  connect(m_socket, SIGNAL(readyRead()), this, SLOT(newDataAvailable()));
-  connect(m_socket, SIGNAL(disconnected()), this, SLOT(shutdown()));
+  connect(m_socket, &QIODevice::readyRead, this, &LogEntryParser_log4cplusSocket_Receiver::newDataAvailable);
+  connect(m_socket, &QAbstractSocket::disconnected, this, &LogEntryParser_log4cplusSocket_Receiver::shutdown);
 
   // Send a byte back to give a response
   std::string data("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");

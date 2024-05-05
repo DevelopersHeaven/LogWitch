@@ -86,11 +86,11 @@ LogEntryTableWindow::LogEntryTableWindow( std::shared_ptr<LogEntryTableModel> mo
 
   m_tableView->setContextMenuPolicy(Qt::CustomContextMenu);
   QObject::connect(m_tableView,
-      SIGNAL(customContextMenuRequested ( const QPoint &)), this,
-      SLOT(contextMenu(const QPoint & )));
+      &QWidget::customContextMenuRequested, this,
+      &LogEntryTableWindow::contextMenu);
 
-  QObject::connect(m_tableView, SIGNAL(doubleClicked ( const QModelIndex &)),
-      this, SLOT(onDoubleClick(const QModelIndex & )));
+  QObject::connect(m_tableView, &QAbstractItemView::doubleClicked,
+      this, &LogEntryTableWindow::onDoubleClick);
 
   // Context menu for the HorizontalHeaderView
   m_tableView->horizontalHeader()->setSectionsMovable(true);
@@ -153,19 +153,19 @@ LogEntryTableWindow::LogEntryTableWindow( std::shared_ptr<LogEntryTableModel> mo
   }
   // Connect resize signals of the horizontal header to the model update.
   QObject::connect(m_tableView->horizontalHeader(),
-      SIGNAL(sectionResized(int , int , int )), this,
-      SLOT(updateHeaderSizeToModel(int,int,int)));
+      &QHeaderView::sectionResized, this,
+      &LogEntryTableWindow::updateHeaderSizeToModel);
   QObject::connect(m_tableView->horizontalHeader(),
-      SIGNAL(sectionMoved(int , int , int )), this,
-      SLOT(updateHeaderPositionToModel(int,int,int)));
+      &QHeaderView::sectionMoved, this,
+      &LogEntryTableWindow::updateHeaderPositionToModel);
 
   m_text = new QTextEdit("<b>Log Message viewer</b>", this);
   QObject::connect(m_tableView->selectionModel(),
-      SIGNAL(
-          selectionChanged ( const QItemSelection & , const QItemSelection & )),
-      SLOT(newSelection ( const QItemSelection &, const QItemSelection & )));
-  QObject::connect(dynamic_cast<QObject*>(m_model.get()),
-      SIGNAL(signalError( QString )), this, SLOT(errorFromModel( QString )));
+      &QItemSelectionModel::selectionChanged,
+      this,
+      &LogEntryTableWindow::newSelection);
+  QObject::connect(m_model.get(),
+      &LogEntryTableModel::signalError, this, &LogEntryTableWindow::errorFromModel);
 
   // Make the big layout, top is quickearch bar, then log table and at the bottom the log message.
   QVBoxLayout* layout = new QVBoxLayout();

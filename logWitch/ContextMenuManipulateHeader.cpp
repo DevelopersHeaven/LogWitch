@@ -17,10 +17,10 @@ ContextMenuManipulateHeader::ContextMenuManipulateHeader(QHeaderView *parent)
   m_hideAction = addAction(tr("hide"));
   m_showMenu = addMenu(tr("show"));
 
-  QObject::connect(m_header, SIGNAL(customContextMenuRequested(const QPoint &)),
-      this, SLOT(contextMenuRequest(const QPoint &)));
+  QObject::connect(m_header, &QWidget::customContextMenuRequested,
+      this, &ContextMenuManipulateHeader::contextMenuRequest);
 
-  QObject::connect(m_hideAction, SIGNAL(triggered()), this, SLOT(hideColumn()));
+  QObject::connect(m_hideAction, &QAction::triggered, this, &ContextMenuManipulateHeader::hideColumn);
 }
 
 void ContextMenuManipulateHeader::contextMenuRequest(const QPoint & pos)
@@ -44,19 +44,19 @@ void ContextMenuManipulateHeader::contextMenuRequest(const QPoint & pos)
 
       if (syncHeader)
       {
-        connect(action, SIGNAL(triggered()),
+        connect(action, &QAction::triggered,
         // Destruction of this will be handled by the action itself.
             new SlotToBoostFunction(action,
                 std::bind(&SynchronizedHeaderView::showSection, syncHeader,
-                    i)), SLOT(handleSignal()));
+                    i)), &SlotToBoostFunction::handleSignal);
       }
       else
       {
-        connect(action, SIGNAL(triggered()),
+        connect(action, &QAction::triggered,
             // Destruction of this will be handled by the action itself.
             new SlotToBoostFunction(action,
                 std::bind(&QHeaderView::showSection, m_header, i)),
-            SLOT(handleSignal()));
+            &SlotToBoostFunction::handleSignal);
       }
     }
   }

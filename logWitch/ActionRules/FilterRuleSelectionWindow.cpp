@@ -69,8 +69,8 @@ FilterRuleSelectionWindow::FilterRuleSelectionWindow( QWidget* parent )
     m_trashSelectedRules = new QAction("Trash", this);
     m_trashSelectedRules->setIcon(QIcon(":/icons/trash"));
     toolBar->addWidget( new ToolButtonTrashFilter( m_trashSelectedRules, m_rulesModel ) );
-    QObject::connect(m_trashSelectedRules, SIGNAL(triggered()),
-            this, SLOT(trashSelectedRules()));
+    QObject::connect(m_trashSelectedRules, &QAction::triggered,
+            this, &FilterRuleSelectionWindow::trashSelectedRules);
 
     // Finish toolbar
     toolBar->setIconSize(QSize(16,16));
