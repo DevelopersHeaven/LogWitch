@@ -64,7 +64,7 @@ TARGET_COMPILE_DEFINITIONS( logwitch PRIVATE -DLW_PLUGIN_DIR="${LW_BIN_TO_PLUGIN
 install (TARGETS logwitch
          RUNTIME DESTINATION "${LW_BINARY_DIR}" )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6 AND (APPLE OR WIN32))
     qt_generate_deploy_app_script(
         TARGET logwitch
         FILENAME_VARIABLE deploy_script
