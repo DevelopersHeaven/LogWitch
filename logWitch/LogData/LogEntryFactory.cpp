@@ -7,7 +7,7 @@
 
 #include "LogEntryFactory.h"
 
-#include <QtCore>
+#include <QVariant>
 
 #include "LFAAssert.h"
 #include "LogData/ObjectCache.hxx"

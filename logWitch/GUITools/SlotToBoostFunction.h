@@ -7,7 +7,7 @@
 
 #ifndef SLOTTOBOOSTFUNCTION_H_
 #define SLOTTOBOOSTFUNCTION_H_
-#include <QtCore>
+#include <QObject>
 
 class SlotToBoostFunction
 : public QObject

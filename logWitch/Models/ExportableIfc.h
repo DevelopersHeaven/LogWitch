@@ -9,9 +9,10 @@
 #define EXPORTABLEIFC_H_
 
 #include <vector>
-#include <QtCore/QtCore>
 
 #include "LogData/LogEntry.h"
+
+class QModelIndex;
 
 /**
  * This interface can mark a model as exportable. A ExportableIfc model can

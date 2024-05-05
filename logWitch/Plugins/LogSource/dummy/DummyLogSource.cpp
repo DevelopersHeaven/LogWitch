@@ -8,7 +8,6 @@
 #include "Plugins/LogSource/dummy/DummyLogSource.h"
 
 #include <QApplication>
-#include <QtCore>
 #include <QMenu>
 
 #include "ParserActionInterface.h"

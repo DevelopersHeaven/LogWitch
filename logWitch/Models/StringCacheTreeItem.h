@@ -9,7 +9,7 @@
 #define STRINGCACHETREEITEM_H_
 
 #include "Types.h"
-#include <QtCore/QtCore>
+#include <Qt>
 
 /**
  * This class is an element within a tree which represents a path like scheme

@@ -7,9 +7,10 @@
 
 #include "LogEntryParser_Logfile.h"
 
+#include <QDateTime>
+#include <QElapsedTimer>
 #include <QRegularExpression>
-#include <QtCore/QtCore>
-#include <QtConcurrent>
+#include <QtConcurrentRun>
 
 #include "LogEntryFactory.h"
 #include "LogEntryAttributeNames.h"

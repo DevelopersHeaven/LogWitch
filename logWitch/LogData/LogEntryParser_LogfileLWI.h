@@ -7,7 +7,9 @@
 
 #ifndef LogEntryParser_LogfileLWI_H_
 #define LogEntryParser_LogfileLWI_H_
-#include <QtCore/QtCore>
+#include <QFile>
+#include <QTextStream>
+#include <QThread>
 
 #include "LogData/LogEntryParser.h"
 

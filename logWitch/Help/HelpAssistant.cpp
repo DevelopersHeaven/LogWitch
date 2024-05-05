@@ -40,6 +40,9 @@
 
 #include "HelpAssistant.h"
 
+#include <QCoreApplication>
+#include <QDebug>
+#include <QFile>
 #include <QHelpContentWidget>
 #include <QHelpEngine>
 #include <QTextBrowser>

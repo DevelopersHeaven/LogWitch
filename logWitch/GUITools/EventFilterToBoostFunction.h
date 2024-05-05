@@ -8,7 +8,7 @@
 #ifndef EVENTFILTERTOBOOSTFUNCTION_H_
 #define EVENTFILTERTOBOOSTFUNCTION_H_
 
-#include <QtCore>
+#include <QObject>
 
 /**
  * This class makes event filtering more easy, it maps the eventFilter to a more

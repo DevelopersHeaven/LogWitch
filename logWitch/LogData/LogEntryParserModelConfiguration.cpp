@@ -9,9 +9,9 @@
 
 #include <limits>
 #include <algorithm>
+#include <QDebug>
+#include <QSettings>
 #include <LogData/EntryToTextFormaterDefault.h>
-
-#include <QtCore>
 
 #include "LogData/LogEntryFactory.h"
 

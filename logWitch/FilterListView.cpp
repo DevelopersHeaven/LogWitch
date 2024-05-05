@@ -5,6 +5,9 @@
  *      Author: sven
  */
 #include "FilterListView.h"
+
+#include <QSortFilterProxyModel>
+
 #include "LogEntryTableWindow.h"
 #include "Models/StringCacheTreeModel.h"
 #include "LogData/LogEntryParserModelConfiguration.h"

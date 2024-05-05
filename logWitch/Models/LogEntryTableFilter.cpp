@@ -7,8 +7,11 @@
 
 #include "LogEntryTableFilter.h"
 
-#include <QtGui>
 #include <algorithm>
+
+#include <QColor>
+#include <QDebug>
+#include <QFont>
 
 #include "Models/LogEntryTableModel.h"
 #include "LogData/LogEntry.h"

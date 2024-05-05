@@ -7,9 +7,9 @@
 
 #include "LogEntryTableModel.h"
 
-#include <QtCore/QtCore>
 #include <QtCore/QVariant>
 #include <QDateTime>
+#include <QDebug>
 
 #include "LogData/LogEntry.h"
 #include "LogData/LogEntryFactory.h"

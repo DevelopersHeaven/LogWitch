@@ -7,7 +7,13 @@
 
 #include "TableModelRulesCompiled.h"
 
-#include <QtGui>
+#include <QColor>
+#include <QCoreApplication>
+#include <QDataStream>
+#include <QDebug>
+#include <QFont>
+#include <QIODevice>
+#include <QMimeData>
 
 #include "ActionRules/FilterRuleCompiled.h"
 #include "FilterRuleCompiled.h"

@@ -8,7 +8,9 @@
 #ifndef LOGENTRYATTRIBUTENAMES_H_
 #define LOGENTRYATTRIBUTENAMES_H_
 
-#include <QtCore/QtCore>
+#include <memory>
+
+#include <QCoreApplication>
 
 class ImportExportDescription
 {

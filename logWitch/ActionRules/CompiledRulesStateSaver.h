@@ -8,8 +8,6 @@
 #ifndef COMPILEDRULESSTATESAVER_H_
 #define COMPILEDRULESSTATESAVER_H_
 
-#include <QtCore>
-#include <QtGui>
 #include <QTableView>
 
 #include "ActionRules/TableModelRulesCompiled.h"

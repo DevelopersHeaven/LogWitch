@@ -8,8 +8,8 @@
 #ifndef DOCKWIDGETSTATESAVER_H_
 #define DOCKWIDGETSTATESAVER_H_
 
-#include <QtGui>
-#include <QtCore>
+#include <QAction>
+#include <QDockWidget>
 
 #include "WidgetStateSaver.h"
 

@@ -7,6 +7,8 @@
 
 #include "RuleTable.h"
 
+#include <QDebug>
+
 RuleTable::RuleTable()
 : m_onChange ( false )
 , m_nextUid(0)

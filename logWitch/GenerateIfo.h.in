@@ -5,7 +5,7 @@
 #ifndef GENERATED_IFO_H
 #define GENERATED_IFO_H
 
-#include <QtCore>
+#include <QString>
 
 namespace globals
 {

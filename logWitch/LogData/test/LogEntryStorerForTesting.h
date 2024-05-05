@@ -15,6 +15,7 @@
 #include "LogData/NewLogEntryMessage.h"
 
 class LogEntryParser;
+class QCoreApplication;
 
 class LogEntryStorerForTesting: public QObject
 {

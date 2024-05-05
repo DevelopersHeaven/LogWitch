@@ -15,7 +15,6 @@
 
 #include <QApplication>
 
-#include <QtCore>
 #include <QLabel>
 #include <QSpinBox>
 

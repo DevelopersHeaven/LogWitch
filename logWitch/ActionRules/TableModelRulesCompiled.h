@@ -10,7 +10,6 @@
 #include <vector>
 
 #include <QAbstractTableModel>
-#include <QtCore>
 
 #include "ActionRules/FilterRuleCompiled.h"
 #include "ActionRules/RuleTable.h"

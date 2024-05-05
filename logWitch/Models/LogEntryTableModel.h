@@ -9,9 +9,9 @@
 #define LOGENTRYTABLEMODEL_H_
 
 #include <any>
+#include <mutex>
 
 #include <QAbstractTableModel>
-#include <QtCore/QtCore>
 
 #include "ExportableIfc.h"
 

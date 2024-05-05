@@ -7,7 +7,6 @@
 
 #ifndef CONTEXTMENUMANIPULATEHEADER_H_
 #define CONTEXTMENUMANIPULATEHEADER_H_
-#include <QtGui>
 #include <QMenu>
 #include <QHeaderView>
 

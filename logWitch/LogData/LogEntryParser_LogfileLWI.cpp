@@ -7,8 +7,8 @@
 
 #include "LogEntryParser_LogfileLWI.h"
 
+#include <QDebug>
 #include <QRegularExpression>
-#include <QtCore/QtCore>
 
 #include "LogData/LogEntryAttributeNames.h"
 #include "LogData/LogEntryFactory.h"

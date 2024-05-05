@@ -7,9 +7,10 @@
 
 #include "FilterRuleSelectionWindow.h"
 
+#include <QDebug>
 #include <QHeaderView>
 #include <QLabel>
-#include <QtGui>
+#include <QSettings>
 #include <QToolBar>
 #include <QVBoxLayout>
 

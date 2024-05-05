@@ -7,8 +7,10 @@
 
 #ifndef LOGENTRYPARSERMODELCONFIGURATION_H_
 #define LOGENTRYPARSERMODELCONFIGURATION_H_
-#include <QtCore/QtCore>
 
+#include <memory>
+
+#include <QVector>
 
 class EntryToTextFormater;
 class LogEntryFactory;
