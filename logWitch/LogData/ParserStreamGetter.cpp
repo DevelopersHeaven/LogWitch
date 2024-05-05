@@ -12,8 +12,3 @@ ParserStreamGetter::ParserStreamGetter(  const QString name, std::shared_ptr<QTe
 , m_textStream( textStream )
 {
 }
-
-ParserStreamGetter::~ParserStreamGetter()
-{
-}
-

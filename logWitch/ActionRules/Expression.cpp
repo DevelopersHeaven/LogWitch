@@ -7,10 +7,6 @@
 
 #include "Expression.h"
 
-Expression::~Expression()
-{
-}
-
 std::ostream& operator<< (std::ostream &o, const Expression &e)
 {
     return e.out(o);

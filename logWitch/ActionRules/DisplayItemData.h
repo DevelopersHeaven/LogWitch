@@ -12,7 +12,7 @@
 class DisplayItemData
 {
 public:
-    virtual ~DisplayItemData() {}
+    virtual ~DisplayItemData() = default;
 
     /**
      * This method is called if one will display the information enclosed with this

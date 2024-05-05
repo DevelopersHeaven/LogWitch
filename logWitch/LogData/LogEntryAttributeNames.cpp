@@ -7,9 +7,6 @@
 
 #include "LogData/LogEntryAttributeNames.h"
 
-ImportExportDescription::~ImportExportDescription()
-{  }
-
 
 const QString ImportExportDescription::getImportExportDescription()
 {

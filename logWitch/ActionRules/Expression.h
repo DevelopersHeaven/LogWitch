@@ -12,7 +12,7 @@
 class Expression
 {
 public:
-    virtual ~Expression();
+    virtual ~Expression() = default;
 
     virtual bool isValid( ) const = 0;
 

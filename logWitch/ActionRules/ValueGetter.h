@@ -15,7 +15,7 @@
 class ValueGetter
 {
 public:
-    virtual ~ValueGetter();
+    virtual ~ValueGetter() = default;
 
     virtual bool isValid( ) const = 0;
 
