@@ -80,7 +80,7 @@ private:
 template<class T>
 std::shared_ptr<GetSetStateSaver<T> > GetSetStateSaver<T>::generate()
 {
-    shared_ptr<GetSetStateSaver<T> > obj( new GetSetStateSaver<T>() );
+    std::shared_ptr<GetSetStateSaver<T> > obj( new GetSetStateSaver<T>() );
     return obj;
 }
 

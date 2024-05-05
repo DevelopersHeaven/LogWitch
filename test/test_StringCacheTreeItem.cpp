@@ -12,49 +12,47 @@
 
 #include "Models/StringCacheTreeItem.h"
 
-using namespace std;
-
 /**
  * This test is testing if adding items works well.
  */
 BOOST_AUTO_TEST_CASE( addItems )
 {
-    StringCacheTreeItem root(make_shared<const QString>("Root")
-            , make_shared<const QString>("Root"));
+    StringCacheTreeItem root(std::make_shared<const QString>("Root")
+            , std::make_shared<const QString>("Root"));
 
     BOOST_CHECK_EQUAL( root.childCount(), 0);
 
     root.appendChild( new StringCacheTreeItem(
-              make_shared<const QString>("Test")
-            , make_shared<const QString>("Test") ) );
+              std::make_shared<const QString>("Test")
+            , std::make_shared<const QString>("Test")));
 
     BOOST_CHECK_EQUAL( root.childCount(), 1);
 
     root.appendChild( new StringCacheTreeItem(
-              make_shared<const QString>("Test2")
-            , make_shared<const QString>("Test2") ) );
+              std::make_shared<const QString>("Test2")
+            , std::make_shared<const QString>("Test2")));
 
     BOOST_CHECK_EQUAL( root.childCount(), 2);
 }
 
 BOOST_AUTO_TEST_CASE( checkItems )
 {
-    StringCacheTreeItem root(make_shared<const QString>("Root")
-            , make_shared<const QString>("Root"));
+    StringCacheTreeItem root(std::make_shared<const QString>("Root")
+            , std::make_shared<const QString>("Root"));
 
     StringCacheTreeItem *RootA = new StringCacheTreeItem(
-              make_shared<const QString>("A")
-            , make_shared<const QString>("Root.A") ) ;
+              std::make_shared<const QString>("A")
+            , std::make_shared<const QString>("Root.A")) ;
     root.appendChild( RootA );
 
     StringCacheTreeItem *RootB = new StringCacheTreeItem(
-              make_shared<const QString>("B")
-            , make_shared<const QString>("Root.B") ) ;
+              std::make_shared<const QString>("B")
+            , std::make_shared<const QString>("Root.B")) ;
     root.appendChild( RootB );
 
     StringCacheTreeItem *RootA1 = new StringCacheTreeItem(
-              make_shared<const QString>("1")
-            , make_shared<const QString>("Root.A.1") ) ;
+              std::make_shared<const QString>("1")
+            , std::make_shared<const QString>("Root.A.1")) ;
     RootA->appendChild( RootA1 );
 
     // Structure building finished. Do consistency check
