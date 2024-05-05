@@ -35,7 +35,7 @@
 #include "FilterListView.h"
 
 namespace {
-  const std::vector<QString> s_colorsForQuickSearch = { "#81BEF7", "#FFC596", "#64FFA9", "#E4AFFF", "#A0FFD4" };
+  constexpr std::array s_colorsForQuickSearch = { "#81BEF7", "#FFC596", "#64FFA9", "#E4AFFF", "#A0FFD4" };
 }
 
 void LogEntryTableWindow::updateHeaderSizeToModel(int column, int, int newSize)
