@@ -75,8 +75,8 @@ Log4cplusGUIIntegration::Log4cplusGUIIntegration ()
   m_toolbar->addWidget(portLabel);
   m_toolbar->addWidget(m_port);
 
-  QObject::connect(actionOpenServer, SIGNAL(triggered()), this,
-                   SLOT(openPort()));
+  QObject::connect(actionOpenServer, &QAction::triggered, this,
+                   &Log4cplusGUIIntegration::openPort);
 }
 
 Log4cplusGUIIntegration::~Log4cplusGUIIntegration ()

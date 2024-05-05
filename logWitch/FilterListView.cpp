@@ -34,8 +34,8 @@ FilterListView::FilterListView( QObject *parent, std::shared_ptr<const LogEntryP
 
     // Context Menu stuff
     setContextMenuPolicy( Qt::CustomContextMenu );
-    connect(this ,SIGNAL(customContextMenuRequested( const QPoint &)),
-            this, SLOT(contextMenuPopup(const QPoint &)));
+    connect(this, &QWidget::customContextMenuRequested,
+            this, &FilterListView::contextMenuPopup);
 
     m_resetSelectionsAct = new QAction(tr("reset all"), this);
     m_resetSelectionsAct->setToolTip( tr("Resets all and sets it like on startup.") );

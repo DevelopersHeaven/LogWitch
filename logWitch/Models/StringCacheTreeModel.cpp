@@ -25,8 +25,8 @@ StringCacheTreeModel::StringCacheTreeModel( QObject *parent, const GetObjectIF<O
 	if( !splitString.isEmpty() )
 		m_splitRegex.reset(new QRegularExpression(splitString));
 
-    QObject::connect(cache, SIGNAL(newElement( TSharedConstQString )),
-                     this, SLOT(newStringElement( TSharedConstQString ) ) );
+    QObject::connect(cache, &ObjectCacheQStringSignaller::newElement,
+                     this, &StringCacheTreeModel::newStringElement);
 }
 
 std::shared_ptr<LogEntryFilter> StringCacheTreeModel::getFilter() const

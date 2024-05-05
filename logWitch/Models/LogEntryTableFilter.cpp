@@ -28,10 +28,10 @@ LogEntryTableFilter::LogEntryTableFilter( QObject *parent)
   , m_resetFilterNeeded( false )
   , m_exportOfSourceModel(nullptr)
 {
-    QObject::connect(&m_filterChain, SIGNAL(filterUpdateFinished()),
-                     this, SLOT(invalidate()));
-    QObject::connect( m_ruleTable.get(), SIGNAL(changed()),
-            this, SLOT(updateChanges()));
+    QObject::connect(&m_filterChain, &LogEntryFilterChain::filterUpdateFinished,
+                     this, &QSortFilterProxyModel::invalidate);
+    QObject::connect(m_ruleTable.get(), &RuleTable::changed,
+            this, &LogEntryTableFilter::updateChanges);
 }
 
 void LogEntryTableFilter::generateExportList( std::vector<TconstSharedLogEntry>& ls
@@ -124,14 +124,14 @@ void LogEntryTableFilter::setSourceModel( QAbstractItemModel *model )
 	hideSurroundingLogEntries();
 	LFA_ASSERT( m_model, "Invalid model given!" );
 
-    QObject::connect( model, SIGNAL(rowsAboutToBeRemoved(const QModelIndex &,int,int)),
-            this, SLOT(slotRowsAboutToBeRemoved(const QModelIndex &,int,int)));
-    QObject::connect( model, SIGNAL(rowsRemoved(const QModelIndex &,int,int)),
-            this, SLOT(slotInvalidateIfNeeded()));
-    QObject::connect( model, SIGNAL(modelAboutToBeReset()),
-        this, SLOT(slotModelAboutToBeReset()));
-    QObject::connect( model, SIGNAL(modelReset()),
-        this, SLOT(slotInvalidateIfNeeded()));
+    QObject::connect(model, &QAbstractItemModel::rowsAboutToBeRemoved,
+            this, &LogEntryTableFilter::slotRowsAboutToBeRemoved);
+    QObject::connect(model, &QAbstractItemModel::rowsRemoved,
+            this, &LogEntryTableFilter::slotInvalidateIfNeeded);
+    QObject::connect(model, &QAbstractItemModel::modelAboutToBeReset,
+        this, &LogEntryTableFilter::slotModelAboutToBeReset);
+    QObject::connect(model, &QAbstractItemModel::modelReset,
+        this, &LogEntryTableFilter::slotInvalidateIfNeeded);
 }
 
 bool LogEntryTableFilter::filterAcceptsRow( int sourceRow, const QModelIndex & ) const

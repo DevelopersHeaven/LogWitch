@@ -22,28 +22,28 @@ HeaderViewGroup::~HeaderViewGroup()
 
 void HeaderViewGroup::addToGroup( SynchronizedHeaderView *view )
 {
-    QObject::connect(view, SIGNAL(destroyed(QObject *)),
-            this, SLOT(headerChildDestroyed(QObject *)));
+    QObject::connect(view, &QObject::destroyed,
+                     this, &HeaderViewGroup::headerChildDestroyed);
 
     for( TGroupList::iterator it = m_groupChilds.begin()
         ; it != m_groupChilds.end()
         ; ++it )
     {
-        QObject::connect( view,SIGNAL(sectionResized(int , int , int )),
+        QObject::connect(view, &QHeaderView::sectionResized,
                 // Destruction of this will be handled by the action itself.
                 new SlotToBoostFunction_int_int_int(*it,std::bind(&SynchronizedHeaderView::resizeSectionFuckingQT,*it,_1,_3)),
-                SLOT(handleSignal(int,int,int)));
+                &SlotToBoostFunction_int_int_int::handleSignal);
 
-        QObject::connect( *it,SIGNAL(sectionResized(int , int , int )),
+        QObject::connect(*it, &QHeaderView::sectionResized,
                 // Destruction of this will be handled by the action itself.
                 new SlotToBoostFunction_int_int_int(view,std::bind(&SynchronizedHeaderView::resizeSectionFuckingQT,view,_1,_3)),
-                SLOT(handleSignal(int,int,int)));
+                &SlotToBoostFunction_int_int_int::handleSignal);
     }
 
-    QObject::connect( view,SIGNAL(sectionMoved(int , int , int )),
+    QObject::connect(view, &QHeaderView::sectionMoved,
             // Destruction of this will be handled by the action itself.
             new SlotToBoostFunction(view,std::bind(&HeaderViewGroup::synchronizeState,this,view)),
-            SLOT(handleSignal()));
+            &SlotToBoostFunction::handleSignal);
 
     m_groupChilds.push_back( view );
 }

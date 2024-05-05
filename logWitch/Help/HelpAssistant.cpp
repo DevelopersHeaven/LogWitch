@@ -106,9 +106,8 @@ void HelpAssistant::createHelpWindow()
 
     textViewer = new HelpBrowser(helpEngine);
     connect(helpEngine->contentWidget(),
-            SIGNAL(linkActivated(QUrl)),
-            textViewer,
-            SLOT(setSource(QUrl)));
+            &QHelpContentWidget::linkActivated,
+            [this](const auto& url) { textViewer->setSource(url); });
     setCentralWidget(textViewer);
 
     setMinimumSize({800, 600});

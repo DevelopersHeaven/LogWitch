@@ -36,11 +36,11 @@ LogfileAnalyser::LogfileAnalyser(QWidget *parent)
   m_stateSaver->addElementToWatch(&m_signalMultiplexer,
                                   SignalMultiplexerStateApplier::generate(&m_signalMultiplexer));
 
-  QObject::connect(ui.actionHelp, SIGNAL(triggered()), this, SLOT(showDocumentation()));
-  QObject::connect(ui.actionOpen, SIGNAL(triggered()), this, SLOT(openLogfile()));
-  QObject::connect(ui.actionExportLogfile, SIGNAL(triggered()), this, SLOT(exportLogfile()));
-  QObject::connect(ui.mdiArea, SIGNAL(subWindowActivated ( QMdiSubWindow *)), this,
-                   SLOT(subWindowActivated( QMdiSubWindow * )));
+  QObject::connect(ui.actionHelp, &QAction::triggered, this, &LogfileAnalyser::showDocumentation);
+  QObject::connect(ui.actionOpen, &QAction::triggered, [this] { openLogfile(); });
+  QObject::connect(ui.actionExportLogfile, &QAction::triggered, this, &LogfileAnalyser::exportLogfile);
+  QObject::connect(ui.mdiArea, &QMdiArea::subWindowActivated, this,
+                   &LogfileAnalyser::subWindowActivated);
 
   m_myFilterRulesDock = new QDockWidget(tr("Filter Rules"), this);
   m_myFilterRulesDock->setAllowedAreas(Qt::AllDockWidgetAreas);
@@ -254,8 +254,8 @@ void LogfileAnalyser::createWindowsFromParser(std::shared_ptr<LogEntryParser> pa
     wnd->setDockForFilter(m_myFilterDock);
   }
 
-  QObject::connect(wnd, SIGNAL(destroyed ( QObject *)), this,
-                   SLOT(subWindowDestroyed( QObject * )));
+  QObject::connect(wnd, &QObject::destroyed, this,
+                   &LogfileAnalyser::subWindowDestroyed);
 
   model->startModel();
 

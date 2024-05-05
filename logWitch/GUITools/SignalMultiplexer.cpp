@@ -22,8 +22,8 @@ void SignalMultiplexer::connect(QObject *sender, const char *signal, QObject *re
         it = m_connectionStates.insert(
                 StateConnectionsForObjects::value_type( (QObject *)m_object, TConnectionList() ) ).first;
 
-        QObject::connect(m_object, SIGNAL(destroyed(QObject *)),
-                             this, SLOT(deleteObject(QObject *)));
+        QObject::connect(m_object, &QObject::destroyed,
+                             this, &SignalMultiplexer::deleteObject);
     }
     it->second.push_back( state );
     connect( state );
