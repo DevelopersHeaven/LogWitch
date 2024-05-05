@@ -30,7 +30,7 @@ class LogEntryTableWindow: public QMdiSubWindow
 Q_OBJECT
 public:
   LogEntryTableWindow(std::shared_ptr<LogEntryTableModel> model,
-      QWidget *parent = NULL);
+      QWidget *parent = nullptr);
   virtual ~LogEntryTableWindow();
 
   QModelIndex mapToSource(const QModelIndex & proxyIndex) const;

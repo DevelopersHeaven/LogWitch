@@ -273,12 +273,12 @@ namespace
 {
   std::string parse_python_exception ()
   {
-    PyObject *type_ptr = NULL, *value_ptr = NULL, *traceback_ptr = NULL;
+    PyObject *type_ptr = nullptr, *value_ptr = nullptr, *traceback_ptr = nullptr;
     PyErr_Fetch(&type_ptr, &value_ptr, &traceback_ptr);
 
     // Fallback error
     std::string ret("Untyped Python error");
-    if (type_ptr != NULL)
+    if (type_ptr != nullptr)
     {
       py::handle<> h_type(type_ptr);
       py::str type_pstr(h_type);
@@ -289,7 +289,7 @@ namespace
         ret = "Unknown exception type";
     }
 
-    if (value_ptr != NULL)
+    if (value_ptr != nullptr)
     {
       py::handle<> h_val(value_ptr);
       py::str a(h_val);
@@ -300,7 +300,7 @@ namespace
         ret += std::string(": Unparsable Python error");
     }
 
-    if (traceback_ptr != NULL)
+    if (traceback_ptr != nullptr)
     {
       py::handle<> h_tb(traceback_ptr);
       py::object tb(py::import("traceback"));

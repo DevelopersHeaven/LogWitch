@@ -18,12 +18,12 @@
 
 LogEntryTableFilter::LogEntryTableFilter( QObject *parent)
 	: QSortFilterProxyModel( parent )
-	, m_model( NULL )
+	, m_model(nullptr)
   , m_ruleTable( new RuleTable )
   , m_surroundingRowStart(-1)
   , m_surroundingRowEnd(-1)
   , m_resetFilterNeeded( false )
-  , m_exportOfSourceModel( NULL )
+  , m_exportOfSourceModel(nullptr)
 {
     QObject::connect(&m_filterChain, SIGNAL(filterUpdateFinished()),
                      this, SLOT(invalidate()));

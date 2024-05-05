@@ -30,13 +30,13 @@ void DummyLogSource::fillMenu( QMenu* menu )
 {
   menu->addSection("Dummy");
 
-  auto actionOpenDummyLogger = menu->addAction(QApplication::translate("Plugin_Source_Dummy", "Open", Q_NULLPTR));
+  auto actionOpenDummyLogger = menu->addAction(QApplication::translate("Plugin_Source_Dummy", "Open", nullptr));
   QObject::connect(actionOpenDummyLogger, SIGNAL(triggered()), this, SLOT(openDummyLogfile()));
 
-  auto actionAddEntries = menu->addAction(QApplication::translate("Plugin_Source_Dummy", "Add Entries", Q_NULLPTR));
+  auto actionAddEntries = menu->addAction(QApplication::translate("Plugin_Source_Dummy", "Add Entries", nullptr));
   QObject::connect(actionAddEntries, SIGNAL(triggered()), this, SLOT(moreDummyLogfile()));
 
-  m_actionErrorCreation = menu->addAction(QApplication::translate("Plugin_Source_Dummy", "Create Error", Q_NULLPTR));
+  m_actionErrorCreation = menu->addAction(QApplication::translate("Plugin_Source_Dummy", "Create Error", nullptr));
   m_actionErrorCreation->setCheckable(true);
   m_actionErrorCreation->setChecked(false);
   QObject::connect(actionAddEntries, SIGNAL(triggered()), this, SLOT(updateErrorEmit()));

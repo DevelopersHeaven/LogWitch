@@ -23,7 +23,7 @@
 using namespace std::placeholders;
 
 CompiledRulesStateSaver::CompiledRulesStateSaver(  TSharedConstLogEntryParserModelConfiguration cfg, TSharedRuleTable ruleTable )
-    : m_compiledRuleView(NULL)
+    : m_compiledRuleView(nullptr)
     , m_connected( false)
 {
    m_displayWidget = new QWidget(); //This is the pane

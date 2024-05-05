@@ -9,7 +9,7 @@
 
 #include <algorithm>
 
-StringCacheTreeItem::StringCacheTreeItem( TSharedConstQString originalString, TSharedConstQString str, StringCacheTreeItem *parent /* = NULL */ )
+StringCacheTreeItem::StringCacheTreeItem(TSharedConstQString originalString, TSharedConstQString str, StringCacheTreeItem *parent /* = nullptr */)
 	: m_parentItem( parent )
 	, m_checkedSelf( Inherit )
     , m_checkedChilds( Inherit )
@@ -82,8 +82,8 @@ StringCacheTreeItem::CheckState StringCacheTreeItem::getCheckState( ) const
         stateParentInherited.checked = false;
 
     // first determine inherited state ...
-    const StringCacheTreeItem *item = NULL;
-    for( item = this->m_parentItem; item != NULL; item = item->m_parentItem )
+    const StringCacheTreeItem *item = nullptr;
+    for (item = this->m_parentItem; item != nullptr; item = item->m_parentItem)
     {
         if( item->m_checkedChilds == Checked )
         {
@@ -184,7 +184,7 @@ void StringCacheTreeItem::recursiveSetTree( Check self, Check child )
 
 StringCacheTreeItem *StringCacheTreeItem::getRootElement()
 {
-    if( m_parentItem != NULL )
+    if (m_parentItem != nullptr)
         return m_parentItem->getRootElement();
     else
         return this;
@@ -193,7 +193,7 @@ StringCacheTreeItem *StringCacheTreeItem::getRootElement()
 void StringCacheTreeItem::checkOnlyThisElement( bool includeTreepath, Check child, Check self )
 {
     // Move upwards and uncheck everything except the tree to this element.
-    if( m_parentItem != NULL )
+    if (m_parentItem != nullptr)
     {
         m_checkedChilds = child;
         m_checkedSelf = self;

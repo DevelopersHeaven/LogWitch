@@ -43,21 +43,21 @@ PythonGUIIntegration::PythonGUIIntegration ()
 
   actionOpenServer->setText(
       QApplication::translate("Plugin_Source_Python", "Start Server",
-      Q_NULLPTR));
+      nullptr));
 #ifndef QT_NO_TOOLTIP
   actionOpenServer->setToolTip(
       QApplication::translate("Plugin_Source_Python",
                               "Starts the Python logging server.",
-                              Q_NULLPTR));
+                              nullptr));
 #endif // QT_NO_TOOLTIP
 
   QLabel *portLabel = new QLabel(
-      QApplication::translate("Plugin_Source_Python", "Port: ", Q_NULLPTR));
+      QApplication::translate("Plugin_Source_Python", "Port: ", nullptr));
   m_port = new QSpinBox(m_toolbar);
   m_port->setToolTip(
       QApplication::translate("Plugin_Source_Python",
                               "Port to listen for Python incoming data.",
-                              Q_NULLPTR));
+                              nullptr));
   m_port->setMinimum(1);
   m_port->setMaximum(65535);
   m_port->setValue( settings.value( settingskey_port, 9020).toInt() );

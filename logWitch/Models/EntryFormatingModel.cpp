@@ -11,7 +11,7 @@ EntryFormatingModel::EntryFormatingModel( QObject *parent )
 : QSortFilterProxyModel( parent )
 , m_formatString("dd.MM.yyyy hh:mm:ss.zzz")
 , m_timeDiffMode( false )
-, m_exportOfSourceModel( NULL )
+, m_exportOfSourceModel(nullptr)
 {
 }
 

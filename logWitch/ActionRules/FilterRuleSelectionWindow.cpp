@@ -34,7 +34,7 @@ FilterRuleSelectionWindow::FilterRuleSelectionWindow( QWidget* parent )
 
     m_ruleView = new RulesTableView( );
 
-    m_ruleView->setHorizontalHeader( new SynchronizedHeaderView( NULL, Qt::Horizontal, m_ruleView ) );
+    m_ruleView->setHorizontalHeader(new SynchronizedHeaderView(nullptr, Qt::Horizontal, m_ruleView));
     m_ruleView->horizontalHeader()->setDefaultSectionSize( 190 );
     m_ruleView->horizontalHeader()->setSectionsMovable( true );
     if( settings.contains( filterRuleTableState_Identifier ) )

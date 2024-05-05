@@ -51,7 +51,7 @@ public:
 	 * @param str This is the part to display inside this level.
 	 * @param parent The parent node, if there is one.
 	 */
-	StringCacheTreeItem( TSharedConstQString originalString, TSharedConstQString str, StringCacheTreeItem *parent = NULL );
+	StringCacheTreeItem(TSharedConstQString originalString, TSharedConstQString str, StringCacheTreeItem *parent = nullptr);
 
 	virtual ~StringCacheTreeItem();
 
