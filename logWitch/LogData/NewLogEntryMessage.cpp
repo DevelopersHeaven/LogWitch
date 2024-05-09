@@ -8,4 +8,4 @@
 #include "NewLogEntryMessage.h"
 
 NewLogEntryMessage::NewLogEntryMessage()
-{  }
+= default;
