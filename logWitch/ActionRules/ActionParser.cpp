@@ -31,8 +31,8 @@ namespace actionParser
     namespace qi = boost::spirit::qi;
     namespace ascii = boost::spirit::ascii;
 
-    typedef std::pair<int, QVariant> TRoleVariantPair;
-    typedef std::pair<QString, TRoleVariantPair> TColumnRoleVariantPair;
+    using TRoleVariantPair = std::pair<int, QVariant>;
+    using TColumnRoleVariantPair = std::pair<QString, TRoleVariantPair>;
 
     namespace detail
     {
@@ -42,7 +42,7 @@ namespace actionParser
             template <typename S1, typename S2>
             struct result { typedef void type; };
 #else
-            typedef void result_type;
+            using result_type = void;
 #endif
 
             void operator()(TSharedActionDataRewriter& entry, const TRoleVariantPair & rule ) const
