@@ -14,6 +14,7 @@
 #include <QFont>
 #include <QIODevice>
 #include <QMimeData>
+#include <utility>
 
 #include "ActionRules/FilterRuleCompiled.h"
 #include "FilterRuleCompiled.h"
@@ -24,8 +25,8 @@ const QString TableModelRulesCompiled::ruleMimeType("application/x-de.steckmann.
 
 TableModelRulesCompiled::TableModelRulesCompiled( QObject *parent, TSharedConstLogEntryParserModelConfiguration cfg, TSharedRuleTable ruleTable )
     :QAbstractTableModel( parent )
-    , m_configuration( cfg )
-    , m_ruleTable( ruleTable )
+    , m_configuration(std::move( cfg ))
+    , m_ruleTable(std::move( ruleTable ))
 {
 }
 

@@ -7,20 +7,21 @@
 
 #include "LogData/LogEntryParserModelConfiguration.h"
 
-#include <limits>
-#include <algorithm>
+#include <LogData/EntryToTextFormaterDefault.h>
 #include <QDebug>
 #include <QSettings>
-#include <LogData/EntryToTextFormaterDefault.h>
+#include <algorithm>
+#include <limits>
+#include <utility>
 
 #include "LogData/LogEntryFactory.h"
 
 using namespace std::placeholders;
 
-LogEntryParserModelConfiguration::LogEntryParserModelConfiguration( const QString &configurationString, std::shared_ptr<LogEntryFactory> factory )
+LogEntryParserModelConfiguration::LogEntryParserModelConfiguration( QString configurationString, std::shared_ptr<LogEntryFactory> factory )
     : m_formater( new EntryToTextFormaterDefault )
-    , m_attr( factory )
-    , m_configurationString( configurationString )
+    , m_attr(std::move( factory ))
+    , m_configurationString(std::move( configurationString ))
     , m_fieldWidthHintsLoaded( false )
     , m_fieldShowHintLoaded( false )
     , m_fieldOrderHintLoaded(false )

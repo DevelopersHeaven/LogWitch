@@ -7,11 +7,13 @@
 
 #include "ExpressionFind.h"
 
+#include <utility>
+
 #include "Types.h"
 
-ExpressionFind::ExpressionFind(TconstSharedValueGetter value, const QString &exp)
-: m_value(value)
-, m_pattern( exp )
+ExpressionFind::ExpressionFind(TconstSharedValueGetter value, QString exp)
+: m_value(std::move(value))
+, m_pattern(std::move( exp ))
 {
 }
 

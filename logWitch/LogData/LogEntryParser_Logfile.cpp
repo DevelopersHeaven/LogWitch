@@ -11,6 +11,7 @@
 #include <QElapsedTimer>
 #include <QRegularExpression>
 #include <QtConcurrentRun>
+#include <utility>
 
 #include "LogEntryFactory.h"
 #include "LogEntryAttributeNames.h"
@@ -21,7 +22,7 @@
 
 LogEntryParser_Logfile::LogEntryParser_Logfile(  std::shared_ptr<ParserStreamGetter> getter  )
   : m_abort(false )
-  , m_getter(getter)
+  , m_getter(std::move(getter))
   , timeFormat( "yyyy-MM-dd HH:mm:ss,zzz" )
   , myFactory( new LogEntryFactory )
   , m_logEntryNumber( 0 )
@@ -124,7 +125,7 @@ public:
 class LogEntryParser_Logfile::PreLogEntry
 {
 public:
-  PreLogEntry(std::shared_ptr<LogfileLine> line): m_firstLine(line) {};
+  PreLogEntry(std::shared_ptr<LogfileLine> line): m_firstLine(std::move(line)) {};
   /**
    * Contains the first line, which must have a valid match
    */

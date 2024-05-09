@@ -7,6 +7,7 @@
 #include "FilterListView.h"
 
 #include <QSortFilterProxyModel>
+#include <utility>
 
 #include "LogEntryTableWindow.h"
 #include "Models/StringCacheTreeModel.h"
@@ -15,7 +16,7 @@
 
 FilterListView::FilterListView( QObject *parent, std::shared_ptr<const LogEntryParserModelConfiguration> config, const int attr )
 : QTreeView( )
-, m_config( config )
+, m_config(std::move( config ))
 , m_attr( attr )
 {
     m_strModel = new StringCacheTreeModel( parent

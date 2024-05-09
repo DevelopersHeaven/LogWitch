@@ -7,6 +7,8 @@
 
 #include "ActionRules/ValueGetterLogEntry.h"
 
+#include <utility>
+
 
 #include "LogData/LogEntryFactory.h"
 #include "LogData/LogEntry.h"
@@ -22,15 +24,15 @@ ValueGetterLogEntry::ValueGetterLogEntry( )
 
 ValueGetterLogEntry::ValueGetterLogEntry(TSharedConstLogEntryParserModelConfiguration configuration )
     : m_name( )
-    , m_configuration( configuration )
+    , m_configuration(std::move( configuration ))
     , m_fieldId( -1 )
 {
 
 }
 
-ValueGetterLogEntry::ValueGetterLogEntry(const QString &name, TSharedConstLogEntryParserModelConfiguration configuration )
-    : m_name( name )
-    , m_configuration( configuration )
+ValueGetterLogEntry::ValueGetterLogEntry(QString name, TSharedConstLogEntryParserModelConfiguration configuration )
+    : m_name(std::move( name ))
+    , m_configuration(std::move( configuration ))
     , m_fieldId( -1 )
 {
     if( m_configuration )

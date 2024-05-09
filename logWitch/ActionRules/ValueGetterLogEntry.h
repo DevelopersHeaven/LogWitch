@@ -21,7 +21,7 @@ class ValueGetterLogEntry
 {
 public:
     ValueGetterLogEntry();
-    ValueGetterLogEntry( const QString &name, TSharedConstLogEntryParserModelConfiguration configuration  );
+    ValueGetterLogEntry( QString name, TSharedConstLogEntryParserModelConfiguration configuration  );
     ValueGetterLogEntry( TSharedConstLogEntryParserModelConfiguration configuration  );
 
     void setName( const QString &name );

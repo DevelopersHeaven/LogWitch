@@ -6,10 +6,12 @@
  */
 
 #include "ExpressionRegEx.h"
+
 #include "Types.h"
+#include <utility>
 
 ExpressionRegEx::ExpressionRegEx(TconstSharedValueGetter value, const QString &exp)
-: m_value(value)
+: m_value(std::move(value))
 , m_regex( exp )
 {
 }

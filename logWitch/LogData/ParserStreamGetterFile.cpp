@@ -9,11 +9,12 @@
 
 #include <QFile>
 #include <QFileInfo>
+#include <utility>
 
 namespace
 {
   struct DeleterQTextStream{
-    DeleterQTextStream(std::shared_ptr<QFile> file): file(file){}
+    DeleterQTextStream(std::shared_ptr<QFile> file): file(std::move(file)){}
 
     void operator()(QTextStream *obj) {
       delete obj;

@@ -7,10 +7,12 @@
 
 #include "ActionDataRewriter.h"
 
+#include <utility>
+
 #include "LogData/LogEntryFactory.h"
 
 ActionDataRewriter::ActionDataRewriter(TSharedConstLogEntryParserModelConfiguration configuration)
-: m_cfg( configuration )
+: m_cfg(std::move( configuration ))
 {
 }
 
