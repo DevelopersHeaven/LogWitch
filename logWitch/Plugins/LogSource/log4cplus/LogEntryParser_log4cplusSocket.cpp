@@ -10,6 +10,7 @@
 #include "Plugins/LogSource/log4cplus/LogEntryParser_log4cplusSocket.h"
 
 #include <algorithm>
+#include <memory>
 
 #include <log4cplus/socketappender.h>
 #include <log4cplus/spi/loggingevent.h>
@@ -213,7 +214,7 @@ void LogEntryParser_log4cplusSocket_Receiver::newDataAvailable ()
   {
     m_stateReadSize = true;
     m_bytesNeeded = sizeof(unsigned int);
-    m_buffer.reset(new ::log4cplus::helpers::SocketBuffer(m_bytesNeeded));
+    m_buffer = std::make_unique<::log4cplus::helpers::SocketBuffer>(m_bytesNeeded);
   }
 
   std::list<TSharedLogEntry> entries;
@@ -257,7 +258,7 @@ void LogEntryParser_log4cplusSocket_Receiver::newDataAvailable ()
         return;
       }
 
-      m_buffer.reset(new ::log4cplus::helpers::SocketBuffer(sizeToReadNext));
+      m_buffer = std::make_unique<::log4cplus::helpers::SocketBuffer>(sizeToReadNext);
       m_bytesNeeded = sizeToReadNext;
     }
   }

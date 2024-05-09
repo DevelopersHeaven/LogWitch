@@ -10,6 +10,7 @@
 #include <QBrush>
 #include <QDebug>
 #include <QRegularExpression>
+#include <memory>
 
 #include "LogEntryRemoveFilter.h"
 
@@ -20,10 +21,10 @@ StringCacheTreeModel::StringCacheTreeModel( QObject *parent, const GetObjectIF<O
 	, m_undefinedString( new QString("Undefined") )
 {
 	TSharedConstQString rootNode( new QString("RootNode"));
-	m_rootNode.reset( new StringCacheTreeItem( rootNode, rootNode ) );
+	m_rootNode = std::make_unique<StringCacheTreeItem>( rootNode, rootNode );
 
 	if( !splitString.isEmpty() )
-		m_splitRegex.reset(new QRegularExpression(splitString));
+		m_splitRegex = std::make_unique<QRegularExpression>(splitString);
 
     QObject::connect(cache, &ObjectCacheQStringSignaller::newElement,
                      this, &StringCacheTreeModel::newStringElement);
