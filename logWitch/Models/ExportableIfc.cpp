@@ -8,6 +8,5 @@
 #include "ExportableIfc.h"
 
 ExportableIfc::~ExportableIfc()
-{
-}
+= default;
 
