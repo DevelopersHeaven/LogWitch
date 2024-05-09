@@ -107,7 +107,7 @@ class LogEntryParser_Logfile::LogfileLine
 {
 public:
   void setLine( QString line ){
-    static const QRegularExpression regex("^([\\d-]+\\s+[\\d\\,\\:]+)\\s+-\\s+((?:(?!\\s+-\\s+).)*)\\s+-\\s+((?:(?!\\s+-\\s+).)*)\\s+-\\s+(\\[(.*)\\]|((?!\\s+-\\s+).)*)\\s+-\\s+(.*)$",
+    static const QRegularExpression regex(R"(^([\d-]+\s+[\d\,\:]+)\s+-\s+((?:(?!\s+-\s+).)*)\s+-\s+((?:(?!\s+-\s+).)*)\s+-\s+(\[(.*)\]|((?!\s+-\s+).)*)\s+-\s+(.*)$)",
                                           QRegularExpression::InvertedGreedinessOption);
 
     m_line = line;
