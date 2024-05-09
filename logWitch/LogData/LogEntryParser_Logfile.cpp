@@ -140,7 +140,7 @@ public:
 class LogEntryParser_Logfile::WorkPackage
 {
 public:
-  typedef std::list< std::shared_ptr<LogfileLine> > LogLineList;
+  using LogLineList = std::list<std::shared_ptr<LogfileLine>>;
   void convert(){
     // Here we have to store the line we have the first match. If there is no
     // match, we can not use the line or it is a message from the previous block.

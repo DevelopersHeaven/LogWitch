@@ -48,7 +48,7 @@ namespace expressionParser
             template <typename S1,typename S2>
             struct result { typedef TSharedValueGetter type; };
 #else
-            typedef TSharedValueGetter result_type;
+            using result_type = TSharedValueGetter;
 #endif
 
             TSharedValueGetter operator()(const QString &name, const TSharedConstLogEntryParserModelConfiguration configuration) const
@@ -62,7 +62,7 @@ namespace expressionParser
             template <typename S1>
             struct result { typedef TSharedValueGetter type; };
 #else
-            typedef TSharedValueGetter result_type;
+            using result_type = TSharedValueGetter;
 #endif
 
             TSharedValueGetter operator()(const QString &name) const
@@ -76,7 +76,7 @@ namespace expressionParser
             template <typename S1,typename S2>
             struct result { typedef TSharedExpression type; };
 #else
-            typedef TSharedExpression result_type;
+            using result_type = TSharedExpression;
 #endif
 
             TSharedExpression operator()(const TSharedValueGetter &left, const TSharedValueGetter &right) const
@@ -90,7 +90,7 @@ namespace expressionParser
             template <typename S1,typename S2>
             struct result { typedef TSharedExpression type; };
 #else
-            typedef TSharedExpression result_type;
+            using result_type = TSharedExpression;
 #endif
 
             TSharedExpression operator()(const TSharedValueGetter &value, const QString &regex) const
@@ -104,7 +104,7 @@ namespace expressionParser
             template <typename S1,typename S2, typename S3>
             struct result { typedef TSharedExpression type; };
 #else
-            typedef TSharedExpression result_type;
+            using result_type = TSharedExpression;
 #endif
 
             TSharedExpression operator()(const TSharedValueGetter &value, const QString &find) const
@@ -118,7 +118,7 @@ namespace expressionParser
             template <typename S1>
             struct result { typedef TSharedExpression type; };
 #else
-            typedef TSharedExpression result_type;
+            using result_type = TSharedExpression;
 #endif
 
             TSharedExpression operator()(const TSharedExpression &value) const
@@ -132,7 +132,7 @@ namespace expressionParser
             template <typename S1,typename S2>
             struct result { typedef TSharedExpression type; };
 #else
-            typedef TSharedExpression result_type;
+            using result_type = TSharedExpression;
 #endif
 
             TSharedExpression operator()(const TSharedExpression &left, const TSharedExpression &right) const
@@ -146,7 +146,7 @@ namespace expressionParser
             template <typename S1,typename S2>
             struct result { typedef TSharedExpression type; };
 #else
-            typedef TSharedExpression result_type;
+            using result_type = TSharedExpression;
 #endif
 
             TSharedExpression operator()(const TSharedExpression &left, const TSharedExpression &right) const
@@ -160,7 +160,7 @@ namespace expressionParser
             template <typename S1,typename S2>
             struct result { typedef TSharedExpression type; };
 #else
-            typedef TSharedExpression result_type;
+            using result_type = TSharedExpression;
 #endif
 
             TSharedExpression operator()(const TSharedExpression &left, const TSharedExpression &right) const
@@ -174,7 +174,7 @@ namespace expressionParser
             template <typename S1>
             struct result { typedef TSharedExpression type; };
 #else
-            typedef TSharedExpression result_type;
+            using result_type = TSharedExpression;
 #endif
 
             TSharedExpression operator()(bool value) const
