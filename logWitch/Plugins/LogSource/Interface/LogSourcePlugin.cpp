@@ -7,11 +7,11 @@
 
 #include "Plugins/LogSource/Interface/LogSourcePlugin.h"
 
-namespace logwitch{ namespace plugins{
+namespace logwitch::plugins{
 
 	LogSourcePluginAbstractBase::LogSourcePluginAbstractBase()
 	: m_parserActionIfc(nullptr)
 	{
 	}
 
-}}
+}
