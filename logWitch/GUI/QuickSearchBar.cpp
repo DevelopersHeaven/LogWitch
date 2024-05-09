@@ -14,6 +14,7 @@
 #include <QHBoxLayout>
 #include <QMimeData>
 #include <QPushButton>
+#include <utility>
 
 #include "ActionRules/ActionParser.h"
 #include "ActionRules/ExpressionFind.h"
@@ -107,7 +108,7 @@ QuickSearchBar::QuickSearchBar(LogEntryTableWindow* parent
     , std::shared_ptr<LogEntryTableModel> model
     , const QString& colorCode)
 : QWidget(parent)
-, m_model(model)
+, m_model(std::move(model))
 , m_logWindow(parent)
 , m_searchMode(Text)
 {

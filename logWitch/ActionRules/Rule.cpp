@@ -7,9 +7,11 @@
 
 #include "Rule.h"
 
+#include <utility>
+
 Rule::Rule( TconstSharedExpression expr, TconstSharedAction action )
-    : m_expr( expr )
-    , m_action( action )
+    : m_expr(std::move( expr ))
+    , m_action(std::move( action ))
 {
 }
 

@@ -15,7 +15,7 @@ class ExpressionFind
     : public Expression
 {
 public:
-    ExpressionFind( TconstSharedValueGetter value, const QString &exp);
+    ExpressionFind( TconstSharedValueGetter value, QString exp);
 
     bool isValid() const override;
 

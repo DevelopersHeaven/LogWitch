@@ -11,6 +11,7 @@
 #include <QDebug>
 #include <QRegularExpression>
 #include <QVariant>
+#include <utility>
 
 const QString ImportExportDescription::getImportExportDescription()
 {
@@ -50,7 +51,7 @@ namespace
     class QStringToDateTime: public ImportExportDescription
     {
     public:
-        QStringToDateTime( const QString &fmt ): m_timeFormat( fmt ) {}
+        QStringToDateTime( QString fmt ): m_timeFormat(std::move( fmt )) {}
 
         QVariant operator()(const QString &str) override
         {
@@ -170,8 +171,8 @@ const AttributeConfiguration &LogEntryAttributeNames::getConfiguration( const QS
 AttributeConfiguration::AttributeConfiguration( bool caching, int defaultCellWidth, TQStringPair namesIn,  std::shared_ptr<ImportExportDescription> factory )
 : caching( caching )
 , defaultCellWidth( defaultCellWidth )
-, names( namesIn )
-, attributeFactory( factory )
+, names(std::move( namesIn ))
+, attributeFactory(std::move( factory ))
 {
 }
 

@@ -7,8 +7,10 @@
 
 #include "LogData/ParserStreamGetter.h"
 
+#include <utility>
+
 ParserStreamGetter::ParserStreamGetter(  const QString name, std::shared_ptr<QTextStream> textStream )
 : m_name( name )
-, m_textStream( textStream )
+, m_textStream(std::move( textStream ))
 {
 }

@@ -7,8 +7,9 @@
 
 #include "ExpressionParser.h"
 
-#include <boost/spirit/include/qi.hpp>
 #include <boost/phoenix/operator.hpp>
+#include <boost/spirit/include/qi.hpp>
+#include <utility>
 
 #include "ActionRules/ExpressionFind.h"
 #include "ActionRules/ExpressionOperators.h"
@@ -327,7 +328,7 @@ namespace expressionParser
 }
 
 ExpressionParser::ExpressionParser( TSharedConstLogEntryParserModelConfiguration cfg )
-    : m_cfg( cfg )
+    : m_cfg(std::move( cfg ))
 {
 
 }

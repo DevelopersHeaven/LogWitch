@@ -8,9 +8,10 @@
 #include "ExpressionOperators.h"
 
 #include <iostream>
+#include <utility>
 
 ExpressionOpNegate::ExpressionOpNegate( TSharedExpression in )
-: m_expr( in )
+: m_expr(std::move( in ))
 {
 }
 
@@ -58,8 +59,8 @@ std::ostream &ExpressionConst::out( std::ostream &o, bool  ) const
 }
 
 ExpressionOpOr::ExpressionOpOr( TSharedExpression left, TSharedExpression right )
-: m_left( left )
-, m_right( right )
+: m_left(std::move( left ))
+, m_right(std::move( right ))
 {
 }
 
@@ -84,8 +85,8 @@ std::ostream &ExpressionOpOr::out( std::ostream &o, bool extended ) const
 }
 
 ExpressionOpAnd::ExpressionOpAnd( TSharedExpression left, TSharedExpression right )
-: m_left( left )
-, m_right( right )
+: m_left(std::move( left ))
+, m_right(std::move( right ))
 {
 }
 
@@ -110,8 +111,8 @@ std::ostream &ExpressionOpAnd::out( std::ostream &o, bool extended ) const
 }
 
 ExpressionOpXOr::ExpressionOpXOr( TSharedExpression left, TSharedExpression right )
-: m_left( left )
-, m_right( right )
+: m_left(std::move( left ))
+, m_right(std::move( right ))
 {
 }
 

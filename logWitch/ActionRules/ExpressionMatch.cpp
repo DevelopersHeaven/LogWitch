@@ -6,16 +6,18 @@
  */
 
 #include "ExpressionMatch.h"
+
 #include "ValueGetter.h"
+#include <utility>
 
 ExpressionMatch::ExpressionMatch( TconstSharedValueGetter left, TconstSharedValueGetter right )
-    : m_left( left )
-    , m_right( right )
+    : m_left(std::move( left ))
+    , m_right(std::move( right ))
 {
 }
 
 ExpressionMatch::ExpressionMatch( TconstSharedValueGetter left )
-    : m_left( left )
+    : m_left(std::move( left ))
     , m_right(  )
 {
 }

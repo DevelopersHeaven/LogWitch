@@ -31,7 +31,7 @@ public:
      *
      * @param configurationString This string is an identifier to save and load default settings.
      */
-	LogEntryParserModelConfiguration( const QString &configurationString, std::shared_ptr<LogEntryFactory> factory );
+	LogEntryParserModelConfiguration( QString configurationString, std::shared_ptr<LogEntryFactory> factory );
 
 	/**
 	 * Returns if an entry field is a hierarchy and returns the string for a regex to split it.

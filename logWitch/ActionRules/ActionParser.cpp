@@ -16,6 +16,7 @@
 
 #include <QColor>
 #include <QIcon>
+#include <utility>
 
 #include "ActionRules/ActionDataRewriter.h"
 #include "ActionRules/ActionDoNothing.h"
@@ -193,7 +194,7 @@ namespace actionParser
 
 
 ActionParser::ActionParser( TSharedConstLogEntryParserModelConfiguration cfg )
-: m_cfg( cfg )
+: m_cfg(std::move( cfg ))
 {
 }
 

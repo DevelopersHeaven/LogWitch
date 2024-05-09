@@ -8,13 +8,14 @@
 #include "StringCacheTreeItem.h"
 
 #include <algorithm>
+#include <utility>
 
 StringCacheTreeItem::StringCacheTreeItem(TSharedConstQString originalString, TSharedConstQString str, StringCacheTreeItem *parent /* = nullptr */)
 	: m_parentItem( parent )
 	, m_checkedSelf( Inherit )
     , m_checkedChilds( Inherit )
-	, m_string( str )
-	, m_stringOriginal( originalString )
+	, m_string(std::move( str ))
+	, m_stringOriginal(std::move( originalString ))
 {
 
 }

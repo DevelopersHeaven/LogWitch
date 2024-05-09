@@ -14,6 +14,7 @@
 #include <QLineEdit>
 #include <QMessageBox>
 #include <QVBoxLayout>
+#include <utility>
 
 #include "ActionRules/RuleTable.h"
 
@@ -61,7 +62,7 @@ void LogEntryTableWindow::updateHeaderPositionToModel(int, int, int)
 
 LogEntryTableWindow::LogEntryTableWindow( std::shared_ptr<LogEntryTableModel> model, QWidget *parent)
 : QMdiSubWindow(parent)
-, m_model(model)
+, m_model(std::move(model))
 , m_splitter( new QSplitter(Qt::Vertical))
 , m_myFilterTabs(nullptr)
 , m_dockFilterShouldDockedTo(nullptr)
