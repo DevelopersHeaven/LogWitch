@@ -14,5 +14,5 @@ QVariant ActionDiscardRow::toDisplay( int role ) const
         return QString( QObject::tr("Discard Logmessage") );
     }
 
-    return QVariant();
+    return {};
 }

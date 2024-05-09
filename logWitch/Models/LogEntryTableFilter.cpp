@@ -77,7 +77,7 @@ QVariant LogEntryTableFilter::data(const QModelIndex &index, int role) const
     if( !sourceIdx.isValid() )
     {
         qWarning() << "We had an error during mapping to source!";
-        return QVariant();
+        return {};
     }
 
     TconstSharedLogEntry entry = m_model->getEntryByIndex( sourceIdx );
