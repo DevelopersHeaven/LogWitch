@@ -96,7 +96,7 @@ TconstSharedLogEntry LogEntryTableModel::getEntryByIndex( const QModelIndex &ind
               << " index.row():" << index.row()
               << " table size:" << int(m_table.size() )
               << " model columns:" << (m_modelConfiguration->getLogEntryFactory()->getNumberOfFields( ) );
-      return TconstSharedLogEntry();
+      return {};
     }
 
     return m_table[index.row()];
@@ -107,13 +107,13 @@ QVariant LogEntryTableModel::data(const QModelIndex &index, int role) const
     std::lock_guard<std::recursive_mutex> lo(m_mutex);
 
     if (!index.isValid())
-        return QVariant();
+        return {};
 
     if (index.column() >= (m_modelConfiguration->getLogEntryFactory()->getNumberOfFields( ) )
     		|| index.column() < 0
     		|| index.row() < 0
     		|| index.row() >= int(m_table.size() ) )
-        return QVariant();
+        return {};
 
     if (role == Qt::DisplayRole)
     {
@@ -134,13 +134,13 @@ QVariant LogEntryTableModel::data(const QModelIndex &index, int role) const
       return QVariant::fromValue( entry );
     }
 
-    return QVariant();
+    return {};
 }
 
 QVariant LogEntryTableModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (section >= (m_modelConfiguration->getLogEntryFactory()->getNumberOfFields( ) ) || section < 0)
-        return QVariant();
+        return {};
 
     if (role == Qt::DisplayRole)
     {
@@ -167,7 +167,7 @@ QVariant LogEntryTableModel::headerData(int section, Qt::Orientation orientation
         return m_modelConfiguration->getFieldOrderHint( section );
     }
 
-    return QVariant();
+    return {};
 }
 
 bool LogEntryTableModel::setHeaderData ( int section, Qt::Orientation orientation, const QVariant & value, int role )

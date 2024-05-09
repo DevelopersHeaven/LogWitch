@@ -38,7 +38,7 @@ std::shared_ptr<LogEntryFilter> StringCacheTreeModel::getFilter() const
 QVariant StringCacheTreeModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
-        return QVariant();
+        return {};
 
     StringCacheTreeItem *item = static_cast<StringCacheTreeItem*>(index.internalPointer());
 
@@ -55,7 +55,7 @@ QVariant StringCacheTreeModel::data(const QModelIndex &index, int role) const
 	{
         StringCacheTreeItem::CheckState state = item->getCheckState();
 		if( state.forced )
-			return QVariant();
+			return {};
 
 		return item->getChecked();
 	}
@@ -63,7 +63,7 @@ QVariant StringCacheTreeModel::data(const QModelIndex &index, int role) const
 		return *(item->getString());
 
 
-    return QVariant();
+    return {};
 }
 
 bool StringCacheTreeModel::setData( const QModelIndex &index, const QVariant& value, int role )
@@ -170,7 +170,7 @@ QModelIndex StringCacheTreeModel::index(int row, int column,
                   const QModelIndex &parent /*= QModelIndex()*/) const
 {
 	 if (!hasIndex(row, column, parent))
-		 return QModelIndex();
+		 return {};
 
 	 StringCacheTreeItem *parentItem;
 
@@ -183,19 +183,19 @@ QModelIndex StringCacheTreeModel::index(int row, int column,
 	 if (childItem)
 		 return createIndex(row, column, childItem);
 	 else
-		 return QModelIndex();
+		 return {};
 }
 
 QModelIndex StringCacheTreeModel::parent(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return QModelIndex();
+        return {};
 
     StringCacheTreeItem *childItem = static_cast<StringCacheTreeItem*>(index.internalPointer());
     StringCacheTreeItem *parentItem = childItem->parent();
 
     if (parentItem == m_rootNode.get())
-        return QModelIndex();
+        return {};
 
     return createIndex(parentItem->row(), 0, parentItem);
 }

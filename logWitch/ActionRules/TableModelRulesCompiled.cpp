@@ -45,20 +45,20 @@ int TableModelRulesCompiled::columnCount(const QModelIndex &parent) const
 QVariant TableModelRulesCompiled::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
-     return QVariant();
+     return {};
 
     if (index.column() >= m_columnCount
          || index.column() < 0
          || index.row() < 0
          || index.row() > int(m_table.size() ) )
-     return QVariant();
+     return {};
 
     if( index.row() == int(m_table.size()) )
     {
         if( role == Qt::DisplayRole && index.column() == 0 )
             return QString(" * ");
 
-        return QVariant();
+        return {};
     }
 
     TSharedFilterRuleCompiled row = m_table[index.row()];
@@ -147,7 +147,7 @@ QVariant TableModelRulesCompiled::data(const QModelIndex &index, int role) const
         }
     }
 
-    return QVariant();
+    return {};
 }
 
 Qt::ItemFlags TableModelRulesCompiled::flags(const QModelIndex &index  ) const
@@ -181,7 +181,7 @@ QVariant TableModelRulesCompiled::headerData(int section, Qt::Orientation orient
         }
     }
 
-    return QVariant();
+    return {};
 }
 
 
@@ -265,7 +265,7 @@ QString TableModelRulesCompiled::getRule( const int row ) const
     if( row >= 0 && row < int(m_table.size()) )
         return m_table[row]->toString();
     else
-        return QString();
+        return {};
 }
 
 bool TableModelRulesCompiled::hasRule( const QString &rule ) const

@@ -211,7 +211,7 @@ namespace
         return *(it++);
       }
       else
-        return TconstSharedLogEntry();
+        return {};
     }
 
     const std::vector<TconstSharedLogEntry> &entries;

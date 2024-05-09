@@ -37,9 +37,9 @@ namespace
             bool ok = false;
             int value = str.toInt(&ok);
             if( !ok )
-                return QVariant( int(0) );
+                return { int(0) };
             else
-                return QVariant( value );
+                return { value };
         }
 
         std::shared_ptr<ImportExportDescription> clone() const override

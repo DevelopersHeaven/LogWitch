@@ -54,7 +54,7 @@ namespace
             if (m_entryId<m_entriesInModel)
                 return m_model.getEntryByRow(m_entryId++);
             else
-                return TconstSharedLogEntry();
+                return {};
         }
 
         LogEntryTableModel& m_model;
