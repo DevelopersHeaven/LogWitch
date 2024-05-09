@@ -46,7 +46,7 @@ int StringCacheTreeItem::row() const
     if (m_parentItem)
     {
         int idx = 0;
-        TItemVector::const_iterator it = std::find( m_parentItem->m_childItems.begin(), m_parentItem->m_childItems.end(), this );
+        auto it = std::find( m_parentItem->m_childItems.begin(), m_parentItem->m_childItems.end(), this );
         if( it != m_parentItem->m_childItems.end() )
             idx = it - m_parentItem->m_childItems.begin();
 
@@ -111,7 +111,7 @@ StringCacheTreeItem::CheckState &StringCacheTreeItem::getCheckState( StringCache
  {
      if( !(state.forced || state.partial) )
      {
-         TItemVector::const_iterator it= item->m_childItems.begin();
+         auto it= item->m_childItems.begin();
          for( ;it != item->m_childItems.end(); ++it )
          {
 
@@ -178,7 +178,7 @@ void StringCacheTreeItem::recursiveSetTree( Check self, Check child )
 {
     m_checkedChilds = child;
     m_checkedSelf = self;
-    TItemVector::const_iterator it= m_childItems.begin();
+    auto it= m_childItems.begin();
     for( ;it != m_childItems.end(); ++it )
         (*it)->recursiveSetTree( self, child );
 }
@@ -199,7 +199,7 @@ void StringCacheTreeItem::checkOnlyThisElement( bool includeTreepath, Check chil
         m_checkedChilds = child;
         m_checkedSelf = self;
 
-        TItemVector::const_iterator it = m_parentItem->m_childItems.begin();
+        auto it = m_parentItem->m_childItems.begin();
         for( ;it != m_parentItem->m_childItems.end(); ++it )
         {
             if( *it != this )

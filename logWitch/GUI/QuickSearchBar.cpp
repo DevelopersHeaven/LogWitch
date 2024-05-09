@@ -114,7 +114,7 @@ QuickSearchBar::QuickSearchBar(LogEntryTableWindow* parent
 {
   // Create quicksearch bar
   m_quickSearch = new QuickSearchLineEdit(this);
-  QHBoxLayout* quickSearchLayout = new QHBoxLayout;
+  auto* quickSearchLayout = new QHBoxLayout;
   quickSearchLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(quickSearchLayout);
 
@@ -143,13 +143,13 @@ QuickSearchBar::QuickSearchBar(LogEntryTableWindow* parent
   QObject::connect(m_quickSearch, &QLineEdit::editingFinished, this,
       &QuickSearchBar::updateSearch);
 
-  QPushButton *searchDnBtn = new QPushButton(iconDown, "");
+  auto *searchDnBtn = new QPushButton(iconDown, "");
   QObject::connect(searchDnBtn, &QAbstractButton::clicked, this, &QuickSearchBar::searchNext);
 
-  QPushButton *searchUpBtn = new QPushButton(iconUp, "");
+  auto *searchUpBtn = new QPushButton(iconUp, "");
   QObject::connect(searchUpBtn, &QAbstractButton::clicked, this, &QuickSearchBar::searchPrev);
 
-  QPushButton *closeBtn = new QPushButton(trash, "");
+  auto *closeBtn = new QPushButton(trash, "");
   QObject::connect(closeBtn, &QAbstractButton::clicked, this, &QuickSearchBar::deleteLater);
 
   quickSearchLayout->addWidget(m_searchModeButton);

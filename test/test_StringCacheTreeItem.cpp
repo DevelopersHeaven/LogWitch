@@ -40,17 +40,17 @@ BOOST_AUTO_TEST_CASE( checkItems )
     StringCacheTreeItem root(std::make_shared<const QString>("Root")
             , std::make_shared<const QString>("Root"));
 
-    StringCacheTreeItem *RootA = new StringCacheTreeItem(
+    auto *RootA = new StringCacheTreeItem(
               std::make_shared<const QString>("A")
             , std::make_shared<const QString>("Root.A")) ;
     root.appendChild( RootA );
 
-    StringCacheTreeItem *RootB = new StringCacheTreeItem(
+    auto *RootB = new StringCacheTreeItem(
               std::make_shared<const QString>("B")
             , std::make_shared<const QString>("Root.B")) ;
     root.appendChild( RootB );
 
-    StringCacheTreeItem *RootA1 = new StringCacheTreeItem(
+    auto *RootA1 = new StringCacheTreeItem(
               std::make_shared<const QString>("1")
             , std::make_shared<const QString>("Root.A.1")) ;
     RootA->appendChild( RootA1 );

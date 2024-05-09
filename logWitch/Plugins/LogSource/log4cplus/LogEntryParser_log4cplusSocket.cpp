@@ -171,7 +171,7 @@ void LogEntryParser_log4cplusSocket::newIncomingConnection ()
   qDebug() << "Incoming connection ... creating new receiver.";
 
   QTcpSocket *socket = nextPendingConnection();
-  LogEntryParser_log4cplusSocket_Receiver *receiver =
+  auto *receiver =
       new LogEntryParser_log4cplusSocket_Receiver(this, socket);
 
   connect(this, &QObject::destroyed, receiver, &LogEntryParser_log4cplusSocket_Receiver::shutdown);

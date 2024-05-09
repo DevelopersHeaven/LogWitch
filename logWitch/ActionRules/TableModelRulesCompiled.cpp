@@ -316,7 +316,7 @@ void TableModelRulesCompiled::removeRules( const std::list<int> &rowList )
 
     int toRemoveLast = -1;
 
-    for( std::list<int>::const_reverse_iterator it = sortRowList.rbegin()
+    for( auto it = sortRowList.rbegin()
         ; it != sortRowList.rend(); ++it )
     {
         if(   toRemoveLast != *it
@@ -422,7 +422,7 @@ bool TableModelRulesCompiled::dropMimeData(const QMimeData *data,
 
             // Now extract the rows and place them to the new position.
             std::list<TSharedFilterRuleCompiled> rules;
-            for( std::list<int>::reverse_iterator it = srcRows.rbegin(); it != srcRows.rend(); ++it )
+            for( auto it = srcRows.rbegin(); it != srcRows.rend(); ++it )
             {
                 int rowMapped = *it;
                 if( rowMapped < int(m_table.size()) && rowMapped >= 0)
@@ -437,7 +437,7 @@ bool TableModelRulesCompiled::dropMimeData(const QMimeData *data,
                 }
             }
 
-            for( std::list<TSharedFilterRuleCompiled>::reverse_iterator it = rules.rbegin()
+            for( auto it = rules.rbegin()
                 ; it != rules.rend()
                 ; ++it )
             {
@@ -505,7 +505,7 @@ QMimeData *TableModelRulesCompiled::mimeData(const QModelIndexList &indexes) con
     QStringList types = mimeTypes();
     if (types.isEmpty())
         return 0;
-    QMimeData *data = new QMimeData();
+    auto *data = new QMimeData();
     QString format = types.at(0);
 
     QString encoded;

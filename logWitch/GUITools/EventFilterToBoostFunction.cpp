@@ -15,7 +15,7 @@ namespace evtFunc
     {
         if (e->type() == QEvent::KeyPress )
         {
-             QKeyEvent *keyEvent = static_cast<QKeyEvent *>(e);
+             auto *keyEvent = static_cast<QKeyEvent *>(e);
              if( keyEvent->key() == keycode )
              {
                  f();

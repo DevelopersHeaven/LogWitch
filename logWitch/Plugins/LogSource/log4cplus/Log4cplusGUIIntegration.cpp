@@ -43,7 +43,7 @@ Log4cplusGUIIntegration::Log4cplusGUIIntegration ()
 
   m_toolbar = new QToolBar("Log4cplus");
 
-  QAction* actionOpenServer = new QAction(this);
+  auto* actionOpenServer = new QAction(this);
   actionOpenServer->setObjectName(QStringLiteral("actionOpenLog4cplusServer"));
   QIcon icon1;
   icon1.addFile(QStringLiteral(":/icons/networkLog4CPlus"), QSize(), QIcon::Normal,
@@ -60,7 +60,7 @@ Log4cplusGUIIntegration::Log4cplusGUIIntegration ()
                               nullptr));
 #endif // QT_NO_TOOLTIP
 
-  QLabel *portLabel = new QLabel(
+  auto *portLabel = new QLabel(
       QApplication::translate("Plugin_Source_Log4cplus", "Port: ", nullptr));
   m_port = new QSpinBox(m_toolbar);
   m_port->setToolTip(

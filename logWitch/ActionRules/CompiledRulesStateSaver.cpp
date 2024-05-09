@@ -28,10 +28,10 @@ CompiledRulesStateSaver::CompiledRulesStateSaver(  TSharedConstLogEntryParserMod
 {
    m_displayWidget = new QWidget(); //This is the pane
 
-   QVBoxLayout* vbox = new QVBoxLayout(m_displayWidget);
+   auto* vbox = new QVBoxLayout(m_displayWidget);
    m_displayWidget->setLayout(vbox);
 
-   QToolBar* toolBar = new QToolBar( m_compiledRuleView);
+   auto* toolBar = new QToolBar( m_compiledRuleView);
    toolBar->setIconSize(QSize(16,16));
    vbox->addWidget(toolBar);
 

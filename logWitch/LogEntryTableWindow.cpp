@@ -169,8 +169,8 @@ LogEntryTableWindow::LogEntryTableWindow( std::shared_ptr<LogEntryTableModel> mo
       &LogEntryTableModel::signalError, this, &LogEntryTableWindow::errorFromModel);
 
   // Make the big layout, top is quickearch bar, then log table and at the bottom the log message.
-  QVBoxLayout* layout = new QVBoxLayout();
-  QWidget *centralWidget = new QWidget(this);
+  auto* layout = new QVBoxLayout();
+  auto *centralWidget = new QWidget(this);
 
   m_splitter->addWidget(m_tableView);
   m_splitter->addWidget(m_text);
@@ -321,7 +321,7 @@ QTabWidget *LogEntryTableWindow::getTabFilterWidget()
 {
   if (m_myFilterTabs == nullptr)
   {
-    QTabWidget *tabs = new QTabWidget();
+    auto *tabs = new QTabWidget();
 
     int attributes =
         m_model->getParserModelConfiguration()->getLogEntryFactory()->getNumberOfFields();
@@ -331,7 +331,7 @@ QTabWidget *LogEntryTableWindow::getTabFilterWidget()
       if (m_model->getParserModelConfiguration()->getLogEntryFactory()->getCache(
           attr).isCaching())
       {
-        FilterListView *view = new FilterListView(this,
+        auto *view = new FilterListView(this,
             m_model->getParserModelConfiguration(), attr);
         view->addToTabs(tabs, this);
       }
@@ -459,7 +459,7 @@ void LogEntryTableWindow::contextMenu(const QPoint & pt)
 
   qDebug() << "Using reference time: " << dt;
 
-  QMenu *menu = new QMenu();
+  auto *menu = new QMenu();
 
   QAction *timeStampsRelative = menu->addAction(tr("Set row as reference"));
   QAction *showTimestamps = menu->addAction(tr("Show absolute times"));

@@ -17,7 +17,7 @@ LogEntryStorerForTesting::LogEntryStorerForTesting( LogEntryParser* parser )
 , m_parser(parser)
 , m_app(nullptr)
 {
-  QObject* parserQO = dynamic_cast<QObject*>(parser);
+  auto* parserQO = dynamic_cast<QObject*>(parser);
 
   QObject::connect(parserQO, SIGNAL(newEntry(TconstSharedNewLogEntryMessage)), this, SLOT(onNewEntry(TconstSharedNewLogEntryMessage)));
   QObject::connect(parserQO, SIGNAL(signalError(QString)), this, SLOT(onSignalError(QString)));

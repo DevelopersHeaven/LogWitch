@@ -21,7 +21,7 @@ void WidgetStateSaver::addElementToWatch( QObject *obj,
     DEBUG_WIDGETSTATESAFER("adding object to watch " <<obj);
     m_myWatchedObjects.insert( ObjectStateDumper::value_type( obj, stateSaver ) );
     // Save actual obj state as state default.
-    StateSaveMap::iterator it = m_stateHistoryMap.find(nullptr);
+    auto it = m_stateHistoryMap.find(nullptr);
     if( it == m_stateHistoryMap.end() )
     {
         it = m_stateHistoryMap.insert(StateSaveMap::value_type(nullptr, ObjectStateList())).first;

@@ -25,7 +25,7 @@ void HeaderViewGroup::addToGroup( SynchronizedHeaderView *view )
     QObject::connect(view, &QObject::destroyed,
                      this, &HeaderViewGroup::headerChildDestroyed);
 
-    for( TGroupList::iterator it = m_groupChilds.begin()
+    for( auto it = m_groupChilds.begin()
         ; it != m_groupChilds.end()
         ; ++it )
     {
@@ -50,7 +50,7 @@ void HeaderViewGroup::addToGroup( SynchronizedHeaderView *view )
 
 void HeaderViewGroup::hideSection( int idx )
 {
-    for( TGroupList::iterator it = m_groupChilds.begin()
+    for( auto it = m_groupChilds.begin()
         ; it != m_groupChilds.end()
         ; ++it )
     {
@@ -60,7 +60,7 @@ void HeaderViewGroup::hideSection( int idx )
 
 void HeaderViewGroup::showSection( int idx )
 {
-    for( TGroupList::iterator it = m_groupChilds.begin()
+    for( auto it = m_groupChilds.begin()
         ; it != m_groupChilds.end()
         ; ++it )
     {
@@ -75,7 +75,7 @@ void HeaderViewGroup::synchronizeState( SynchronizedHeaderView *view )
     // be blocked, because otherwise the other views will get into
     // trouble. So restoring the state is the working way.
 
-    for( TGroupList::iterator it = m_groupChilds.begin()
+    for( auto it = m_groupChilds.begin()
         ; it != m_groupChilds.end()
         ; ++it )
     {
@@ -85,9 +85,9 @@ void HeaderViewGroup::synchronizeState( SynchronizedHeaderView *view )
 
 void HeaderViewGroup::headerChildDestroyed( QObject *obj )
 {
-    SynchronizedHeaderView *view = static_cast<SynchronizedHeaderView *>(obj);
+    auto *view = static_cast<SynchronizedHeaderView *>(obj);
 
-    TGroupList::iterator it = std::find( m_groupChilds.begin(), m_groupChilds.end(), view );
+    auto it = std::find( m_groupChilds.begin(), m_groupChilds.end(), view );
     if( it != m_groupChilds.end() )
         m_groupChilds.erase( it );
     else

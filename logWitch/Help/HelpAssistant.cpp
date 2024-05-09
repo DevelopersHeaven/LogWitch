@@ -101,7 +101,7 @@ void HelpAssistant::createHelpWindow()
         }
     }
 
-    QHelpEngine* helpEngine = new QHelpEngine(helpFile);
+    auto* helpEngine = new QHelpEngine(helpFile);
     helpEngine->setupData();
 
     textViewer = new HelpBrowser(helpEngine);
