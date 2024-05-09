@@ -501,10 +501,10 @@ QByteArray TableModelRulesCompiled::getIdentification() const
 QMimeData *TableModelRulesCompiled::mimeData(const QModelIndexList &indexes) const
 {
     if (indexes.count() <= 0)
-        return 0;
+        return nullptr;
     QStringList types = mimeTypes();
     if (types.isEmpty())
-        return 0;
+        return nullptr;
     auto *data = new QMimeData();
     QString format = types.at(0);
 

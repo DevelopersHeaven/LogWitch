@@ -27,7 +27,7 @@ LogEntryStorerForTesting::LogEntryStorerForTesting( LogEntryParser* parser )
 void LogEntryStorerForTesting::start()
 {
   int argc =0;
-  char * argv[] = {0};
+  char * argv[] = {nullptr};
   QCoreApplication app(argc, argv);
   m_app = &app;
 
