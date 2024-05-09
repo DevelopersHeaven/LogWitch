@@ -40,7 +40,7 @@ QVariant StringCacheTreeModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return {};
 
-    StringCacheTreeItem *item = static_cast<StringCacheTreeItem*>(index.internalPointer());
+    auto *item = static_cast<StringCacheTreeItem*>(index.internalPointer());
 
     if( role == Qt::ForegroundRole )
     {
@@ -73,7 +73,7 @@ bool StringCacheTreeModel::setData( const QModelIndex &index, const QVariant& va
 
 	if( role == Qt::CheckStateRole || role == 512 )
 	{
-        StringCacheTreeItem *item = static_cast<StringCacheTreeItem*>( index.internalPointer() );
+        auto *item = static_cast<StringCacheTreeItem*>( index.internalPointer() );
 
         if( role == 512 )
         {
@@ -191,7 +191,7 @@ QModelIndex StringCacheTreeModel::parent(const QModelIndex &index) const
     if (!index.isValid())
         return {};
 
-    StringCacheTreeItem *childItem = static_cast<StringCacheTreeItem*>(index.internalPointer());
+    auto *childItem = static_cast<StringCacheTreeItem*>(index.internalPointer());
     StringCacheTreeItem *parentItem = childItem->parent();
 
     if (parentItem == m_rootNode.get())
@@ -248,7 +248,7 @@ void StringCacheTreeModel::newStringElement( TSharedConstQString string )
 			if( i == count )
 			{
 				beginInsertRows( idx, node->childCount(), node->childCount() );
-				StringCacheTreeItem *newNode = new StringCacheTreeItem(
+				auto *newNode = new StringCacheTreeItem(
 						  list.empty() ? string : m_undefinedString
 						, TSharedConstQString( new QString(str) )
 						, node );

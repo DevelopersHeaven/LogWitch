@@ -30,7 +30,7 @@ void ContextMenuManipulateHeader::contextMenuRequest(const QPoint & pos)
   // Configure menu ....
   m_showMenu->clear();
 
-  SynchronizedHeaderView *syncHeader =
+  auto *syncHeader =
       dynamic_cast<SynchronizedHeaderView *>(m_header);
 
   for (int i = 0; i < m_header->model()->columnCount(); i++)
@@ -75,7 +75,7 @@ void ContextMenuManipulateHeader::hideColumn()
   if (m_header->hiddenSectionCount() < m_header->count() - 1)
   {
     // This is necessary, because these methods are not virtual in QT *grr*
-    SynchronizedHeaderView *syncHeader =
+    auto *syncHeader =
         dynamic_cast<SynchronizedHeaderView *>(m_header);
     if (syncHeader)
       syncHeader->hideSection(m_headerToWorkOn);

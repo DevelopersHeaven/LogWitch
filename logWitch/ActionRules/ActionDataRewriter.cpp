@@ -18,7 +18,7 @@ ActionDataRewriter::ActionDataRewriter(TSharedConstLogEntryParserModelConfigurat
 
 bool ActionDataRewriter::modifyData( QVariant &var,  int column, int role) const
 {
-    TChangeSet::const_iterator it = m_changes.find( rc_key(role,column) );
+    auto it = m_changes.find( rc_key(role,column) );
     if( it == m_changes.end() )
         it = m_changes.find( rc_key(role) );
 

@@ -158,7 +158,7 @@ void LogEntryParser_pythonSocket::newIncomingConnection ()
   qDebug() << "Incoming connection ... creating new receiver.";
 
   QTcpSocket *socket = nextPendingConnection();
-  LogEntryParser_pythonSocket_Receiver *receiver =
+  auto *receiver =
       new LogEntryParser_pythonSocket_Receiver(this, socket);
 
   connect(this, &QObject::destroyed, receiver, &LogEntryParser_pythonSocket_Receiver::shutdown);

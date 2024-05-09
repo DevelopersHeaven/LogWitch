@@ -59,11 +59,11 @@ FilterRuleSelectionWindow::FilterRuleSelectionWindow( QWidget* parent )
             std::bind( &evtFunc::keyPressed, _1, _2, Qt::Key_Delete,
                     std::function< void(void ) >( std::bind( &FilterRuleSelectionWindow::trashSelectedRules, this ) ) ) ) );
 
-    QWidget *displayWidget = new QWidget(); //This is the pane
-    QVBoxLayout* vbox = new QVBoxLayout(displayWidget);
+    auto *displayWidget = new QWidget(); //This is the pane
+    auto* vbox = new QVBoxLayout(displayWidget);
     displayWidget->setLayout(vbox);
 
-    QToolBar* toolBar = new QToolBar( displayWidget );
+    auto* toolBar = new QToolBar( displayWidget );
 
     // Add trash selected rule action
     m_trashSelectedRules = new QAction("Trash", this);
@@ -122,11 +122,11 @@ void FilterRuleSelectionWindow::storeRules() const
 
 void FilterRuleSelectionWindow::tieHeaderChangesTo( QTableView *other )
 {
-    SynchronizedHeaderView *header = dynamic_cast<SynchronizedHeaderView*>( m_ruleView->horizontalHeader() );
+    auto *header = dynamic_cast<SynchronizedHeaderView*>( m_ruleView->horizontalHeader() );
 
     if( header )
     {
-        SynchronizedHeaderView *headerOther = new SynchronizedHeaderView( header, Qt::Horizontal, other );
+        auto *headerOther = new SynchronizedHeaderView( header, Qt::Horizontal, other );
         other->setHorizontalHeader( headerOther );
         headerOther->synchronize();
     }

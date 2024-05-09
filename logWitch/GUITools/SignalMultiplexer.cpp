@@ -15,7 +15,7 @@ SignalMultiplexer::SignalMultiplexer(QObject *parent )
 
 void SignalMultiplexer::connect(QObject *sender, const char *signal, QObject *receiver, const char *slot)
 {
-    StateConnectionsForObjects::iterator it = m_connectionStates.find( m_object );
+    auto it = m_connectionStates.find( m_object );
     if( it == m_connectionStates.end() )
     {
         it = m_connectionStates.insert(
@@ -30,7 +30,7 @@ void SignalMultiplexer::connect(QObject *sender, const char *signal, QObject *re
 
 bool SignalMultiplexer::disconnect(QObject *sender, const char *signal, QObject *receiver, const char *slot)
 {
-    StateConnectionsForObjects::iterator it = m_connectionStates.find( m_object );
+    auto it = m_connectionStates.find( m_object );
     if( it == m_connectionStates.end() )
         return false;
 
@@ -70,7 +70,7 @@ void SignalMultiplexer::disconnect(const connectionState &state)
 
 void SignalMultiplexer::deleteObject( QObject *obj )
 {
-    StateConnectionsForObjects::iterator it = m_connectionStates.find( (QObject *)obj );
+    auto it = m_connectionStates.find( (QObject *)obj );
     if( it != m_connectionStates.end() )
     {
         if( obj == m_object )
@@ -88,7 +88,7 @@ void SignalMultiplexer::setObject(
     if (obj == m_object)
         return;
 
-    StateConnectionsForObjects::iterator it = m_connectionStates.find( (QObject *)m_object );
+    auto it = m_connectionStates.find( (QObject *)m_object );
     if( it != m_connectionStates.end() )
     {
         for ( connectionState & s : it->second )

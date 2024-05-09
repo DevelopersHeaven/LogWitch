@@ -24,7 +24,7 @@ FilterListView::FilterListView( QObject *parent, std::shared_ptr<const LogEntryP
             , attr
             , m_config->getHierarchySplitString(attr) );
 
-    QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(m_strModel);
+    auto *proxyModel = new QSortFilterProxyModel(m_strModel);
     proxyModel->setSourceModel(m_strModel);
     proxyModel->sort ( 0 );
     proxyModel->setSortCaseSensitivity ( Qt::CaseInsensitive );

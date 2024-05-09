@@ -63,7 +63,7 @@ namespace
         {
             if (str.userType() == QMetaType::QDateTime)
             {
-                QDateTime date = str.value<QDateTime>();
+                auto date = str.value<QDateTime>();
                 return date.toString(m_timeFormat);
             }
             else
@@ -161,7 +161,7 @@ LogEntryAttributeNames::LogEntryAttributeNames()
 
 const AttributeConfiguration &LogEntryAttributeNames::getConfiguration( const QString &name ) const
 {
-    StringIntMap::const_iterator it = m_defaultCellIfos.find( name );
+    auto it = m_defaultCellIfos.find( name );
     if( it != m_defaultCellIfos.end() )
         return it->second;
     else

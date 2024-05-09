@@ -222,7 +222,7 @@ void LogfileAnalyser::createWindowsFromParser(std::shared_ptr<LogEntryParser> pa
 
   std::shared_ptr<LogEntryTableModel> model(new LogEntryTableModel(parser));
 
-  LogEntryTableWindow *wnd = new LogEntryTableWindow(model, ui.mdiArea);
+  auto *wnd = new LogEntryTableWindow(model, ui.mdiArea);
   m_signalMultiplexer.setObject(wnd);
   m_signalMultiplexer.connect(ui.actionClearLogTable, SIGNAL(triggered()), wnd, SLOT(clearTable()));
   m_signalMultiplexer.connect(ui.actionCapture, SIGNAL(toggled(bool)), wnd, SLOT(capture(bool)));

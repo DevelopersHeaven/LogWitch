@@ -33,7 +33,7 @@ PythonGUIIntegration::PythonGUIIntegration ()
 
   m_toolbar = new QToolBar("Python");
 
-  QAction* actionOpenServer = new QAction(this);
+  auto* actionOpenServer = new QAction(this);
   actionOpenServer->setObjectName(QStringLiteral("actionOpenPythonServer"));
   QIcon icon1;
   icon1.addFile(QStringLiteral(":/icons/networkPython"), QSize(), QIcon::Normal,
@@ -50,7 +50,7 @@ PythonGUIIntegration::PythonGUIIntegration ()
                               nullptr));
 #endif // QT_NO_TOOLTIP
 
-  QLabel *portLabel = new QLabel(
+  auto *portLabel = new QLabel(
       QApplication::translate("Plugin_Source_Python", "Port: ", nullptr));
   m_port = new QSpinBox(m_toolbar);
   m_port->setToolTip(

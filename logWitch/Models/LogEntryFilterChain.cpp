@@ -23,7 +23,7 @@ void LogEntryFilterChain::removeFilter( std::shared_ptr<LogEntryFilter>  flt )
 {
 	flt->setParent(nullptr);
 
-	TFilterChain::iterator it = m_filterChain.begin();
+	auto it = m_filterChain.begin();
 	for( ; it != m_filterChain.end(); ++it )
 	{
 		if( *it == flt )
@@ -36,7 +36,7 @@ void LogEntryFilterChain::removeFilter( std::shared_ptr<LogEntryFilter>  flt )
 
 bool LogEntryFilterChain::filterEntry( TconstSharedLogEntry entry ) const
 {
-	TFilterChain::const_iterator it = m_filterChain.begin();
+	auto it = m_filterChain.begin();
 	for( ; it != m_filterChain.end(); ++it )
 	{
 		if( !(*it)->filterEntry( entry ) )

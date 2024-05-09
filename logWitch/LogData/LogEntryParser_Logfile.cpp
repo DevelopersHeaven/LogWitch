@@ -144,9 +144,9 @@ public:
   void convert(){
     // Here we have to store the line we have the first match. If there is no
     // match, we can not use the line or it is a message from the previous block.
-    LogLineList::iterator itLastNonProcessedLine = m_lines.begin();
+    auto itLastNonProcessedLine = m_lines.begin();
 
-    LogLineList::iterator it = m_lines.begin();
+    auto it = m_lines.begin();
 
     std::shared_ptr<PreLogEntry> preEntry;
     if (!m_preLogEntries.empty()) {

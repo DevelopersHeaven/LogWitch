@@ -139,7 +139,7 @@ void LogEntryParserModelConfiguration::restoreHintsFromSettings()
 
     if( settings.contains("Widths") )
     {
-        QList<QVariant> vList = settings.value( "Widths" ).value< QList<QVariant> >();
+        auto vList = settings.value( "Widths" ).value< QList<QVariant> >();
 
         m_fieldWidthHints.clear();
         std::for_each( vList.begin(), vList.end(),
@@ -150,7 +150,7 @@ void LogEntryParserModelConfiguration::restoreHintsFromSettings()
 
     if( settings.contains("Show") )
     {
-        QList<QVariant> vList = settings.value( "Show" ).value< QList<QVariant> >();
+        auto vList = settings.value( "Show" ).value< QList<QVariant> >();
 
         m_fieldShowHint.clear();
         std::for_each( vList.begin(), vList.end(),
@@ -161,7 +161,7 @@ void LogEntryParserModelConfiguration::restoreHintsFromSettings()
 
     if( settings.contains("Order") )
     {
-        QList<QVariant> vList = settings.value( "Order" ).value< QList<QVariant> >();
+        auto vList = settings.value( "Order" ).value< QList<QVariant> >();
 
         m_fieldOrderHint.clear();
         std::for_each( vList.begin(), vList.end(),
