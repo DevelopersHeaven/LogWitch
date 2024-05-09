@@ -42,7 +42,7 @@ namespace
                 return { value };
         }
 
-        std::shared_ptr<ImportExportDescription> clone() const override
+        [[nodiscard]] std::shared_ptr<ImportExportDescription> clone() const override
         {
             return std::make_shared<QStringToNumber>( *this );
         }
@@ -89,7 +89,7 @@ namespace
             }
         }
 
-        std::shared_ptr<ImportExportDescription> clone() const override
+        [[nodiscard]] std::shared_ptr<ImportExportDescription> clone() const override
         {
             return std::make_shared<QStringToDateTime>( *this );
         }
@@ -105,7 +105,7 @@ namespace
             return str;
         }
 
-        std::shared_ptr<ImportExportDescription> clone() const override
+        [[nodiscard]] std::shared_ptr<ImportExportDescription> clone() const override
         {
             return std::make_shared<QStringToVariant>( *this );
         }
