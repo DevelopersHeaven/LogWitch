@@ -54,11 +54,6 @@ private:
 
         QPointer<QObject> dest;
         const char *slotName;
-
-        bool operator==(const connectionState &o )const
-        {
-            return src == o.src && signalName == o.signalName && dest == o.dest && slotName == o.slotName;
-        }
     };
 
     void connect(const connectionState &);
