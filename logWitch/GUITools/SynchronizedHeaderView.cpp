@@ -85,7 +85,7 @@ void HeaderViewGroup::synchronizeState( SynchronizedHeaderView *view )
 
 void HeaderViewGroup::headerChildDestroyed( QObject *obj )
 {
-    auto *view = static_cast<SynchronizedHeaderView *>(obj);
+    auto *view = dynamic_cast<SynchronizedHeaderView *>(obj);
 
     auto it = std::find( m_groupChilds.begin(), m_groupChilds.end(), view );
     if( it != m_groupChilds.end() )
