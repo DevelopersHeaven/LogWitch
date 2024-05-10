@@ -63,7 +63,6 @@ private:
 
     TSharedCompiledRulesStateSaver m_compiledRules;
 
-    QAction *m_addSelectedRules;
     QAction *m_trashSelectedRules;
 };
 
