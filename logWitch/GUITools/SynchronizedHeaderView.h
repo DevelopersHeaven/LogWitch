@@ -63,8 +63,6 @@ class HeaderViewGroup
 {
     Q_OBJECT
 public:
-    ~HeaderViewGroup() override;
-
     void addToGroup( SynchronizedHeaderView * );
 
     SynchronizedHeaderView *getMaster();
