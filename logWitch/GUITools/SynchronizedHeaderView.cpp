@@ -13,13 +13,6 @@
 
 using namespace std::placeholders;
 
-HeaderViewGroup::~HeaderViewGroup()
-{
-    // There must be at least one missing, this is the one we are inside.
-    // headerChildDestroyed may be called after the destructor of our shared_ptr
-    Q_ASSERT( m_groupChilds.size() <= 1 );
-}
-
 void HeaderViewGroup::addToGroup( SynchronizedHeaderView *view )
 {
     QObject::connect(view, &QObject::destroyed,
