@@ -58,7 +58,7 @@ namespace
         }
 
         LogEntryTableModel& m_model;
-        const int m_entriesInModel;
+        int m_entriesInModel;
         int m_entryId;
     };
 }
