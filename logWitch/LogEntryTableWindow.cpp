@@ -67,14 +67,15 @@ LogEntryTableWindow::LogEntryTableWindow( std::shared_ptr<LogEntryTableModel> mo
 , m_myFilterTabs(nullptr)
 , m_dockFilterShouldDockedTo(nullptr)
 , m_tableView(new QScrollDownTableView())
+, m_proxyModel{new LogEntryTableFilter(m_tableView)}
+, m_timeFormatModel{new EntryFormatingModel(m_tableView)}
+, m_qsLayout{new QVBoxLayout()}
 , m_nextQsColor(0)
 {
   // Parametrize the filtering model, connect it to the table view.
-  m_proxyModel = new LogEntryTableFilter(m_tableView);
   m_proxyModel->setSourceModel(m_model.get());
 
   // Parametrize the table view for the log entries.
-  m_timeFormatModel = new EntryFormatingModel(m_tableView);
   m_timeFormatModel->setSourceModel(m_proxyModel);
 
   m_tableView->setModel(m_timeFormatModel);
@@ -176,7 +177,6 @@ LogEntryTableWindow::LogEntryTableWindow( std::shared_ptr<LogEntryTableModel> mo
   m_splitter->addWidget(m_text);
   m_splitter->setStretchFactor(0, 20);
 
-  m_qsLayout = new QVBoxLayout();
   layout->insertLayout(-1, m_qsLayout);
   layout->addWidget(m_splitter);
 

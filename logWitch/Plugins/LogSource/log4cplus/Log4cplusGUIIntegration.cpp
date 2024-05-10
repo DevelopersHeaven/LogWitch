@@ -29,6 +29,13 @@ namespace{
 using namespace logwitch::plugins::log4cplus;
 
 Log4cplusGUIIntegration::Log4cplusGUIIntegration ()
+:
+#ifdef LOG4CPLUSV2
+m_initializer{new ::log4cplus::Initializer()}
+,
+#endif
+  m_toolbar{new QToolBar("Log4cplus")}
+, m_port{new QSpinBox(m_toolbar)}
 {
   m_pluginDescription.name = "Log4cplus";
   m_pluginDescription.description =
@@ -36,12 +43,6 @@ Log4cplusGUIIntegration::Log4cplusGUIIntegration ()
   m_pluginDescription.version = "1.0.0";
 
   QSettings settings;
-
-#ifdef LOG4CPLUSV2
-  m_initializer = new ::log4cplus::Initializer();
-#endif
-
-  m_toolbar = new QToolBar("Log4cplus");
 
   auto* actionOpenServer = new QAction(this);
   actionOpenServer->setObjectName(QStringLiteral("actionOpenLog4cplusServer"));
@@ -62,7 +63,6 @@ Log4cplusGUIIntegration::Log4cplusGUIIntegration ()
 
   auto *portLabel = new QLabel(
       QApplication::translate("Plugin_Source_Log4cplus", "Port: ", nullptr));
-  m_port = new QSpinBox(m_toolbar);
   m_port->setToolTip(
       QApplication::translate("Plugin_Source_Log4cplus",
                               "Port to listen for log4cplus socket appender",

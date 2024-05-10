@@ -110,10 +110,10 @@ QuickSearchBar::QuickSearchBar(LogEntryTableWindow* parent
 : QWidget(parent)
 , m_model(std::move(model))
 , m_logWindow(parent)
+, m_quickSearch{new QuickSearchLineEdit(this)}
 , m_searchMode(Text)
 {
   // Create quicksearch bar
-  m_quickSearch = new QuickSearchLineEdit(this);
   auto* quickSearchLayout = new QHBoxLayout;
   quickSearchLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(quickSearchLayout);

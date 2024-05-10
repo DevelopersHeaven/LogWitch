@@ -25,14 +25,15 @@
 LogfileAnalyser::LogfileAnalyser(QWidget *parent)
   : QMainWindow(parent),
     m_myFilterDock(nullptr),
-    m_stateSaver(nullptr),
+    m_myFilterRulesDock{new QDockWidget(tr("Filter Rules"), this)},
+    m_myfilterRuleSelectionWidget{new FilterRuleSelectionWindow(m_myFilterRulesDock)},
+    m_stateSaver{new WidgetStateSaver(this)},
     m_helpAssistant(new HelpAssistant)
 {
   ui.setupUi(this);
 
   loadPlugins();
 
-  m_stateSaver = new WidgetStateSaver(this);
   m_stateSaver->addElementToWatch(&m_signalMultiplexer,
                                   SignalMultiplexerStateApplier::generate(&m_signalMultiplexer));
 
@@ -42,9 +43,7 @@ LogfileAnalyser::LogfileAnalyser(QWidget *parent)
   QObject::connect(ui.mdiArea, &QMdiArea::subWindowActivated, this,
                    &LogfileAnalyser::subWindowActivated);
 
-  m_myFilterRulesDock = new QDockWidget(tr("Filter Rules"), this);
   m_myFilterRulesDock->setAllowedAreas(Qt::AllDockWidgetAreas);
-  m_myfilterRuleSelectionWidget = new FilterRuleSelectionWindow(m_myFilterRulesDock);
   m_myFilterRulesDock->setWidget(m_myfilterRuleSelectionWidget);
   addDockWidget(Qt::RightDockWidgetArea, m_myFilterRulesDock);
 

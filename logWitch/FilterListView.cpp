@@ -18,6 +18,7 @@ FilterListView::FilterListView( QObject *parent, std::shared_ptr<const LogEntryP
 : QTreeView( )
 , m_config(std::move( config ))
 , m_attr( attr )
+, m_contextMenu{new QMenu(this)}
 {
     m_strModel = new StringCacheTreeModel( parent
             , &m_config->getLogEntryFactory()->getCache(attr)
@@ -53,8 +54,6 @@ FilterListView::FilterListView( QObject *parent, std::shared_ptr<const LogEntryP
     m_uncheckTreeAct = new QAction(tr("Deselect Tree"), this);
     m_uncheckTreeAct->setToolTip( tr("Deselects the complete subtree.") );
 
-
-    m_contextMenu = new QMenu( this );
     m_contextMenu->addAction( m_selectThisAct );
     m_contextMenu->addAction( m_deselectThisAct );
 

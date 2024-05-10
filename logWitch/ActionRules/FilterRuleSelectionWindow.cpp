@@ -29,11 +29,10 @@ const QString filterRuleTableState_Identifier("FilterRuleSelectionTableState");
 
 FilterRuleSelectionWindow::FilterRuleSelectionWindow( QWidget* parent )
 : QSplitter( Qt::Vertical, parent )
+, m_ruleView{new RulesTableView()}
 , m_compiledRules( )
 {
     QSettings settings;
-
-    m_ruleView = new RulesTableView( );
 
     m_ruleView->setHorizontalHeader(new SynchronizedHeaderView(nullptr, Qt::Horizontal, m_ruleView));
     m_ruleView->horizontalHeader()->setDefaultSectionSize( 190 );

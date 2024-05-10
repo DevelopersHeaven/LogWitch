@@ -23,6 +23,8 @@ namespace{
 using namespace logwitch::plugins::python;
 
 PythonGUIIntegration::PythonGUIIntegration ()
+  : m_toolbar{new QToolBar("Python")}
+  , m_port{new QSpinBox(m_toolbar)}
 {
   m_pluginDescription.name = "Python";
   m_pluginDescription.description =
@@ -31,7 +33,6 @@ PythonGUIIntegration::PythonGUIIntegration ()
 
   QSettings settings;
 
-  m_toolbar = new QToolBar("Python");
 
   auto* actionOpenServer = new QAction(this);
   actionOpenServer->setObjectName(QStringLiteral("actionOpenPythonServer"));
@@ -52,7 +53,6 @@ PythonGUIIntegration::PythonGUIIntegration ()
 
   auto *portLabel = new QLabel(
       QApplication::translate("Plugin_Source_Python", "Port: ", nullptr));
-  m_port = new QSpinBox(m_toolbar);
   m_port->setToolTip(
       QApplication::translate("Plugin_Source_Python",
                               "Port to listen for Python incoming data.",
