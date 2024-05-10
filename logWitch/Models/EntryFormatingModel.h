@@ -51,7 +51,7 @@ private:
      */
     bool m_timeDiffMode;
 
-    bool m_timeDiffRowMode;
+    bool m_timeDiffRowMode = false;
 
     ExportableIfc *m_exportOfSourceModel;
 };

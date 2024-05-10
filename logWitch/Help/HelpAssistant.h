@@ -56,7 +56,7 @@ public:
 private:
     void createHelpWindow();
 
-    QTextBrowser* textViewer;
+    QTextBrowser* textViewer = nullptr;
 };
 
 #endif /* HELPASSISTANT_H_ */

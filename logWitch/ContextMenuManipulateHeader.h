@@ -28,7 +28,7 @@ public slots:
 
 private:
     /// This is the logical index of the header the user has clicked on.
-    int m_headerToWorkOn;
+    int m_headerToWorkOn = 0;
 
     /// this is the header we are responsible for.
     QHeaderView *m_header;

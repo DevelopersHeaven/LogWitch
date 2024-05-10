@@ -391,7 +391,7 @@ bool TableModelRulesCompiled::getRowsFromData( std::list<int> &srcRows, const QB
         stream.skipRawData( id.length() );
         while( !stream.atEnd() )
         {
-            int row;
+            int row = 0;
             stream >> row;
             srcRows.push_back( row );
         }

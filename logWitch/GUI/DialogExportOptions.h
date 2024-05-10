@@ -31,7 +31,7 @@ public:
     ExportOption getExportOption() const;
 
 private:
-    Ui::DialogExportOptions ui;
+    Ui::DialogExportOptions ui{};
 };
 
 #endif /* DIALOGEXPORTOPTIONS_H_ */

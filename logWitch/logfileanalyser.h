@@ -43,7 +43,7 @@ public slots:
 private:
   void createWindowsFromParser(std::shared_ptr<LogEntryParser> parser, bool alreadyInitialized = false);
 
-  Ui::LogfileAnalyserClass ui;
+  Ui::LogfileAnalyserClass ui{};
 
   QDockWidget *m_myFilterDock;
   QDockWidget *m_myFilterRulesDock;

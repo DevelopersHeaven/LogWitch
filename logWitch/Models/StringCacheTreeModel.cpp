@@ -172,7 +172,7 @@ QModelIndex StringCacheTreeModel::index(int row, int column,
 	 if (!hasIndex(row, column, parent))
 		 return {};
 
-	 StringCacheTreeItem *parentItem;
+	 StringCacheTreeItem *parentItem = nullptr;
 
 	 if (!parent.isValid())
 		 parentItem = m_rootNode.get();
@@ -202,7 +202,7 @@ QModelIndex StringCacheTreeModel::parent(const QModelIndex &index) const
 
 int StringCacheTreeModel::rowCount(const QModelIndex &parent /* = QModelIndex() */) const
 {
-    StringCacheTreeItem *parentItem;
+    StringCacheTreeItem *parentItem = nullptr;
     if (parent.column() > 0)
         return 0;
 
