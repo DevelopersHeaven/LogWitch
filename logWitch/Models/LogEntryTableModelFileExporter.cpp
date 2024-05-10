@@ -46,7 +46,6 @@ namespace
         DumpAllEntries( LogEntryTableModel& model )
         : m_model( model)
         , m_entriesInModel(m_model.rowCount())
-        , m_entryId(0)
         {}
 
         TconstSharedLogEntry operator()()
@@ -59,7 +58,7 @@ namespace
 
         LogEntryTableModel& m_model;
         int m_entriesInModel;
-        int m_entryId;
+        int m_entryId = 0;
     };
 }
 
