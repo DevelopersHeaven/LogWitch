@@ -368,7 +368,7 @@ void LogEntryTableWindow::newSelection(const QItemSelection & selected,
 
 void LogEntryTableWindow::addQuicksearchBar()
 {
-  QString colorCode = s_colorsForQuickSearch[(m_nextQsColor++) % s_colorsForQuickSearch.size()];
+  QString colorCode = s_colorsForQuickSearch.at((m_nextQsColor++) % s_colorsForQuickSearch.size());
   m_qsLayout->addWidget( new QuickSearchBar( this, m_model, colorCode ) );
 }
 
