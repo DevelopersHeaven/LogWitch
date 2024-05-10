@@ -139,7 +139,7 @@ LogEntryTableWindow::LogEntryTableWindow( std::shared_ptr<LogEntryTableModel> mo
       }
 
       doneColumns.insert(modelColumn);
-      int visIndexToFind;
+      int visIndexToFind = 0;
 
       // Find the column in the current header here.
       for (visIndexToFind = 0;
@@ -243,7 +243,7 @@ void LogEntryTableWindow::exportLogfile(const QString &filename)
         else if (DialogExportOptions::SelectionWithoutFilter == option
             || DialogExportOptions::Selection == option)
         {
-          ExportableIfc::ExportParameters params;
+          ExportableIfc::ExportParameters params{};
           params.withoutFilter = DialogExportOptions::SelectionWithoutFilter
               == option;
           std::vector<TconstSharedLogEntry> entries;

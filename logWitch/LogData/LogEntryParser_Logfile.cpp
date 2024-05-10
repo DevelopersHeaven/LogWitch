@@ -210,7 +210,7 @@ public:
     m_future.waitForFinished();
   }
 
-  int id;
+  int id = 0;
 
   QFuture<void> m_future;
 

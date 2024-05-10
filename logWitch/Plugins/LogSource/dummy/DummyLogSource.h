@@ -50,7 +50,7 @@ namespace logwitch
         // This is the last created dummy logfile parser
         std::shared_ptr<LogEntryParser_dummy> m_parser;
 
-        QAction* m_actionErrorCreation;
+        QAction* m_actionErrorCreation = nullptr;
       };
 
     }
