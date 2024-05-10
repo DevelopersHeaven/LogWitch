@@ -12,17 +12,19 @@
 
 #include "LogData/LogEntryParser.h"
 
-LogEntryStorerForTesting::LogEntryStorerForTesting( LogEntryParser* parser )
+LogEntryStorerForTesting::LogEntryStorerForTesting(std::unique_ptr<LogEntryParser> parser)
 : m_finished (false)
-, m_parser(parser)
+, m_parser(std::move(parser))
 , m_app(nullptr)
 {
-  auto* parserQO = dynamic_cast<QObject*>(parser);
+  auto* parserQO = dynamic_cast<QObject*>(m_parser.get());
 
   QObject::connect(parserQO, SIGNAL(newEntry(TconstSharedNewLogEntryMessage)), this, SLOT(onNewEntry(TconstSharedNewLogEntryMessage)));
   QObject::connect(parserQO, SIGNAL(signalError(QString)), this, SLOT(onSignalError(QString)));
   QObject::connect(parserQO, SIGNAL(finished()), this, SLOT(onFinished()));
 }
+
+LogEntryStorerForTesting::~LogEntryStorerForTesting() = default;
 
 void LogEntryStorerForTesting::start()
 {

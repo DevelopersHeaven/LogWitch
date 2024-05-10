@@ -21,7 +21,8 @@ class LogEntryStorerForTesting: public QObject
 {
   Q_OBJECT
 public:
-  LogEntryStorerForTesting( LogEntryParser* parser );
+  LogEntryStorerForTesting(std::unique_ptr<LogEntryParser> parser);
+  ~LogEntryStorerForTesting();
 
   void start();
 
@@ -43,7 +44,7 @@ public:
 
   bool m_finished;
 
-  LogEntryParser* m_parser;
+  std::unique_ptr<LogEntryParser> m_parser;
 
   QCoreApplication* m_app;
 };

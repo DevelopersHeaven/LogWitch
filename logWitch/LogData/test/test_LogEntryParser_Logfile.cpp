@@ -61,7 +61,7 @@ std::unique_ptr<LogEntryStorerForTesting> performTest(
   std::shared_ptr<ParserStreamGetter> getter( new ParserStreamGetter("name", textStream) );
   std::unique_ptr<LogEntryParser> parser( new LogEntryParser_Logfile( getter ) );
 
-  std::unique_ptr<LogEntryStorerForTesting> tester( new LogEntryStorerForTesting( parser.get() ) );
+  std::unique_ptr<LogEntryStorerForTesting> tester(new LogEntryStorerForTesting(std::move(parser)));
   tester->start();
   return tester;
 }
