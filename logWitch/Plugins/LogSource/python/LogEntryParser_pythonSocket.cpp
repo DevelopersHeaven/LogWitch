@@ -184,7 +184,7 @@ QString LogEntryParser_pythonSocket::getName () const
 LogEntryParser_pythonSocket_Receiver::LogEntryParser_pythonSocket_Receiver (
     LogEntryParser_pythonSocket *server, QTcpSocket *socket)
   : m_socket(socket)
-  , m_bytesNeeded(0)
+  , m_bytesNeeded(sizeof(sizePayload_t))
   , m_stateReadSize(true)
   , m_server(server)
 {
@@ -193,8 +193,6 @@ LogEntryParser_pythonSocket_Receiver::LogEntryParser_pythonSocket_Receiver (
   connect(m_socket, &QIODevice::readyRead, this, &LogEntryParser_pythonSocket_Receiver::newDataAvailable);
   connect(m_socket, &QAbstractSocket::disconnected, this, &LogEntryParser_pythonSocket_Receiver::shutdown);
 
-  m_stateReadSize = true;
-  m_bytesNeeded = sizeof(sizePayload_t);
   m_buffer.clear();
   m_buffer.resize( m_bytesNeeded );
 }
