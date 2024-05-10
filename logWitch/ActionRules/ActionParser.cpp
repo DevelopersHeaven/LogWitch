@@ -57,7 +57,7 @@ namespace actionParser
         };
     }
 
-    struct qColorSymb_ : qi::symbols<char, QColor>
+    const struct qColorSymb_ : qi::symbols<char, QColor>
     {
         qColorSymb_()
         {
@@ -98,7 +98,7 @@ namespace actionParser
         }
     };
 
-    struct qColorRoles_ : qi::symbols<char, int>
+    const struct qColorRoles_ : qi::symbols<char, int>
     {
         qColorRoles_()
         {
