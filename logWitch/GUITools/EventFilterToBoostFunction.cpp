@@ -15,12 +15,12 @@ namespace evtFunc
     {
         if (e->type() == QEvent::KeyPress )
         {
-             auto *keyEvent = dynamic_cast<QKeyEvent *>(e);
-             if (keyEvent != nullptr && keyEvent->key() == keycode)
-             {
-                 f();
-                 return true;
-             }
+            auto *keyEvent = dynamic_cast<QKeyEvent *>(e);
+            if (keyEvent != nullptr && keyEvent->key() == keycode)
+            {
+                f();
+                return true;
+            }
         }
 
         return false;
