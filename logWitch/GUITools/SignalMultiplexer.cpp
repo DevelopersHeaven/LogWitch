@@ -19,7 +19,7 @@ void SignalMultiplexer::connect(QObject *sender, const char *signal, QObject *re
     if( it == m_connectionStates.end() )
     {
         it = m_connectionStates.insert(
-                StateConnectionsForObjects::value_type( (QObject *)m_object, TConnectionList() ) ).first;
+                StateConnectionsForObjects::value_type(m_object, TConnectionList())).first;
 
         QObject::connect(m_object, &QObject::destroyed,
                              this, &SignalMultiplexer::deleteObject);
@@ -57,7 +57,7 @@ void SignalMultiplexer::connect(const connectionState &state)
     if (!m_object || !state.dest || !state.src )
         return;
 
-    QObject::connect( (QObject *)state.src, state.signalName, (QObject *)state.dest, state.slotName );
+    QObject::connect(state.src, state.signalName, state.dest, state.slotName);
 }
 
 void SignalMultiplexer::disconnect(const connectionState &state)
@@ -65,12 +65,12 @@ void SignalMultiplexer::disconnect(const connectionState &state)
     if (!m_object || !state.dest || !state.src )
         return;
 
-    QObject::disconnect( (QObject *)state.src, state.signalName, (QObject *)state.dest, state.slotName );
+    QObject::disconnect(state.src, state.signalName, state.dest, state.slotName);
 }
 
 void SignalMultiplexer::deleteObject( QObject *obj )
 {
-    auto it = m_connectionStates.find( (QObject *)obj );
+    auto it = m_connectionStates.find(obj);
     if( it != m_connectionStates.end() )
     {
         if( obj == m_object )
@@ -88,7 +88,7 @@ void SignalMultiplexer::setObject(
     if (obj == m_object)
         return;
 
-    auto it = m_connectionStates.find( (QObject *)m_object );
+    auto it = m_connectionStates.find(m_object);
     if( it != m_connectionStates.end() )
     {
         for ( connectionState & s : it->second )
@@ -99,7 +99,7 @@ void SignalMultiplexer::setObject(
 
     m_object = obj;
 
-    it = m_connectionStates.find( (QObject *)m_object );
+    it = m_connectionStates.find(m_object);
     if( it != m_connectionStates.end() )
     {
         for ( connectionState & s : it->second )
