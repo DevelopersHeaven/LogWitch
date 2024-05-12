@@ -75,7 +75,7 @@ void SignalMultiplexer::deleteObject( QObject *obj )
     {
         if( obj == m_object )
         {
-            setObject(nullptr);
+            m_object = nullptr;
         }
 
         m_connectionStates.erase( it );
