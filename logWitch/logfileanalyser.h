@@ -31,7 +31,7 @@ class LogfileAnalyser : public QMainWindow, public logwitch::ParserActionInterfa
 
 public:
   LogfileAnalyser(QWidget *parent = 0);
-  ~LogfileAnalyser();
+  ~LogfileAnalyser() override;
 
   void newParser(std::shared_ptr<LogEntryParser> parser, bool alreadyInitialized) override;
 
