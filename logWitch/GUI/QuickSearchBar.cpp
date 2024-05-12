@@ -112,6 +112,7 @@ QuickSearchBar::QuickSearchBar(LogEntryTableWindow* parent
 , m_logWindow(parent)
 , m_quickSearch{new QuickSearchLineEdit(this)}
 , m_searchMode(Text)
+, m_ruleTable{parent->getRuleTable()}
 {
   // Create quicksearch bar
   auto* quickSearchLayout = new QHBoxLayout;
@@ -170,12 +171,12 @@ QuickSearchBar::QuickSearchBar(LogEntryTableWindow* parent
     m_quickSearchAction = parser.get();
   }
 
-  m_myRuleTableName = m_logWindow->getRuleTable()->addNewUniqueTable();
+  m_myRuleTableName = m_ruleTable->addNewUniqueTable();
 }
 
 QuickSearchBar::~QuickSearchBar()
 {
-  m_logWindow->getRuleTable()->clear(m_myRuleTableName);
+  m_ruleTable->clear(m_myRuleTableName);
 }
 
 
@@ -220,8 +221,7 @@ void QuickSearchBar::updateSearch()
     break;
   }
 
-  TSharedRuleTable ruleTableForSearching = m_logWindow->getRuleTable();
-  ruleTableForSearching->clear(m_myRuleTableName);
+  m_ruleTable->clear(m_myRuleTableName);
   m_quickSearch->setStyleSheet("");
   m_quickSearch->setToolTip("");
   m_quickSearchExp.reset();
@@ -265,7 +265,7 @@ void QuickSearchBar::updateSearch()
   if (m_markButton->isChecked() && m_quickSearchExp)
   {
     TSharedRule rule(new Rule(m_quickSearchExp, m_quickSearchAction));
-    ruleTableForSearching->addRule(m_myRuleTableName, rule);
+    m_ruleTable->addRule(m_myRuleTableName, rule);
   }
 }
 

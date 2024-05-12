@@ -75,6 +75,7 @@ private:
 
   TSharedExpression m_quickSearchExp;
 
+  TSharedRuleTable m_ruleTable;
   std::string m_myRuleTableName;
 };
 
