@@ -27,8 +27,6 @@ class LogEntry;
  */
 class LogEntryFactory {
 public:
-	LogEntryFactory();
-
 	std::shared_ptr<LogEntry> getNewLogEntry();
 
 	/**
@@ -81,7 +79,7 @@ private:
 
 	std::vector< QVariant > m_defaultLine;
 
-	bool m_disallowAddingFields;
+	bool m_disallowAddingFields = false;
 };
 
 #endif /* LOGENTRYATTRIBUTES_H_ */

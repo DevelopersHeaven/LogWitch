@@ -21,11 +21,8 @@
 #include "LogData/ParserStreamGetter.h"
 
 LogEntryParser_Logfile::LogEntryParser_Logfile(  std::shared_ptr<ParserStreamGetter> getter  )
-  : m_abort(false )
-  , m_getter(std::move(getter))
-  , timeFormat( "yyyy-MM-dd HH:mm:ss,zzz" )
+  : m_getter(std::move(getter))
   , myFactory( new LogEntryFactory )
-  , m_logEntryNumber( 0 )
 {
   // Preparing attributes in factory
   LogEntryAttributeNames names;

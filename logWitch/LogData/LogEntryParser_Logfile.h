@@ -48,19 +48,19 @@ signals:
 private:
   TSharedNewLogEntryMessage getEntries();
 
-	bool m_abort;
+	bool m_abort = false;
 
 	std::shared_ptr<ParserStreamGetter> m_getter;
 
 	std::shared_ptr<QTextStream> m_logfileStream;
 
-	QString timeFormat;
+	QString timeFormat = "yyyy-MM-dd HH:mm:ss,zzz";
 
 	std::shared_ptr<LogEntryFactory> myFactory;
 
 	std::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
 
-	int m_logEntryNumber;
+	int m_logEntryNumber = 0;
 
 	class LogfileLine;
 	class PreLogEntry;

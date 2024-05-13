@@ -18,7 +18,6 @@ ExpressionMatch::ExpressionMatch( TconstSharedValueGetter left, TconstSharedValu
 
 ExpressionMatch::ExpressionMatch( TconstSharedValueGetter left )
     : m_left(std::move( left ))
-    , m_right(  )
 {
 }
 

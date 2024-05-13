@@ -30,8 +30,6 @@ public:
     typedef std::set< TconstSharedRule > TRuleSet;
     typedef std::map<std::string,TRuleSet> TRuleTableMap;
 
-    RuleTable();
-
 //    template <class T>
 //    TSharedRuleTable filterRulesByType( ) const
 //    {
@@ -110,13 +108,13 @@ signals:
 private:
     void dataChanged();
 
-    bool m_onChange;
+    bool m_onChange = false;
 
     TRuleSet m_rules;
 
     TRuleTableMap m_rulesFromSource;
 
-    unsigned int m_nextUid;
+    unsigned int m_nextUid = 0;
 };
 
 

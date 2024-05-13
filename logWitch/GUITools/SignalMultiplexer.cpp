@@ -9,7 +9,6 @@
 
 SignalMultiplexer::SignalMultiplexer(QObject *parent )
     : QObject( parent )
-    , m_object(nullptr)
 {
 }
 

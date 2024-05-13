@@ -31,7 +31,7 @@ public:
     QWidget *m_displayWidget;
 
 private:
-    bool m_connected;
+    bool m_connected = false;
     QAction *m_removeSelectedRules;
 };
 

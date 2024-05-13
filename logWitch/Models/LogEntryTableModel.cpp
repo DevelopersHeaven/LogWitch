@@ -17,13 +17,9 @@
 #include "LogData/LogEntryParserModelConfiguration.h"
 
 LogEntryTableModel::LogEntryTableModel( std::shared_ptr<LogEntryParser> parser )
-	: m_table( )
-	, m_modelConfiguration( parser->getParserModelConfiguration() )
+	: m_modelConfiguration( parser->getParserModelConfiguration() )
 	, m_entryLoader( parser )
 	, m_ModelName("Untitled")
-    , m_captureActive( true )
-    , m_maxNumberOfEntries( 0 )
-    , m_blockInsertingMessages( false )
 {
     QObject::connect(dynamic_cast<QObject*>(parser.get()), SIGNAL(newEntry(TconstSharedNewLogEntryMessage)),
                      this, SLOT(insertEntry(TconstSharedNewLogEntryMessage))

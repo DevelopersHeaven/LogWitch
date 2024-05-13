@@ -115,7 +115,7 @@ private:
 	 */
 	StateSaveMap m_stateHistoryMap;
 
-	QObject *m_lastObject;
+	QObject *m_lastObject = nullptr;
 };
 
 #endif /* WIDGETSTATESAVER_H_ */

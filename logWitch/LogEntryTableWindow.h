@@ -84,9 +84,9 @@ private:
   /// Text field containing the formatted log entry.
   QTextEdit *m_text;
 
-  QTabWidget *m_myFilterTabs;
+  QTabWidget *m_myFilterTabs = nullptr;
 
-  QDockWidget *m_dockFilterShouldDockedTo;
+  QDockWidget *m_dockFilterShouldDockedTo = nullptr;
 
   QScrollDownTableView *m_tableView;
 
@@ -96,7 +96,7 @@ private:
 
   QVBoxLayout* m_qsLayout;
 
-  unsigned int m_nextQsColor;
+  unsigned int m_nextQsColor = 0;
 };
 
 #endif /* LOGENTRYTABLEWINDOW_H_ */

@@ -15,10 +15,7 @@
 using namespace logwitch::plugins::dummy;
 
 LogEntryParser_dummy::LogEntryParser_dummy ()
-: m_entries(0)
-, m_abort(false)
-, m_count(12)
-, myFactory(new LogEntryFactory)
+: myFactory(new LogEntryFactory)
 {
   // Preparing attributes factory
   LogEntryAttributeNames names;

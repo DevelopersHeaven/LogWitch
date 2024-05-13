@@ -64,13 +64,10 @@ LogEntryTableWindow::LogEntryTableWindow( std::shared_ptr<LogEntryTableModel> mo
 : QMdiSubWindow(parent)
 , m_model(std::move(model))
 , m_splitter( new QSplitter(Qt::Vertical))
-, m_myFilterTabs(nullptr)
-, m_dockFilterShouldDockedTo(nullptr)
 , m_tableView(new QScrollDownTableView())
 , m_proxyModel{new LogEntryTableFilter(m_tableView)}
 , m_timeFormatModel{new EntryFormatingModel(m_tableView)}
 , m_qsLayout{new QVBoxLayout()}
-, m_nextQsColor(0)
 {
   // Parametrize the filtering model, connect it to the table view.
   m_proxyModel->setSourceModel(m_model.get());

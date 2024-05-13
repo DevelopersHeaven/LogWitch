@@ -159,11 +159,11 @@ private:
 
   mutable std::recursive_mutex m_mutex;
 
-  bool m_captureActive;
+  bool m_captureActive = true;
 
-  int m_maxNumberOfEntries;
+  int m_maxNumberOfEntries = 0;
 
-  bool m_blockInsertingMessages;
+  bool m_blockInsertingMessages = false;
 
   std::list<TconstSharedNewLogEntryMessage> m_blockedInsertedMessages;
 };

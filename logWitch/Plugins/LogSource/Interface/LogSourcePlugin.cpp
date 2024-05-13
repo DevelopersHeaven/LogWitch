@@ -9,9 +9,6 @@
 
 namespace logwitch::plugins{
 
-	LogSourcePluginAbstractBase::LogSourcePluginAbstractBase()
-	: m_parserActionIfc(nullptr)
-	{
-	}
+	LogSourcePluginAbstractBase::LogSourcePluginAbstractBase() = default;
 
 }

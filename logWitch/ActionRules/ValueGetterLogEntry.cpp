@@ -14,18 +14,8 @@
 #include "LogData/LogEntry.h"
 #include "LogData/LogEntryParserModelConfiguration.h"
 
-ValueGetterLogEntry::ValueGetterLogEntry( )
-    : m_name( )
-    , m_configuration( )
-    , m_fieldId( -1 )
-{
-
-}
-
 ValueGetterLogEntry::ValueGetterLogEntry(TSharedConstLogEntryParserModelConfiguration configuration )
-    : m_name( )
-    , m_configuration(std::move( configuration ))
-    , m_fieldId( -1 )
+    : m_configuration(std::move( configuration ))
 {
 
 }
@@ -33,7 +23,6 @@ ValueGetterLogEntry::ValueGetterLogEntry(TSharedConstLogEntryParserModelConfigur
 ValueGetterLogEntry::ValueGetterLogEntry(QString name, TSharedConstLogEntryParserModelConfiguration configuration )
     : m_name(std::move( name ))
     , m_configuration(std::move( configuration ))
-    , m_fieldId( -1 )
 {
     if( m_configuration )
     {

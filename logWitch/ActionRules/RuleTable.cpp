@@ -9,12 +9,6 @@
 
 #include <QDebug>
 
-RuleTable::RuleTable()
-: m_onChange ( false )
-, m_nextUid(0)
-{
-}
-
 std::string RuleTable::addNewUniqueTable()
 {
   do {

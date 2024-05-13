@@ -15,10 +15,7 @@
 #include "LogData/LogEntryParserModelConfiguration.h"
 
 LogEntryParser_LogfileLWI::LogEntryParser_LogfileLWI( const QString &filename)
-: m_abort(false )
-, m_logfile( filename )
-, m_logfileStreamReady( false )
-, m_logEntryNumber( 0 )
+: m_logfile( filename )
 {
 }
 

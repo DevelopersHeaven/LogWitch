@@ -24,8 +24,6 @@ using namespace logwitch::plugins::python;
 LogEntryParser_pythonSocket::LogEntryParser_pythonSocket (int port)
   : m_port(port), myFactory(new LogEntryFactory)
   , m_name("Python Socket Receiver Port " + QString::number(port))
-  , m_logEntryNumber(0), m_messageInProgress(false)
-  , m_emittingAllowed(false)
 {
   // Preparing attributes in factory
   LogEntryAttributeNames names;
@@ -184,8 +182,6 @@ QString LogEntryParser_pythonSocket::getName () const
 LogEntryParser_pythonSocket_Receiver::LogEntryParser_pythonSocket_Receiver (
     LogEntryParser_pythonSocket *server, QTcpSocket *socket)
   : m_socket(socket)
-  , m_bytesNeeded(sizeof(sizePayload_t))
-  , m_stateReadSize(true)
   , m_server(server)
 {
   qDebug() << "new receiver created";

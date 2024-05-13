@@ -16,7 +16,6 @@
 
 StringCacheTreeModel::StringCacheTreeModel( QObject *parent, const GetObjectIF<ObjectCacheQStringSignaller> * cache, int attributeId, const QString &splitString  )
 	: QAbstractItemModel( parent )
-	, m_splitRegex( )
 	, m_myFilter( new LogEntryRemoveFilter(attributeId) )
 	, m_undefinedString( new QString("Undefined") )
 {

@@ -10,7 +10,6 @@
 
 WidgetStateSaver::WidgetStateSaver( QObject *parent )
     : QObject( parent )
-    , m_lastObject(nullptr)
 {
 
 }
