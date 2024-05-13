@@ -90,7 +90,7 @@ namespace logwitch { namespace plugins {
 	protected:
 		LogSourcePluginDesription m_pluginDescription;
 
-		logwitch::ParserActionInterface* m_parserActionIfc;
+		logwitch::ParserActionInterface* m_parserActionIfc = nullptr;
 	};
 
 }}

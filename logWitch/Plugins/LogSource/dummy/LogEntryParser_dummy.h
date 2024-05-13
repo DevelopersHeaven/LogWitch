@@ -59,11 +59,11 @@ namespace logwitch
       private:
         TSharedLogEntry getNextLogEntry ();
 
-        int m_entries;
+        int m_entries = 0;
 
-        bool m_abort;
+        bool m_abort = false;
 
-        int m_count;
+        int m_count = 12;
 
         bool m_emitError = false;
 

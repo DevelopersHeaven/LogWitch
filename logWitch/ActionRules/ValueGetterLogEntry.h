@@ -20,7 +20,7 @@ class ValueGetterLogEntry
     : public ValueGetter
 {
 public:
-    ValueGetterLogEntry();
+    ValueGetterLogEntry() = default;
     ValueGetterLogEntry( QString name, TSharedConstLogEntryParserModelConfiguration configuration  );
     ValueGetterLogEntry( TSharedConstLogEntryParserModelConfiguration configuration  );
 
@@ -40,7 +40,7 @@ private:
 
     TSharedConstLogEntryParserModelConfiguration m_configuration;
 
-    int m_fieldId;
+    int m_fieldId = -1;
 };
 
 typedef std::shared_ptr<ValueGetterLogEntry> TSharedValueGetterLogEntry;

@@ -42,11 +42,11 @@ public:
 
   std::list<QString> m_errors;
 
-  bool m_finished;
+  bool m_finished = false;
 
   std::unique_ptr<LogEntryParser> m_parser;
 
-  QCoreApplication* m_app;
+  QCoreApplication* m_app = nullptr;
 };
 
 #endif /* LOGWITCH_LOGDATA_TEST_LOGENTRYSTORERFORTESTING_H_ */

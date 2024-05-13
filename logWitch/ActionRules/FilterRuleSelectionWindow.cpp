@@ -30,7 +30,6 @@ const QString filterRuleTableState_Identifier("FilterRuleSelectionTableState");
 FilterRuleSelectionWindow::FilterRuleSelectionWindow( QWidget* parent )
 : QSplitter( Qt::Vertical, parent )
 , m_ruleView{new RulesTableView()}
-, m_compiledRules( )
 {
     QSettings settings;
 

@@ -71,7 +71,7 @@ protected:
 	bool filterAcceptInt ( TconstSharedLogEntry entry ) const;
 
 private:
-	LogEntryTableModel *m_model;
+	LogEntryTableModel *m_model = nullptr;
 
 	LogEntryFilterChain m_filterChain;
 
@@ -81,13 +81,13 @@ private:
 
 	TExpressionVector m_discardExpressions;
 
-	int m_surroundingRowStart;
+	int m_surroundingRowStart = -1;
 
-  int m_surroundingRowEnd;
+  int m_surroundingRowEnd = -1;
 
-  bool m_resetFilterNeeded;
+  bool m_resetFilterNeeded = false;
 
-  ExportableIfc *m_exportOfSourceModel;
+  ExportableIfc *m_exportOfSourceModel = nullptr;
 };
 
 #endif /* LOGENTRYTABLEFILTER_H_ */

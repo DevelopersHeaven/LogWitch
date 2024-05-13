@@ -66,26 +66,26 @@ private:
 
 	std::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
 
-	QString m_loglevelStringOff;
-	QString m_loglevelStringFatal;
-	QString m_loglevelStringError;
-	QString m_loglevelStringWarn;
-	QString m_loglevelStringInfo;
-	QString m_loglevelStringDebug;
-	QString m_loglevelStringTrace;
+	QString m_loglevelStringOff = "OFF";
+	QString m_loglevelStringFatal = "FATAL";
+	QString m_loglevelStringError = "ERROR";
+	QString m_loglevelStringWarn = "WARN";
+	QString m_loglevelStringInfo = "INFO";
+	QString m_loglevelStringDebug = "DEBUG";
+	QString m_loglevelStringTrace = "TRACE";
 
 	QString m_name;
 
-	QAtomicInt m_logEntryNumber;
+	QAtomicInt m_logEntryNumber = 0;
 
 	// Mutex for protecting nextMessage and messageInProgress
     mutable QMutex m_mutex;
 
 	TSharedNewLogEntryMessage m_nextMessage;
 
-	bool m_messageInProgress;
+	bool m_messageInProgress = false;
 
-	bool m_emittingAllowed;
+	bool m_emittingAllowed = false;
 };
 
 class LogEntryParser_log4cplusSocket_Receiver
@@ -113,8 +113,8 @@ private:
 	QTcpSocket *m_socket;
 
 	std::unique_ptr<::log4cplus::helpers::SocketBuffer> m_buffer;
-	quint64 m_bytesNeeded;
-	bool m_stateReadSize;
+	quint64 m_bytesNeeded = 0;
+	bool m_stateReadSize = true;
 
 	LogEntryParser_log4cplusSocket *m_server;
 };

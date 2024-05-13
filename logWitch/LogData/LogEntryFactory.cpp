@@ -13,13 +13,6 @@
 #include "LogData/ObjectCache.hxx"
 #include "LogData/LogEntry.h"
 
-
-LogEntryFactory::LogEntryFactory()
-	: m_disallowAddingFields( false )
-{
-
-}
-
 std::shared_ptr<LogEntry> LogEntryFactory::getNewLogEntry()
 {
 	std::shared_ptr<LogEntry> attr( new LogEntry(this, m_defaultLine ) );

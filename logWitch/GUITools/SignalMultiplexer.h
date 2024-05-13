@@ -62,7 +62,7 @@ private:
     /**
      * This is the object being the actual active frontside object of the multiplexer.
      */
-    QObject *m_object;
+    QObject *m_object = nullptr;
 
     typedef std::list<connectionState> TConnectionList;
 

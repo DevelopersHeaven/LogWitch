@@ -13,9 +13,7 @@
 #include "LogData/LogEntryParser.h"
 
 LogEntryStorerForTesting::LogEntryStorerForTesting(std::unique_ptr<LogEntryParser> parser)
-: m_finished (false)
-, m_parser(std::move(parser))
-, m_app(nullptr)
+: m_parser(std::move(parser))
 {
   auto* parserQO = dynamic_cast<QObject*>(m_parser.get());
 

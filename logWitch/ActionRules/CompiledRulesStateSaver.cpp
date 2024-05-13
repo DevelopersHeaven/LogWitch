@@ -25,7 +25,6 @@ using namespace std::placeholders;
 CompiledRulesStateSaver::CompiledRulesStateSaver(  TSharedConstLogEntryParserModelConfiguration cfg, TSharedRuleTable ruleTable )
     : m_compiledRuleView(nullptr)
     , m_displayWidget{new QWidget()} // This is the pane
-    , m_connected( false)
 {
    auto* vbox = new QVBoxLayout(m_displayWidget);
    m_displayWidget->setLayout(vbox);

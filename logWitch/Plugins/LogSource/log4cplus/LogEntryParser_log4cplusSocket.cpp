@@ -35,16 +35,7 @@ using namespace logwitch::plugins::log4cplus;
 
 LogEntryParser_log4cplusSocket::LogEntryParser_log4cplusSocket (int port)
   : m_port(port), myFactory(new LogEntryFactory)
-  , m_loglevelStringOff("OFF")
-  , m_loglevelStringFatal("FATAL")
-  , m_loglevelStringError("ERROR")
-  , m_loglevelStringWarn("WARN")
-  , m_loglevelStringInfo("INFO")
-  , m_loglevelStringDebug("DEBUG")
-  , m_loglevelStringTrace("TRACE")
   , m_name("Log4cplus Listener Port " + QString::number(port))
-  , m_logEntryNumber(0), m_messageInProgress(false)
-  , m_emittingAllowed(false)
 {
   // Preparing attributes in factory
   LogEntryAttributeNames names;
@@ -187,8 +178,6 @@ QString LogEntryParser_log4cplusSocket::getName () const
 LogEntryParser_log4cplusSocket_Receiver::LogEntryParser_log4cplusSocket_Receiver (
     LogEntryParser_log4cplusSocket *server, QTcpSocket *socket)
   : m_socket(socket)
-  , m_bytesNeeded(0)
-  , m_stateReadSize(true)
   , m_server(server)
 {
   qDebug() << "new receiver created";

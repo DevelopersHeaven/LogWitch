@@ -38,7 +38,7 @@ public:
         , QModelIndex first, QModelIndex last
         , const ExportParameters& param) const override;
 private:
-    QString m_formatString;
+    QString m_formatString = "dd.MM.yyyy hh:mm:ss.zzz";
 
     /**
      * This is the row which should be used for the TimeDiff mode. If it is set
@@ -49,11 +49,11 @@ private:
     /**
      * Enable the timeDiffMode.
      */
-    bool m_timeDiffMode;
+    bool m_timeDiffMode = false;
 
     bool m_timeDiffRowMode = false;
 
-    ExportableIfc *m_exportOfSourceModel;
+    ExportableIfc *m_exportOfSourceModel = nullptr;
 };
 
 #endif /* TIMEFORMATINGMODEL_H_ */

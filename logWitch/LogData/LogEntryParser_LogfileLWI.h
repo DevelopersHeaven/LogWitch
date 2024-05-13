@@ -49,13 +49,13 @@ private:
 
     TSharedLogEntry getNextLogEntry();
 
-    bool m_abort;
+    bool m_abort = false;
 
     QFile m_logfile;
 
     QTextStream m_logfileStream;
 
-    bool m_logfileStreamReady;
+    bool m_logfileStreamReady = false;
 
     QString m_stashedLine;
 
@@ -63,7 +63,7 @@ private:
 
     std::shared_ptr<LogEntryParserModelConfiguration> m_myModelConfig;
 
-    int m_logEntryNumber;
+    int m_logEntryNumber = 0;
 
     std::vector<int> m_order;
 };

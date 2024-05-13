@@ -22,9 +22,6 @@ LogEntryParserModelConfiguration::LogEntryParserModelConfiguration( QString conf
     : m_formater( new EntryToTextFormaterDefault )
     , m_attr(std::move( factory ))
     , m_configurationString(std::move( configurationString ))
-    , m_fieldWidthHintsLoaded( false )
-    , m_fieldShowHintLoaded( false )
-    , m_fieldOrderHintLoaded(false )
 {
     restoreHintsFromSettings();
 }

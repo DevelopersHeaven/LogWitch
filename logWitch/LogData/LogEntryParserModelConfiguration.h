@@ -124,13 +124,13 @@ private:
 
 	QVector<int> m_fieldWidthHints;
 	const QString m_configurationString;
-	bool m_fieldWidthHintsLoaded;
+	bool m_fieldWidthHintsLoaded = false;
 
 	QVector<bool> m_fieldShowHint;
-	bool m_fieldShowHintLoaded;
+	bool m_fieldShowHintLoaded = false;
 
 	QVector<int> m_fieldOrderHint;
-	bool m_fieldOrderHintLoaded;
+	bool m_fieldOrderHintLoaded = false;
 };
 
 typedef std::shared_ptr<LogEntryParserModelConfiguration> TSharedLogEntryParserModelConfiguration;

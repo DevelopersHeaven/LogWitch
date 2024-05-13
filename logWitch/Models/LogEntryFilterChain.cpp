@@ -7,11 +7,6 @@
 
 #include "LogEntryFilterChain.h"
 
-LogEntryFilterChain::LogEntryFilterChain()
-	: m_changeCounter( 0 )
-{
-}
-
 void LogEntryFilterChain::addFilter( std::shared_ptr<LogEntryFilter> flt )
 {
 	flt->setParent( this );

@@ -66,16 +66,16 @@ private:
 
 	QString m_name;
 
-	QAtomicInt m_logEntryNumber;
+	QAtomicInt m_logEntryNumber = 0;
 
 	// Mutex for protecting nextMessage and messageInProgress
   mutable QMutex m_mutex;
 
 	TSharedNewLogEntryMessage m_nextMessage;
 
-	bool m_messageInProgress;
+	bool m_messageInProgress = false;
 
-	bool m_emittingAllowed;
+	bool m_emittingAllowed = false;
 };
 
 class LogEntryParser_pythonSocket_Receiver
@@ -106,8 +106,8 @@ private:
 
 	typedef uint32_t sizePayload_t;
 	std::vector<char> m_buffer;
-	quint64 m_bytesNeeded;
-	bool m_stateReadSize;
+	quint64 m_bytesNeeded = sizeof(sizePayload_t);
+	bool m_stateReadSize = true;
 
 	LogEntryParser_pythonSocket *m_server;
 
