@@ -57,6 +57,11 @@ LogfileAnalyser::~LogfileAnalyser()
 {
 	for ( auto plugin: m_logSourcePlugins )
 		delete plugin;
+
+	for (const auto& connection : m_connections)
+	{
+		QObject::disconnect(connection);
+	}
 }
 
 void LogfileAnalyser::loadPlugins()
@@ -253,8 +258,9 @@ void LogfileAnalyser::createWindowsFromParser(std::shared_ptr<LogEntryParser> pa
     wnd->setDockForFilter(m_myFilterDock);
   }
 
-  QObject::connect(wnd, &QObject::destroyed, this,
-                   &LogfileAnalyser::subWindowDestroyed);
+  m_connections.push_back(
+    QObject::connect(
+      wnd, &QObject::destroyed, this, &LogfileAnalyser::subWindowDestroyed));
 
   model->startModel();
 

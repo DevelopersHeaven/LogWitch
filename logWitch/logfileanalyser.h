@@ -60,6 +60,8 @@ private:
 
   std::list< logwitch::plugins::LogSourcePlugin* > m_logSourcePlugins;
 
+  std::vector<QMetaObject::Connection> m_connections;
+
 private slots:
   void openLogfile();
 
