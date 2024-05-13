@@ -19,15 +19,13 @@
 LogEntryTableModel::LogEntryTableModel( std::shared_ptr<LogEntryParser> parser )
 	: m_modelConfiguration( parser->getParserModelConfiguration() )
 	, m_entryLoader( parser )
-	, m_ModelName("Untitled")
+	, m_ModelName(parser->getName())
 {
     QObject::connect(dynamic_cast<QObject*>(parser.get()), SIGNAL(newEntry(TconstSharedNewLogEntryMessage)),
                      this, SLOT(insertEntry(TconstSharedNewLogEntryMessage))
                      , Qt::QueuedConnection );
     QObject::connect(dynamic_cast<QObject*>(parser.get()), SIGNAL(signalError(QString)),
                      this, SLOT(signalErrorFromParser(QString)) );
-
-    m_ModelName = parser->getName();
 }
 
 void LogEntryTableModel::startModel()
