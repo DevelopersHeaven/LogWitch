@@ -23,8 +23,8 @@
 using namespace std::placeholders;
 
 CompiledRulesStateSaver::CompiledRulesStateSaver(  TSharedConstLogEntryParserModelConfiguration cfg, TSharedRuleTable ruleTable )
-    : m_compiledRuleView(nullptr)
-    , m_displayWidget{new QWidget()} // This is the pane
+    : m_displayWidget{new QWidget()} // This is the pane
+    , m_compiledRuleView{new QTableView(m_displayWidget)}
 {
    auto* vbox = new QVBoxLayout(m_displayWidget);
    m_displayWidget->setLayout(vbox);
@@ -33,8 +33,7 @@ CompiledRulesStateSaver::CompiledRulesStateSaver(  TSharedConstLogEntryParserMod
    toolBar->setIconSize(QSize(16,16));
    vbox->addWidget(toolBar);
 
-   // Construct view and set viewing stuff
-   m_compiledRuleView = new QTableView(m_displayWidget );
+   // Set viewing stuff
    m_compiledRuleView->verticalHeader()->setDefaultSectionSize( 20 );
    m_compiledRuleView->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
    m_compiledRuleView->horizontalHeader()->setDefaultSectionSize( 190 );
