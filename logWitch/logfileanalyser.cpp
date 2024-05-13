@@ -55,8 +55,6 @@ LogfileAnalyser::LogfileAnalyser(QWidget *parent)
 
 LogfileAnalyser::~LogfileAnalyser()
 {
-	for ( auto plugin: m_logSourcePlugins )
-		delete plugin;
 
 	for (const auto& connection : m_connections)
 	{
@@ -113,7 +111,7 @@ void LogfileAnalyser::loadPlugins(QDir basePath)
 
 			  logsourceplugin->fillMenu( ui.menuLogSources );
 
-				m_logSourcePlugins.push_back(logsourceplugin);
+				m_logSourcePlugins.emplace_back(logsourceplugin);
 			}
 		}
 		else
