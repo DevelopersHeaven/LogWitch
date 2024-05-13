@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.5 FATAL_ERROR)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.14 FATAL_ERROR)
 
 PROJECT(LogWitch)
 
@@ -76,8 +76,8 @@ FIND_PACKAGE(Boost REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 if(UNIX OR MINGW)
-	set(CMAKE_CXX_FLAGS_RELEASE        "-pipe -O2    -fvisibility-inlines-hidden -fdiagnostics-show-option -fno-strict-aliasing -Wall -Werror -Wsuggest-override -fPIC -DNDEBUG")
-	set(CMAKE_CXX_FLAGS_DEBUG          "-pipe -Og -g -fvisibility-inlines-hidden -fdiagnostics-show-option -Wall -Werror -Wsuggest-override -fPIC")
+	set(CMAKE_CXX_FLAGS_RELEASE        "-pipe -O2    -fvisibility-inlines-hidden -fdiagnostics-show-option -fno-strict-aliasing -Wall -Werror -Wsuggest-override -DNDEBUG")
+	set(CMAKE_CXX_FLAGS_DEBUG          "-pipe -Og -g -fvisibility-inlines-hidden -fdiagnostics-show-option -Wall -Werror -Wsuggest-override")
 	if(MINGW)
 		set(CMAKE_CXX_FLAGS            "-Wno-error=attributes -Wno-error=deprecated-declarations")
 	endif()
@@ -90,6 +90,10 @@ endif()
 
 set(CMAKE_EXE_LINKER_FLAGS    "${CMAKE_EXE_LINKER_FLAGS} ${EXTRA_LINKER_FLAGS}")
 set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} ${EXTRA_LINKER_FLAGS}")
+
+include(CheckPIESupported)
+check_pie_supported()
+set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
 
 SET(LFA_RULES_LIB "logfileanalyzer_rules_lib")
 SET(LFA_GUITOOLS_LIB "logfileanalyzer_guitools_lib")
