@@ -58,7 +58,7 @@ private:
   void loadPlugins();
   void loadPlugins(QDir basePath);
 
-  std::list< logwitch::plugins::LogSourcePlugin* > m_logSourcePlugins;
+  std::list<std::unique_ptr<logwitch::plugins::LogSourcePlugin>> m_logSourcePlugins;
 
   std::vector<QMetaObject::Connection> m_connections;
 
