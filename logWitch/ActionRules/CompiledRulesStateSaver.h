@@ -25,10 +25,10 @@ public:
 
     void connectActions( FilterRuleSelectionWindow *wnd );
 
+    QWidget *m_displayWidget;
+
     QTableView *m_compiledRuleView;
     TableModelRulesCompiled *m_rulesCompiledModel;
-
-    QWidget *m_displayWidget;
 
 private:
     bool m_connected = false;
