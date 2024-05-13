@@ -80,5 +80,9 @@ void CompiledRulesStateSaver::connectActions( FilterRuleSelectionWindow *wnd )
 
 CompiledRulesStateSaver::~CompiledRulesStateSaver()
 {
-    delete m_displayWidget;
+    // Only delete `m_displayWidget` if it is not owned by another `QObject`
+    if (!m_connected)
+    {
+        delete m_displayWidget;
+    }
 }
